@@ -1,5 +1,11 @@
 let events = [];
 
+const SNS_LABEL = {
+    'allowed':     { text: '掲載可',  cls: 'sns-allowed',     icon: '✅' },
+    'not-allowed': { text: '掲載不可', cls: 'sns-not-allowed', icon: '🚫' },
+    'pending':     { text: '要確認',  cls: 'sns-pending',     icon: '⚠️' }
+};
+
 const today = new Date();
 let currentGanttStartDate = new Date(today.getFullYear(), today.getMonth(), 1);
 let currentGanttDays = 30;
@@ -82,6 +88,7 @@ function renderEvents() {
                 ${locationText    ? `<div class="event-meta">📍 ${escapeHtml(locationText)}</div>`    : ''}
                 ${participantsText? `<div class="event-meta">👥 ${escapeHtml(participantsText)}</div>` : ''}
                 ${e.manager       ? `<div class="event-meta">👤 担当: ${escapeHtml(e.manager)}</div>` : ''}
+                ${(() => { const s = SNS_LABEL[e.snsPR]; return s ? `<div class="event-meta"><span class="sns-badge ${s.cls}">${s.icon} HP/SNS: ${s.text}</span>${e.snsPR === 'allowed' && e.snsAvailableFrom ? `<span class="sns-date-hint">(${escapeHtml(e.snsAvailableFrom)}〜)</span>` : ''}</div>` : ''; })()}
                 <div class="card-footer">
                     <button class="detail-btn" onclick="openDetail(${e.id})">詳細を見る</button>
                     <button class="reserve-btn" onclick="alert('hacomonoの予約画面に遷移します')">${escapeHtml(btnText)}</button>
@@ -133,6 +140,19 @@ function openDetail(id) {
                     <div class="detail-label">担当者</div>
                     <div class="detail-value">${escapeHtml(e.manager)}</div>
                 </div>` : ''}
+                ${(() => {
+                    const s = SNS_LABEL[e.snsPR];
+                    if (!s) return '';
+                    let dateHint = '';
+                    if (e.snsPR === 'allowed' && e.snsAvailableFrom) {
+                        dateHint = `<div style="font-size:0.85rem; color:var(--text-secondary); margin-top:0.25rem;">${escapeHtml(e.snsAvailableFrom)} 以降に告知可能</div>`;
+                    }
+                    return `
+                <div class="detail-row">
+                    <div class="detail-label">HP/SNS掲載</div>
+                    <div class="detail-value"><span class="sns-badge ${s.cls}">${s.icon} ${s.text}</span>${dateHint}</div>
+                </div>`;
+                })()}
                 ${e.notes ? `
                 <div class="detail-row full">
                     <div class="detail-label">備考</div>

@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AG.Admin | イベント管理</title>
     <link rel="stylesheet" href="admin.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header class="admin-header">
         <div style="display:flex; align-items:center; gap:0.75rem;">
@@ -41,8 +45,7 @@
                         <span>GitHubリポジトリのURLを貼り付ける</span>
                     </div>
                     <div class="input-with-btn">
-                        <input type="text" id="input-repo-url"
-                            placeholder="https://github.com/ユーザー名/リポジトリ名">
+                        <input type="text" id="input-repo-url" placeholder="https://github.com/ユーザー名/リポジトリ名">
                         <button class="btn btn-secondary" onclick="parseRepoUrl()">自動設定</button>
                     </div>
                     <span class="field-hint">例: https://github.com/yamada-taro/antigravity-events</span>
@@ -82,8 +85,7 @@
                         <button class="btn-text" onclick="openTokenGuide()">取得方法がわからない場合はこちら</button>
                     </div>
                     <div class="form-group">
-                        <input type="password" id="input-token"
-                            placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+                        <input type="password" id="input-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
                     </div>
                     <span class="field-hint">トークンはこのブラウザにのみ保存されます。他の人と共有しないでください。</span>
                 </div>
@@ -171,13 +173,12 @@
                 <!-- カテゴリ -->
                 <div class="form-group full-width">
                     <label>カテゴリ（選択または直接入力）</label>
-                    <input type="text" id="f-category-input"
-                        list="f-category-list"
-                        placeholder="例: ヘルス＆ウェルネス、研修・学習、または自由入力">
+                    <input type="text" id="f-category-input" list="f-category-list"
+                        placeholder="例: イベント、研修、社内イベントまたは自由入力">
                     <datalist id="f-category-list">
-                        <option value="ヘルス＆ウェルネス">
-                        <option value="研修・学習">
-                        <option value="交流懇親会">
+                        <option value="イベント">
+                        <option value="研修">
+                        <option value="社内イベント">
                     </datalist>
                 </div>
 
@@ -219,8 +220,7 @@
                 <!-- 参加人数 -->
                 <div class="form-group full-width">
                     <label>参加人数</label>
-                    <input type="text" id="f-participants"
-                        placeholder="例: 20名 / 定員なし / 上限50名">
+                    <input type="text" id="f-participants" placeholder="例: 20名 / 定員なし / 上限50名">
                 </div>
 
                 <!-- HP/SNS掲載可否 -->
@@ -258,8 +258,7 @@
                 <!-- 備考 -->
                 <div class="form-group full-width">
                     <label>備考</label>
-                    <textarea id="f-notes" rows="3"
-                        placeholder="持ち物・注意事項・その他メモなど"></textarea>
+                    <textarea id="f-notes" rows="3" placeholder="持ち物・注意事項・その他メモなど"></textarea>
                 </div>
 
             </div>
@@ -329,9 +328,8 @@
             </ol>
 
             <div class="modal-actions">
-                <a href="https://github.com/settings/tokens/new?scopes=repo&description=AG+Admin"
-                   target="_blank"
-                   class="btn btn-primary">
+                <a href="https://github.com/settings/tokens/new?scopes=repo&description=AG+Admin" target="_blank"
+                    class="btn btn-primary">
                     GitHubのトークン作成ページを開く ↗
                 </a>
                 <button class="btn btn-secondary" onclick="closeTokenGuide()">閉じる</button>
@@ -341,4 +339,5 @@
 
     <script src="admin.js"></script>
 </body>
+
 </html>

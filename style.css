@@ -754,6 +754,36 @@ main {
     border-radius: 50%;
 }
 
+/* ---- HP/SNS Badge ---- */
+.sns-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+.sns-allowed {
+    background: rgba(16, 185, 129, 0.18);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #6ee7b7;
+}
+.sns-not-allowed {
+    background: rgba(239, 68, 68, 0.18);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #fca5a5;
+}
+.sns-pending {
+    background: rgba(245, 158, 11, 0.18);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fcd34d;
+}
+.sns-date-hint {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-left: 0.4rem;
+}
+
 /* Responsiveness */
 @media (max-width: 768px) {
     .glass-header {
