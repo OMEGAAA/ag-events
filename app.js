@@ -212,10 +212,7 @@ function renderGantt() {
     for (let i = 0; i < totalDays; i++) {
         const d = new Date(startDate);
         d.setDate(d.getDate() + i);
-        let show = true;
-        if (totalDays > 14 && d.getDate() % 2 !== 0) show = false;
-        if (totalDays > 30 && d.getDate() % 5 !== 0 && d.getDate() !== 1) show = false;
-        const str = show ? `${d.getMonth() + 1}/${d.getDate()}` : '・';
+        const str = `${d.getMonth() + 1}/${d.getDate()}`;
         header.innerHTML += `<div class="gantt-day">${str}</div>`;
     }
 
