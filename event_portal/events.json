@@ -2,13 +2,13 @@
   {
     "id": 1,
     "title": "テスト",
-    "date": "3月30日 13:00 - 15:00",
-    "startDate": "2026-03-30",
-    "endDate": "2026-03-30",
-    "startTime": "13:00",
-    "endTime": "15:00",
+    "date": "3月31日 12:00 - 17:00",
+    "startDate": "2026-03-31",
+    "endDate": "2026-03-31",
+    "startTime": "12:00",
+    "endTime": "17:00",
     "category": "other",
-    "categoryText": "イベント",
+    "categoryText": "その他",
     "locations": [
       "室内練習場",
       "アローズエリア",
@@ -16,8 +16,27 @@
     ],
     "participants": "",
     "snsPR": "allowed",
-    "snsAvailableFrom": "2026-03-30",
-    "manager": "てすと",
+    "snsAvailableFrom": "2026-04-01",
+    "manager": "テスト",
+    "notes": "これはテストです"
+  },
+  {
+    "id": 2,
+    "title": "テスト２",
+    "date": "3月29日 - 3月31日",
+    "startDate": "2026-03-29",
+    "endDate": "2026-03-31",
+    "startTime": "",
+    "endTime": "",
+    "category": "other",
+    "categoryText": "test",
+    "locations": [
+      "室内練習場"
+    ],
+    "participants": "",
+    "snsPR": "allowed",
+    "snsAvailableFrom": "2026-03-31",
+    "manager": "",
     "notes": ""
   }
 ]
