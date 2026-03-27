@@ -19,5 +19,24 @@
     "snsAvailableFrom": "2026-04-01",
     "manager": "テスト",
     "notes": "これはテストです"
+  },
+  {
+    "id": 2,
+    "title": "テスト２",
+    "date": "3月29日 - 3月31日",
+    "startDate": "2026-03-29",
+    "endDate": "2026-03-31",
+    "startTime": "",
+    "endTime": "",
+    "category": "other",
+    "categoryText": "test",
+    "locations": [
+      "室内練習場"
+    ],
+    "participants": "",
+    "snsPR": "allowed",
+    "snsAvailableFrom": "2026-03-31",
+    "manager": "",
+    "notes": ""
   }
 ]
