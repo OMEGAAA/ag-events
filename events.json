@@ -38,5 +38,46 @@
     "snsAvailableFrom": "2026-03-31",
     "manager": "",
     "notes": ""
+  },
+  {
+    "id": 3,
+    "title": "テースト",
+    "date": "3月28日 12:00 - 13:00",
+    "startDate": "2026-03-28",
+    "endDate": "2026-03-28",
+    "startTime": "12:00",
+    "endTime": "13:00",
+    "category": "other",
+    "categoryText": "その他",
+    "locations": [
+      "アローズエリア",
+      "食堂"
+    ],
+    "participants": "",
+    "snsPR": "pending",
+    "snsAvailableFrom": "",
+    "manager": "",
+    "notes": ""
+  },
+  {
+    "id": 4,
+    "title": "て",
+    "date": "3月29日 - 3月30日 15:20 - 20:37",
+    "startDate": "2026-03-29",
+    "endDate": "2026-03-30",
+    "startTime": "15:20",
+    "endTime": "20:37",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "パワーエリア"
+    ],
+    "participants": "２０",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "manager": "",
+    "notes": ""
   }
 ]
