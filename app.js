@@ -91,7 +91,6 @@ function renderEvents() {
                 ${(() => { const s = SNS_LABEL[e.snsPR]; return s ? `<div class="event-meta"><span class="sns-badge ${s.cls}">${s.icon} HP/SNS: ${s.text}</span>${e.snsPR === 'allowed' && e.snsAvailableFrom ? `<span class="sns-date-hint">(${escapeHtml(e.snsAvailableFrom)}〜)</span>` : ''}</div>` : ''; })()}
                 <div class="card-footer">
                     <button class="detail-btn" onclick="openDetail(${e.id})">詳細を見る</button>
-                    <button class="reserve-btn" onclick="alert('hacomonoの予約画面に遷移します')">${escapeHtml(btnText)}</button>
                 </div>
             </div>
         `;
@@ -159,9 +158,7 @@ function openDetail(id) {
                     <div class="detail-value detail-notes">${escapeHtml(e.notes)}</div>
                 </div>` : ''}
             </div>
-            <div class="detail-actions">
-                <button class="reserve-btn" onclick="alert('hacomonoの予約画面に遷移します')">${(e.participants || '').includes('満席') ? 'キャンセル待ち' : 'hacomonoで予約'}</button>
-            </div>
+
         </div>
     `;
 
