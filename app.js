@@ -209,12 +209,24 @@ function renderGantt() {
     const endDate   = new Date(startDate);
     endDate.setDate(startDate.getDate() + totalDays - 1);
 
+    const todayStr = new Date().toDateString();
+
     for (let i = 0; i < totalDays; i++) {
         const d = new Date(startDate);
         d.setDate(d.getDate() + i);
+        const isToday = d.toDateString() === todayStr;
         const str = `${d.getMonth() + 1}/${d.getDate()}`;
-        header.innerHTML += `<div class="gantt-day">${str}</div>`;
+        header.innerHTML += `<div class="gantt-day${isToday ? ' gantt-day-today' : ''}">${str}</div>`;
     }
+
+    // 今日の赤い縦線の位置を計算
+    const todayDate = new Date();
+    todayDate.setHours(0,0,0,0);
+    const startClean = new Date(startDate);
+    startClean.setHours(0,0,0,0);
+    const todayDiff = (todayDate - startClean) / 86400000;
+    const showTodayLine = todayDiff >= 0 && todayDiff <= totalDays;
+    const todayLeft = ((todayDiff + 0.5) / totalDays) * 100; // 日付セルの中央
 
     [...events]
         .sort((a, b) => new Date(a.startDate) - new Date(b.startDate))
@@ -244,6 +256,7 @@ function renderGantt() {
                     <span>${escapeHtml(e.date)}${locLabel ? ' / ' + escapeHtml(locLabel) : ''}</span>
                 </div>
                 <div class="gantt-bars-container">
+                    ${showTodayLine ? `<div class="gantt-today-line" style="left:${todayLeft}%"></div>` : ''}
                     <div class="gantt-bar ${escapeHtml(e.category)}"
                         style="left:${left}%;width:${width}%;${lFade}${rFade}"
                         title="${escapeHtml(e.title)}"

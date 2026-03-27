@@ -403,6 +403,32 @@ main {
     z-index: 10;
 }
 
+/* Today indicator */
+.gantt-day-today {
+    color: #f87171 !important;
+    font-weight: 700;
+    position: relative;
+}
+.gantt-day-today::after {
+    content: '▼';
+    display: block;
+    font-size: 0.5rem;
+    color: #ef4444;
+    line-height: 1;
+    margin-top: 1px;
+}
+.gantt-today-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ef4444;
+    z-index: 3;
+    pointer-events: none;
+    transform: translateX(-1px);
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.5);
+}
+
 /* Gantt Controls */
 .gantt-controls {
     display: flex;
