@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "テスト",
+    "date": "3月30日 13:00 - 15:00",
+    "startDate": "2026-03-30",
+    "endDate": "2026-03-30",
+    "startTime": "13:00",
+    "endTime": "15:00",
+    "category": "other",
+    "categoryText": "イベント",
+    "locations": [
+      "室内練習場",
+      "アローズエリア",
+      "食堂"
+    ],
+    "participants": "",
+    "snsPR": "allowed",
+    "snsAvailableFrom": "2026-03-30",
+    "manager": "てすと",
+    "notes": ""
+  }
+]
