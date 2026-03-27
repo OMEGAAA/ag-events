@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "テスト",
+    "date": "3月31日 12:00 - 17:00",
+    "startDate": "2026-03-31",
+    "endDate": "2026-03-31",
+    "startTime": "12:00",
+    "endTime": "17:00",
+    "category": "other",
+    "categoryText": "その他",
+    "locations": [
+      "室内練習場",
+      "アローズエリア",
+      "食堂"
+    ],
+    "participants": "",
+    "snsPR": "allowed",
+    "snsAvailableFrom": "2026-04-01",
+    "manager": "テスト",
+    "notes": "これはテストです"
+  }
+]
