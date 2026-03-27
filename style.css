@@ -410,12 +410,13 @@ main {
     position: relative;
 }
 .gantt-day-today::after {
-    content: '▼';
+    content: '';
     display: block;
-    font-size: 0.5rem;
-    color: #ef4444;
-    line-height: 1;
-    margin-top: 1px;
+    height: 3px;
+    background: #ef4444;
+    border-radius: 2px;
+    margin-top: 4px;
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.7);
 }
 .gantt-today-line {
     position: absolute;
