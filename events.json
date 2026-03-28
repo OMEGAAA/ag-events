@@ -9,8 +9,8 @@
     "endTime": "17:00",
     "category": "other",
     "categoryText": "その他",
+    "cardColor": "#002aff",
     "locations": [
-      "室内練習場",
       "アローズエリア",
       "食堂"
     ],
@@ -30,8 +30,9 @@
     "endTime": "",
     "category": "other",
     "categoryText": "test",
+    "cardColor": "#06fe23",
     "locations": [
-      "室内練習場"
+      "スタジオ"
     ],
     "participants": "",
     "snsPR": "allowed",
