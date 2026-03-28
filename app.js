@@ -228,45 +228,75 @@ function renderGantt() {
     const showTodayLine = todayDiff >= 0 && todayDiff <= totalDays;
     const todayLeft = ((todayDiff + 0.5) / totalDays) * 100; // 日付セルの中央
 
-    [...events]
-        .sort((a, b) => new Date(a.startDate) - new Date(b.startDate))
-        .forEach(e => {
-            const eStart = new Date(e.startDate);
-            let eEnd = new Date(e.endDate);
-            if (eStart > eEnd) eEnd = eStart;
-            if (eEnd < startDate || eStart > endDate) return;
+    // Collect unique locations
+    const locationSet = new Set();
+    events.forEach(e => {
+        const locs = Array.isArray(e.locations) && e.locations.length > 0 ? e.locations : (e.location ? [e.location] : ['その他']);
+        locs.forEach(l => locationSet.add(l));
+    });
+    const locations = [...locationSet];
 
-            const vStart = eStart < startDate ? startDate : eStart;
-            const vEnd   = eEnd   > endDate   ? endDate   : eEnd;
-            const diff   = (vStart - startDate) / 86400000;
-            const dur    = ((vEnd - vStart) / 86400000) + 1;
-            const left   = (diff / totalDays) * 100;
-            const width  = (dur  / totalDays) * 100;
-            const lFade  = eStart < startDate ? 'border-top-left-radius:0;border-bottom-left-radius:0;opacity:0.7;' : '';
-            const rFade  = eEnd   > endDate   ? 'border-top-right-radius:0;border-bottom-right-radius:0;opacity:0.7;' : '';
-            const locLabel = Array.isArray(e.locations) && e.locations.length > 0
-                ? e.locations.join('・')
-                : (e.location || '');
+    // For each location, create a track
+    locations.forEach(loc => {
+        const trackEvents = events.filter(e => {
+            const eLocs = Array.isArray(e.locations) && e.locations.length > 0 ? e.locations : (e.location ? [e.location] : ['その他']);
+            return eLocs.includes(loc);
+        });
 
-            const track = document.createElement('div');
-            track.className = 'gantt-track';
-            track.innerHTML = `
-                <div class="gantt-label">
-                    ${escapeHtml(e.title)}
-                    <span>${escapeHtml(e.date)}${locLabel ? ' / ' + escapeHtml(locLabel) : ''}</span>
+        // Skip locations with no visible events in current range if we want,
+        // but it's better to show the track to represent the facility.
+        
+        const track = document.createElement('div');
+        track.className = 'gantt-track';
+        track.innerHTML = `
+            <div class="gantt-label">
+                <div class="gantt-label-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                 </div>
-                <div class="gantt-bars-container" style="min-width: ${totalDays * 38}px;">
-                    ${showTodayLine ? `<div class="gantt-today-line" style="left:${todayLeft}%"></div>` : ''}
+                <div class="gantt-label-text">
+                    <div class="gantt-label-title">${escapeHtml(loc)}</div>
+                </div>
+            </div>
+            <div class="gantt-bars-container" style="min-width: ${totalDays * 38}px;">
+                ${showTodayLine ? `<div class="gantt-today-line" style="left:${todayLeft}%"></div>` : ''}
+            </div>
+        `;
+        
+        const barsContainer = track.querySelector('.gantt-bars-container');
+
+        trackEvents
+            .sort((a, b) => new Date(a.startDate) - new Date(b.startDate))
+            .forEach(e => {
+                const eStart = new Date(e.startDate);
+                let eEnd = new Date(e.endDate);
+                if (eStart > eEnd) eEnd = eStart;
+                if (eEnd < startDate || eStart > endDate) return;
+
+                const vStart = eStart < startDate ? startDate : eStart;
+                const vEnd   = eEnd   > endDate   ? endDate   : eEnd;
+                const diff   = (vStart - startDate) / 86400000;
+                const dur    = ((vEnd - vStart) / 86400000) + 1;
+                const left   = (diff / totalDays) * 100;
+                const width  = (dur  / totalDays) * 100;
+                const lFade  = eStart < startDate ? 'border-top-left-radius:0;border-bottom-left-radius:0;opacity:0.7;' : '';
+                const rFade  = eEnd   > endDate   ? 'border-top-right-radius:0;border-bottom-right-radius:0;opacity:0.7;' : '';
+
+                const timeStr = e.startTime ? `${escapeHtml(e.startTime)}${e.endTime ? '〜' + escapeHtml(e.endTime) : ''}` : '';
+
+                const barHtml = `
                     <div class="gantt-bar ${escapeHtml(e.category)}"
                         style="left:${left}%;width:${width}%;${lFade}${rFade}"
                         title="${escapeHtml(e.title)}"
                         onclick="openDetail(${e.id})">
-                        ${escapeHtml(e.categoryText)}
+                        ${timeStr ? `<div class="gantt-bar-time">🚫 ${timeStr}</div>` : ''}
+                        <div class="gantt-bar-title">${escapeHtml(e.title)}</div>
                     </div>
-                </div>
-            `;
-            container.appendChild(track);
-        });
+                `;
+                barsContainer.insertAdjacentHTML('beforeend', barHtml);
+            });
+
+        container.appendChild(track);
+    });
 }
 
 // ---- 1日 VIEW ----
