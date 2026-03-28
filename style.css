@@ -352,7 +352,7 @@ main {
 .gantt-bars-container {
     flex: 1;
     min-width: 0;
-    height: 60px;
+    height: 76px;
     background-color: #f8fafc;
     background-image: linear-gradient(to right, transparent calc(100% - 1px), #e2e8f0 calc(100% - 1px));
     background-size: calc(100% / var(--total-days, 30)) 100%;
@@ -396,14 +396,26 @@ main {
 }
 .gantt-bar-time {
     font-size: 0.7rem;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
     opacity: 0.9;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .gantt-bar-title {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-weight: 600;
+}
+.gantt-bar-loc {
+    font-size: 0.68rem;
+    margin-top: 1px;
+    opacity: 0.8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400;
 }
 
 /* Today indicator */

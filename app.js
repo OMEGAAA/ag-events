@@ -321,12 +321,21 @@ function renderGantt() {
 
                 const colorVars = e.cardColor ? `--card-color: ${escapeHtml(e.cardColor)};` : '';
 
+                const timeText = e.startTime
+                    ? `${e.startTime}${e.endTime ? '~' + e.endTime : ''}`
+                    : '';
+                const locText = Array.isArray(e.locations) && e.locations.length > 0
+                    ? e.locations.join(' / ')
+                    : (e.location || '');
+
                 const barHtml = `
                     <div class="gantt-bar ${escapeHtml(e.category)}"
                         style="left:${left}%;width:${width}%;${lFade}${rFade}${colorVars}"
                         title="${escapeHtml(e.title)}"
                         onclick="openDetail(${e.id})">
+                        ${timeText ? `<div class="gantt-bar-time">${escapeHtml(timeText)}</div>` : ''}
                         <div class="gantt-bar-title">${escapeHtml(e.title)}</div>
+                        ${locText ? `<div class="gantt-bar-loc">📍 ${escapeHtml(locText)}</div>` : ''}
                     </div>
                 `;
                 barsContainer.insertAdjacentHTML('beforeend', barHtml);
