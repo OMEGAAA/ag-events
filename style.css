@@ -275,6 +275,10 @@ main {
     padding: 2rem;
     box-shadow: 0 4px 15px rgba(0,0,0,0.02);
     overflow-x: auto;
+    --gantt-label-width: 250px;
+}
+#gantt-tracks {
+    position: relative;
 }
 .gantt-timeline-header {
     display: flex;
@@ -919,6 +923,9 @@ main {
     }
     .gantt-timeline-header {
         margin-left: 150px;
+    }
+    .gantt-view-container {
+        --gantt-label-width: 150px;
     }
     
     .hide-on-mobile { display: none !important; }

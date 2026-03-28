@@ -266,7 +266,6 @@ function renderGantt() {
                 </div>
             </div>
             <div class="gantt-bars-container" style="--total-days: ${totalDays}; min-width: ${totalDays * 38}px;">
-                ${showTodayLine ? `<div class="gantt-today-line" style="left:${todayLeft}%"></div>` : ''}
             </div>
         `;
         
@@ -304,6 +303,13 @@ function renderGantt() {
 
         container.appendChild(track);
     });
+
+    if (showTodayLine) {
+        const todayLine = document.createElement('div');
+        todayLine.className = 'gantt-today-line';
+        todayLine.style.left = `calc(var(--gantt-label-width, 250px) + ${todayLeft / 100} * (100% - var(--gantt-label-width, 250px)))`;
+        container.appendChild(todayLine);
+    }
 }
 
 // ---- 1日 VIEW ----
