@@ -279,12 +279,25 @@ function renderGantt() {
                 if (eStart > eEnd) eEnd = eStart;
                 if (eEnd < startDate || eStart > endDate) return;
 
-                const vStart = eStart < startDate ? startDate : eStart;
-                const vEnd   = eEnd   > endDate   ? endDate   : eEnd;
-                const diff   = Math.round((vStart - startDate) / 86400000);
-                const dur    = Math.round((vEnd - vStart) / 86400000) + 1;
-                const left   = (diff / totalDays) * 100;
-                const width  = (dur  / totalDays) * 100;
+                // 時刻による日内フラクション（例: 10:30 → 10.5/24）
+                let startFrac = 0, endFrac = 1;
+                if (e.startTime) {
+                    const [sh, sm] = e.startTime.split(':').map(Number);
+                    startFrac = (sh * 60 + sm) / 1440;
+                }
+                if (e.endTime) {
+                    const [eh, em] = e.endTime.split(':').map(Number);
+                    endFrac = (eh * 60 + em) / 1440;
+                }
+
+                const startDiff = (eStart - startDate) / 86400000;
+                const endDiff   = (eEnd   - startDate) / 86400000;
+                const leftFrac  = Math.max(0,         startDiff + startFrac);
+                const rightFrac = Math.min(totalDays, endDiff   + endFrac);
+                if (rightFrac <= leftFrac) return;
+
+                const left  = (leftFrac / totalDays) * 100;
+                const width = ((rightFrac - leftFrac) / totalDays) * 100;
                 const lFade  = eStart < startDate ? 'border-top-left-radius:0;border-bottom-left-radius:0;opacity:0.7;' : '';
                 const rFade  = eEnd   > endDate   ? 'border-top-right-radius:0;border-bottom-right-radius:0;opacity:0.7;' : '';
 
