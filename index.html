@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antigravity Internal Events</title>
+    <title>Sports Science Center Events</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="background-elements">
         <div class="orb orb-1"></div>
@@ -15,7 +19,7 @@
     </div>
 
     <header class="glass-header">
-        <div class="logo">AG.<span>Events</span></div>
+        <div class="logo">スポーツ科学総合センター<span>Events</span></div>
         <nav>
             <a href="#" id="nav-home" class="active">ホーム</a>
             <a href="#" id="nav-calendar">カレンダー</a>
@@ -27,9 +31,10 @@
         <div id="view-home" class="view-section">
             <section class="hero">
                 <h1>社内イベントポータル</h1>
-                <p>社内向けイベント・研修の一覧です。気になる企画に今すぐ参加・予約しましょう。</p>
+                <p>イベント・研修の一覧です。</p>
                 <div class="hero-actions">
-                    <button class="primary-btn" onclick="document.getElementById('nav-calendar').click()">スケジュールを確認</button>
+                    <button class="primary-btn"
+                        onclick="document.getElementById('nav-calendar').click()">スケジュールを確認</button>
                 </div>
             </section>
 
@@ -42,7 +47,7 @@
         <div id="view-calendar" class="view-section" style="display: none;">
             <section class="gantt-header">
                 <h2 id="calendar-title">月間スケジュール</h2>
-                <p id="calendar-desc">現在予定されている社内イベントのスケジュール進行（ガントチャート）です。</p>
+                <p id="calendar-desc">現在予定されている社内イベントのスケジュール進行です。</p>
             </section>
 
             <div class="gantt-controls">
@@ -57,7 +62,8 @@
                     <button id="day-prev" class="icon-btn">&lt; 前日</button>
                     <span id="day-date-label" style="min-width:180px; text-align:center;"></span>
                     <button id="day-next" class="icon-btn">次日 &gt;</button>
-                    <button id="day-today" class="icon-btn" style="border-left:1px solid rgba(255,255,255,0.15); padding-left:1rem; margin-left:0.5rem;">今日</button>
+                    <button id="day-today" class="icon-btn"
+                        style="border-left:1px solid rgba(255,255,255,0.15); padding-left:1rem; margin-left:0.5rem;">今日</button>
                 </div>
                 <div class="gantt-view-options">
                     <button class="view-btn" data-days="1">1日</button>
@@ -98,4 +104,5 @@
 
     <script src="app.js"></script>
 </body>
+
 </html>
