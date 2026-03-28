@@ -272,6 +272,44 @@ const SNS_LABEL = {
     'pending':     { text: '要確認',  cls: 'sns-pending' }
 };
 
+function checkOverlaps(targetEvent, allEvents) {
+    return allEvents.filter(e => {
+        // 自分自身は除外
+        if (e.id === targetEvent.id) return false;
+
+        // 1. 場所の被りチェック（どちらか空、または「その他」のみは除外）
+        const locsT = Array.isArray(targetEvent.locations) ? targetEvent.locations : (targetEvent.location ? [targetEvent.location] : []);
+        const locsE = Array.isArray(e.locations) ? e.locations : (e.location ? [e.location] : []);
+        const sharedLocs = locsT.filter(l => l !== 'その他' && locsE.includes(l));
+        if (sharedLocs.length === 0) return false;
+
+        // 2. 日付の被りチェック
+        const tStart = targetEvent.startDate;
+        const tEnd = targetEvent.endDate || targetEvent.startDate;
+        const eStart = e.startDate;
+        const eEnd = e.endDate || e.startDate;
+        if (tStart > eEnd || tEnd < eStart) return false;
+
+        // 3. 時間帯の被りチェック
+        if (!targetEvent.startTime || !e.startTime) return true; // 終日イベントがあれば重なりとみなす
+
+        const parseTime = (tStr, isEnd) => {
+            if (!tStr) return isEnd ? 24 * 60 : 0;
+            const parts = tStr.split(':').map(Number);
+            return parts[0] * 60 + parts[1];
+        };
+        const tTimeStart = parseTime(targetEvent.startTime, false);
+        const tTimeEnd   = parseTime(targetEvent.endTime, true);
+        const eTimeStart = parseTime(e.startTime, false);
+        const eTimeEnd   = parseTime(e.endTime, true);
+
+        // 重ならない条件: 前者が後者の開始以下、または前者の開始が後者の終了以上
+        if (tTimeEnd <= eTimeStart || tTimeStart >= eTimeEnd) return false;
+
+        return true;
+    });
+}
+
 function renderEventList() {
     const tbody = document.getElementById('events-tbody');
     const desc  = document.getElementById('section-desc');
@@ -292,11 +330,17 @@ function renderEventList() {
         const snsDate = e.snsPR === 'allowed' && e.snsAvailableFrom
             ? `<div style="font-size:0.74rem; color:var(--text-secondary); margin-top:0.2rem;">${e.snsAvailableFrom}〜</div>`
             : '';
+            
+        // 重複チェック
+        const overlaps = checkOverlaps(e, events);
+        const overlapWarning = overlaps.length > 0 
+            ? `<div class="overlap-badge" title="以下のイベントと重複しています:\n${overlaps.map(o => '- ' + o.title).join('\n')}">⚠️ ブッキング</div>` 
+            : '';
 
         return `
-        <tr>
+        <tr class="${overlaps.length > 0 ? 'row-overlap' : ''}">
             <td>
-                <div class="event-title-cell">${escapeHtml(e.title)}</div>
+                <div class="event-title-cell">${escapeHtml(e.title)} ${overlapWarning}</div>
                 ${e.participants ? `<div class="event-sub-cell">👥 ${escapeHtml(e.participants)}</div>` : ''}
             </td>
             <td style="white-space:nowrap; font-size:0.85rem; color:var(--text-secondary);">${escapeHtml(e.date)}</td>
@@ -419,17 +463,30 @@ function saveEvent() {
     let date = endDate !== startDate ? `${fmt(startDate)} - ${fmt(endDate)}` : fmt(startDate);
     if (startTime) date += ` ${startTime}${endTime ? ' - ' + endTime : ''}`;
 
-    const eventData = { title, date, startDate, endDate, startTime, endTime, category, categoryText, locations, participants, snsPR, snsAvailableFrom, manager, notes };
+    const tempId = editingId !== null ? editingId : -1;
+    const eventData = { id: tempId, title, date, startDate, endDate, startTime, endTime, category, categoryText, locations, participants, snsPR, snsAvailableFrom, manager, notes };
+
+    // 保存前の重複チェック
+    const overlaps = checkOverlaps(eventData, events);
+    if (overlaps.length > 0) {
+        const msg = `⚠️ ブッキング警告\n\n以下のイベントと場所・日時の予約が重なっています:\n` 
+            + overlaps.map(o => `・${o.title}`).join('\n') 
+            + `\n\nこのまま保存（登録）してよろしいでしょうか？`;
+        if (!confirm(msg)) {
+            return; // 保存中止
+        }
+    }
 
     if (editingId !== null) {
         const idx = events.findIndex(e => e.id === editingId);
-        if (idx !== -1) events[idx] = { id: editingId, ...eventData };
+        if (idx !== -1) events[idx] = eventData;
         closeModal();
         renderEventList();
         markDirty(`「${title}」を編集しました`);
     } else {
         const maxId = events.length > 0 ? Math.max(...events.map(e => e.id)) : 0;
-        events.push({ id: maxId + 1, ...eventData });
+        eventData.id = maxId + 1;
+        events.push(eventData);
         closeModal();
         renderEventList();
         markDirty(`「${title}」を追加しました`);
