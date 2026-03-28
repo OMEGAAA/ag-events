@@ -267,17 +267,17 @@ function renderGantt() {
         const barsContainer = track.querySelector('.gantt-bars-container');
 
         trackEvents
-            .sort((a, b) => new Date(a.startDate) - new Date(b.startDate))
+            .sort((a, b) => new Date(a.startDate + 'T00:00:00') - new Date(b.startDate + 'T00:00:00'))
             .forEach(e => {
-                const eStart = new Date(e.startDate);
-                let eEnd = new Date(e.endDate);
+                const eStart = new Date(e.startDate + 'T00:00:00');
+                let eEnd = new Date((e.endDate || e.startDate) + 'T00:00:00');
                 if (eStart > eEnd) eEnd = eStart;
                 if (eEnd < startDate || eStart > endDate) return;
 
                 const vStart = eStart < startDate ? startDate : eStart;
                 const vEnd   = eEnd   > endDate   ? endDate   : eEnd;
-                const diff   = (vStart - startDate) / 86400000;
-                const dur    = ((vEnd - vStart) / 86400000) + 1;
+                const diff   = Math.round((vStart - startDate) / 86400000);
+                const dur    = Math.round((vEnd - vStart) / 86400000) + 1;
                 const left   = (diff / totalDays) * 100;
                 const width  = (dur  / totalDays) * 100;
                 const lFade  = eStart < startDate ? 'border-top-left-radius:0;border-bottom-left-radius:0;opacity:0.7;' : '';
