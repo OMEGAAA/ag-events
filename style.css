@@ -885,6 +885,52 @@ main {
     margin-left: 0.4rem;
 }
 
+/* ---- MOBILE AGENDA VIEW ---- */
+.hide-on-desktop { display: none !important; }
+
+.day-agenda-container {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.agenda-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+.agenda-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.agenda-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background-color: var(--card-color, rgba(255,255,255,0.1));
+}
+
+.agenda-card.health::before   { background-color: var(--card-color, #10b981); }
+.agenda-card.learning::before { background-color: var(--card-color, #ef4444); }
+.agenda-card.social::before   { background-color: var(--card-color, #ec4899); }
+
+.agenda-time { font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; padding-left: 6px; }
+.agenda-title { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); padding-left: 6px; line-height: 1.3; }
+.agenda-loc { font-size: 0.8rem; color: var(--text-secondary); padding-left: 6px; margin-top: 0.15rem; }
+
 /* Responsiveness */
 @media (max-width: 768px) {
     .glass-header {
@@ -907,4 +953,7 @@ main {
     .gantt-timeline-header {
         margin-left: 150px;
     }
+    
+    .hide-on-mobile { display: none !important; }
+    .hide-on-desktop { display: flex !important; }
 }

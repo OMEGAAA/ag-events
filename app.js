@@ -442,6 +442,31 @@ function renderDayView() {
         : 8 * 60;
     setTimeout(() => { container.scrollTop = scrollTo; }, 50);
 
+    // ---- Render Mobile Agenda ----
+    const agendaContainer = document.getElementById('day-agenda-container');
+    if (agendaContainer) {
+        agendaContainer.innerHTML = '';
+        if (timedEvents.length === 0) {
+            agendaContainer.innerHTML = '<div style="color:var(--text-secondary); text-align:center; padding: 2.5rem 1rem;">この日の予定はありません</div>';
+        } else {
+            const sortedEvents = [...timedEvents].sort((a,b) => (a.startTime||'').localeCompare(b.startTime||''));
+            sortedEvents.forEach(e => {
+                const locText = Array.isArray(e.locations) && e.locations.length > 0 ? e.locations.join(' / ') : escapeHtml(e.location || '');
+                const card = document.createElement('div');
+                card.className = `agenda-card ${escapeHtml(e.category)}`;
+                if (e.cardColor) card.style.setProperty('--card-color', e.cardColor);
+                card.onclick = () => openDetail(e.id);
+                card.innerHTML = `
+                    <div class="agenda-time">${escapeHtml(e.startTime)} ${e.endTime ? '〜 ' + escapeHtml(e.endTime) : ''}</div>
+                    <div class="agenda-title">${escapeHtml(e.title)}</div>
+                    ${locText ? `<div class="agenda-loc">📍 ${escapeHtml(locText)}</div>` : ''}
+                    ${e.participants ? `<div class="agenda-loc" style="margin-top:0.25rem;">👥 ${escapeHtml(e.participants)}</div>` : ''}
+                `;
+                agendaContainer.appendChild(card);
+            });
+        }
+    }
+
     startDayViewTimer();
 }
 
