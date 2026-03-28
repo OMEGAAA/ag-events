@@ -781,19 +781,15 @@ function renderDayHorizontalView() {
 }
 
 // ---- DAY VIEW MODE TOGGLE ----
-document.getElementById('day-mode-vert')?.addEventListener('click', () => {
-    if (dayViewMode === 'vertical') return;
-    dayViewMode = 'vertical';
-    document.getElementById('day-mode-vert').classList.add('active');
-    document.getElementById('day-mode-horiz').classList.remove('active');
-    renderDayView();
-});
-
-document.getElementById('day-mode-horiz')?.addEventListener('click', () => {
-    if (dayViewMode === 'horizontal') return;
-    dayViewMode = 'horizontal';
-    document.getElementById('day-mode-horiz').classList.add('active');
-    document.getElementById('day-mode-vert').classList.remove('active');
+document.getElementById('day-mode-toggle-btn')?.addEventListener('click', () => {
+    const btn = document.getElementById('day-mode-toggle-btn');
+    if (dayViewMode === 'vertical') {
+        dayViewMode = 'horizontal';
+        btn.textContent = '⇄ 縦';
+    } else {
+        dayViewMode = 'vertical';
+        btn.textContent = '⇄ 横';
+    }
     renderDayView();
 });
 
