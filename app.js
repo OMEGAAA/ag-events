@@ -228,8 +228,9 @@ function renderGantt() {
     const showTodayLine = todayDiff >= 0 && todayDiff <= totalDays;
     const todayLeft = ((todayDiff + 0.5) / totalDays) * 100; // 日付セルの中央
 
-    // Collect unique locations
-    const locationSet = new Set();
+    // Collect unique locations (always show default facilities)
+    const defaultLocations = ['室内練習場', 'ベースボールエリア', 'アローズエリア', 'スタジオ', 'パワーエリア', '食堂', '多目的室'];
+    const locationSet = new Set(defaultLocations);
     events.forEach(e => {
         const locs = Array.isArray(e.locations) && e.locations.length > 0 ? e.locations : (e.location ? [e.location] : ['その他']);
         locs.forEach(l => locationSet.add(l));
@@ -250,9 +251,6 @@ function renderGantt() {
         track.className = 'gantt-track';
         track.innerHTML = `
             <div class="gantt-label">
-                <div class="gantt-label-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                </div>
                 <div class="gantt-label-text">
                     <div class="gantt-label-title">${escapeHtml(loc)}</div>
                 </div>
@@ -350,8 +348,9 @@ function renderDayView() {
         alldayDiv.appendChild(block);
     });
 
-    // Collect unique locations (preserve insertion order)
-    const locationSet = new Set();
+    // Collect unique locations (preserve insertion order, always show defaults)
+    const defaultLocations = ['室内練習場', 'ベースボールエリア', 'アローズエリア', 'スタジオ', 'パワーエリア', '食堂', '多目的室'];
+    const locationSet = new Set(defaultLocations);
     timedEvents.forEach(e => {
         const locs = Array.isArray(e.locations) && e.locations.length > 0 ? e.locations : ['その他'];
         locs.forEach(l => locationSet.add(l));
