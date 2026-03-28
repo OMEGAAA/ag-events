@@ -74,26 +74,32 @@ function renderEvents() {
             ? `${e.startTime}${e.endTime ? ' 〜 ' + e.endTime : ''}`
             : '';
 
-        const visualStyle = e.cardColor ? `style="background: ${escapeHtml(e.cardColor)} !important;"` : '';
-
         const card = document.createElement('div');
-        card.className = `event-card ${escapeHtml(e.category)}`;
+        card.className = `home-list-card ${escapeHtml(e.category)} fade-in`;
+        if (e.cardColor) card.style.setProperty('--card-color', e.cardColor);
+        card.onclick = () => openDetail(e.id);
+
+        const snsHtml = (() => { const s = SNS_LABEL[e.snsPR]; return s ? `<span class="sns-badge ${s.cls}" style="transform: scale(0.85); transform-origin: left; margin-left:-0.2rem;">${s.icon} ${s.text}</span>` : ''; })();
+
         card.innerHTML = `
-            <div class="card-visual">
-                <div class="visual-gradient ${escapeHtml(e.category)}" ${visualStyle}></div>
-                <div class="category-tag">${escapeHtml(e.categoryText)}</div>
+            <div class="list-card-date">
+                <div class="lc-date">${escapeHtml(e.date)}</div>
+                ${timeText ? `<div class="lc-time">${escapeHtml(timeText)}</div>` : ''}
             </div>
-            <div class="card-content">
-                <div class="event-date">${escapeHtml(e.date)}</div>
-                ${timeText ? `<div class="event-time">🕐 ${escapeHtml(timeText)}</div>` : ''}
-                <h3 class="event-title">${escapeHtml(e.title)}</h3>
-                ${locationText    ? `<div class="event-meta">📍 ${escapeHtml(locationText)}</div>`    : ''}
-                ${participantsText? `<div class="event-meta">👥 ${escapeHtml(participantsText)}</div>` : ''}
-                ${e.manager       ? `<div class="event-meta">👤 担当: ${escapeHtml(e.manager)}</div>` : ''}
-                ${(() => { const s = SNS_LABEL[e.snsPR]; return s ? `<div class="event-meta"><span class="sns-badge ${s.cls}">${s.icon} HP/SNS: ${s.text}</span>${e.snsPR === 'allowed' && e.snsAvailableFrom ? `<span class="sns-date-hint">(${escapeHtml(e.snsAvailableFrom)}〜)</span>` : ''}</div>` : ''; })()}
-                <div class="card-footer">
-                    <button class="detail-btn" onclick="openDetail(${e.id})">詳細を見る</button>
+            <div class="list-card-body">
+                <div class="lc-badges">
+                    <span class="category-badge ${escapeHtml(e.category)}">${escapeHtml(e.categoryText)}</span>
+                    ${snsHtml}
                 </div>
+                <h3 class="lc-title">${escapeHtml(e.title)}</h3>
+                <div class="lc-meta">
+                    ${locationText    ? `<span>📍 ${escapeHtml(locationText)}</span>` : ''}
+                    ${participantsText? `<span>👥 ${escapeHtml(participantsText)}</span>` : ''}
+                    ${e.manager       ? `<span>👤 取扱: ${escapeHtml(e.manager)}</span>` : ''}
+                </div>
+            </div>
+            <div class="list-card-actions">
+                <button class="detail-btn">詳細を見る</button>
             </div>
         `;
         eventGrid.appendChild(card);
@@ -283,7 +289,6 @@ function renderGantt() {
                 const lFade  = eStart < startDate ? 'border-top-left-radius:0;border-bottom-left-radius:0;opacity:0.7;' : '';
                 const rFade  = eEnd   > endDate   ? 'border-top-right-radius:0;border-bottom-right-radius:0;opacity:0.7;' : '';
 
-                const timeStr = e.startTime ? `${escapeHtml(e.startTime)}${e.endTime ? '〜' + escapeHtml(e.endTime) : ''}` : '';
                 const colorVars = e.cardColor ? `--card-color: ${escapeHtml(e.cardColor)};` : '';
 
                 const barHtml = `
@@ -291,7 +296,6 @@ function renderGantt() {
                         style="left:${left}%;width:${width}%;${lFade}${rFade}${colorVars}"
                         title="${escapeHtml(e.title)}"
                         onclick="openDetail(${e.id})">
-                        ${timeStr ? `<div class="gantt-bar-time">${timeStr}</div>` : ''}
                         <div class="gantt-bar-title">${escapeHtml(e.title)}</div>
                     </div>
                 `;
