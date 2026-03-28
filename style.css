@@ -730,6 +730,11 @@ main {
 .day-loc-header-spacer {
     height: 36px;
     flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--surface-color);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .day-time-label {
     height: 60px;
@@ -765,11 +770,16 @@ main {
     font-size: 0.78rem;
     font-weight: 600;
     color: var(--text-secondary);
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     letter-spacing: 0.04em;
     flex-shrink: 0;
     padding: 0 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .day-events-col {
