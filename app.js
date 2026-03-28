@@ -74,11 +74,13 @@ function renderEvents() {
             ? `${e.startTime}${e.endTime ? ' 〜 ' + e.endTime : ''}`
             : '';
 
+        const visualStyle = e.cardColor ? `style="background: ${escapeHtml(e.cardColor)} !important;"` : '';
+
         const card = document.createElement('div');
         card.className = `event-card ${escapeHtml(e.category)}`;
         card.innerHTML = `
             <div class="card-visual">
-                <div class="visual-gradient ${escapeHtml(e.category)}"></div>
+                <div class="visual-gradient ${escapeHtml(e.category)}" ${visualStyle}></div>
                 <div class="category-tag">${escapeHtml(e.categoryText)}</div>
             </div>
             <div class="card-content">
@@ -110,9 +112,11 @@ function openDetail(id) {
     const timeRange = e.startTime
         ? `${escapeHtml(e.startTime)}${e.endTime ? ' 〜 ' + escapeHtml(e.endTime) : ''}`
         : '';
+        
+    const visualStyle = e.cardColor ? `style="background: ${escapeHtml(e.cardColor)} !important;"` : '';
 
     document.getElementById('detail-content').innerHTML = `
-        <div class="detail-banner visual-gradient ${escapeHtml(e.category)}"></div>
+        <div class="detail-banner visual-gradient ${escapeHtml(e.category)}" ${visualStyle}></div>
         <div class="detail-body">
             <span class="detail-cat-badge category-tag" style="position:static; display:inline-block; margin-bottom:0.75rem;">${escapeHtml(e.categoryText)}</span>
             <h2 class="detail-title">${escapeHtml(e.title)}</h2>

@@ -391,6 +391,7 @@ function openEditModal(id) {
     document.getElementById('f-startTime').value      = event.startTime || '';
     document.getElementById('f-endTime').value        = event.endTime   || '';
     document.getElementById('f-category-input').value = event.categoryText || '';
+    document.getElementById('f-card-color').value     = event.cardColor || '#000000';
     document.getElementById('f-participants').value   = event.participants || '';
     document.getElementById('f-manager').value        = event.manager || '';
     document.getElementById('f-notes').value          = event.notes || '';
@@ -427,6 +428,7 @@ function clearForm() {
     ['f-title','f-startDate','f-endDate','f-startTime','f-endTime',
      'f-category-input','f-participants','f-sns-date','f-manager','f-notes']
         .forEach(id => { document.getElementById(id).value = ''; });
+    document.getElementById('f-card-color').value = '#000000';
     document.querySelectorAll('.location-checkbox').forEach(cb => { cb.checked = false; });
     const defaultSns = document.querySelector('input[name="f-sns"][value="not-allowed"]');
     if (defaultSns) defaultSns.checked = true;
@@ -457,6 +459,8 @@ function saveEvent() {
     const snsAvailableFrom = snsPR === 'allowed' ? document.getElementById('f-sns-date').value.trim() : '';
     const manager      = document.getElementById('f-manager').value.trim();
     const notes        = document.getElementById('f-notes').value.trim();
+    let cardColor      = document.getElementById('f-card-color').value;
+    if (cardColor === '#000000') cardColor = '';
 
     // 日付・時刻の表示テキストを自動生成
     const fmt = (s) => { const d = new Date(s + 'T00:00:00'); return `${d.getMonth()+1}月${d.getDate()}日`; };
@@ -464,7 +468,7 @@ function saveEvent() {
     if (startTime) date += ` ${startTime}${endTime ? ' - ' + endTime : ''}`;
 
     const tempId = editingId !== null ? editingId : -1;
-    const eventData = { id: tempId, title, date, startDate, endDate, startTime, endTime, category, categoryText, locations, participants, snsPR, snsAvailableFrom, manager, notes };
+    const eventData = { id: tempId, title, date, startDate, endDate, startTime, endTime, category, categoryText, cardColor, locations, participants, snsPR, snsAvailableFrom, manager, notes };
 
     // 保存前の重複チェック
     const overlaps = checkOverlaps(eventData, events);
