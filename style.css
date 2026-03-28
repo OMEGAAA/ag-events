@@ -963,3 +963,93 @@ main {
     .hide-on-mobile { display: none !important; }
     .hide-on-desktop { display: flex !important; }
 }
+
+/* Day date label — clickable */
+#day-date-label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+#day-date-label::after {
+    content: '📅';
+    font-size: 0.9em;
+    opacity: 0.6;
+}
+#day-date-label:hover { background: rgba(0,0,0,0.06); }
+
+/* ---- Mini Calendar Picker ---- */
+#mini-cal-popup {
+    position: absolute;
+    z-index: 500;
+    background: #fff;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+    padding: 0;
+    min-width: 260px;
+    user-select: none;
+}
+
+.mini-cal-header {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr 1fr 2.5rem;
+    align-items: center;
+    padding: 0.6rem 0.4rem 0.4rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.mini-cal-nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+.mini-cal-nav-btn:hover { background: var(--bg-color); }
+
+.mini-cal-year,
+.mini-cal-month {
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.mini-cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    padding: 0.5rem 0.5rem 0.6rem;
+}
+
+.mini-cal-dow {
+    text-align: center;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.2rem 0;
+    color: var(--text-secondary);
+}
+.mini-cal-dow:first-child { color: var(--accent-red); }
+.mini-cal-dow:last-child  { color: var(--accent-blue); }
+
+.mini-cal-day {
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 0.35rem 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.12s;
+}
+.mini-cal-day:hover:not(.mini-cal-day-other) { background: #e0e7ff; }
+.mini-cal-day-other { color: #c0cad8; cursor: default; }
+.mini-cal-day-today {
+    background: #dbeafe;
+    font-weight: 700;
+    color: var(--accent-blue);
+}

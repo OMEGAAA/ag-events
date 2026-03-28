@@ -633,5 +633,114 @@ navCalendar?.addEventListener('click', e => {
     }
 });
 
+// ---- MINI CALENDAR PICKER ----
+let miniCalDate = new Date(); // currently displayed month in picker
+
+function buildMiniCalPopup() {
+    let el = document.getElementById('mini-cal-popup');
+    if (!el) {
+        el = document.createElement('div');
+        el.id = 'mini-cal-popup';
+        el.style.display = 'none';
+        document.body.appendChild(el);
+
+        // Close on outside click
+        document.addEventListener('click', ev => {
+            if (!el.contains(ev.target) && ev.target !== document.getElementById('day-date-label')) {
+                el.style.display = 'none';
+            }
+        }, true);
+    }
+    return el;
+}
+
+function renderMiniCal() {
+    const el = buildMiniCalPopup();
+    const y  = miniCalDate.getFullYear();
+    const m  = miniCalDate.getMonth();
+
+    const todayStr = new Date().toDateString();
+
+    // First day of month, day-of-week offset (0=Sun)
+    const firstDow = new Date(y, m, 1).getDay();
+    const daysInMonth  = new Date(y, m + 1, 0).getDate();
+    const daysInPrev   = new Date(y, m, 0).getDate();
+
+    const DOWS = ['日', '月', '火', '水', '木', '金', '土'];
+
+    let cellsHtml = DOWS.map(d => `<div class="mini-cal-dow">${d}</div>`).join('');
+
+    // Leading cells from prev month
+    for (let i = firstDow - 1; i >= 0; i--) {
+        cellsHtml += `<div class="mini-cal-day mini-cal-day-other">${daysInPrev - i}</div>`;
+    }
+    // Current month
+    for (let d = 1; d <= daysInMonth; d++) {
+        const isToday = new Date(y, m, d).toDateString() === todayStr;
+        const dateStr = `${y}-${String(m + 1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+        cellsHtml += `<div class="mini-cal-day${isToday ? ' mini-cal-day-today' : ''}" data-date="${dateStr}">${d}</div>`;
+    }
+    // Trailing cells
+    const total = firstDow + daysInMonth;
+    const trailing = total % 7 === 0 ? 0 : 7 - (total % 7);
+    for (let d = 1; d <= trailing; d++) {
+        cellsHtml += `<div class="mini-cal-day mini-cal-day-other">${d}</div>`;
+    }
+
+    el.innerHTML = `
+        <div class="mini-cal-header">
+            <button class="mini-cal-nav-btn" id="mini-cal-prev">&#8249;</button>
+            <div class="mini-cal-year">${y}年</div>
+            <div class="mini-cal-month">${m + 1}月</div>
+            <button class="mini-cal-nav-btn" id="mini-cal-next">&#8250;</button>
+        </div>
+        <div class="mini-cal-grid">${cellsHtml}</div>
+    `;
+
+    el.querySelector('#mini-cal-prev').addEventListener('click', ev => {
+        ev.stopPropagation();
+        miniCalDate = new Date(y, m - 1, 1);
+        renderMiniCal();
+    });
+    el.querySelector('#mini-cal-next').addEventListener('click', ev => {
+        ev.stopPropagation();
+        miniCalDate = new Date(y, m + 1, 1);
+        renderMiniCal();
+    });
+    el.querySelectorAll('.mini-cal-day[data-date]').forEach(cell => {
+        cell.addEventListener('click', ev => {
+            ev.stopPropagation();
+            el.style.display = 'none';
+            currentDayDate = new Date(cell.dataset.date + 'T00:00:00');
+            renderDayView();
+        });
+    });
+}
+
+function openMiniCal(anchorEl) {
+    miniCalDate = new Date(currentDayDate.getFullYear(), currentDayDate.getMonth(), 1);
+    renderMiniCal();
+    const el   = document.getElementById('mini-cal-popup');
+    const rect = anchorEl.getBoundingClientRect();
+    el.style.display = 'block';
+    // Position below anchor, centered
+    const popW = el.offsetWidth || 260;
+    let left = rect.left + rect.width / 2 - popW / 2 + window.scrollX;
+    left = Math.max(8, Math.min(left, window.innerWidth - popW - 8));
+    el.style.left = `${left}px`;
+    el.style.top  = `${rect.bottom + window.scrollY + 6}px`;
+}
+
+// Make day-date-label clickable
+document.getElementById('day-date-label')?.addEventListener('click', ev => {
+    ev.stopPropagation();
+    const el = buildMiniCalPopup();
+    if (el.style.display === 'block') {
+        el.style.display = 'none';
+    } else {
+        openMiniCal(ev.currentTarget);
+    }
+});
+
 // ---- START ----
 init();
