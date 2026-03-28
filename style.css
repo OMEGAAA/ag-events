@@ -397,20 +397,20 @@ main {
 .gantt-bars-container {
     flex: 1;
     min-width: 0;
-    height: 40px;
+    height: 60px;
     background: rgba(255,255,255,0.02);
     border-radius: 8px;
     position: relative;
 }
 .gantt-bar {
     position: absolute;
-    top: 10%;
-    bottom: 10%;
+    top: 8%;
+    bottom: 8%;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 4px 8px;
+    padding: 3px 6px;
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;

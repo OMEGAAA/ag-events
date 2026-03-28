@@ -288,7 +288,7 @@ function renderGantt() {
                         style="left:${left}%;width:${width}%;${lFade}${rFade}"
                         title="${escapeHtml(e.title)}"
                         onclick="openDetail(${e.id})">
-                        ${timeStr ? `<div class="gantt-bar-time">🚫 ${timeStr}</div>` : ''}
+                        ${timeStr ? `<div class="gantt-bar-time">${timeStr}</div>` : ''}
                         <div class="gantt-bar-title">${escapeHtml(e.title)}</div>
                     </div>
                 `;
