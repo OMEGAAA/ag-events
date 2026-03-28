@@ -284,10 +284,11 @@ function renderGantt() {
                 const rFade  = eEnd   > endDate   ? 'border-top-right-radius:0;border-bottom-right-radius:0;opacity:0.7;' : '';
 
                 const timeStr = e.startTime ? `${escapeHtml(e.startTime)}${e.endTime ? '〜' + escapeHtml(e.endTime) : ''}` : '';
+                const colorVars = e.cardColor ? `--card-color: ${escapeHtml(e.cardColor)};` : '';
 
                 const barHtml = `
                     <div class="gantt-bar ${escapeHtml(e.category)}"
-                        style="left:${left}%;width:${width}%;${lFade}${rFade}"
+                        style="left:${left}%;width:${width}%;${lFade}${rFade}${colorVars}"
                         title="${escapeHtml(e.title)}"
                         onclick="openDetail(${e.id})">
                         ${timeStr ? `<div class="gantt-bar-time">${timeStr}</div>` : ''}
@@ -420,6 +421,7 @@ function renderDayView() {
             block.className    = `day-event-block ${escapeHtml(e.category)}`;
             block.style.top    = `${topPx}px`;
             block.style.height = `${heightPx}px`;
+            if (e.cardColor) block.style.setProperty('--card-color', e.cardColor);
             block.innerHTML    = `
                 <div class="day-event-time">${escapeHtml(e.startTime)}${e.endTime ? ' - ' + escapeHtml(e.endTime) : ''}</div>
                 <div class="day-event-title">${escapeHtml(e.title)}</div>
