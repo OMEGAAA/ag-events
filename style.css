@@ -260,9 +260,9 @@ main {
     transform: scale(1.03);
 }
 
-.gantt-bar.health { background: rgba(255, 255, 255, 0.9); border: 1px solid #10b981; color: #10b981; }
-.gantt-bar.learning { background: rgba(255, 255, 255, 0.9); border: 1px solid #ef4444; color: #ef4444; }
-.gantt-bar.social { background: rgba(255, 255, 255, 0.9); border: 1px solid #ec4899; color: #ec4899; }
+.gantt-bar.health,  .dh-event-bar.health  { background: rgba(255,255,255,0.9); border: 1px solid #10b981; color: #10b981; }
+.gantt-bar.learning,.dh-event-bar.learning{ background: rgba(255,255,255,0.9); border: 1px solid #ef4444; color: #ef4444; }
+.gantt-bar.social,  .dh-event-bar.social  { background: rgba(255,255,255,0.9); border: 1px solid #ec4899; color: #ec4899; }
 
 /* Gantt Chart Variables & Container */
 .gantt-header {
@@ -524,7 +524,7 @@ main {
 
 /* "other" category (custom) */
 .visual-gradient.other { background: linear-gradient(135deg, #94a3b8, #64748b); }
-.gantt-bar.other        { background: #ffffff; border: 1px solid #94a3b8; color: #94a3b8; }
+.gantt-bar.other, .dh-event-bar.other { background: #ffffff; border: 1px solid #94a3b8; color: #94a3b8; }
 .category-badge.other   { background: #f1f5f9; color: var(--text-secondary); border: 1px solid var(--glass-border); }
 .day-event-block.other  { background: linear-gradient(135deg, #94a3b8, #64748b); }
 .day-allday-event.other { background: rgba(100,116,139,0.1); }
@@ -974,6 +974,182 @@ main {
     
     .hide-on-mobile { display: none !important; }
     .hide-on-desktop { display: flex !important; }
+}
+
+/* ---- Day view mode toggle ---- */
+.day-mode-toggle {
+    display: flex;
+    gap: 0.25rem;
+    border-left: 1px solid rgba(255,255,255,0.15);
+    padding-left: 0.75rem;
+    margin-left: 0.5rem;
+}
+.day-mode-btn { min-width: 2.4rem; font-size: 0.82rem; }
+.day-mode-btn.active { background: rgba(255,255,255,0.22); font-weight: 700; }
+
+/* ---- Horizontal resource timeline (day view) ---- */
+.dh-outer {
+    overflow: auto;
+    max-height: 72vh;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    background: #fff;
+    margin-top: 1rem;
+}
+.dh-header-row,
+.dh-data-row {
+    display: flex;
+    min-width: max-content;
+}
+.dh-header-row {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #3d4852;
+    color: #fff;
+    height: 42px;
+}
+.dh-corner-cell {
+    width: 200px;
+    min-width: 200px;
+    position: sticky;
+    left: 0;
+    z-index: 11;
+    background: #3d4852;
+    color: rgba(255,255,255,0.65);
+    font-size: 0.78rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    letter-spacing: 0.05em;
+}
+.dh-time-header {
+    position: relative;
+    height: 42px;
+    flex-shrink: 0;
+}
+.dh-time-tick {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.78rem;
+    white-space: nowrap;
+    padding-left: 6px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+}
+.dh-data-row {
+    border-bottom: 1px solid var(--glass-border);
+    height: 76px;
+}
+.dh-data-row:last-child { border-bottom: none; }
+.dh-data-row:nth-child(odd) .dh-events-area { background: #f8fafc; }
+.dh-label-cell {
+    width: 200px;
+    min-width: 200px;
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background: inherit;
+    border-right: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    padding: 0 0.75rem;
+    gap: 0.5rem;
+    background: #fff;
+}
+.dh-data-row:nth-child(odd) .dh-label-cell { background: #f8fafc; }
+.dh-label-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.dh-event-count {
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: var(--accent-blue);
+    color: #fff;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.dh-event-count.dh-count-zero { background: #e2e8f0; color: var(--text-secondary); }
+.dh-events-area {
+    position: relative;
+    flex-shrink: 0;
+    height: 76px;
+    background: #fff;
+}
+.dh-grid-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--glass-border);
+    z-index: 0;
+}
+.dh-event-bar {
+    position: absolute;
+    top: 8%;
+    bottom: 8%;
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: box-shadow 0.2s, transform 0.15s;
+    z-index: 1;
+}
+.dh-event-bar:hover {
+    z-index: 3;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.28);
+    transform: scaleY(1.04);
+}
+.dh-bar-time {
+    font-size: 0.68rem;
+    opacity: 0.9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 1px;
+}
+.dh-bar-title {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.dh-bar-loc {
+    font-size: 0.65rem;
+    opacity: 0.8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 1px;
+}
+.dh-now-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ef4444;
+    z-index: 5;
+    pointer-events: none;
+    box-shadow: 0 0 6px rgba(239,68,68,0.5);
 }
 
 /* Day date label — clickable */

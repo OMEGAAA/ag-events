@@ -13,6 +13,8 @@ let currentDayDate   = new Date();
 let calendarMode     = 'gantt'; // 'gantt' | 'day'
 let dayViewTimer     = null;
 let ganttDayWidth    = 38; // px per day column
+let dayViewMode      = 'vertical'; // 'vertical' | 'horizontal'
+const DH_HOUR_WIDTH  = 100; // px per hour in horizontal day view
 const GANTT_ZOOM_STEPS = [24, 38, 56, 80, 120];
 
 function startDayViewTimer() {
@@ -22,6 +24,10 @@ function startDayViewTimer() {
         const nowMin = new Date().getHours() * 60 + new Date().getMinutes();
         document.querySelectorAll('.day-current-time').forEach(line => {
             line.style.top = `${nowMin}px`;
+        });
+        const nowLeft = (nowMin / 60) * DH_HOUR_WIDTH;
+        document.querySelectorAll('.dh-now-line').forEach(line => {
+            line.style.left = `${nowLeft}px`;
         });
     }, 30000); // 30秒ごとに更新
 }
@@ -381,6 +387,32 @@ document.getElementById('day-today')?.addEventListener('click', () => {
 function renderDayView() {
     updateDayLabel();
 
+    // ---- Horizontal resource timeline mode ----
+    if (dayViewMode === 'horizontal') {
+        const alldayDiv = document.getElementById('day-allday-events');
+        alldayDiv.innerHTML = '';
+        const dayStr = currentDayDate.toISOString().slice(0, 10);
+        events.filter(e => e.startDate <= dayStr && (e.endDate || e.startDate) >= dayStr && !e.startTime)
+            .forEach(e => {
+                const block = document.createElement('div');
+                block.className   = `day-allday-event ${escapeHtml(e.category)}`;
+                block.textContent = e.title;
+                block.onclick     = () => openDetail(e.id);
+                alldayDiv.appendChild(block);
+            });
+        document.getElementById('day-timeline-container').style.display = 'none';
+        document.getElementById('day-agenda-container').style.display   = 'none';
+        document.getElementById('day-horizontal-container').style.display = 'block';
+        renderDayHorizontalView();
+        startDayViewTimer();
+        return;
+    }
+
+    // ---- Vertical timeline mode (default) ----
+    document.getElementById('day-horizontal-container').style.display = 'none';
+    document.getElementById('day-timeline-container').style.display   = '';
+    document.getElementById('day-agenda-container').style.display     = '';
+
     const container = document.getElementById('day-timeline-container');
     const alldayDiv = document.getElementById('day-allday-events');
     if (!container) return;
@@ -640,6 +672,126 @@ navCalendar?.addEventListener('click', e => {
         updateGanttDateLabel();
         renderGantt();
     }
+});
+
+// ---- DAY HORIZONTAL (RESOURCE) VIEW ----
+function renderDayHorizontalView() {
+    const container = document.getElementById('day-horizontal-container');
+    if (!container) return;
+
+    const HOUR_START = 0;
+    const HOUR_END   = 24;
+    const totalHours = HOUR_END - HOUR_START;
+    const timelineW  = totalHours * DH_HOUR_WIDTH;
+
+    const dayStr      = currentDayDate.toISOString().slice(0, 10);
+    const dayEvents   = events.filter(e => e.startDate <= dayStr && (e.endDate || e.startDate) >= dayStr);
+    const timedEvents = dayEvents.filter(e => e.startTime);
+
+    const defaultLocations = ['室内練習場', 'ベースボールエリア', 'アローズエリア', 'スタジオ', 'パワーエリア', '食堂', '多目的室'];
+    const locationSet = new Set(defaultLocations);
+    timedEvents.forEach(e => {
+        const locs = Array.isArray(e.locations) && e.locations.length > 0 ? e.locations : ['その他'];
+        locs.forEach(l => locationSet.add(l));
+    });
+    const locations = [...locationSet];
+
+    // Time header ticks
+    let timeTicksHtml = '';
+    for (let h = HOUR_START; h <= HOUR_END; h++) {
+        timeTicksHtml += `<div class="dh-time-tick" style="left:${(h - HOUR_START) * DH_HOUR_WIDTH}px">${String(h).padStart(2,'0')}:00</div>`;
+    }
+
+    // Rows
+    let rowsHtml = '';
+    locations.forEach(loc => {
+        const locEvents = timedEvents.filter(e => {
+            const eLocs = Array.isArray(e.locations) && e.locations.length > 0 ? e.locations : ['その他'];
+            return eLocs.includes(loc);
+        });
+
+        let gridHtml = '';
+        for (let h = HOUR_START; h <= HOUR_END; h++) {
+            gridHtml += `<div class="dh-grid-line" style="left:${(h - HOUR_START) * DH_HOUR_WIDTH}px"></div>`;
+        }
+
+        let barsHtml = '';
+        locEvents.forEach(e => {
+            const [sh, sm] = e.startTime.split(':').map(Number);
+            const etStr    = e.endTime || `${Math.min(sh + 1, 23)}:00`;
+            const [eh, em] = etStr.split(':').map(Number);
+            const startMin = sh * 60 + sm - HOUR_START * 60;
+            const endMin   = eh * 60 + em - HOUR_START * 60;
+            const left     = (startMin / 60) * DH_HOUR_WIDTH;
+            const width    = Math.max(4, ((endMin - startMin) / 60) * DH_HOUR_WIDTH);
+            const locText  = Array.isArray(e.locations) && e.locations.length > 0
+                ? e.locations.join(' / ') : (e.location || '');
+            const cvars = e.cardColor ? `--card-color:${escapeHtml(e.cardColor)};` : '';
+
+            barsHtml += `
+                <div class="dh-event-bar ${escapeHtml(e.category)}"
+                    style="left:${left}px;width:${width}px;${cvars}"
+                    onclick="openDetail(${e.id})" title="${escapeHtml(e.title)}">
+                    <div class="dh-bar-time">${escapeHtml(e.startTime)}~${escapeHtml(etStr)}</div>
+                    <div class="dh-bar-title">${escapeHtml(e.title)}</div>
+                    ${locText ? `<div class="dh-bar-loc">📍 ${escapeHtml(locText)}</div>` : ''}
+                </div>`;
+        });
+
+        rowsHtml += `
+            <div class="dh-data-row">
+                <div class="dh-label-cell">
+                    <div class="dh-label-name">${escapeHtml(loc)}</div>
+                    <span class="dh-event-count${locEvents.length === 0 ? ' dh-count-zero' : ''}">${locEvents.length}</span>
+                </div>
+                <div class="dh-events-area" style="width:${timelineW}px;">${gridHtml}${barsHtml}</div>
+            </div>`;
+    });
+
+    container.innerHTML = `
+        <div class="dh-outer">
+            <div class="dh-header-row">
+                <div class="dh-corner-cell">エリア</div>
+                <div class="dh-time-header" style="width:${timelineW}px;">${timeTicksHtml}</div>
+            </div>
+            ${rowsHtml}
+        </div>`;
+
+    // Current time line
+    const now = new Date();
+    if (currentDayDate.toDateString() === now.toDateString()) {
+        const nowMin  = now.getHours() * 60 + now.getMinutes() - HOUR_START * 60;
+        const nowLeft = (nowMin / 60) * DH_HOUR_WIDTH;
+        container.querySelectorAll('.dh-events-area').forEach(area => {
+            const line = document.createElement('div');
+            line.className = 'dh-now-line';
+            line.style.left = `${nowLeft}px`;
+            area.appendChild(line);
+        });
+    }
+
+    // Scroll to appropriate hour
+    const scrollHour = currentDayDate.toDateString() === now.toDateString()
+        ? Math.max(HOUR_START, now.getHours() - 1) : 8;
+    const dhOuter = container.querySelector('.dh-outer');
+    setTimeout(() => { dhOuter.scrollLeft = (scrollHour - HOUR_START) * DH_HOUR_WIDTH; }, 50);
+}
+
+// ---- DAY VIEW MODE TOGGLE ----
+document.getElementById('day-mode-vert')?.addEventListener('click', () => {
+    if (dayViewMode === 'vertical') return;
+    dayViewMode = 'vertical';
+    document.getElementById('day-mode-vert').classList.add('active');
+    document.getElementById('day-mode-horiz').classList.remove('active');
+    renderDayView();
+});
+
+document.getElementById('day-mode-horiz')?.addEventListener('click', () => {
+    if (dayViewMode === 'horizontal') return;
+    dayViewMode = 'horizontal';
+    document.getElementById('day-mode-horiz').classList.add('active');
+    document.getElementById('day-mode-vert').classList.remove('active');
+    renderDayView();
 });
 
 // ---- MINI CALENDAR PICKER ----
