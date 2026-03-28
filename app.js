@@ -7,7 +7,7 @@ const SNS_LABEL = {
 };
 
 const today = new Date();
-let currentGanttStartDate = new Date(today.getFullYear(), today.getMonth(), 1);
+let currentGanttStartDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 let currentGanttDays = 30;
 let currentDayDate   = new Date();
 let calendarMode     = 'gantt'; // 'gantt' | 'day'
