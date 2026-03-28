@@ -257,7 +257,7 @@ function renderGantt() {
                     <div class="gantt-label-title">${escapeHtml(loc)}</div>
                 </div>
             </div>
-            <div class="gantt-bars-container" style="min-width: ${totalDays * 38}px;">
+            <div class="gantt-bars-container" style="--total-days: ${totalDays}; min-width: ${totalDays * 38}px;">
                 ${showTodayLine ? `<div class="gantt-today-line" style="left:${todayLeft}%"></div>` : ''}
             </div>
         `;
