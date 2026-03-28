@@ -236,7 +236,6 @@ function renderGantt() {
     updateZoomButtons();
 
     container.innerHTML = '';
-    header.innerHTML    = '';
 
     const startDate = new Date(currentGanttStartDate);
     const totalDays = currentGanttDays;
@@ -245,13 +244,15 @@ function renderGantt() {
 
     const todayStr = new Date().toDateString();
 
+    let headerHtml = '<div class="gantt-corner-cell">エリア</div>';
     for (let i = 0; i < totalDays; i++) {
         const d = new Date(startDate);
         d.setDate(d.getDate() + i);
         const isToday = d.toDateString() === todayStr;
         const str = `${d.getMonth() + 1}/${d.getDate()}`;
-        header.innerHTML += `<div class="gantt-day${isToday ? ' gantt-day-today' : ''}">${str}</div>`;
+        headerHtml += `<div class="gantt-day${isToday ? ' gantt-day-today' : ''}">${str}</div>`;
     }
+    header.innerHTML = headerHtml;
 
     // 今日の赤い縦線の位置を計算
     const todayDate = new Date();
@@ -278,16 +279,18 @@ function renderGantt() {
             return eLocs.includes(loc);
         });
 
-        // Skip locations with no visible events in current range if we want,
-        // but it's better to show the track to represent the facility.
-        
+        const visibleCount = trackEvents.filter(e => {
+            const eStart = new Date(e.startDate + 'T00:00:00');
+            const eEnd   = new Date((e.endDate || e.startDate) + 'T00:00:00');
+            return !(eEnd < startDate || eStart > endDate);
+        }).length;
+
         const track = document.createElement('div');
         track.className = 'gantt-track';
         track.innerHTML = `
             <div class="gantt-label">
-                <div class="gantt-label-text">
-                    <div class="gantt-label-title">${escapeHtml(loc)}</div>
-                </div>
+                <div class="gantt-label-title">${escapeHtml(loc)}</div>
+                <span class="gantt-event-count${visibleCount === 0 ? ' count-zero' : ''}">${visibleCount}</span>
             </div>
             <div class="gantt-bars-container" style="--total-days: ${totalDays}; min-width: ${totalDays * ganttDayWidth}px;">
             </div>
