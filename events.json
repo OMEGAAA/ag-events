@@ -80,5 +80,25 @@
     "snsAvailableFrom": "",
     "manager": "",
     "notes": ""
+  },
+  {
+    "id": 5,
+    "title": "test",
+    "date": "3月30日 09:00 - 12:00",
+    "startDate": "2026-03-30",
+    "endDate": "2026-03-30",
+    "startTime": "09:00",
+    "endTime": "12:00",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "cardColor": "#1c1b6f",
+    "locations": [
+      "パワーエリア"
+    ],
+    "participants": "50",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "manager": "testman/アローズ",
+    "notes": ""
   }
 ]
