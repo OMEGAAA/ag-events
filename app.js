@@ -12,6 +12,8 @@ let currentGanttDays = 30;
 let currentDayDate   = new Date();
 let calendarMode     = 'gantt'; // 'gantt' | 'day'
 let dayViewTimer     = null;
+let ganttDayWidth    = 38; // px per day column
+const GANTT_ZOOM_STEPS = [24, 38, 56, 80, 120];
 
 function startDayViewTimer() {
     stopDayViewTimer();
@@ -102,6 +104,17 @@ function renderEvents() {
                 <button class="detail-btn">詳細を見る</button>
             </div>
         `;
+        // 日付エリアをクリックでカレンダーにジャンプ
+        const dateArea = card.querySelector('.list-card-date');
+        if (dateArea) {
+            dateArea.classList.add('lc-date-clickable');
+            dateArea.title = 'カレンダーで確認';
+            dateArea.addEventListener('click', ev => {
+                ev.stopPropagation();
+                openCalendarAtDate(e.startDate);
+            });
+        }
+
         eventGrid.appendChild(card);
     });
 }
@@ -211,6 +224,11 @@ function renderGantt() {
     const header    = document.getElementById('gantt-header-days');
     if (!container || !header) return;
 
+    // ズーム幅をCSS変数に反映
+    document.getElementById('gantt-view-container')
+        ?.style.setProperty('--gantt-day-width', `${ganttDayWidth}px`);
+    updateZoomButtons();
+
     container.innerHTML = '';
     header.innerHTML    = '';
 
@@ -265,7 +283,7 @@ function renderGantt() {
                     <div class="gantt-label-title">${escapeHtml(loc)}</div>
                 </div>
             </div>
-            <div class="gantt-bars-container" style="--total-days: ${totalDays}; min-width: ${totalDays * 38}px;">
+            <div class="gantt-bars-container" style="--total-days: ${totalDays}; min-width: ${totalDays * ganttDayWidth}px;">
             </div>
         `;
         
@@ -507,6 +525,7 @@ document.querySelectorAll('.view-btn').forEach(btn => {
             document.getElementById('day-view-container').style.display   = 'block';
             document.getElementById('gantt-nav').style.display            = 'none';
             document.getElementById('day-nav').style.display              = 'flex';
+            document.getElementById('gantt-zoom-group').style.display     = 'none';
             document.getElementById('calendar-title').textContent         = '1日スケジュール';
             document.getElementById('calendar-desc').textContent          = '選択した日のイベントを時系列で確認できます。';
             renderDayView();
@@ -517,6 +536,7 @@ document.querySelectorAll('.view-btn').forEach(btn => {
             document.getElementById('day-view-container').style.display   = 'none';
             document.getElementById('gantt-nav').style.display            = 'flex';
             document.getElementById('day-nav').style.display              = 'none';
+            document.getElementById('gantt-zoom-group').style.display     = 'flex';
             document.getElementById('calendar-title').textContent         = '月間スケジュール';
             document.getElementById('calendar-desc').textContent          = '現在予定されている社内イベントのスケジュール進行（ガントチャート）です。';
             currentGanttDays = days;
@@ -525,6 +545,63 @@ document.querySelectorAll('.view-btn').forEach(btn => {
         }
     });
 });
+
+// ---- ZOOM ----
+function updateZoomButtons() {
+    const idx = GANTT_ZOOM_STEPS.indexOf(ganttDayWidth);
+    const outBtn = document.getElementById('gantt-zoom-out');
+    const inBtn  = document.getElementById('gantt-zoom-in');
+    if (outBtn) outBtn.disabled = idx <= 0;
+    if (inBtn)  inBtn.disabled  = idx >= GANTT_ZOOM_STEPS.length - 1;
+}
+
+document.getElementById('gantt-zoom-in')?.addEventListener('click', () => {
+    const idx = GANTT_ZOOM_STEPS.indexOf(ganttDayWidth);
+    if (idx < GANTT_ZOOM_STEPS.length - 1) {
+        ganttDayWidth = GANTT_ZOOM_STEPS[idx + 1];
+        renderGantt();
+    }
+});
+
+document.getElementById('gantt-zoom-out')?.addEventListener('click', () => {
+    const idx = GANTT_ZOOM_STEPS.indexOf(ganttDayWidth);
+    if (idx > 0) {
+        ganttDayWidth = GANTT_ZOOM_STEPS[idx - 1];
+        renderGantt();
+    }
+});
+
+// ---- DATE JUMP ----
+function openCalendarAtDate(dateStr) {
+    const target = new Date(dateStr + 'T00:00:00');
+    // 対象日付が左から少し余白を持って見えるよう開始日を調整
+    const offset = Math.max(1, Math.floor(currentGanttDays * 0.1));
+    const start  = new Date(target);
+    start.setDate(target.getDate() - offset);
+    currentGanttStartDate = start;
+    calendarMode = 'gantt';
+
+    stopDayViewTimer();
+    navHome.classList.remove('active');
+    navCalendar.classList.add('active');
+    viewHome.style.display = 'none';
+    viewCal.style.display  = 'block';
+
+    document.getElementById('gantt-view-container').style.display = 'block';
+    document.getElementById('day-view-container').style.display   = 'none';
+    document.getElementById('gantt-nav').style.display            = 'flex';
+    document.getElementById('day-nav').style.display              = 'none';
+    document.getElementById('gantt-zoom-group').style.display     = 'flex';
+    document.getElementById('calendar-title').textContent         = '月間スケジュール';
+    document.getElementById('calendar-desc').textContent          = '現在予定されている社内イベントのスケジュール進行（ガントチャート）です。';
+
+    document.querySelectorAll('.view-btn').forEach(b => {
+        b.classList.toggle('active', parseInt(b.dataset.days) === currentGanttDays);
+    });
+
+    updateGanttDateLabel();
+    renderGantt();
+}
 
 // ---- NAVIGATION ----
 const navHome     = document.getElementById('nav-home');
