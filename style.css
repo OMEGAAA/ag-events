@@ -1,12 +1,12 @@
 :root {
-    --bg-color: #0f172a; /* Slate 900 */
-    --surface-color: rgba(30, 41, 59, 0.7); /* Slate 800 with opacity */
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
+    --bg-color: #f8fafc;
+    --surface-color: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
     --accent-red: #ef4444;
-    --accent-blue: #3b82f6;
-    --accent-purple: #8b5cf6;
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent-blue: #2563eb;
+    --accent-purple: #7c3aed;
+    --glass-border: #e2e8f0;
 }
 
 * {
@@ -24,46 +24,11 @@ body {
     position: relative;
 }
 
-/* Background Animated Orbs */
-.background-elements {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: -1;
-    overflow: hidden;
-}
-.orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.5;
-    animation: float 20s infinite ease-in-out;
-}
-.orb-1 {
-    width: 400px; height: 400px;
-    background: var(--accent-purple);
-    top: -100px; left: -100px;
-}
-.orb-2 {
-    width: 500px; height: 500px;
-    background: var(--accent-blue);
-    bottom: -200px; right: -100px;
-    animation-delay: -5s;
-}
-.orb-3 {
-    width: 300px; height: 300px;
-    background: var(--accent-red);
-    top: 40%; left: 40%;
-    animation-delay: -10s;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-30px) scale(1.1); }
-}
+/* Background Animated Orbs (Removed) */
 
 /* Header */
 .glass-header {
-    background: rgba(15, 23, 42, 0.5);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--glass-border);
@@ -140,10 +105,7 @@ main {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #fff, #94a3b8);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-primary);
 }
 .hero p {
     font-size: 1.25rem;
@@ -178,19 +140,18 @@ main {
     margin-bottom: 3rem;
 }
 .filter-btn {
-    background: var(--surface-color);
+    background: #ffffff;
     border: 1px solid var(--glass-border);
     color: var(--text-secondary);
     padding: 0.5rem 1.5rem;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s;
-    backdrop-filter: blur(10px);
 }
 .filter-btn:hover, .filter-btn.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-primary);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: #f1f5f9;
+    color: var(--accent-blue);
+    border-color: #cbd5e1;
 }
 
 /* ---- HOME LIST VIEW ---- */
@@ -201,7 +162,7 @@ main {
 }
 
 .home-list-card {
-    background: var(--surface-color);
+    background: #ffffff;
     border: 1px solid var(--glass-border);
     border-radius: 12px;
     padding: 1.5rem;
@@ -212,12 +173,12 @@ main {
     transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 }
 .home-list-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-    border-color: rgba(255,255,255,0.25);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    border-color: #cbd5e1;
 }
 .home-list-card::before {
     content: '';
@@ -235,7 +196,7 @@ main {
 .list-card-date {
     min-width: 140px;
     flex-shrink: 0;
-    border-right: 1px solid rgba(255,255,255,0.15);
+    border-right: 1px solid var(--glass-border);
     padding-right: 1.5rem;
 }
 .lc-date { font-size: 1.25rem; font-weight: 700; color: var(--accent-blue); letter-spacing: 0.05em; }
@@ -249,14 +210,15 @@ main {
 }
 .lc-badges { display: flex; align-items: center; gap: 0.75rem; }
 .category-badge {
-    background: rgba(0,0,0,0.4);
+    background: #f1f5f9;
     padding: 0.25rem 0.6rem;
     border-radius: 8px;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
 }
 .lc-title { font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.3; }
 .lc-meta {
@@ -271,19 +233,20 @@ main {
     flex-shrink: 0;
 }
 .detail-btn {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: white;
+    background: #ffffff;
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
     padding: 0.6rem 1.25rem;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
     font-weight: 500;
     white-space: nowrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 .detail-btn:hover {
-    background: white;
-    color: black;
+    background: #f8fafc;
+    border-color: #cbd5e1;
     transform: scale(1.03);
 }
 
@@ -300,27 +263,23 @@ main {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #fff, #94a3b8);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-primary);
 }
 .gantt-header p {
     color: var(--text-secondary);
 }
 .gantt-view-container {
-    background: var(--surface-color);
+    background: #ffffff;
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 2rem;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
     overflow-x: auto;
 }
 .gantt-timeline-header {
     display: flex;
     margin-left: 250px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid var(--glass-border);
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
     min-width: fit-content;
@@ -351,8 +310,8 @@ main {
 .gantt-label-icon {
     width: 40px;
     height: 40px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: #f1f5f9;
+    border: 1px solid var(--glass-border);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -380,10 +339,10 @@ main {
     flex: 1;
     min-width: 0;
     height: 60px;
-    background-color: rgba(255,255,255,0.02);
-    background-image: linear-gradient(to right, transparent calc(100% - 1px), rgba(255, 255, 255, 0.08) calc(100% - 1px));
+    background-color: #f8fafc;
+    background-image: linear-gradient(to right, transparent calc(100% - 1px), #e2e8f0 calc(100% - 1px));
     background-size: calc(100% / var(--total-days, 30)) 100%;
-    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 1px solid #e2e8f0;
     border-radius: 4px;
     position: relative;
     overflow: hidden;
@@ -473,16 +432,16 @@ main {
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: var(--surface-color);
+    background: #ffffff;
     padding: 0.5rem 1.5rem;
     border-radius: 12px;
     border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 .icon-btn {
     background: none;
     border: none;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
@@ -500,7 +459,7 @@ main {
     gap: 0.5rem;
 }
 .view-btn {
-    background: var(--surface-color);
+    background: #ffffff;
     border: 1px solid var(--glass-border);
     color: var(--text-secondary);
     padding: 0.5rem 1rem;
@@ -508,20 +467,19 @@ main {
     cursor: pointer;
     transition: all 0.3s;
     font-size: 0.9rem;
-    backdrop-filter: blur(10px);
 }
 .view-btn:hover, .view-btn.active {
-    background: rgba(255,255,255,0.1);
-    color: var(--text-primary);
-    border-color: rgba(255,255,255,0.3);
+    background: #f1f5f9;
+    color: var(--accent-blue);
+    border-color: #cbd5e1;
 }
 
 /* "other" category (custom) */
-.visual-gradient.other { background: linear-gradient(135deg, #64748b, #475569); }
-.gantt-bar.other        { background: rgba(255, 255, 255, 0.9); border: 1px solid #94a3b8; color: #94a3b8; }
-.category-badge.other   { background: rgba(100,116,139,0.2); color: #cbd5e1; }
-.day-event-block.other  { background: linear-gradient(135deg, #64748b, #475569); }
-.day-allday-event.other { background: rgba(100,116,139,0.3); }
+.visual-gradient.other { background: linear-gradient(135deg, #94a3b8, #64748b); }
+.gantt-bar.other        { background: #ffffff; border: 1px solid #94a3b8; color: #94a3b8; }
+.category-badge.other   { background: #f1f5f9; color: var(--text-secondary); border: 1px solid var(--glass-border); }
+.day-event-block.other  { background: linear-gradient(135deg, #94a3b8, #64748b); }
+.day-allday-event.other { background: rgba(100,116,139,0.1); }
 
 /* Card time + detail button */
 .event-time {
@@ -530,8 +488,8 @@ main {
     margin-bottom: 0.4rem;
 }
 .detail-btn {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.18);
+    background: #ffffff;
+    border: 1px solid var(--glass-border);
     color: var(--text-secondary);
     padding: 0.45rem 0.9rem;
     border-radius: 8px;
@@ -540,9 +498,11 @@ main {
     font-weight: 500;
     transition: all 0.25s;
     font-family: inherit;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 .detail-btn:hover {
-    background: rgba(255,255,255,0.15);
+    background: #f8fafc;
+    border-color: #cbd5e1;
     color: var(--text-primary);
 }
 .event-notes {
@@ -564,8 +524,8 @@ main {
     padding: 1rem;
 }
 .detail-modal {
-    background: #1e293b;
-    border: 1px solid rgba(255,255,255,0.1);
+    background: #ffffff;
+    border: 1px solid var(--glass-border);
     border-radius: 20px;
     width: 100%;
     max-width: 540px;
@@ -573,12 +533,13 @@ main {
     overflow-y: auto;
     position: relative;
     animation: fadeIn 0.3s ease-out;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
 }
 .detail-close {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.05);
     border: none;
     color: var(--text-primary);
     width: 32px;
@@ -589,7 +550,7 @@ main {
     z-index: 1;
     transition: background 0.2s;
 }
-.detail-close:hover { background: rgba(255,255,255,0.2); }
+.detail-close:hover { background: rgba(0,0,0,0.1); }
 
 .detail-banner {
     height: 140px;
@@ -651,7 +612,7 @@ main {
     font-weight: 500;
 }
 .detail-notes {
-    background: rgba(255,255,255,0.04);
+    background: #f8fafc;
     border-radius: 8px;
     padding: 0.75rem;
     color: var(--text-secondary);
@@ -660,14 +621,14 @@ main {
 }
 .detail-actions {
     padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid var(--glass-border);
     text-align: right;
 }
 
 /* ---- 1日 VIEW ---- */
 #day-view-container {
-    background: var(--surface-color);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: #ffffff;
+    border: 1px solid var(--glass-border);
     border-radius: 20px;
     overflow: hidden;
 }
@@ -677,7 +638,7 @@ main {
     align-items: flex-start;
     gap: 0;
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid var(--glass-border);
     min-height: 44px;
 }
 .day-allday-label {
@@ -726,15 +687,15 @@ main {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: var(--surface-color);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: #ffffff;
+    border-bottom: 1px solid var(--glass-border);
 }
 .day-time-label {
     height: 60px;
     font-size: 0.72rem;
     color: var(--text-secondary);
     padding: 4px 8px 0 0;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid var(--glass-border);
     box-sizing: border-box;
 }
 
@@ -747,7 +708,7 @@ main {
 .day-location-col {
     flex: 1;
     min-width: 160px;
-    border-left: 1px solid rgba(255,255,255,0.08);
+    border-left: 1px solid var(--glass-border);
     display: flex;
     flex-direction: column;
 }
@@ -763,10 +724,8 @@ main {
     font-size: 0.78rem;
     font-weight: 600;
     color: var(--text-secondary);
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: #f8fafc;
+    border-bottom: 1px solid var(--glass-border);
     letter-spacing: 0.04em;
     flex-shrink: 0;
     padding: 0 0.5rem;
@@ -782,7 +741,7 @@ main {
 }
 .day-time-slot {
     height: 60px;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid var(--glass-border);
     box-sizing: border-box;
 }
 
@@ -847,19 +806,19 @@ main {
     letter-spacing: 0.02em;
 }
 .sns-allowed {
-    background: rgba(16, 185, 129, 0.18);
-    border: 1px solid rgba(16, 185, 129, 0.4);
-    color: #6ee7b7;
+    background: #d1fae5;
+    border: 1px solid #34d399;
+    color: #065f46;
 }
 .sns-not-allowed {
-    background: rgba(239, 68, 68, 0.18);
-    border: 1px solid rgba(239, 68, 68, 0.4);
-    color: #fca5a5;
+    background: #fee2e2;
+    border: 1px solid #f87171;
+    color: #991b1b;
 }
 .sns-pending {
-    background: rgba(245, 158, 11, 0.18);
-    border: 1px solid rgba(245, 158, 11, 0.4);
-    color: #fcd34d;
+    background: #fef3c7;
+    border: 1px solid #fbbf24;
+    color: #92400e;
 }
 .sns-date-hint {
     font-size: 0.75rem;
@@ -878,8 +837,8 @@ main {
 }
 
 .agenda-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
+    background: #ffffff;
+    border: 1px solid var(--glass-border);
     border-radius: 12px;
     padding: 1rem;
     position: relative;
@@ -889,10 +848,11 @@ main {
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 .agenda-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
 }
 
 .agenda-card::before {
@@ -902,7 +862,7 @@ main {
     top: 0;
     bottom: 0;
     width: 6px;
-    background-color: var(--card-color, rgba(255,255,255,0.1));
+    background-color: var(--card-color, transparent);
 }
 
 .agenda-card.health::before   { background-color: var(--card-color, #10b981); }
@@ -937,7 +897,7 @@ main {
     }
     .list-card-date {
         border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,0.15);
+        border-bottom: 1px solid var(--glass-border);
         padding-right: 0;
         padding-bottom: 0.75rem;
         width: 100%;
