@@ -272,41 +272,112 @@ const SNS_LABEL = {
     'pending':     { text: '要確認',  cls: 'sns-pending' }
 };
 
+// ---- DATE ROWS ----
+
+function getEventDateRanges(ev) {
+    if (Array.isArray(ev.dates) && ev.dates.length > 0) {
+        return ev.dates.map(d => ({
+            startDate: d.startDate,
+            endDate:   d.endDate   || d.startDate,
+            startTime: d.startTime || '',
+            endTime:   d.endTime   || '',
+        }));
+    }
+    return [{
+        startDate: ev.startDate || '',
+        endDate:   ev.endDate   || ev.startDate || '',
+        startTime: ev.startTime || '',
+        endTime:   ev.endTime   || '',
+    }];
+}
+
+function addDateRow(dateData = {}) {
+    const list = document.getElementById('f-dates-list');
+    const num  = list.children.length + 1;
+    const row  = document.createElement('div');
+    row.className = 'date-row';
+    row.innerHTML = `
+        <div class="date-row-header">
+            <span class="date-row-num">日程 ${num}</span>
+            <button type="button" class="btn-icon-remove" onclick="removeDateRow(this)" title="削除">✕</button>
+        </div>
+        <div class="date-row-fields">
+            <div class="form-group">
+                <label>開始日 <span class="required">※</span></label>
+                <input type="date" class="f-date-start" value="${escapeHtml(dateData.startDate || '')}">
+            </div>
+            <div class="form-group">
+                <label>終了日</label>
+                <input type="date" class="f-date-end" value="${escapeHtml(dateData.endDate && dateData.endDate !== dateData.startDate ? dateData.endDate : '')}">
+            </div>
+            <div class="form-group">
+                <label>開始時刻</label>
+                <input type="time" class="f-date-starttime" value="${escapeHtml(dateData.startTime || '')}">
+            </div>
+            <div class="form-group">
+                <label>終了時刻</label>
+                <input type="time" class="f-date-endtime" value="${escapeHtml(dateData.endTime || '')}">
+            </div>
+        </div>
+    `;
+    list.appendChild(row);
+    updateDateRowLabels();
+}
+
+function removeDateRow(btn) {
+    const list = document.getElementById('f-dates-list');
+    if (list.children.length <= 1) { alert('少なくとも1つの日程が必要です'); return; }
+    btn.closest('.date-row').remove();
+    updateDateRowLabels();
+}
+
+function updateDateRowLabels() {
+    document.querySelectorAll('#f-dates-list .date-row').forEach((row, i) => {
+        const label = row.querySelector('.date-row-num');
+        if (label) label.textContent = `日程 ${i + 1}`;
+    });
+}
+
+function clearDateRows() {
+    document.getElementById('f-dates-list').innerHTML = '';
+    addDateRow();
+}
+
+function getDatesFromForm() {
+    return Array.from(document.querySelectorAll('#f-dates-list .date-row'))
+        .map(row => ({
+            startDate: row.querySelector('.f-date-start').value.trim(),
+            endDate:   row.querySelector('.f-date-end').value.trim(),
+            startTime: row.querySelector('.f-date-starttime').value.trim(),
+            endTime:   row.querySelector('.f-date-endtime').value.trim(),
+        }))
+        .filter(d => d.startDate);
+}
+
 function checkOverlaps(targetEvent, allEvents) {
+    const targetRanges = getEventDateRanges(targetEvent);
+    const parseTime = (tStr, isEnd) => {
+        if (!tStr) return isEnd ? 24 * 60 : 0;
+        const parts = tStr.split(':').map(Number);
+        return parts[0] * 60 + parts[1];
+    };
+
     return allEvents.filter(e => {
-        // 自分自身は除外
         if (e.id === targetEvent.id) return false;
 
-        // 1. 場所の被りチェック（どちらか空、または「その他」のみは除外）
         const locsT = Array.isArray(targetEvent.locations) ? targetEvent.locations : (targetEvent.location ? [targetEvent.location] : []);
         const locsE = Array.isArray(e.locations) ? e.locations : (e.location ? [e.location] : []);
         const sharedLocs = locsT.filter(l => l !== 'その他' && locsE.includes(l));
         if (sharedLocs.length === 0) return false;
 
-        // 2. 日付の被りチェック
-        const tStart = targetEvent.startDate;
-        const tEnd = targetEvent.endDate || targetEvent.startDate;
-        const eStart = e.startDate;
-        const eEnd = e.endDate || e.startDate;
-        if (tStart > eEnd || tEnd < eStart) return false;
-
-        // 3. 時間帯の被りチェック
-        if (!targetEvent.startTime || !e.startTime) return true; // 終日イベントがあれば重なりとみなす
-
-        const parseTime = (tStr, isEnd) => {
-            if (!tStr) return isEnd ? 24 * 60 : 0;
-            const parts = tStr.split(':').map(Number);
-            return parts[0] * 60 + parts[1];
-        };
-        const tTimeStart = parseTime(targetEvent.startTime, false);
-        const tTimeEnd   = parseTime(targetEvent.endTime, true);
-        const eTimeStart = parseTime(e.startTime, false);
-        const eTimeEnd   = parseTime(e.endTime, true);
-
-        // 重ならない条件: 前者が後者の開始以下、または前者の開始が後者の終了以上
-        if (tTimeEnd <= eTimeStart || tTimeStart >= eTimeEnd) return false;
-
-        return true;
+        const eRanges = getEventDateRanges(e);
+        return targetRanges.some(tR => eRanges.some(eR => {
+            if (tR.startDate > eR.endDate || tR.endDate < eR.startDate) return false;
+            if (!tR.startTime || !eR.startTime) return true;
+            const tS = parseTime(tR.startTime, false), tE = parseTime(tR.endTime, true);
+            const eS = parseTime(eR.startTime, false), eE = parseTime(eR.endTime, true);
+            return !(tE <= eS || tS >= eE);
+        }));
     });
 }
 
@@ -386,11 +457,12 @@ function openEditModal(id) {
     document.getElementById('modal-title').textContent = 'イベントを編集';
 
     document.getElementById('f-title').value          = event.title;
-    document.getElementById('f-startDate').value      = event.startDate;
-    document.getElementById('f-endDate').value        = (event.endDate && event.endDate !== event.startDate) ? event.endDate : '';
-    document.getElementById('f-startTime').value      = event.startTime || '';
-    document.getElementById('f-endTime').value        = event.endTime   || '';
     document.getElementById('f-category-input').value = event.categoryText || '';
+
+    // 日程（複数対応）
+    const datesList = document.getElementById('f-dates-list');
+    datesList.innerHTML = '';
+    getEventDateRanges(event).forEach(d => addDateRow(d));
     document.getElementById('f-card-color').value     = event.cardColor || '#000000';
     document.getElementById('f-participants').value   = event.participants || '';
     document.getElementById('f-manager').value        = event.manager || '';
@@ -425,14 +497,14 @@ function getCategoryClass(text) {
 }
 
 function clearForm() {
-    ['f-title','f-startDate','f-endDate','f-startTime','f-endTime',
-     'f-category-input','f-participants','f-sns-date','f-manager','f-notes']
+    ['f-title', 'f-category-input', 'f-participants', 'f-sns-date', 'f-manager', 'f-notes']
         .forEach(id => { document.getElementById(id).value = ''; });
     document.getElementById('f-card-color').value = '#000000';
     document.querySelectorAll('.location-checkbox').forEach(cb => { cb.checked = false; });
     const defaultSns = document.querySelector('input[name="f-sns"][value="not-allowed"]');
     if (defaultSns) defaultSns.checked = true;
     document.getElementById('sns-date-row').style.display = 'none';
+    clearDateRows();
 }
 
 function toggleSnsDate() {
@@ -441,18 +513,33 @@ function toggleSnsDate() {
 }
 
 function saveEvent() {
-    const title     = document.getElementById('f-title').value.trim();
-    const startDate = document.getElementById('f-startDate').value.trim();
+    const title = document.getElementById('f-title').value.trim();
+    if (!title) { alert('タイトルを入力してください'); return; }
 
-    if (!title)     { alert('タイトルを入力してください'); return; }
-    if (!startDate) { alert('開始日を選択してください'); return; }
+    const datesFromForm = getDatesFromForm();
+    if (datesFromForm.length === 0) { alert('開始日を選択してください'); return; }
 
-    const endDate      = document.getElementById('f-endDate').value.trim() || startDate;
-    const startTime    = document.getElementById('f-startTime').value.trim();
-    const endTime      = document.getElementById('f-endTime').value.trim();
+    // 日程を開始日順に正規化
+    const dates = datesFromForm
+        .map(d => ({ startDate: d.startDate, endDate: d.endDate || d.startDate, startTime: d.startTime, endTime: d.endTime }))
+        .sort((a, b) => a.startDate.localeCompare(b.startDate));
+
+    // 後方互換用レガシーフィールド
+    const startDate = dates[0].startDate;
+    const endDate   = dates[dates.length - 1].endDate;
+    const startTime = dates[0].startTime;
+    const endTime   = dates[0].endTime;
+
+    // 管理画面テーブル用の表示テキスト
+    const fmt = (s) => { const d = new Date(s + 'T00:00:00'); return `${d.getMonth()+1}月${d.getDate()}日`; };
+    const fmtRange = (d) => {
+        const r = d.endDate !== d.startDate ? `${fmt(d.startDate)}〜${fmt(d.endDate)}` : fmt(d.startDate);
+        return d.startTime ? `${r} ${d.startTime}${d.endTime ? '〜'+d.endTime : ''}` : r;
+    };
+    const date = dates.length === 1 ? fmtRange(dates[0]) : `${fmt(dates[0].startDate)} 他${dates.length - 1}件`;
+
     const categoryText = document.getElementById('f-category-input').value.trim() || 'その他';
     const category     = getCategoryClass(categoryText);
-
     const locations    = Array.from(document.querySelectorAll('.location-checkbox:checked')).map(cb => cb.value);
     const participants = document.getElementById('f-participants').value.trim();
     const snsPR        = document.querySelector('input[name="f-sns"]:checked')?.value || 'not-allowed';
@@ -462,23 +549,15 @@ function saveEvent() {
     let cardColor      = document.getElementById('f-card-color').value;
     if (cardColor === '#000000') cardColor = '';
 
-    // 日付・時刻の表示テキストを自動生成
-    const fmt = (s) => { const d = new Date(s + 'T00:00:00'); return `${d.getMonth()+1}月${d.getDate()}日`; };
-    let date = endDate !== startDate ? `${fmt(startDate)} - ${fmt(endDate)}` : fmt(startDate);
-    if (startTime) date += ` ${startTime}${endTime ? ' - ' + endTime : ''}`;
+    const tempId    = editingId !== null ? editingId : -1;
+    const eventData = { id: tempId, title, date, dates, startDate, endDate, startTime, endTime, category, categoryText, cardColor, locations, participants, snsPR, snsAvailableFrom, manager, notes };
 
-    const tempId = editingId !== null ? editingId : -1;
-    const eventData = { id: tempId, title, date, startDate, endDate, startTime, endTime, category, categoryText, cardColor, locations, participants, snsPR, snsAvailableFrom, manager, notes };
-
-    // 保存前の重複チェック
     const overlaps = checkOverlaps(eventData, events);
     if (overlaps.length > 0) {
-        const msg = `⚠️ ブッキング警告\n\n以下のイベントと場所・日時の予約が重なっています:\n` 
-            + overlaps.map(o => `・${o.title}`).join('\n') 
+        const msg = `⚠️ ブッキング警告\n\n以下のイベントと場所・日時の予約が重なっています:\n`
+            + overlaps.map(o => `・${o.title}`).join('\n')
             + `\n\nこのまま保存（登録）してよろしいでしょうか？`;
-        if (!confirm(msg)) {
-            return; // 保存中止
-        }
+        if (!confirm(msg)) return;
     }
 
     if (editingId !== null) {

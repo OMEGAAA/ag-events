@@ -45,6 +45,17 @@ function escapeHtml(str) {
         .replace(/"/g, '&quot;');
 }
 
+// ---- MULTI-DATE HELPERS ----
+function getEventDates(e) {
+    if (Array.isArray(e.dates) && e.dates.length > 0) return e.dates;
+    return [{ startDate: e.startDate, endDate: e.endDate || e.startDate, startTime: e.startTime, endTime: e.endTime }];
+}
+
+function getMatchingDateEntry(e, dayStr) {
+    return getEventDates(e).find(d => d.startDate <= dayStr && (d.endDate || d.startDate) >= dayStr)
+        || getEventDates(e)[0];
+}
+
 // ---- FETCH ----
 async function init() {
     try {
@@ -64,7 +75,7 @@ function renderEvents() {
     if (!eventGrid) return;
     eventGrid.innerHTML = '';
 
-    const filtered = [...events].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+    const filtered = [...events].sort((a, b) => new Date(getEventDates(a)[0].startDate) - new Date(getEventDates(b)[0].startDate));
 
     if (filtered.length === 0) {
         eventGrid.innerHTML = '<p style="text-align:center;color:var(--text-secondary);padding:4rem 0;grid-column:1/-1;">イベントがありません</p>';
@@ -78,9 +89,22 @@ function renderEvents() {
         const participantsText = e.participants || e.capacity || '';
         const isFull   = participantsText.includes('満席');
         const btnText  = isFull ? 'キャンセル待ち' : '予約する';
-        const timeText = e.startTime
-            ? `${e.startTime}${e.endTime ? ' 〜 ' + e.endTime : ''}`
-            : '';
+
+        // 複数日程の表示HTML
+        const fmtD  = (s) => { const d = new Date(s + 'T00:00:00'); return `${d.getMonth()+1}月${d.getDate()}日`; };
+        const eDates = getEventDates(e);
+        const dateHtml = eDates.length === 1
+            ? (() => {
+                const d = eDates[0];
+                const ds = d.endDate && d.endDate !== d.startDate ? `${fmtD(d.startDate)}〜${fmtD(d.endDate)}` : fmtD(d.startDate);
+                const ts = d.startTime ? `${d.startTime}${d.endTime ? ' 〜 ' + d.endTime : ''}` : '';
+                return `<div class="lc-date">${escapeHtml(ds)}</div>${ts ? `<div class="lc-time">${escapeHtml(ts)}</div>` : ''}`;
+              })()
+            : `<div class="lc-date-multi">${eDates.map(d => {
+                const ds = d.endDate && d.endDate !== d.startDate ? `${fmtD(d.startDate)}〜${fmtD(d.endDate)}` : fmtD(d.startDate);
+                const ts = d.startTime ? `<span class="lc-multi-time"> ${d.startTime}${d.endTime ? '〜'+d.endTime : ''}</span>` : '';
+                return `<div class="lc-multi-date">${escapeHtml(ds)}${ts}</div>`;
+              }).join('')}</div>`;
 
         const card = document.createElement('div');
         card.className = `home-list-card ${escapeHtml(e.category)} fade-in`;
@@ -91,8 +115,7 @@ function renderEvents() {
 
         card.innerHTML = `
             <div class="list-card-date">
-                <div class="lc-date">${escapeHtml(e.date)}</div>
-                ${timeText ? `<div class="lc-time">${escapeHtml(timeText)}</div>` : ''}
+                ${dateHtml}
             </div>
             <div class="list-card-body">
                 <div class="lc-badges">
@@ -134,9 +157,12 @@ function openDetail(id) {
         ? e.locations.map(l => `<span class="detail-loc-tag">${escapeHtml(l)}</span>`).join('')
         : (e.location ? `<span class="detail-loc-tag">${escapeHtml(e.location)}</span>` : '');
 
-    const timeRange = e.startTime
-        ? `${escapeHtml(e.startTime)}${e.endTime ? ' 〜 ' + escapeHtml(e.endTime) : ''}`
-        : '';
+    const fmtD2 = (s) => { const d = new Date(s + 'T00:00:00'); return `${d.getMonth()+1}月${d.getDate()}日`; };
+    const datesHtml = getEventDates(e).map(d => {
+        const ds = d.endDate && d.endDate !== d.startDate ? `${fmtD2(d.startDate)}〜${fmtD2(d.endDate)}` : fmtD2(d.startDate);
+        const ts = d.startTime ? `${d.startTime}${d.endTime ? ' 〜 ' + d.endTime : ''}` : '';
+        return `<div class="detail-date-entry">${escapeHtml(ds)}${ts ? ` <span class="detail-time">${escapeHtml(ts)}</span>` : ''}</div>`;
+    }).join('');
         
     const visualStyle = e.cardColor ? `style="background: ${escapeHtml(e.cardColor)} !important;"` : '';
 
@@ -148,10 +174,7 @@ function openDetail(id) {
             <div class="detail-grid">
                 <div class="detail-row">
                     <div class="detail-label">日程</div>
-                    <div class="detail-value">
-                        ${escapeHtml(e.date)}
-                        ${timeRange ? `<span class="detail-time">${timeRange}</span>` : ''}
-                    </div>
+                    <div class="detail-value">${datesHtml}</div>
                 </div>
                 ${locHtml ? `
                 <div class="detail-row">
@@ -279,11 +302,13 @@ function renderGantt() {
             return eLocs.includes(loc);
         });
 
-        const visibleCount = trackEvents.filter(e => {
-            const eStart = new Date(e.startDate + 'T00:00:00');
-            const eEnd   = new Date((e.endDate || e.startDate) + 'T00:00:00');
-            return !(eEnd < startDate || eStart > endDate);
-        }).length;
+        const visibleCount = trackEvents.filter(e =>
+            getEventDates(e).some(d => {
+                const eStart = new Date(d.startDate + 'T00:00:00');
+                const eEnd   = new Date((d.endDate || d.startDate) + 'T00:00:00');
+                return !(eEnd < startDate || eStart > endDate);
+            })
+        ).length;
 
         const track = document.createElement('div');
         track.className = 'gantt-track';
@@ -299,55 +324,55 @@ function renderGantt() {
         const barsContainer = track.querySelector('.gantt-bars-container');
 
         trackEvents
-            .sort((a, b) => new Date(a.startDate + 'T00:00:00') - new Date(b.startDate + 'T00:00:00'))
+            .sort((a, b) => new Date(getEventDates(a)[0].startDate + 'T00:00:00') - new Date(getEventDates(b)[0].startDate + 'T00:00:00'))
             .forEach(e => {
-                const eStart = new Date(e.startDate + 'T00:00:00');
-                let eEnd = new Date((e.endDate || e.startDate) + 'T00:00:00');
-                if (eStart > eEnd) eEnd = eStart;
-                if (eEnd < startDate || eStart > endDate) return;
-
-                // 時刻による日内フラクション（例: 10:30 → 10.5/24）
-                let startFrac = 0, endFrac = 1;
-                if (e.startTime) {
-                    const [sh, sm] = e.startTime.split(':').map(Number);
-                    startFrac = (sh * 60 + sm) / 1440;
-                }
-                if (e.endTime) {
-                    const [eh, em] = e.endTime.split(':').map(Number);
-                    endFrac = (eh * 60 + em) / 1440;
-                }
-
-                const startDiff = (eStart - startDate) / 86400000;
-                const endDiff   = (eEnd   - startDate) / 86400000;
-                const leftFrac  = Math.max(0,         startDiff + startFrac);
-                const rightFrac = Math.min(totalDays, endDiff   + endFrac);
-                if (rightFrac <= leftFrac) return;
-
-                const left  = (leftFrac / totalDays) * 100;
-                const width = ((rightFrac - leftFrac) / totalDays) * 100;
-                const lFade  = eStart < startDate ? 'border-top-left-radius:0;border-bottom-left-radius:0;opacity:0.7;' : '';
-                const rFade  = eEnd   > endDate   ? 'border-top-right-radius:0;border-bottom-right-radius:0;opacity:0.7;' : '';
-
-                const colorVars = e.cardColor ? `--card-color: ${escapeHtml(e.cardColor)};` : '';
-
-                const timeText = e.startTime
-                    ? `${e.startTime}${e.endTime ? '~' + e.endTime : ''}`
-                    : '';
                 const locText = Array.isArray(e.locations) && e.locations.length > 0
                     ? e.locations.join(' / ')
                     : (e.location || '');
+                const colorVars = e.cardColor ? `--card-color: ${escapeHtml(e.cardColor)};` : '';
 
-                const barHtml = `
-                    <div class="gantt-bar ${escapeHtml(e.category)}"
-                        style="left:${left}%;width:${width}%;${lFade}${rFade}${colorVars}"
-                        title="${escapeHtml(e.title)}"
-                        onclick="openDetail(${e.id})">
-                        ${timeText ? `<div class="gantt-bar-time">${escapeHtml(timeText)}</div>` : ''}
-                        <div class="gantt-bar-title">${escapeHtml(e.title)}</div>
-                        ${locText ? `<div class="gantt-bar-loc">📍 ${escapeHtml(locText)}</div>` : ''}
-                    </div>
-                `;
-                barsContainer.insertAdjacentHTML('beforeend', barHtml);
+                getEventDates(e).forEach(dateEntry => {
+                    const eStart = new Date(dateEntry.startDate + 'T00:00:00');
+                    let eEnd = new Date((dateEntry.endDate || dateEntry.startDate) + 'T00:00:00');
+                    if (eStart > eEnd) eEnd = eStart;
+                    if (eEnd < startDate || eStart > endDate) return;
+
+                    let startFrac = 0, endFrac = 1;
+                    if (dateEntry.startTime) {
+                        const [sh, sm] = dateEntry.startTime.split(':').map(Number);
+                        startFrac = (sh * 60 + sm) / 1440;
+                    }
+                    if (dateEntry.endTime) {
+                        const [eh, em] = dateEntry.endTime.split(':').map(Number);
+                        endFrac = (eh * 60 + em) / 1440;
+                    }
+
+                    const startDiff = (eStart - startDate) / 86400000;
+                    const endDiff   = (eEnd   - startDate) / 86400000;
+                    const leftFrac  = Math.max(0,         startDiff + startFrac);
+                    const rightFrac = Math.min(totalDays, endDiff   + endFrac);
+                    if (rightFrac <= leftFrac) return;
+
+                    const left  = (leftFrac / totalDays) * 100;
+                    const width = ((rightFrac - leftFrac) / totalDays) * 100;
+                    const lFade = eStart < startDate ? 'border-top-left-radius:0;border-bottom-left-radius:0;opacity:0.7;' : '';
+                    const rFade = eEnd   > endDate   ? 'border-top-right-radius:0;border-bottom-right-radius:0;opacity:0.7;' : '';
+                    const timeText = dateEntry.startTime
+                        ? `${dateEntry.startTime}${dateEntry.endTime ? '~' + dateEntry.endTime : ''}`
+                        : '';
+
+                    const barHtml = `
+                        <div class="gantt-bar ${escapeHtml(e.category)}"
+                            style="left:${left}%;width:${width}%;${lFade}${rFade}${colorVars}"
+                            title="${escapeHtml(e.title)}"
+                            onclick="openDetail(${e.id})">
+                            ${timeText ? `<div class="gantt-bar-time">${escapeHtml(timeText)}</div>` : ''}
+                            <div class="gantt-bar-title">${escapeHtml(e.title)}</div>
+                            ${locText ? `<div class="gantt-bar-loc">📍 ${escapeHtml(locText)}</div>` : ''}
+                        </div>
+                    `;
+                    barsContainer.insertAdjacentHTML('beforeend', barHtml);
+                });
             });
 
         container.appendChild(track);
@@ -424,7 +449,7 @@ function renderDayView() {
     container.innerHTML = '';
 
     const dayStr    = currentDayDate.toISOString().slice(0, 10);
-    const dayEvents = events.filter(e => e.startDate <= dayStr && (e.endDate || e.startDate) >= dayStr);
+    const dayEvents = events.filter(e => getEventDates(e).some(d => d.startDate <= dayStr && (d.endDate || d.startDate) >= dayStr));
 
     // Separate all-day and timed events
     const allDayEvents = dayEvents.filter(e => !e.startTime);
@@ -496,8 +521,9 @@ function renderDayView() {
             const eLocs = Array.isArray(e.locations) && e.locations.length > 0 ? e.locations : ['その他'];
             if (!eLocs.includes(loc)) return;
 
-            const [sh, sm] = e.startTime.split(':').map(Number);
-            const etStr    = e.endTime || `${Math.min(sh + 1, 23)}:00`;
+            const de = getMatchingDateEntry(e, dayStr);
+            const [sh, sm] = de.startTime.split(':').map(Number);
+            const etStr    = de.endTime || `${Math.min(sh + 1, 23)}:00`;
             const [eh, em] = etStr.split(':').map(Number);
             const topPx    = sh * 60 + sm;
             const heightPx = Math.max(32, (eh * 60 + em) - topPx);
@@ -508,7 +534,7 @@ function renderDayView() {
             block.style.height = `${heightPx}px`;
             if (e.cardColor) block.style.setProperty('--card-color', e.cardColor);
             block.innerHTML    = `
-                <div class="day-event-time">${escapeHtml(e.startTime)}${e.endTime ? ' - ' + escapeHtml(e.endTime) : ''}</div>
+                <div class="day-event-time">${escapeHtml(de.startTime)}${de.endTime ? ' - ' + escapeHtml(de.endTime) : ''}</div>
                 <div class="day-event-title">${escapeHtml(e.title)}</div>
             `;
             block.onclick = () => openDetail(e.id);
@@ -534,15 +560,16 @@ function renderDayView() {
         if (timedEvents.length === 0) {
             agendaContainer.innerHTML = '<div style="color:var(--text-secondary); text-align:center; padding: 2.5rem 1rem;">この日の予定はありません</div>';
         } else {
-            const sortedEvents = [...timedEvents].sort((a,b) => (a.startTime||'').localeCompare(b.startTime||''));
+            const sortedEvents = [...timedEvents].sort((a,b) => (getMatchingDateEntry(a, dayStr).startTime||'').localeCompare(getMatchingDateEntry(b, dayStr).startTime||''));
             sortedEvents.forEach(e => {
+                const de = getMatchingDateEntry(e, dayStr);
                 const locText = Array.isArray(e.locations) && e.locations.length > 0 ? e.locations.join(' / ') : escapeHtml(e.location || '');
                 const card = document.createElement('div');
                 card.className = `agenda-card ${escapeHtml(e.category)}`;
                 if (e.cardColor) card.style.setProperty('--card-color', e.cardColor);
                 card.onclick = () => openDetail(e.id);
                 card.innerHTML = `
-                    <div class="agenda-time">${escapeHtml(e.startTime)} ${e.endTime ? '〜 ' + escapeHtml(e.endTime) : ''}</div>
+                    <div class="agenda-time">${escapeHtml(de.startTime)} ${de.endTime ? '〜 ' + escapeHtml(de.endTime) : ''}</div>
                     <div class="agenda-title">${escapeHtml(e.title)}</div>
                     ${locText ? `<div class="agenda-loc">📍 ${escapeHtml(locText)}</div>` : ''}
                     ${e.participants ? `<div class="agenda-loc" style="margin-top:0.25rem;">👥 ${escapeHtml(e.participants)}</div>` : ''}
@@ -688,8 +715,8 @@ function renderDayHorizontalView() {
     const timelineW  = totalHours * DH_HOUR_WIDTH;
 
     const dayStr      = currentDayDate.toISOString().slice(0, 10);
-    const dayEvents   = events.filter(e => e.startDate <= dayStr && (e.endDate || e.startDate) >= dayStr);
-    const timedEvents = dayEvents.filter(e => e.startTime);
+    const dayEvents   = events.filter(e => getEventDates(e).some(d => d.startDate <= dayStr && (d.endDate || d.startDate) >= dayStr));
+    const timedEvents = dayEvents.filter(e => getMatchingDateEntry(e, dayStr).startTime);
 
     const defaultLocations = ['室内練習場', 'ベースボールエリア', 'アローズエリア', 'スタジオ', 'パワーエリア', '食堂', '多目的室'];
     const locationSet = new Set(defaultLocations);
@@ -720,8 +747,9 @@ function renderDayHorizontalView() {
 
         let barsHtml = '';
         locEvents.forEach(e => {
-            const [sh, sm] = e.startTime.split(':').map(Number);
-            const etStr    = e.endTime || `${Math.min(sh + 1, 23)}:00`;
+            const de = getMatchingDateEntry(e, dayStr);
+            const [sh, sm] = de.startTime.split(':').map(Number);
+            const etStr    = de.endTime || `${Math.min(sh + 1, 23)}:00`;
             const [eh, em] = etStr.split(':').map(Number);
             const startMin = sh * 60 + sm - HOUR_START * 60;
             const endMin   = eh * 60 + em - HOUR_START * 60;
@@ -735,7 +763,7 @@ function renderDayHorizontalView() {
                 <div class="dh-event-bar ${escapeHtml(e.category)}"
                     style="left:${left}px;width:${width}px;${cvars}"
                     onclick="openDetail(${e.id})" title="${escapeHtml(e.title)}">
-                    <div class="dh-bar-time">${escapeHtml(e.startTime)}~${escapeHtml(etStr)}</div>
+                    <div class="dh-bar-time">${escapeHtml(de.startTime)}~${escapeHtml(etStr)}</div>
                     <div class="dh-bar-title">${escapeHtml(e.title)}</div>
                     ${locText ? `<div class="dh-bar-loc">📍 ${escapeHtml(locText)}</div>` : ''}
                 </div>`;
