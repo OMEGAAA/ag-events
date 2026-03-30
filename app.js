@@ -260,7 +260,7 @@ function renderGantt() {
     const startClean = new Date(startDate);
     startClean.setHours(0,0,0,0);
     const todayDiff = (todayDate - startClean) / 86400000;
-    const showTodayLine = todayDiff >= 0 && todayDiff <= totalDays;
+    const showTodayLine = todayDiff >= 0 && todayDiff < totalDays;
     const todayLeft = ((todayDiff + 0.5) / totalDays) * 100; // 日付セルの中央
 
     // Collect unique locations (always show default facilities)
@@ -424,7 +424,7 @@ function renderDayView() {
     container.innerHTML = '';
 
     const dayStr    = currentDayDate.toISOString().slice(0, 10);
-    const dayEvents = events.filter(e => e.startDate <= dayStr && e.endDate >= dayStr);
+    const dayEvents = events.filter(e => e.startDate <= dayStr && (e.endDate || e.startDate) >= dayStr);
 
     // Separate all-day and timed events
     const allDayEvents = dayEvents.filter(e => !e.startTime);

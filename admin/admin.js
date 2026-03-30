@@ -333,8 +333,8 @@ function renderEventList() {
             
         // 重複チェック
         const overlaps = checkOverlaps(e, events);
-        const overlapWarning = overlaps.length > 0 
-            ? `<div class="overlap-badge" title="以下のイベントと重複しています:\n${overlaps.map(o => '- ' + o.title).join('\n')}">⚠️ ブッキング</div>` 
+        const overlapWarning = overlaps.length > 0
+            ? `<div class="overlap-badge" title="以下のイベントと重複しています:\n${overlaps.map(o => '- ' + escapeHtml(o.title)).join('\n')}">⚠️ ブッキング</div>`
             : '';
 
         return `
