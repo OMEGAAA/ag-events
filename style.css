@@ -998,6 +998,25 @@ main {
     
     .hide-on-mobile { display: none !important; }
     .hide-on-desktop { display: flex !important; }
+
+    /* 1日ナビ: スマホではボタン群を1行目、切替ボタンを2行目に */
+    #day-nav {
+        flex-wrap: wrap;
+        gap: 0.4rem 0.5rem;
+    }
+    #day-date-label {
+        min-width: 0 !important;
+        flex: 1 1 auto;
+    }
+    #day-mode-toggle-btn {
+        flex-basis: 100%;
+        text-align: center;
+        border-left: none !important;
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        border-top: 1px solid var(--glass-border);
+        padding-top: 0.4rem;
+    }
 }
 
 /* ---- Day view mode toggle ---- */
