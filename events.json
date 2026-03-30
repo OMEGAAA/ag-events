@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "cardColor": "#7a219e",
+    "category": "other",
+    "categoryText": "アローズ",
+    "date": "4月3日 15:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-03",
+        "endTime": "17:00",
+        "startDate": "2026-04-03",
+        "startTime": "15:00"
+      }
+    ],
+    "endDate": "2026-04-03",
+    "endTime": "17:00",
+    "id": 1,
+    "locations": [
+      "アローズエリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-03",
+    "startTime": "15:00",
+    "title": "Test"
+  }
+]
