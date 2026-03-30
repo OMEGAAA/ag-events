@@ -15,6 +15,142 @@ let statusTimer = null;
 let isDirty = false;
 let pendingCount = 0;
 
+// ---- FIREBASE ----
+const FIREBASE_KEY = 'ag_firebase_config';
+let db = null;
+let fbUserId = null;
+let adminDisplayName = '管理者';
+let isFirebaseConnected = false;
+let currentPresence = {};
+
+function extractFirebaseConfig(str) {
+    const extract = (key) => {
+        const m = str.match(new RegExp(key + '\\s*:\\s*["\']([^"\']+)["\']'));
+        return m ? m[1] : '';
+    };
+    return {
+        apiKey:            extract('apiKey'),
+        authDomain:        extract('authDomain'),
+        databaseURL:       extract('databaseURL'),
+        projectId:         extract('projectId'),
+        storageBucket:     extract('storageBucket'),
+        messagingSenderId: extract('messagingSenderId'),
+        appId:             extract('appId'),
+    };
+}
+
+function loadFirebaseConfig() {
+    try {
+        const saved = localStorage.getItem(FIREBASE_KEY);
+        if (!saved) return;
+        const { configStr, name } = JSON.parse(saved);
+        if (configStr) document.getElementById('input-firebase-config').value = configStr;
+        if (name) {
+            document.getElementById('input-admin-name').value = name;
+            adminDisplayName = name;
+        }
+        // 自動接続
+        const cfg = extractFirebaseConfig(configStr);
+        if (cfg.apiKey && cfg.databaseURL) initFirebase(cfg);
+    } catch(e) {}
+}
+
+function connectFirebase() {
+    const configStr = document.getElementById('input-firebase-config').value.trim();
+    const name      = document.getElementById('input-admin-name').value.trim() || '管理者';
+    if (!configStr) { showStatus('Firebase設定を貼り付けてください', 'error'); return; }
+    const cfg = extractFirebaseConfig(configStr);
+    if (!cfg.apiKey || !cfg.databaseURL) {
+        showStatus('apiKey または databaseURL が見つかりません。設定を確認してください。', 'error');
+        return;
+    }
+    adminDisplayName = name;
+    localStorage.setItem(FIREBASE_KEY, JSON.stringify({ configStr, name }));
+    initFirebase(cfg);
+}
+
+function initFirebase(cfg) {
+    try {
+        if (!firebase.apps.length) firebase.initializeApp(cfg);
+        db       = firebase.database();
+        fbUserId = Math.random().toString(36).slice(2, 10);
+        setupFirebaseListeners();
+        setupPresence();
+        isFirebaseConnected = true;
+        updateFirebaseBadge(true);
+        const body = document.getElementById('firebase-settings-body');
+        const icon = document.getElementById('firebase-toggle-icon');
+        body.style.display = 'none';
+        icon.textContent   = '▼';
+        showStatus('Firebaseに接続しました。リアルタイム同期が有効です。', 'success');
+    } catch(e) {
+        showStatus('Firebase接続エラー: ' + e.message, 'error');
+        updateFirebaseBadge(false);
+    }
+}
+
+function setupFirebaseListeners() {
+    db.ref('events').on('value', (snap) => {
+        const data = snap.val();
+        events = data ? (Array.isArray(data) ? data : Object.values(data)) : [];
+        renderEventList();
+    });
+    db.ref('presence').on('value', (snap) => {
+        currentPresence = snap.val() || {};
+        renderPresence();
+        renderEventList();
+    });
+}
+
+function writeEventsToFirebase() {
+    if (!db) return;
+    db.ref('events').set(events).catch(e => showStatus('Firebase同期エラー: ' + e.message, 'error'));
+}
+
+function setupPresence() {
+    const ref = db.ref(`presence/${fbUserId}`);
+    db.ref('.info/connected').on('value', (snap) => {
+        if (!snap.val()) return;
+        ref.onDisconnect().remove();
+        ref.set({ name: adminDisplayName, lastSeen: Date.now(), editingId: null });
+    });
+}
+
+function updatePresence(editingId) {
+    if (!db || !fbUserId) return;
+    db.ref(`presence/${fbUserId}`).update({ lastSeen: Date.now(), editingId: editingId || null });
+}
+
+function renderPresence() {
+    const bar = document.getElementById('presence-bar');
+    if (!bar) return;
+    const others = Object.entries(currentPresence)
+        .filter(([uid]) => uid !== fbUserId)
+        .map(([, info]) => info);
+    if (others.length === 0) { bar.style.display = 'none'; bar.innerHTML = ''; return; }
+    bar.style.display = 'flex';
+    bar.innerHTML = '<span class="presence-label">同時編集中:</span>' + others.map(u => {
+        const ev = u.editingId ? events.find(e => e.id === u.editingId) : null;
+        const status = ev ? `「${escapeHtml(ev.title)}」を編集中` : 'オンライン';
+        return `<span class="presence-chip">👤 <strong>${escapeHtml(u.name)}</strong> <span class="presence-status">${status}</span></span>`;
+    }).join('');
+}
+
+function updateFirebaseBadge(connected) {
+    const badge = document.getElementById('firebase-badge');
+    if (!badge) return;
+    badge.textContent = connected ? '接続済み' : '未接続';
+    badge.className   = `connection-badge ${connected ? 'connected' : 'disconnected'}`;
+}
+
+function toggleFirebaseSettings() {
+    const body = document.getElementById('firebase-settings-body');
+    const icon = document.getElementById('firebase-toggle-icon');
+    const isHidden = body.style.display === 'none';
+    body.style.display = isHidden ? 'block' : 'none';
+    icon.textContent   = isHidden ? '▲' : '▼';
+}
+
 // ---- CONFIG ----
 
 function loadConfig() {
@@ -155,9 +291,15 @@ async function fetchFromGitHub() {
 
         markClean();
         updateConnectionBadge(true);
-        renderEventList();
-        toggleSettings(); // Collapse settings after successful connection
-        showStatus(`読み込み完了！ ${events.length}件のイベントが見つかりました。`, 'success');
+        toggleSettings();
+
+        if (isFirebaseConnected) {
+            writeEventsToFirebase(); // onValue が renderEventList() を呼ぶ
+            showStatus(`読み込み完了！ ${events.length}件を Firebase に同期しました。`, 'success');
+        } else {
+            renderEventList();
+            showStatus(`読み込み完了！ ${events.length}件のイベントが見つかりました。`, 'success');
+        }
     } catch (e) {
         const msg = e.status
             ? getFriendlyError(e.status, e.message)
@@ -408,10 +550,18 @@ function renderEventList() {
             ? `<div class="overlap-badge" title="以下のイベントと重複しています:\n${overlaps.map(o => '- ' + escapeHtml(o.title)).join('\n')}">⚠️ ブッキング</div>`
             : '';
 
+        // 他の管理者が編集中か
+        const editingUser = Object.entries(currentPresence)
+            .filter(([uid]) => uid !== fbUserId)
+            .find(([, info]) => info.editingId === e.id);
+        const editingBadge = editingUser
+            ? `<div class="editing-badge" title="${escapeHtml(editingUser[1].name)}が編集中">✏️ ${escapeHtml(editingUser[1].name)}</div>`
+            : '';
+
         return `
         <tr class="${overlaps.length > 0 ? 'row-overlap' : ''}">
             <td>
-                <div class="event-title-cell">${escapeHtml(e.title)} ${overlapWarning}</div>
+                <div class="event-title-cell">${escapeHtml(e.title)} ${overlapWarning} ${editingBadge}</div>
                 ${e.participants ? `<div class="event-sub-cell">👥 ${escapeHtml(e.participants)}</div>` : ''}
             </td>
             <td style="white-space:nowrap; font-size:0.85rem; color:var(--text-secondary);">${escapeHtml(e.date)}</td>
@@ -439,8 +589,8 @@ function deleteEvent(id) {
     if (!event) return;
     if (!confirm(`「${event.title}」を削除してよいですか？\n\n※「公開サイトに反映する」を押すまで実際のサイトは変わりません。`)) return;
     events = events.filter(e => e.id !== id);
-    renderEventList();
     markDirty(`「${event.title}」を削除しました`);
+    if (isFirebaseConnected) { writeEventsToFirebase(); } else { renderEventList(); }
 }
 
 function openAddModal() {
@@ -481,11 +631,13 @@ function openEditModal(id) {
     document.getElementById('f-sns-date').value = event.snsAvailableFrom || '';
     document.getElementById('sns-date-row').style.display = snsVal === 'allowed' ? 'block' : 'none';
 
+    updatePresence(id);
     document.getElementById('modal-overlay').style.display = 'flex';
 }
 
 function closeModal() {
     document.getElementById('modal-overlay').style.display = 'none';
+    updatePresence(null);
 }
 
 function getCategoryClass(text) {
@@ -564,16 +716,15 @@ function saveEvent() {
         const idx = events.findIndex(e => e.id === editingId);
         if (idx !== -1) events[idx] = eventData;
         closeModal();
-        renderEventList();
         markDirty(`「${title}」を編集しました`);
     } else {
         const maxId = events.length > 0 ? Math.max(...events.map(e => e.id)) : 0;
         eventData.id = maxId + 1;
         events.push(eventData);
         closeModal();
-        renderEventList();
         markDirty(`「${title}」を追加しました`);
     }
+    if (isFirebaseConnected) { writeEventsToFirebase(); } else { renderEventList(); }
 }
 
 // ---- TOKEN GUIDE ----
@@ -597,4 +748,5 @@ function closeTokenGuide() {
 
 // ---- INIT ----
 loadConfig();
+loadFirebaseConfig();
 renderEventList();

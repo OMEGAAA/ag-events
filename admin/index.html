@@ -97,6 +97,34 @@
             </div>
         </div>
 
+        <!-- Firebase Realtime Sync Panel -->
+        <div class="settings-panel">
+            <div class="settings-panel-header" onclick="toggleFirebaseSettings()">
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                    <h3>🔄 リアルタイム同期（Firebase）</h3>
+                    <span id="firebase-badge" class="connection-badge"></span>
+                </div>
+                <span id="firebase-toggle-icon">▼</span>
+            </div>
+            <div id="firebase-settings-body" style="display:none;">
+                <p class="settings-desc">設定すると複数の管理者がリアルタイムで共同編集できます。</p>
+                <div class="form-group full-width">
+                    <label>Firebase設定（firebaseConfig をそのまま貼り付け）</label>
+                    <textarea id="input-firebase-config" rows="9" style="font-family:monospace; font-size:0.82rem; resize:vertical;" placeholder="const firebaseConfig = {&#10;  apiKey: &quot;AIzaSy...&quot;,&#10;  databaseURL: &quot;https://...&quot;,&#10;  ...&#10;};"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>あなたの表示名（他の管理者に見えます）</label>
+                    <input type="text" id="input-admin-name" placeholder="例: 山田">
+                </div>
+                <div class="settings-actions">
+                    <button class="btn btn-primary" onclick="connectFirebase()">Firebaseに接続</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Presence bar -->
+        <div id="presence-bar" class="presence-bar" style="display:none;"></div>
+
         <!-- Events Management -->
         <div class="events-section">
             <div class="events-section-header">
@@ -333,6 +361,8 @@
         </div>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
     <script src="admin.js"></script>
 </body>
 

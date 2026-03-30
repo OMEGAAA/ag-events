@@ -652,4 +652,51 @@ tr:hover td { background: rgba(255,255,255,0.025); }
     .input-with-btn { flex-direction: column; }
     .events-section-header { flex-direction: column; align-items: stretch; }
     .header-actions { justify-content: flex-end; }
+    .presence-bar { flex-direction: column; gap: 0.4rem; }
+}
+
+/* ---- Firebase Presence ---- */
+.presence-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+}
+.presence-label {
+    color: #3b82f6;
+    font-weight: 600;
+    margin-right: 0.25rem;
+}
+.presence-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: #dbeafe;
+    border-radius: 20px;
+    padding: 0.2rem 0.75rem;
+    color: #1e40af;
+}
+.presence-status {
+    font-size: 0.78rem;
+    color: #60a5fa;
+    font-weight: 400;
+}
+.editing-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fcd34d;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-left: 0.4rem;
+    font-weight: 500;
 }
