@@ -619,10 +619,20 @@ function openEditModal(id) {
     document.getElementById('f-notes').value          = event.notes || '';
 
     // 開催場所チェックボックス
+    const predefined = ['室内練習場','ベースボールエリア','アローズエリア','スタジオ','パワーエリア','食堂','多目的室'];
     const locs = Array.isArray(event.locations) ? event.locations : [];
     document.querySelectorAll('.location-checkbox').forEach(cb => {
         cb.checked = locs.includes(cb.value);
     });
+    const otherLoc = locs.find(l => !predefined.includes(l));
+    if (otherLoc) {
+        document.getElementById('cb-location-other').checked = true;
+        document.getElementById('f-location-other-text').value = otherLoc;
+        document.getElementById('location-other-row').style.display = 'block';
+    } else {
+        document.getElementById('f-location-other-text').value = '';
+        document.getElementById('location-other-row').style.display = 'none';
+    }
 
     // HP/SNS
     const snsVal = event.snsPR || 'not-allowed';
@@ -653,10 +663,18 @@ function clearForm() {
         .forEach(id => { document.getElementById(id).value = ''; });
     document.getElementById('f-card-color').value = '#000000';
     document.querySelectorAll('.location-checkbox').forEach(cb => { cb.checked = false; });
+    document.getElementById('f-location-other-text').value = '';
+    document.getElementById('location-other-row').style.display = 'none';
     const defaultSns = document.querySelector('input[name="f-sns"][value="not-allowed"]');
     if (defaultSns) defaultSns.checked = true;
     document.getElementById('sns-date-row').style.display = 'none';
     clearDateRows();
+}
+
+function toggleLocationOther() {
+    const checked = document.getElementById('cb-location-other').checked;
+    document.getElementById('location-other-row').style.display = checked ? 'block' : 'none';
+    if (!checked) document.getElementById('f-location-other-text').value = '';
 }
 
 function toggleSnsDate() {
@@ -692,7 +710,13 @@ function saveEvent() {
 
     const categoryText = document.getElementById('f-category-input').value.trim() || 'その他';
     const category     = getCategoryClass(categoryText);
-    const locations    = Array.from(document.querySelectorAll('.location-checkbox:checked')).map(cb => cb.value);
+    const locations    = Array.from(document.querySelectorAll('.location-checkbox:checked')).map(cb => {
+        if (cb.value === 'その他') {
+            const text = document.getElementById('f-location-other-text').value.trim();
+            return text || 'その他';
+        }
+        return cb.value;
+    });
     const participants = document.getElementById('f-participants').value.trim();
     const snsPR        = document.querySelector('input[name="f-sns"]:checked')?.value || 'not-allowed';
     const snsAvailableFrom = snsPR === 'allowed' ? document.getElementById('f-sns-date').value.trim() : '';
