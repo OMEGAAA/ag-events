@@ -192,5 +192,191 @@
     "startDate": "2026-04-07",
     "startTime": "10:00",
     "title": "しずわでら体育授業"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "外部",
+    "date": "4月9日 19:00〜21:00",
+    "dates": [
+      {
+        "endDate": "2026-04-09",
+        "endTime": "21:00",
+        "startDate": "2026-04-09",
+        "startTime": "19:00"
+      }
+    ],
+    "endDate": "2026-04-09",
+    "endTime": "21:00",
+    "id": 5,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-09",
+    "startTime": "19:00",
+    "title": "TSK様"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "4月11日 09:30〜16:30",
+    "dates": [
+      {
+        "endDate": "2026-04-11",
+        "endTime": "16:30",
+        "startDate": "2026-04-11",
+        "startTime": "09:30"
+      }
+    ],
+    "endDate": "2026-04-11",
+    "endTime": "16:30",
+    "id": 6,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-11",
+    "startTime": "09:30",
+    "title": "選抜クラスレッスン、GLレッスン"
+  },
+  {
+    "cardColor": "#9830a6",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "4月29日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-04-29",
+        "endTime": "18:00",
+        "startDate": "2026-04-29",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-05-02",
+        "endTime": "18:00",
+        "startDate": "2026-05-02",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-05-23",
+        "endTime": "18:00",
+        "startDate": "2026-05-23",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-23",
+    "endTime": "18:00",
+    "id": 7,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "アローズエリア",
+      "パワーエリア"
+    ],
+    "manager": "大向",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-29",
+    "startTime": "09:00",
+    "title": "埼玉叡明高校硬式野球部様(仮予約)"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "5月3日 09:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-05-03",
+        "endTime": "16:00",
+        "startDate": "2026-05-03",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-03",
+    "endTime": "16:00",
+    "id": 8,
+    "locations": [
+      "室内練習場",
+      "アローズエリア",
+      "パワーエリア"
+    ],
+    "manager": "五十子",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-03",
+    "startTime": "09:00",
+    "title": "新宿牛込ベースボールクラブ"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "5月9日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-05-09",
+        "endTime": "17:00",
+        "startDate": "2026-05-09",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-09",
+    "endTime": "17:00",
+    "id": 9,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大久保",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-09",
+    "startTime": "09:00",
+    "title": "子ども習い事フェスタ"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "5月10日 12:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-05-10",
+        "endTime": "17:00",
+        "startDate": "2026-05-10",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-05-10",
+    "endTime": "17:00",
+    "id": 10,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "山口",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-10",
+    "startTime": "12:00",
+    "title": "アローズ競技特化イベント"
   }
 ]
