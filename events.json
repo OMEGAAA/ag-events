@@ -400,5 +400,33 @@
     "startDate": "2026-04-02",
     "startTime": "",
     "title": "アローズイベント"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "test",
+    "date": "4月1日",
+    "dates": [
+      {
+        "endDate": "2026-04-01",
+        "endTime": "",
+        "startDate": "2026-04-01",
+        "startTime": ""
+      }
+    ],
+    "endDate": "2026-04-01",
+    "endTime": "",
+    "id": 12,
+    "locations": [
+      "テスト"
+    ],
+    "manager": "テスト",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-01",
+    "startTime": "",
+    "title": "test"
   }
 ]
