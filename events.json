@@ -133,14 +133,8 @@
     "cardColor": "#6b3091",
     "category": "other",
     "categoryText": "アローズ",
-    "date": "4月7日 他6件",
+    "date": "4月21日 他5件",
     "dates": [
-      {
-        "endDate": "2026-04-07",
-        "endTime": "11:00",
-        "startDate": "2026-04-07",
-        "startTime": "10:00"
-      },
       {
         "endDate": "2026-04-21",
         "endTime": "11:00",
@@ -189,7 +183,7 @@
     "participants": "",
     "snsAvailableFrom": "",
     "snsPR": "not-allowed",
-    "startDate": "2026-04-07",
+    "startDate": "2026-04-21",
     "startTime": "10:00",
     "title": "しずわでら体育授業"
   },
