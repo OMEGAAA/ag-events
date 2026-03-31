@@ -1,4 +1,5 @@
 let events = [];
+let reports = [];
 
 const SNS_LABEL = {
     'allowed': { text: '掲載可', cls: 'sns-allowed', icon: '✅' },
@@ -67,7 +68,122 @@ async function init() {
         console.warn('events.json の読み込みに失敗しました:', e);
         events = [];
     }
+    try {
+        const res = await fetch('./reports.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        reports = await res.json();
+    } catch (e) {
+        console.warn('reports.json の読み込みに失敗しました:', e);
+        reports = [];
+    }
     renderEvents();
+}
+
+// ---- REPORTS VIEW ----
+function renderReports() {
+    const grid = document.getElementById('report-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    const sorted = [...reports].sort((a, b) => new Date(b.eventDate) - new Date(a.eventDate));
+
+    if (sorted.length === 0) {
+        grid.innerHTML = '<p class="report-empty">実績報告はまだありません</p>';
+        return;
+    }
+
+    sorted.forEach(r => {
+        const fmtD = (s) => { const d = new Date(s + 'T00:00:00'); return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`; };
+        const firstPhoto = Array.isArray(r.photos) && r.photos.length > 0 ? r.photos[0] : null;
+        const photoCount = Array.isArray(r.photos) ? r.photos.length : 0;
+
+        const card = document.createElement('div');
+        card.className = `report-card ${escapeHtml(r.category || 'other')} fade-in`;
+        if (r.cardColor) card.style.setProperty('--card-color', r.cardColor);
+
+        card.innerHTML = `
+            <div class="report-card-photo${firstPhoto ? '' : ' no-photo'}">
+                ${firstPhoto ? `<img src="${escapeHtml(firstPhoto)}" alt="${escapeHtml(r.eventTitle)}" onerror="this.parentElement.classList.add('no-photo'); this.remove();">` : ''}
+                ${photoCount > 1 ? `<span class="report-photo-count">+${photoCount - 1}</span>` : ''}
+            </div>
+            <div class="report-card-body">
+                <div class="rc-badges">
+                    <span class="category-badge ${escapeHtml(r.category || 'other')}">${escapeHtml(r.categoryText || '')}</span>
+                </div>
+                <h3 class="rc-title">${escapeHtml(r.eventTitle)}</h3>
+                <div class="rc-meta">
+                    <span>📅 ${escapeHtml(fmtD(r.eventDate))}</span>
+                    ${r.actualParticipants ? `<span>👥 ${escapeHtml(r.actualParticipants)}</span>` : ''}
+                    ${r.manager ? `<span>👤 ${escapeHtml(r.manager)}</span>` : ''}
+                </div>
+                ${r.summary ? `<p class="rc-summary">${escapeHtml(r.summary)}</p>` : ''}
+            </div>
+            <div class="report-card-actions">
+                <button class="detail-btn" onclick="openReportDetail(${r.id})">詳細を見る</button>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+}
+
+function openReportDetail(id) {
+    const r = reports.find(rep => rep.id === id);
+    if (!r) return;
+
+    const fmtD = (s) => { const d = new Date(s + 'T00:00:00'); return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`; };
+    const photoCount = Array.isArray(r.photos) ? r.photos.length : 0;
+
+    const photosHtml = photoCount > 0
+        ? `<div class="detail-row full">
+            <div class="detail-label">写真</div>
+            <div class="detail-value report-photos-gallery">
+                ${r.photos.map((url, i) => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="report-photo-thumb">
+                    <img src="${escapeHtml(url)}" alt="写真${i + 1}" onerror="this.parentElement.classList.add('photo-link-only'); this.remove();">
+                    <span class="photo-link-label">写真を開く</span>
+                </a>`).join('')}
+            </div>
+           </div>`
+        : '';
+
+    const visualStyle = r.cardColor ? `style="background: ${escapeHtml(r.cardColor)} !important;"` : '';
+
+    document.getElementById('detail-content').innerHTML = `
+        <div class="detail-banner visual-gradient ${escapeHtml(r.category || 'other')}" ${visualStyle}></div>
+        <div class="detail-body">
+            <span class="detail-cat-badge category-tag" style="position:static; display:inline-block; margin-bottom:0.75rem;">${escapeHtml(r.categoryText || '')}</span>
+            <h2 class="detail-title">${escapeHtml(r.eventTitle)}</h2>
+            <div class="detail-grid">
+                <div class="detail-row">
+                    <div class="detail-label">開催日</div>
+                    <div class="detail-value">${escapeHtml(fmtD(r.eventDate))}</div>
+                </div>
+                ${r.actualParticipants ? `
+                <div class="detail-row">
+                    <div class="detail-label">参加人数</div>
+                    <div class="detail-value">${escapeHtml(r.actualParticipants)}</div>
+                </div>` : ''}
+                ${r.manager ? `
+                <div class="detail-row">
+                    <div class="detail-label">担当者</div>
+                    <div class="detail-value">${escapeHtml(r.manager)}</div>
+                </div>` : ''}
+                ${r.summary ? `
+                <div class="detail-row full">
+                    <div class="detail-label">概要</div>
+                    <div class="detail-value detail-notes">${escapeHtml(r.summary)}</div>
+                </div>` : ''}
+                ${r.comments ? `
+                <div class="detail-row full">
+                    <div class="detail-label">コメント</div>
+                    <div class="detail-value detail-notes">${escapeHtml(r.comments)}</div>
+                </div>` : ''}
+                ${photosHtml}
+            </div>
+        </div>
+    `;
+
+    document.getElementById('detail-overlay').style.display = 'flex';
 }
 
 // ---- HOME VIEW ----
@@ -821,10 +937,7 @@ function openCalendarAtDate(dateStr) {
     currentGanttStartDate = start;
     calendarMode = 'gantt';
 
-    stopDayViewTimer();
-    navHome.classList.remove('active');
-    navCalendar.classList.add('active');
-    viewHome.style.display = 'none';
+    setActiveNav(navCalendar);
     viewCal.style.display = 'block';
 
     document.getElementById('gantt-view-container').style.display = 'block';
@@ -846,23 +959,29 @@ function openCalendarAtDate(dateStr) {
 // ---- NAVIGATION ----
 const navHome = document.getElementById('nav-home');
 const navCalendar = document.getElementById('nav-calendar');
+const navReports = document.getElementById('nav-reports');
 const viewHome = document.getElementById('view-home');
 const viewCal = document.getElementById('view-calendar');
+const viewReports = document.getElementById('view-reports');
+
+function setActiveNav(active) {
+    [navHome, navCalendar, navReports].forEach(n => n?.classList.remove('active'));
+    active?.classList.add('active');
+    stopDayViewTimer();
+    viewHome.style.display = 'none';
+    viewCal.style.display = 'none';
+    if (viewReports) viewReports.style.display = 'none';
+}
 
 navHome?.addEventListener('click', e => {
     e.preventDefault();
-    stopDayViewTimer();
-    navHome.classList.add('active');
-    navCalendar.classList.remove('active');
+    setActiveNav(navHome);
     viewHome.style.display = 'block';
-    viewCal.style.display = 'none';
 });
 
 navCalendar?.addEventListener('click', e => {
     e.preventDefault();
-    navCalendar.classList.add('active');
-    navHome.classList.remove('active');
-    viewHome.style.display = 'none';
+    setActiveNav(navCalendar);
     viewCal.style.display = 'block';
 
     if (calendarMode === 'day') {
@@ -873,6 +992,13 @@ navCalendar?.addEventListener('click', e => {
         updateGanttDateLabel();
         renderGantt();
     }
+});
+
+navReports?.addEventListener('click', e => {
+    e.preventDefault();
+    setActiveNav(navReports);
+    if (viewReports) viewReports.style.display = 'block';
+    renderReports();
 });
 
 // ---- DAY HORIZONTAL (RESOURCE) VIEW ----

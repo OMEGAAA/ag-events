@@ -1129,6 +1129,164 @@ main {
 .agenda-title { font-size: 1rem; font-weight: 600; color: var(--text-primary); padding-left: 6px; line-height: 1.3; }
 .agenda-loc   { font-size: 0.78rem; color: var(--text-secondary); padding-left: 6px; margin-top: 0.15rem; }
 
+/* ---- REPORTS VIEW ---- */
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.report-empty {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 4rem 0;
+    grid-column: 1 / -1;
+}
+
+.report-card {
+    background: var(--surface-color);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+}
+.report-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background-color: var(--text-muted);
+}
+.report-card.health::before { background-color: var(--card-color, var(--health-color)); }
+.report-card.learning::before { background-color: var(--card-color, var(--learning-color)); }
+.report-card.social::before { background-color: var(--card-color, var(--social-color)); }
+.report-card.other::before { background-color: var(--card-color, var(--other-color)); }
+.report-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--border-medium);
+}
+
+.report-card-photo {
+    width: 100%;
+    height: 180px;
+    background: var(--surface-raised);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.report-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.report-card-photo.no-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 2.5rem;
+}
+.report-card-photo.no-photo::after {
+    content: '📷';
+    opacity: 0.3;
+}
+.report-photo-count {
+    position: absolute;
+    bottom: 0.6rem;
+    right: 0.6rem;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    letter-spacing: 0.03em;
+}
+
+.report-card-body {
+    flex: 1;
+    padding: 1.1rem 1.25rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.rc-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+.rc-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.45;
+}
+
+.rc-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+.rc-summary {
+    font-size: 0.87rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.report-card-actions {
+    padding: 0 1.25rem 1.1rem;
+    flex-shrink: 0;
+}
+
+/* Report detail photos */
+.report-photos-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+.report-photo-thumb {
+    display: block;
+    width: 120px;
+    height: 90px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    position: relative;
+    text-decoration: none;
+}
+.report-photo-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s;
+}
+.report-photo-thumb:hover img { opacity: 0.85; }
+.report-photo-thumb .photo-link-label { display: none; }
+.report-photo-thumb.photo-link-only {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface-raised);
+    color: var(--accent-blue);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.5rem;
+}
+.report-photo-thumb.photo-link-only .photo-link-label { display: block; }
+
 /* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
     .glass-header {

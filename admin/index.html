@@ -164,6 +164,44 @@
             </div>
         </div>
 
+        <!-- Reports Management -->
+        <div class="events-section">
+            <div class="events-section-header">
+                <div>
+                    <h3>実績管理</h3>
+                    <p class="section-desc" id="reports-section-desc">まず上の「接続してデータを読み込む」を押してください</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="openAddReportModal()">＋ 実績を追加</button>
+                    <button class="btn btn-success" id="btn-reports-deploy" onclick="pushReportsToGitHub()">
+                        実績を公開する
+                    </button>
+                </div>
+            </div>
+            <div class="events-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>イベント名</th>
+                            <th>開催日</th>
+                            <th>カテゴリ</th>
+                            <th>実参加人数</th>
+                            <th>担当者</th>
+                            <th>写真</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reports-tbody">
+                        <tr>
+                            <td colspan="7" class="empty-state">
+                                上の「接続してデータを読み込む」ボタンを押すと実績が表示されます
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </div>
 
     <!-- ========== イベント追加・編集モーダル ========== -->
@@ -296,6 +334,84 @@
             <div class="modal-actions">
                 <button class="btn btn-secondary" onclick="closeModal()">キャンセル</button>
                 <button class="btn btn-primary" onclick="saveEvent()">保存する</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== 実績追加・編集モーダル ========== -->
+    <div id="report-modal-overlay" class="modal-overlay" style="display:none;">
+        <div class="modal">
+            <h3 id="report-modal-title">実績を追加</h3>
+            <div class="modal-form-grid">
+
+                <!-- イベント名 -->
+                <div class="form-group full-width">
+                    <label>イベント名 <span class="required">※必須</span></label>
+                    <input type="text" id="rf-title" placeholder="例: 朝活ヨガ＆マインドフルネス">
+                </div>
+
+                <!-- 開催日 -->
+                <div class="form-group full-width">
+                    <label>開催日 <span class="required">※必須</span></label>
+                    <input type="date" id="rf-date">
+                </div>
+
+                <!-- カテゴリ -->
+                <div class="form-group full-width">
+                    <label>カテゴリ（選択または直接入力）</label>
+                    <input type="text" id="rf-category-input" list="rf-category-list"
+                        placeholder="例: イベント、研修、社内イベントまたは自由入力">
+                    <datalist id="rf-category-list">
+                        <option value="イベント">
+                        <option value="研修">
+                        <option value="社内イベント">
+                    </datalist>
+                </div>
+
+                <!-- カード色 -->
+                <div class="form-group full-width">
+                    <label>カード色（オプション）</label>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="color" id="rf-card-color" value="#000000" style="width: 50px; height: 38px; padding: 0; background: transparent; border: none; cursor: pointer;">
+                        <span class="field-hint">※初期値（黒）のままの場合はカテゴリ標準色が使われます。</span>
+                    </div>
+                </div>
+
+                <!-- 実参加人数 -->
+                <div class="form-group full-width">
+                    <label>実参加人数</label>
+                    <input type="text" id="rf-participants" placeholder="例: 25名">
+                </div>
+
+                <!-- 概要 -->
+                <div class="form-group full-width">
+                    <label>概要</label>
+                    <textarea id="rf-summary" rows="4" placeholder="イベントの実施内容・様子など"></textarea>
+                </div>
+
+                <!-- 写真URL -->
+                <div class="form-group full-width">
+                    <label>写真URL（OneDriveの共有リンクなど）</label>
+                    <div id="rf-photos-list"></div>
+                    <button type="button" class="btn btn-secondary add-date-btn" onclick="addPhotoRow()">＋ 写真を追加</button>
+                </div>
+
+                <!-- コメント -->
+                <div class="form-group full-width">
+                    <label>コメント</label>
+                    <textarea id="rf-comments" rows="3" placeholder="担当者からのコメント・反省点など"></textarea>
+                </div>
+
+                <!-- 担当者 -->
+                <div class="form-group full-width">
+                    <label>担当者</label>
+                    <input type="text" id="rf-manager" placeholder="例: 山田 太郎">
+                </div>
+
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeReportModal()">キャンセル</button>
+                <button class="btn btn-primary" onclick="saveReport()">保存する</button>
             </div>
         </div>
     </div>

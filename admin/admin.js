@@ -300,6 +300,7 @@ async function fetchFromGitHub() {
             renderEventList();
             showStatus(`読み込み完了！ ${events.length}件のイベントが見つかりました。`, 'success');
         }
+        await fetchReportsFromGitHub();
     } catch (e) {
         const msg = e.status
             ? getFriendlyError(e.status, e.message)
@@ -392,7 +393,7 @@ function updateDeployButton() {
 }
 
 window.addEventListener('beforeunload', (e) => {
-    if (isDirty) {
+    if (isDirty || isReportsDirty) {
         e.preventDefault();
         e.returnValue = '保存されていない変更があります。「公開サイトに反映する」を押してから移動してください。';
     }
@@ -762,7 +763,7 @@ function closeTokenGuide() {
 }
 
 // Close modals on overlay click
-['modal-overlay', 'token-guide-overlay'].forEach(id => {
+['modal-overlay', 'token-guide-overlay', 'report-modal-overlay'].forEach(id => {
     document.getElementById(id).addEventListener('click', (e) => {
         if (e.target === e.currentTarget) {
             e.currentTarget.style.display = 'none';
@@ -770,7 +771,262 @@ function closeTokenGuide() {
     });
 });
 
+// ---- REPORTS ----
+
+let reports = [];
+let reportsSha = '';
+let isReportsDirty = false;
+let reportsPendingCount = 0;
+let editingReportId = null;
+
+function getReportsPath() {
+    return config.filePath.replace(/[^/]+$/, 'reports.json');
+}
+
+async function fetchReportsFromGitHub() {
+    if (!config.owner || !config.repo || !config.token) return;
+    const reportsPath = getReportsPath();
+    try {
+        const res = await fetch(
+            `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${reportsPath}?ref=${config.branch}`,
+            { headers: { 'Authorization': `Bearer ${config.token}`, 'Accept': 'application/vnd.github.v3+json' } }
+        );
+        if (res.status === 404) {
+            reports = [];
+            reportsSha = '';
+            renderReportList();
+            return;
+        }
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        reportsSha = data.sha;
+        reports = JSON.parse(decodeBase64Utf8(data.content));
+        renderReportList();
+    } catch (e) {
+        reports = [];
+        reportsSha = '';
+        renderReportList();
+    }
+}
+
+async function pushReportsToGitHub() {
+    if (!config.owner || !config.repo || !config.token) {
+        showStatus('GitHubの設定を確認してください。まず「接続してデータを読み込む」を実行してください。', 'error');
+        return;
+    }
+    const btn = document.getElementById('btn-reports-deploy');
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '反映中...';
+    showStatus('実績を公開しています...', 'info');
+    try {
+        const reportsPath = getReportsPath();
+        const body = {
+            message: `実績更新 (${new Date().toLocaleString('ja-JP')})`,
+            content: encodeUtf8Base64(JSON.stringify(reports, null, 2)),
+            branch: config.branch
+        };
+        if (reportsSha) body.sha = reportsSha;
+        const res = await fetch(
+            `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${reportsPath}`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${config.token}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            }
+        );
+        if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            throw { status: res.status, message: err.message || '' };
+        }
+        const data = await res.json();
+        reportsSha = data.content.sha;
+        markReportsClean();
+        showStatus('実績の公開が完了しました！', 'success');
+    } catch (e) {
+        const msg = e.status
+            ? getFriendlyError(e.status, e.message)
+            : `反映に失敗しました: ${e.message || e}`;
+        showStatus(msg, 'error');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+        updateReportsDeployButton();
+    }
+}
+
+function markReportsDirty(action) {
+    isReportsDirty = true;
+    reportsPendingCount++;
+    updateReportsDeployButton();
+    showStatus(`${action}（まだ公開されていません）`, 'info');
+}
+
+function markReportsClean() {
+    isReportsDirty = false;
+    reportsPendingCount = 0;
+    updateReportsDeployButton();
+}
+
+function updateReportsDeployButton() {
+    const btn = document.getElementById('btn-reports-deploy');
+    if (!btn) return;
+    if (isReportsDirty && reportsPendingCount > 0) {
+        btn.textContent = `実績を公開する（未反映: ${reportsPendingCount}件）`;
+        btn.classList.add('has-changes');
+    } else {
+        btn.textContent = '実績を公開する';
+        btn.classList.remove('has-changes');
+    }
+}
+
+function renderReportList() {
+    const tbody = document.getElementById('reports-tbody');
+    const desc  = document.getElementById('reports-section-desc');
+    if (!tbody) return;
+
+    if (reports.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="empty-state">実績はまだありません。「＋ 実績を追加」から追加してください。</td></tr>`;
+        if (desc) desc.textContent = '実績はまだありません';
+        return;
+    }
+
+    if (desc) desc.textContent = `${reports.length}件の実績が登録されています`;
+
+    const fmtD = (s) => { const d = new Date(s + 'T00:00:00'); return `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`; };
+
+    tbody.innerHTML = reports
+        .slice().sort((a, b) => new Date(b.eventDate) - new Date(a.eventDate))
+        .map(r => {
+            const photoCount = Array.isArray(r.photos) ? r.photos.length : 0;
+            return `
+            <tr>
+                <td><div class="event-title-cell">${escapeHtml(r.eventTitle)}</div></td>
+                <td style="white-space:nowrap; font-size:0.85rem; color:var(--text-secondary);">${escapeHtml(fmtD(r.eventDate))}</td>
+                <td><span class="category-badge ${escapeHtml(r.category || 'other')}">${escapeHtml(r.categoryText || '')}</span></td>
+                <td style="font-size:0.85rem;">${escapeHtml(r.actualParticipants || '—')}</td>
+                <td style="font-size:0.85rem; color:var(--text-secondary);">${escapeHtml(r.manager || '—')}</td>
+                <td style="font-size:0.85rem; color:var(--text-secondary);">${photoCount > 0 ? `📷 ${photoCount}枚` : '—'}</td>
+                <td>
+                    <div class="td-actions">
+                        <button class="btn btn-edit" onclick="openEditReportModal(${Number(r.id)})">編集</button>
+                        <button class="btn btn-delete" onclick="deleteReport(${Number(r.id)})">削除</button>
+                    </div>
+                </td>
+            </tr>`;
+        }).join('');
+}
+
+function openAddReportModal() {
+    editingReportId = null;
+    document.getElementById('report-modal-title').textContent = '実績を追加';
+    clearReportForm();
+    document.getElementById('report-modal-overlay').style.display = 'flex';
+}
+
+function openEditReportModal(id) {
+    const r = reports.find(rep => rep.id === id);
+    if (!r) return;
+    editingReportId = id;
+    document.getElementById('report-modal-title').textContent = '実績を編集';
+    document.getElementById('rf-title').value           = r.eventTitle || '';
+    document.getElementById('rf-date').value            = r.eventDate || '';
+    document.getElementById('rf-category-input').value  = r.categoryText || '';
+    document.getElementById('rf-card-color').value      = r.cardColor || '#000000';
+    document.getElementById('rf-participants').value    = r.actualParticipants || '';
+    document.getElementById('rf-summary').value         = r.summary || '';
+    document.getElementById('rf-comments').value        = r.comments || '';
+    document.getElementById('rf-manager').value         = r.manager || '';
+    document.getElementById('rf-photos-list').innerHTML = '';
+    (r.photos || []).forEach(url => addPhotoRow(url));
+    document.getElementById('report-modal-overlay').style.display = 'flex';
+}
+
+function closeReportModal() {
+    document.getElementById('report-modal-overlay').style.display = 'none';
+}
+
+function clearReportForm() {
+    ['rf-title', 'rf-date', 'rf-category-input', 'rf-participants', 'rf-summary', 'rf-comments', 'rf-manager']
+        .forEach(id => { document.getElementById(id).value = ''; });
+    document.getElementById('rf-card-color').value = '#000000';
+    document.getElementById('rf-photos-list').innerHTML = '';
+    addPhotoRow();
+}
+
+function addPhotoRow(url = '') {
+    const list = document.getElementById('rf-photos-list');
+    const row = document.createElement('div');
+    row.className = 'date-row';
+    row.style.cssText = 'display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;';
+    row.innerHTML = `
+        <input type="url" class="rf-photo-url" value="${escapeHtml(url)}" placeholder="https://..." style="flex:1;">
+        <button type="button" class="btn-icon-remove" onclick="this.parentElement.remove()" title="削除">✕</button>
+    `;
+    list.appendChild(row);
+}
+
+function getPhotosFromForm() {
+    return Array.from(document.querySelectorAll('.rf-photo-url'))
+        .map(inp => inp.value.trim())
+        .filter(url => url);
+}
+
+function saveReport() {
+    const title = document.getElementById('rf-title').value.trim();
+    if (!title) { alert('イベント名を入力してください'); return; }
+    const eventDate = document.getElementById('rf-date').value;
+    if (!eventDate) { alert('開催日を選択してください'); return; }
+
+    const categoryText = document.getElementById('rf-category-input').value.trim() || 'その他';
+    const category     = getCategoryClass(categoryText);
+    let cardColor      = document.getElementById('rf-card-color').value;
+    if (cardColor === '#000000') cardColor = '';
+
+    const reportData = {
+        id:                editingReportId !== null ? editingReportId : -1,
+        eventTitle:        title,
+        eventDate,
+        category,
+        categoryText,
+        cardColor,
+        actualParticipants: document.getElementById('rf-participants').value.trim(),
+        summary:           document.getElementById('rf-summary').value.trim(),
+        photos:            getPhotosFromForm(),
+        comments:          document.getElementById('rf-comments').value.trim(),
+        manager:           document.getElementById('rf-manager').value.trim(),
+    };
+
+    if (editingReportId !== null) {
+        const idx = reports.findIndex(r => r.id === editingReportId);
+        if (idx !== -1) reports[idx] = reportData;
+        markReportsDirty(`「${title}」を編集しました`);
+    } else {
+        const maxId = reports.length > 0 ? Math.max(...reports.map(r => r.id)) : 0;
+        reportData.id = maxId + 1;
+        reports.push(reportData);
+        markReportsDirty(`「${title}」を追加しました`);
+    }
+
+    closeReportModal();
+    renderReportList();
+}
+
+function deleteReport(id) {
+    const r = reports.find(rep => rep.id === id);
+    if (!r) return;
+    if (!confirm(`「${r.eventTitle}」を削除してよいですか？`)) return;
+    reports = reports.filter(rep => rep.id !== id);
+    markReportsDirty(`「${r.eventTitle}」を削除しました`);
+    renderReportList();
+}
+
 // ---- INIT ----
 loadConfig();
 loadFirebaseConfig();
 renderEventList();
+renderReportList();
