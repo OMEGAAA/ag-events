@@ -675,7 +675,7 @@ function renderMonthCal() {
         for (let d = 0; d < 7; d++) {
             const day = new Date(weekStart);
             day.setDate(weekStart.getDate() + d);
-            const dayStr = day.toISOString().slice(0, 10);
+            const dayStr = `${day.getFullYear()}-${String(day.getMonth()+1).padStart(2,'0')}-${String(day.getDate()).padStart(2,'0')}`;
             const isOther = day.getMonth() !== m;
             const isToday = dayStr === todayStr;
             const cls = `mc-cell${isOther ? ' mc-cell-other' : ''}${isToday ? ' mc-cell-today' : ''}${d === 0 ? ' mc-cell-sun' : d === 6 ? ' mc-cell-sat' : ''}`;
