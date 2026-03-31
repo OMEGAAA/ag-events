@@ -1,1 +1,196 @@
-[]
+[
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "3月31日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-03-31",
+        "endTime": "17:00",
+        "startDate": "2026-03-31",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-03-31",
+    "endTime": "17:00",
+    "id": 1,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "スタジオ",
+      "パワーエリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-03-31",
+    "startTime": "09:00",
+    "title": "Ulunoa　base"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "4月2日 11:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-02",
+        "endTime": "17:00",
+        "startDate": "2026-04-02",
+        "startTime": "11:00"
+      }
+    ],
+    "endDate": "2026-04-02",
+    "endTime": "17:00",
+    "id": 2,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア"
+    ],
+    "manager": "佐藤",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-02",
+    "startTime": "11:00",
+    "title": "栃木高校様測定"
+  },
+  {
+    "cardColor": "#c2bd2e",
+    "category": "health",
+    "categoryText": "健康アカデミー",
+    "date": "4月2日 他7件",
+    "dates": [
+      {
+        "endDate": "2026-04-02",
+        "endTime": "16:00",
+        "startDate": "2026-04-02",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-04-09",
+        "endTime": "16:00",
+        "startDate": "2026-04-09",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-04-23",
+        "endTime": "16:00",
+        "startDate": "2026-04-23",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-04-30",
+        "endTime": "16:00",
+        "startDate": "2026-04-30",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-05-07",
+        "endTime": "16:00",
+        "startDate": "2026-05-07",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-05-14",
+        "endTime": "16:00",
+        "startDate": "2026-05-14",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-05-21",
+        "endTime": "16:00",
+        "startDate": "2026-05-21",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-05-28",
+        "endTime": "16:00",
+        "startDate": "2026-05-28",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-05-28",
+    "endTime": "16:00",
+    "id": 3,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-02",
+    "startTime": "13:00",
+    "title": "健康アカデミー（一旦5月まで）"
+  },
+  {
+    "cardColor": "#6b3091",
+    "category": "other",
+    "categoryText": "アローズ",
+    "date": "4月7日 他6件",
+    "dates": [
+      {
+        "endDate": "2026-04-07",
+        "endTime": "11:00",
+        "startDate": "2026-04-07",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-04-21",
+        "endTime": "11:00",
+        "startDate": "2026-04-21",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-04-28",
+        "endTime": "11:00",
+        "startDate": "2026-04-28",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-05",
+        "endTime": "11:00",
+        "startDate": "2026-05-05",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-12",
+        "endTime": "11:00",
+        "startDate": "2026-05-12",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-19",
+        "endTime": "11:00",
+        "startDate": "2026-05-19",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-26",
+        "endTime": "11:00",
+        "startDate": "2026-05-26",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-05-26",
+    "endTime": "11:00",
+    "id": 4,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "山﨑",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-07",
+    "startTime": "10:00",
+    "title": "しずわでら体育授業"
+  }
+]
