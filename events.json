@@ -378,5 +378,33 @@
     "startDate": "2026-05-10",
     "startTime": "12:00",
     "title": "アローズ競技特化イベント"
+  },
+  {
+    "cardColor": "#8c46d2",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "4月2日",
+    "dates": [
+      {
+        "endDate": "2026-04-02",
+        "endTime": "",
+        "startDate": "2026-04-02",
+        "startTime": ""
+      }
+    ],
+    "endDate": "2026-04-02",
+    "endTime": "",
+    "id": 11,
+    "locations": [
+      "外部"
+    ],
+    "manager": "山﨑",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-02",
+    "startTime": "",
+    "title": "アローズイベント"
   }
 ]
