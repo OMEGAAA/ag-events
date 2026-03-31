@@ -612,7 +612,8 @@ function renderMonthCal() {
     const firstDow = firstDay.getDay();
     const daysInMonth = new Date(y, m + 1, 0).getDate();
     const DOWS = ['日', '月', '火', '水', '木', '金', '土'];
-    const todayStr = new Date().toISOString().slice(0, 10);
+    const _t = new Date();
+    const todayStr = `${_t.getFullYear()}-${String(_t.getMonth()+1).padStart(2,'0')}-${String(_t.getDate()).padStart(2,'0')}`;
 
     const gridStart = new Date(firstDay);
     gridStart.setDate(1 - firstDow);
@@ -677,11 +678,8 @@ function renderMonthCal() {
             const dayStr = day.toISOString().slice(0, 10);
             const isOther = day.getMonth() !== m;
             const isToday = dayStr === todayStr;
-            const cls = `mc-cell${isOther ? ' mc-cell-other' : ''}${d === 0 ? ' mc-cell-sun' : d === 6 ? ' mc-cell-sat' : ''}`;
-            const numHtml = isToday
-                ? `<span class="mc-today-circle">${day.getDate()}</span>`
-                : day.getDate();
-            daysHtml += `<div class="${cls}"><div class="mc-date-num">${numHtml}</div></div>`;
+            const cls = `mc-cell${isOther ? ' mc-cell-other' : ''}${isToday ? ' mc-cell-today' : ''}${d === 0 ? ' mc-cell-sun' : d === 6 ? ' mc-cell-sat' : ''}`;
+            daysHtml += `<div class="${cls}"><div class="mc-date-num">${day.getDate()}</div></div>`;
         }
 
         // Event bars

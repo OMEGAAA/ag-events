@@ -1416,17 +1416,12 @@ main {
     align-items: center;
     justify-content: center;
 }
-.mc-today-circle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
-    background: var(--accent-blue);
-    color: white !important;
-    border-radius: 50%;
+.mc-cell-today {
+    background: #eff6ff;
+}
+.mc-cell-today .mc-date-num {
+    color: var(--accent-blue);
     font-weight: 700;
-    font-size: 0.82rem;
 }
 .mc-event-layer {
     position: absolute;
@@ -1475,5 +1470,4 @@ main {
     .mc-bar-text { font-size: 0; }
     .mc-event-bar { padding: 0 2px; }
     .mc-date-num { font-size: 0.75rem; width: 18px; height: 18px; }
-    .mc-today-circle { width: 18px; height: 18px; font-size: 0.75rem; }
 }
