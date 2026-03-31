@@ -1357,3 +1357,123 @@ main {
 
 /* ---- 複数日程 (detail modal) ---- */
 .detail-date-entry { line-height: 1.6; }
+
+/* ---- MONTHLY CALENDAR VIEW ---- */
+.view-btn-cal {
+    border-left: 1px solid var(--glass-border);
+    margin-left: 0.25rem;
+    padding-left: 0.85rem;
+}
+#month-cal-container {
+    padding: 0 5% 2rem;
+}
+.mc-grid {
+    background: var(--surface-color);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.mc-dow-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: #1e40af;
+    color: white;
+}
+.mc-dow {
+    text-align: center;
+    padding: 0.65rem 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.mc-dow-sun { color: #fca5a5; }
+.mc-dow-sat { color: #93c5fd; }
+.mc-week-row {
+    position: relative;
+    border-bottom: 1px solid var(--glass-border);
+}
+.mc-week-row:last-child { border-bottom: none; }
+.mc-week-cells {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+.mc-cell {
+    border-right: 1px solid var(--glass-border);
+    padding: 4px 6px;
+}
+.mc-cell:last-child { border-right: none; }
+.mc-cell-other .mc-date-num { color: #c0cad8; }
+.mc-cell-sun .mc-date-num { color: var(--accent-red); }
+.mc-cell-sat .mc-date-num { color: var(--accent-blue); }
+.mc-date-num {
+    font-size: 0.82rem;
+    font-weight: 500;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mc-today-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--accent-blue);
+    color: white !important;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.82rem;
+}
+.mc-event-layer {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+}
+.mc-event-bar {
+    position: absolute;
+    border-radius: 4px;
+    cursor: pointer;
+    pointer-events: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: white;
+    background: var(--card-color, #3b82f6);
+    transition: filter 0.15s, opacity 0.15s;
+    z-index: 2;
+}
+.mc-event-bar:hover { filter: brightness(1.12); opacity: 0.9; }
+.mc-event-bar.health   { background: var(--card-color, #10b981); }
+.mc-event-bar.learning { background: var(--card-color, #ef4444); }
+.mc-event-bar.social   { background: var(--card-color, #ec4899); }
+.mc-event-bar.other    { background: var(--card-color, #94a3b8); }
+.mc-bar-left-cont  { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.mc-bar-right-cont { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.mc-bar-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mc-more-badge {
+    position: absolute;
+    font-size: 0.68rem;
+    color: var(--text-secondary);
+    pointer-events: none;
+    z-index: 2;
+    padding: 1px 4px;
+}
+@media (max-width: 640px) {
+    #month-cal-container { padding: 0 2% 1.5rem; }
+    .mc-bar-text { font-size: 0; }
+    .mc-event-bar { padding: 0 2px; }
+    .mc-date-num { font-size: 0.75rem; width: 18px; height: 18px; }
+    .mc-today-circle { width: 18px; height: 18px; font-size: 0.75rem; }
+}

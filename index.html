@@ -54,6 +54,12 @@
                     <span id="gantt-current-date-label">2026年 11月</span>
                     <button id="gantt-next" class="icon-btn">次へ &gt;</button>
                 </div>
+                <!-- Month calendar navigation (hidden by default) -->
+                <div class="gantt-nav" id="month-cal-nav" style="display:none;">
+                    <button id="month-cal-prev" class="icon-btn">&lt; 前月</button>
+                    <span id="month-cal-label" style="min-width:150px; text-align:center;"></span>
+                    <button id="month-cal-next" class="icon-btn">次月 &gt;</button>
+                </div>
                 <!-- Day navigation (hidden by default) -->
                 <div class="gantt-nav" id="day-nav" style="display:none;">
                     <button id="day-prev" class="icon-btn">&lt; 前日</button>
@@ -68,6 +74,7 @@
                     <button class="view-btn" data-days="7">1週間</button>
                     <button class="view-btn" data-days="14">2週間</button>
                     <button class="view-btn active" data-days="30">1ヶ月</button>
+                    <button class="view-btn view-btn-cal" data-mode="month-cal">📅 カレンダー</button>
                     <div id="gantt-zoom-group" class="gantt-zoom-group">
                         <button id="gantt-zoom-out" class="icon-btn gantt-zoom-btn" title="縮小">−</button>
                         <button id="gantt-zoom-in" class="icon-btn gantt-zoom-btn" title="拡大">＋</button>
@@ -80,6 +87,9 @@
                 <div class="gantt-timeline-header" id="gantt-header-days"></div>
                 <div id="gantt-tracks"></div>
             </section>
+
+            <!-- Monthly calendar grid view -->
+            <div id="month-cal-container" style="display:none;"></div>
 
             <!-- 1日 timeline view -->
             <div id="day-view-container" style="display:none;">
