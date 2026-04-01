@@ -377,28 +377,25 @@
     "cardColor": "#8c46d2",
     "category": "other",
     "categoryText": "イベント",
-    "date": "4月2日",
+    "date": "4月2日 10:00〜15:00",
     "dates": [
       {
         "endDate": "2026-04-02",
-        "endTime": "",
+        "endTime": "15:00",
         "startDate": "2026-04-02",
-        "startTime": ""
+        "startTime": "10:00"
       }
     ],
     "endDate": "2026-04-02",
-    "endTime": "",
+    "endTime": "15:00",
     "id": 11,
-    "locations": [
-      "外部"
-    ],
     "manager": "山﨑",
     "notes": "",
     "participants": "",
     "snsAvailableFrom": "",
     "snsPR": "pending",
     "startDate": "2026-04-02",
-    "startTime": "",
+    "startTime": "10:00",
     "title": "アローズイベント"
   },
   {
