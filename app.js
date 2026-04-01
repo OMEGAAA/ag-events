@@ -192,7 +192,10 @@ function renderEvents() {
     if (!eventGrid) return;
     eventGrid.innerHTML = '';
 
-    const filtered = [...events].sort((a, b) => new Date(getEventDates(a)[0].startDate) - new Date(getEventDates(b)[0].startDate));
+    const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+    const filtered = [...events]
+        .filter(e => getEventDates(e).some(d => (d.endDate || d.startDate) >= todayStr))
+        .sort((a, b) => new Date(getEventDates(a)[0].startDate) - new Date(getEventDates(b)[0].startDate));
 
     if (filtered.length === 0) {
         eventGrid.innerHTML = '<p style="text-align:center;color:var(--text-secondary);padding:4rem 0;grid-column:1/-1;">イベントがありません</p>';
