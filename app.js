@@ -737,7 +737,6 @@ function renderMonthCal() {
     const BAR_H = 20;
     const BAR_GAP = 2;
     const CELL_TOP = 26;
-    const MAX_LANES = 4;
     const numWeeks = Math.ceil((firstDow + daysInMonth) / 7);
 
     let weeksHtml = '';
@@ -783,7 +782,7 @@ function renderMonthCal() {
             return { ...ev, lane, startDow, endDow };
         });
 
-        const usedLanes = positioned.length > 0 ? Math.min(MAX_LANES, Math.max(...positioned.map(p => p.lane)) + 1) : 0;
+        const usedLanes = positioned.length > 0 ? Math.max(...positioned.map(p => p.lane)) + 1 : 0;
         const rowH = Math.max(80, CELL_TOP + usedLanes * (BAR_H + BAR_GAP) + 8);
 
         // Day cells
@@ -801,7 +800,6 @@ function renderMonthCal() {
         // Event bars
         let barsHtml = '';
         positioned.forEach(ev => {
-            if (ev.lane >= MAX_LANES) return;
             const leftPct = (ev.startDow / 7) * 100;
             const widthPct = ((ev.endDow - ev.startDow + 1) / 7) * 100;
             const top = CELL_TOP + ev.lane * (BAR_H + BAR_GAP);
@@ -819,20 +817,6 @@ function renderMonthCal() {
             </div>`;
         });
 
-        // +N more badges
-        const hiddenPerDay = {};
-        positioned.filter(ev => ev.lane >= MAX_LANES).forEach(ev => {
-            for (let d = ev.startDow; d <= ev.endDow; d++) {
-                hiddenPerDay[d] = (hiddenPerDay[d] || 0) + 1;
-            }
-        });
-        Object.entries(hiddenPerDay).forEach(([dow, count]) => {
-            const d = parseInt(dow);
-            const leftPct = (d / 7) * 100;
-            const widthPct = (1 / 7) * 100;
-            const top = CELL_TOP + MAX_LANES * (BAR_H + BAR_GAP);
-            barsHtml += `<div class="mc-more-badge" style="left:calc(${leftPct}% + 4px);width:calc(${widthPct}% - 8px);top:${top}px;">+${count}</div>`;
-        });
 
         weeksHtml += `<div class="mc-week-row" style="height:${rowH}px;">
             <div class="mc-week-cells">${daysHtml}</div>
