@@ -373,15 +373,23 @@ function renderGantt() {
     const header = document.getElementById('gantt-header-days');
     if (!container || !header) return;
 
-    // ズーム幅をCSS変数に反映
-    document.getElementById('gantt-view-container')
-        ?.style.setProperty('--gantt-day-width', `${ganttDayWidth}px`);
     updateZoomButtons();
 
     container.innerHTML = '';
 
     const startDate = new Date(currentGanttStartDate);
     const totalDays = currentGanttDays;
+
+    // コンテナ幅に合わせて列幅を拡張（余白が出ないよう）
+    const viewContainer = document.getElementById('gantt-view-container');
+    const labelWidth = 250; // --gantt-label-width のデフォルト値
+    const availableW = viewContainer ? viewContainer.clientWidth - labelWidth : 0;
+    const effectiveDayWidth = availableW > 0 && availableW / totalDays > ganttDayWidth
+        ? availableW / totalDays
+        : ganttDayWidth;
+
+    // ズーム幅をCSS変数に反映
+    viewContainer?.style.setProperty('--gantt-day-width', `${effectiveDayWidth}px`);
     const endDate = new Date(startDate);
     endDate.setDate(startDate.getDate() + totalDays - 1);
 
@@ -437,7 +445,7 @@ function renderGantt() {
                 <div class="gantt-label-title">${escapeHtml(loc)}</div>
                 <span class="gantt-event-count${visibleCount === 0 ? ' count-zero' : ''}">${visibleCount}</span>
             </div>
-            <div class="gantt-bars-container" style="--total-days: ${totalDays}; width: ${totalDays * ganttDayWidth}px; min-width: ${totalDays * ganttDayWidth}px; flex: none;">
+            <div class="gantt-bars-container" style="--total-days: ${totalDays}; width: ${totalDays * effectiveDayWidth}px; min-width: ${totalDays * effectiveDayWidth}px; flex: none;">
             </div>
         `;
 
