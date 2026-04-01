@@ -428,5 +428,41 @@
     "startDate": "2026-04-01",
     "startTime": "",
     "title": "test"
+  },
+  {
+    "cardColor": "#ed0202",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月2日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-04-02",
+        "endTime": "10:00",
+        "startDate": "2026-04-02",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-04-03",
+        "endTime": "17:00",
+        "startDate": "2026-04-03",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-03",
+    "endTime": "10:00",
+    "id": 13,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "パワーエリア"
+    ],
+    "manager": "神宮隆太",
+    "notes": "",
+    "participants": "３０名ほど",
+    "snsAvailableFrom": "2026-04-02",
+    "snsPR": "allowed",
+    "startDate": "2026-04-02",
+    "startTime": "09:00",
+    "title": "TGB練習"
   }
 ]
