@@ -862,7 +862,6 @@ document.querySelectorAll('.view-btn').forEach(btn => {
             document.getElementById('gantt-nav').style.display = 'none';
             document.getElementById('day-nav').style.display = 'none';
             document.getElementById('month-cal-nav').style.display = 'flex';
-            document.getElementById('gantt-zoom-group').style.display = 'none';
             document.getElementById('calendar-title').textContent = '月カレンダー';
             document.getElementById('calendar-desc').textContent = '月ごとのカレンダー形式でイベントを確認できます。';
             renderMonthCal();
@@ -879,7 +878,6 @@ document.querySelectorAll('.view-btn').forEach(btn => {
             document.getElementById('gantt-nav').style.display = 'none';
             document.getElementById('day-nav').style.display = 'flex';
             document.getElementById('month-cal-nav').style.display = 'none';
-            document.getElementById('gantt-zoom-group').style.display = 'none';
             document.getElementById('calendar-title').textContent = '1日スケジュール';
             document.getElementById('calendar-desc').textContent = '選択した日のイベントを時系列で確認できます。';
             renderDayView();
@@ -892,7 +890,6 @@ document.querySelectorAll('.view-btn').forEach(btn => {
             document.getElementById('gantt-nav').style.display = 'flex';
             document.getElementById('day-nav').style.display = 'none';
             document.getElementById('month-cal-nav').style.display = 'none';
-            document.getElementById('gantt-zoom-group').style.display = 'flex';
             document.getElementById('calendar-title').textContent = '月間スケジュール';
             document.getElementById('calendar-desc').textContent = '現在予定されているベントのスケジュール進行です。';
             currentGanttDays = days;
@@ -944,7 +941,6 @@ function openCalendarAtDate(dateStr) {
     document.getElementById('day-view-container').style.display = 'none';
     document.getElementById('gantt-nav').style.display = 'flex';
     document.getElementById('day-nav').style.display = 'none';
-    document.getElementById('gantt-zoom-group').style.display = 'flex';
     document.getElementById('calendar-title').textContent = '月間スケジュール';
     document.getElementById('calendar-desc').textContent = '現在予定されている社内イベントのスケジュール進行（ガントチャート）です。';
 
