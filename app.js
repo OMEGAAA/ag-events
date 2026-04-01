@@ -434,7 +434,7 @@ function renderGantt() {
                 <div class="gantt-label-title">${escapeHtml(loc)}</div>
                 <span class="gantt-event-count${visibleCount === 0 ? ' count-zero' : ''}">${visibleCount}</span>
             </div>
-            <div class="gantt-bars-container" style="--total-days: ${totalDays}; min-width: ${totalDays * ganttDayWidth}px;">
+            <div class="gantt-bars-container" style="--total-days: ${totalDays}; width: ${totalDays * ganttDayWidth}px; min-width: ${totalDays * ganttDayWidth}px; flex: none;">
             </div>
         `;
 
