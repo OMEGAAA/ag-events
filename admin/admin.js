@@ -620,7 +620,7 @@ function openEditModal(id) {
     document.getElementById('f-notes').value          = event.notes || '';
 
     // 開催場所チェックボックス
-    const predefined = ['室内練習場','ベースボールエリア','アローズエリア','スタジオ','パワーエリア','食堂','多目的室'];
+    const predefined = ['室内練習場','ベースボールエリア','アローズエリア','スタジオ','バッティングブースA','バッティングブースB','打撃エリア','投手測定エリア','食堂','多目的室'];
     const locs = Array.isArray(event.locations) ? event.locations : [];
     document.querySelectorAll('.location-checkbox').forEach(cb => {
         cb.checked = locs.includes(cb.value);
