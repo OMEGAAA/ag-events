@@ -870,33 +870,5 @@
     "startDate": "2026-04-07",
     "startTime": "08:15",
     "title": "BCL測定　TGB"
-  },
-  {
-    "cardColor": "",
-    "category": "other",
-    "categoryText": "テスト",
-    "date": "4月7日 12:00〜13:00",
-    "dates": [
-      {
-        "endDate": "2026-04-07",
-        "endTime": "13:00",
-        "startDate": "2026-04-07",
-        "startTime": "12:00"
-      }
-    ],
-    "endDate": "2026-04-07",
-    "endTime": "13:00",
-    "id": 27,
-    "locations": [
-      "多目的室"
-    ],
-    "manager": "",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-04-07",
-    "startTime": "12:00",
-    "title": "テスト"
   }
 ]
