@@ -677,5 +677,226 @@
     "startDate": "2026-11-15",
     "startTime": "08:00",
     "title": "仮）栃木県スポーツ協会　元気塾"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "測定会",
+    "date": "4月14日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-04-14",
+        "endTime": "17:30",
+        "startDate": "2026-04-14",
+        "startTime": "08:00"
+      },
+      {
+        "endDate": "2026-04-15",
+        "endTime": "17:30",
+        "startDate": "2026-04-15",
+        "startTime": "08:00"
+      }
+    ],
+    "endDate": "2026-04-15",
+    "endTime": "17:30",
+    "id": 21,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "アローズエリア",
+      "食堂",
+      "多目的室"
+    ],
+    "manager": "五十子　佐藤正",
+    "notes": "",
+    "participants": "200～250",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-14",
+    "startTime": "08:00",
+    "title": "BCL測定"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "パーソナルレッスン",
+    "date": "4月11日 16:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-11",
+        "endTime": "17:00",
+        "startDate": "2026-04-11",
+        "startTime": "16:00"
+      }
+    ],
+    "endDate": "2026-04-11",
+    "endTime": "17:00",
+    "id": 22,
+    "locations": [
+      "バッティングブースA"
+    ],
+    "manager": "川相",
+    "notes": "",
+    "participants": "1",
+    "snsAvailableFrom": "",
+    "snsPR": "allowed",
+    "startDate": "2026-04-11",
+    "startTime": "16:00",
+    "title": "個人レッスン"
+  },
+  {
+    "cardColor": "#db1fa9",
+    "category": "other",
+    "categoryText": "野球部練習",
+    "date": "4月7日 13:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-07",
+        "endTime": "17:00",
+        "startDate": "2026-04-07",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-07",
+    "endTime": "17:00",
+    "id": 23,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア"
+    ],
+    "manager": "辻野",
+    "notes": "",
+    "participants": "30名",
+    "snsAvailableFrom": "",
+    "snsPR": "allowed",
+    "startDate": "2026-04-07",
+    "startTime": "13:00",
+    "title": "女子野球の練習"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "4月7日 08:30〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-04-07",
+        "endTime": "13:00",
+        "startDate": "2026-04-07",
+        "startTime": "08:30"
+      }
+    ],
+    "endDate": "2026-04-07",
+    "endTime": "13:00",
+    "id": 24,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "町田",
+    "notes": "",
+    "participants": "25",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-07",
+    "startTime": "08:30",
+    "title": "ＴＧＢ練習"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月18日 09:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-04-18",
+        "endTime": "18:00",
+        "startDate": "2026-04-18",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-18",
+    "endTime": "18:00",
+    "id": 25,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "アローズエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂",
+      "多目的室"
+    ],
+    "manager": "岡　美都希",
+    "notes": "",
+    "participants": "30名",
+    "snsAvailableFrom": "",
+    "snsPR": "allowed",
+    "startDate": "2026-04-18",
+    "startTime": "09:00",
+    "title": "ユース測定会"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "4月7日 08:15〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-07",
+        "endTime": "12:00",
+        "startDate": "2026-04-07",
+        "startTime": "08:15"
+      }
+    ],
+    "endDate": "2026-04-07",
+    "endTime": "12:00",
+    "id": 26,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "大塚璃音",
+    "notes": "",
+    "participants": "18",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-07",
+    "startTime": "08:15",
+    "title": "BCL測定　TGB"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "テスト",
+    "date": "4月7日 12:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-04-07",
+        "endTime": "13:00",
+        "startDate": "2026-04-07",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-04-07",
+    "endTime": "13:00",
+    "id": 27,
+    "locations": [
+      "多目的室"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-07",
+    "startTime": "12:00",
+    "title": "テスト"
   }
 ]
