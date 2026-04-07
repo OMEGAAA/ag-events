@@ -870,5 +870,37 @@
     "startDate": "2026-04-07",
     "startTime": "08:15",
     "title": "BCL測定　TGB"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "4月25日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-25",
+        "endTime": "17:00",
+        "startDate": "2026-04-25",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-25",
+    "endTime": "17:00",
+    "id": 27,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "食堂",
+      "多目的室"
+    ],
+    "manager": "岡",
+    "notes": "",
+    "participants": "30名",
+    "snsAvailableFrom": "2026-04-25",
+    "snsPR": "allowed",
+    "startDate": "2026-04-25",
+    "startTime": "09:00",
+    "title": "エイジェックユース(女子中学生)練習・測定のフィードバック"
   }
 ]
