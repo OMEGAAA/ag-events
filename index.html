@@ -17,6 +17,7 @@
         <nav>
             <a href="#" id="nav-home" class="active">ホーム</a>
             <a href="#" id="nav-calendar">カレンダー</a>
+            <a href="#" id="nav-report-form">実施報告</a>
         </nav>
     </header>
 
@@ -106,6 +107,73 @@
                 <div id="day-horizontal-container" style="display:none;"></div>
             </div>
         </div>
+        <!-- Report Form View -->
+        <div id="view-report-form" class="view-section" style="display: none;">
+            <section class="report-form-section">
+                <h2>実施報告フォーム</h2>
+                <p class="report-form-desc">イベント実施後に実績情報を報告してください。送信された報告は管理者の承認後に反映されます。</p>
+
+                <!-- Firebase設定（折りたたみ） -->
+                <div class="rf-firebase-panel" id="rf-firebase-panel">
+                    <div class="rf-firebase-header" onclick="toggleReportFirebaseSettings()">
+                        <span>Firebase 接続設定</span>
+                        <span id="rf-firebase-badge" class="rf-badge rf-badge-disconnected">未接続</span>
+                        <span id="rf-firebase-toggle">▼</span>
+                    </div>
+                    <div id="rf-firebase-body" style="display:none;">
+                        <p class="rf-firebase-desc">実施報告の送信にはFirebase接続が必要です。管理者から提供された設定を貼り付けてください。</p>
+                        <div class="report-form-group">
+                            <label>Firebase設定（firebaseConfig をそのまま貼り付け）</label>
+                            <textarea id="rf-firebase-config" rows="7" placeholder="const firebaseConfig = {&#10;  apiKey: &quot;AIzaSy...&quot;,&#10;  databaseURL: &quot;https://...&quot;,&#10;  ...&#10;};"></textarea>
+                        </div>
+                        <button class="primary-btn" onclick="connectReportFirebase()">接続する</button>
+                    </div>
+                </div>
+
+                <!-- 報告フォーム本体 -->
+                <div id="rf-form-body" class="rf-form-body">
+                    <div class="report-form-group">
+                        <label>イベント <span class="rf-required">※必須</span></label>
+                        <select id="rf-event-select">
+                            <option value="">-- イベントを選択してください --</option>
+                        </select>
+                    </div>
+
+                    <div class="report-form-group">
+                        <label>実参加人数</label>
+                        <input type="text" id="rf-actual-participants" placeholder="例: 25名">
+                    </div>
+
+                    <div class="report-form-group">
+                        <label>概要</label>
+                        <textarea id="rf-summary" rows="4" placeholder="イベントの実施内容・様子など"></textarea>
+                    </div>
+
+                    <div class="report-form-group">
+                        <label>写真URL（OneDriveの共有リンクなど）</label>
+                        <div id="rf-photos-list"></div>
+                        <button type="button" class="secondary-btn rf-add-photo-btn" onclick="addReportPhotoRow()">＋ 写真を追加</button>
+                    </div>
+
+                    <div class="report-form-group">
+                        <label>コメント</label>
+                        <textarea id="rf-report-comments" rows="3" placeholder="反省点・改善点など"></textarea>
+                    </div>
+
+                    <div class="report-form-group">
+                        <label>報告者名 <span class="rf-required">※必須</span></label>
+                        <input type="text" id="rf-reporter-name" placeholder="例: 山田 太郎">
+                    </div>
+
+                    <div class="report-form-actions">
+                        <button class="primary-btn" onclick="submitReport()">送信する</button>
+                    </div>
+
+                    <div id="rf-submit-message" class="rf-submit-message" style="display:none;"></div>
+                </div>
+            </section>
+        </div>
+
     </main>
 
     <!-- ========== 詳細モーダル ========== -->
@@ -116,6 +184,8 @@
         </div>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
     <script src="app.js"></script>
 </body>
 

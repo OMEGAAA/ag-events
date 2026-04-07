@@ -947,21 +947,205 @@ function openCalendarAtDate(dateStr) {
     renderGantt();
 }
 
+// ---- REPORT FORM (Firebase) ----
+const RF_FIREBASE_KEY = 'ag_report_firebase_config';
+let rfDb = null;
+let rfFirebaseConnected = false;
+
+function extractRfFirebaseConfig(str) {
+    const extract = (key) => {
+        const m = str.match(new RegExp(key + '\\s*:\\s*["\']([^"\']+)["\']'));
+        return m ? m[1] : '';
+    };
+    return {
+        apiKey: extract('apiKey'),
+        authDomain: extract('authDomain'),
+        databaseURL: extract('databaseURL'),
+        projectId: extract('projectId'),
+        storageBucket: extract('storageBucket'),
+        messagingSenderId: extract('messagingSenderId'),
+        appId: extract('appId'),
+    };
+}
+
+function loadReportFirebaseConfig() {
+    try {
+        const saved = localStorage.getItem(RF_FIREBASE_KEY);
+        if (!saved) return;
+        const { configStr } = JSON.parse(saved);
+        const el = document.getElementById('rf-firebase-config');
+        if (el && configStr) el.value = configStr;
+        const cfg = extractRfFirebaseConfig(configStr);
+        if (cfg.apiKey && cfg.databaseURL) initReportFirebase(cfg);
+    } catch (e) {}
+}
+
+function connectReportFirebase() {
+    const configStr = document.getElementById('rf-firebase-config').value.trim();
+    if (!configStr) { showReportMessage('Firebase設定を貼り付けてください', 'error'); return; }
+    const cfg = extractRfFirebaseConfig(configStr);
+    if (!cfg.apiKey || !cfg.databaseURL) {
+        showReportMessage('apiKey または databaseURL が見つかりません。', 'error');
+        return;
+    }
+    localStorage.setItem(RF_FIREBASE_KEY, JSON.stringify({ configStr }));
+    initReportFirebase(cfg);
+}
+
+function initReportFirebase(cfg) {
+    try {
+        if (typeof firebase === 'undefined') {
+            showReportMessage('Firebase SDKが読み込まれていません。', 'error');
+            return;
+        }
+        if (!firebase.apps.length) firebase.initializeApp(cfg);
+        rfDb = firebase.database();
+        rfFirebaseConnected = true;
+        updateRfBadge(true);
+        // 設定パネルを折りたたむ
+        document.getElementById('rf-firebase-body').style.display = 'none';
+        document.getElementById('rf-firebase-toggle').textContent = '▼';
+    } catch (e) {
+        showReportMessage('Firebase接続エラー: ' + e.message, 'error');
+        updateRfBadge(false);
+    }
+}
+
+function updateRfBadge(connected) {
+    const badge = document.getElementById('rf-firebase-badge');
+    if (!badge) return;
+    badge.textContent = connected ? '接続済み' : '未接続';
+    badge.className = connected ? 'rf-badge rf-badge-connected' : 'rf-badge rf-badge-disconnected';
+}
+
+function toggleReportFirebaseSettings() {
+    const body = document.getElementById('rf-firebase-body');
+    const icon = document.getElementById('rf-firebase-toggle');
+    const isHidden = body.style.display === 'none';
+    body.style.display = isHidden ? 'block' : 'none';
+    icon.textContent = isHidden ? '▲' : '▼';
+}
+
+function renderReportEventSelect() {
+    const select = document.getElementById('rf-event-select');
+    if (!select) return;
+    const todayStr = new Date().toISOString().slice(0, 10);
+    // 終了日が今日以前のイベントを表示（実施済み）、または開始日が今日以前
+    const pastEvents = events.filter(e => {
+        const dates = getEventDates(e);
+        return dates.some(d => (d.startDate || '') <= todayStr);
+    });
+    // 日付で新しい順にソート
+    pastEvents.sort((a, b) => {
+        const aDate = getEventDates(a)[0]?.startDate || '';
+        const bDate = getEventDates(b)[0]?.startDate || '';
+        return bDate.localeCompare(aDate);
+    });
+    select.innerHTML = '<option value="">-- イベントを選択してください --</option>';
+    pastEvents.forEach(e => {
+        const dates = getEventDates(e);
+        const dateStr = dates[0]?.startDate || '';
+        const opt = document.createElement('option');
+        opt.value = e.id;
+        opt.textContent = `${dateStr} - ${e.title}`;
+        select.appendChild(opt);
+    });
+}
+
+function addReportPhotoRow(url) {
+    const list = document.getElementById('rf-photos-list');
+    if (!list) return;
+    const row = document.createElement('div');
+    row.className = 'rf-photo-row';
+    row.innerHTML = `<input type="text" class="rf-photo-url" placeholder="https://..." value="${escapeHtml(url || '')}">
+        <button type="button" class="rf-photo-remove" onclick="this.parentElement.remove()">✕</button>`;
+    list.appendChild(row);
+}
+
+function showReportMessage(msg, type) {
+    const el = document.getElementById('rf-submit-message');
+    if (!el) return;
+    el.textContent = msg;
+    el.className = `rf-submit-message ${type}`;
+    el.style.display = 'block';
+    if (type === 'success') setTimeout(() => { el.style.display = 'none'; }, 5000);
+}
+
+function submitReport() {
+    if (!rfFirebaseConnected || !rfDb) {
+        showReportMessage('Firebaseに接続してください。', 'error');
+        return;
+    }
+    const selectEl = document.getElementById('rf-event-select');
+    const eventId = selectEl ? parseInt(selectEl.value) : null;
+    if (!eventId) {
+        showReportMessage('イベントを選択してください。', 'error');
+        return;
+    }
+    const reporter = document.getElementById('rf-reporter-name').value.trim();
+    if (!reporter) {
+        showReportMessage('報告者名を入力してください。', 'error');
+        return;
+    }
+
+    const ev = events.find(e => e.id === eventId);
+    if (!ev) { showReportMessage('イベントが見つかりません。', 'error'); return; }
+
+    const dates = getEventDates(ev);
+    const photos = [];
+    document.querySelectorAll('#rf-photos-list .rf-photo-url').forEach(input => {
+        const v = input.value.trim();
+        if (v) photos.push(v);
+    });
+
+    const reportData = {
+        eventId: ev.id,
+        eventTitle: ev.title,
+        eventDate: dates[0]?.startDate || '',
+        category: ev.category || 'other',
+        categoryText: ev.categoryText || '',
+        cardColor: ev.cardColor || '',
+        actualParticipants: document.getElementById('rf-actual-participants').value.trim(),
+        summary: document.getElementById('rf-summary').value.trim(),
+        photos: photos,
+        comments: document.getElementById('rf-report-comments').value.trim(),
+        reporter: reporter,
+        submittedAt: new Date().toISOString(),
+    };
+
+    rfDb.ref('pendingReports').push(reportData)
+        .then(() => {
+            showReportMessage('実施報告を送信しました。管理者の承認をお待ちください。', 'success');
+            // フォームリセット
+            selectEl.value = '';
+            document.getElementById('rf-actual-participants').value = '';
+            document.getElementById('rf-summary').value = '';
+            document.getElementById('rf-report-comments').value = '';
+            document.getElementById('rf-photos-list').innerHTML = '';
+        })
+        .catch(e => {
+            showReportMessage('送信に失敗しました: ' + e.message, 'error');
+        });
+}
+
 // ---- NAVIGATION ----
 const navHome = document.getElementById('nav-home');
 const navCalendar = document.getElementById('nav-calendar');
 const navReports = document.getElementById('nav-reports');
+const navReportForm = document.getElementById('nav-report-form');
 const viewHome = document.getElementById('view-home');
 const viewCal = document.getElementById('view-calendar');
 const viewReports = document.getElementById('view-reports');
+const viewReportForm = document.getElementById('view-report-form');
 
 function setActiveNav(active) {
-    [navHome, navCalendar, navReports].forEach(n => n?.classList.remove('active'));
+    [navHome, navCalendar, navReports, navReportForm].forEach(n => n?.classList.remove('active'));
     active?.classList.add('active');
     stopDayViewTimer();
     viewHome.style.display = 'none';
     viewCal.style.display = 'none';
     if (viewReports) viewReports.style.display = 'none';
+    if (viewReportForm) viewReportForm.style.display = 'none';
 }
 
 navHome?.addEventListener('click', e => {
@@ -990,6 +1174,14 @@ navReports?.addEventListener('click', e => {
     setActiveNav(navReports);
     if (viewReports) viewReports.style.display = 'block';
     renderReports();
+});
+
+navReportForm?.addEventListener('click', e => {
+    e.preventDefault();
+    setActiveNav(navReportForm);
+    if (viewReportForm) viewReportForm.style.display = 'block';
+    renderReportEventSelect();
+    loadReportFirebaseConfig();
 });
 
 // ---- DAY HORIZONTAL (RESOURCE) VIEW ----

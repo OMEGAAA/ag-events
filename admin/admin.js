@@ -100,6 +100,104 @@ function setupFirebaseListeners() {
         renderPresence();
         renderEventList();
     });
+    // 未承認の実施報告をリスナー
+    db.ref('pendingReports').on('value', (snap) => {
+        const data = snap.val();
+        pendingReports = data ? data : {};
+        renderPendingReports();
+    });
+}
+
+// ---- PENDING REPORTS (実施報告の受信・承認) ----
+let pendingReports = {};
+
+function renderPendingReports() {
+    const section = document.getElementById('pending-reports-section');
+    const tbody = document.getElementById('pending-reports-tbody');
+    const badge = document.getElementById('pending-reports-badge');
+    if (!tbody || !section) return;
+
+    const entries = Object.entries(pendingReports);
+    if (badge) badge.textContent = `${entries.length}件`;
+
+    if (entries.length === 0) {
+        section.style.display = 'none';
+        tbody.innerHTML = '<tr><td colspan="6" class="empty-state">未承認の報告はありません</td></tr>';
+        return;
+    }
+
+    section.style.display = 'block';
+    tbody.innerHTML = entries.map(([key, r]) => {
+        const submitted = r.submittedAt ? new Date(r.submittedAt).toLocaleString('ja-JP') : '';
+        return `<tr>
+            <td>${escapeHtml(r.eventTitle || '')}</td>
+            <td>${escapeHtml(r.eventDate || '')}</td>
+            <td>${escapeHtml(r.reporter || '')}</td>
+            <td>${escapeHtml(r.actualParticipants || '')}</td>
+            <td>${escapeHtml(submitted)}</td>
+            <td class="action-cell">
+                <button class="btn btn-primary btn-sm" onclick="viewPendingReport('${escapeHtml(key)}')">詳細</button>
+                <button class="btn btn-success btn-sm" onclick="approvePendingReport('${escapeHtml(key)}')">承認</button>
+                <button class="btn btn-delete btn-sm" onclick="rejectPendingReport('${escapeHtml(key)}')">却下</button>
+            </td>
+        </tr>`;
+    }).join('');
+}
+
+function viewPendingReport(key) {
+    const r = pendingReports[key];
+    if (!r) return;
+    const photos = (r.photos || []).map(u => `<a href="${escapeHtml(u)}" target="_blank" rel="noopener">${escapeHtml(u)}</a>`).join('<br>');
+    alert(
+        `【${r.eventTitle}】\n` +
+        `開催日: ${r.eventDate}\n` +
+        `報告者: ${r.reporter}\n` +
+        `実参加人数: ${r.actualParticipants || '未入力'}\n` +
+        `概要: ${r.summary || '未入力'}\n` +
+        `コメント: ${r.comments || 'なし'}\n` +
+        `写真: ${(r.photos || []).length}枚\n` +
+        `送信日時: ${r.submittedAt ? new Date(r.submittedAt).toLocaleString('ja-JP') : ''}`
+    );
+}
+
+function approvePendingReport(key) {
+    const r = pendingReports[key];
+    if (!r) return;
+    if (!confirm(`「${r.eventTitle}」の実施報告を承認して実績に追加しますか？`)) return;
+
+    // reports配列に追加
+    const maxId = reports.length > 0 ? Math.max(...reports.map(rep => rep.id)) : 0;
+    const reportData = {
+        id: maxId + 1,
+        eventTitle: r.eventTitle || '',
+        eventDate: r.eventDate || '',
+        category: r.category || 'other',
+        categoryText: r.categoryText || '',
+        cardColor: r.cardColor || '',
+        actualParticipants: r.actualParticipants || '',
+        summary: r.summary || '',
+        photos: r.photos || [],
+        comments: r.comments || '',
+        manager: r.reporter || '',
+    };
+    reports.push(reportData);
+    markReportsDirty(`「${r.eventTitle}」の実施報告を承認しました`);
+    renderReportList();
+
+    // Firebaseから削除
+    db.ref(`pendingReports/${key}`).remove()
+        .then(() => showStatus(`「${r.eventTitle}」の実施報告を承認し、実績に追加しました。`, 'success'))
+        .catch(e => showStatus('Firebase削除エラー: ' + e.message, 'error'));
+}
+
+function rejectPendingReport(key) {
+    const r = pendingReports[key];
+    if (!r) return;
+    if (!confirm(`「${r.eventTitle}」の実施報告を却下しますか？この操作は取り消せません。`)) return;
+
+    db.ref(`pendingReports/${key}`).remove()
+        .then(() => showStatus(`「${r.eventTitle}」の実施報告を却下しました。`, 'info'))
+        .catch(e => showStatus('Firebase削除エラー: ' + e.message, 'error'));
 }
 
 function writeEventsToFirebase() {

@@ -164,6 +164,33 @@
             </div>
         </div>
 
+        <!-- Pending Reports from Viewing Site -->
+        <div class="events-section" id="pending-reports-section" style="display:none;">
+            <div class="events-section-header">
+                <div>
+                    <h3>未承認の実施報告 <span id="pending-reports-badge" class="pending-badge">0件</span></h3>
+                    <p class="section-desc" id="pending-reports-desc">閲覧サイトから送信された実施報告です。承認すると実績管理に追加されます。</p>
+                </div>
+            </div>
+            <div class="events-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>イベント名</th>
+                            <th>開催日</th>
+                            <th>報告者</th>
+                            <th>実参加人数</th>
+                            <th>送信日時</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pending-reports-tbody">
+                        <tr><td colspan="6" class="empty-state">未承認の報告はありません</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <!-- Reports Management -->
         <div class="events-section">
             <div class="events-section-header">
