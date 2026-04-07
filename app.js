@@ -886,7 +886,7 @@ document.querySelectorAll('.view-btn').forEach(btn => {
             document.getElementById('day-nav').style.display = 'none';
             document.getElementById('month-cal-nav').style.display = 'none';
             document.getElementById('calendar-title').textContent = '月間スケジュール';
-            document.getElementById('calendar-desc').textContent = '現在予定されているベントのスケジュール進行です。';
+            document.getElementById('calendar-desc').textContent = '現在予定されているイベントのスケジュール進行です。';
             currentGanttDays = days;
             updateGanttDateLabel();
             renderGantt();

@@ -389,6 +389,9 @@
     "endDate": "2026-04-02",
     "endTime": "15:00",
     "id": 11,
+    "locations": [
+      "室内練習場"
+    ],
     "manager": "山﨑",
     "notes": "",
     "participants": "",
