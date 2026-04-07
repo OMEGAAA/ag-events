@@ -374,34 +374,6 @@
     "title": "アローズ競技特化イベント"
   },
   {
-    "cardColor": "#8c46d2",
-    "category": "other",
-    "categoryText": "イベント",
-    "date": "4月2日 10:00〜15:00",
-    "dates": [
-      {
-        "endDate": "2026-04-02",
-        "endTime": "15:00",
-        "startDate": "2026-04-02",
-        "startTime": "10:00"
-      }
-    ],
-    "endDate": "2026-04-02",
-    "endTime": "15:00",
-    "id": 11,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "山﨑",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-04-02",
-    "startTime": "10:00",
-    "title": "アローズイベント"
-  },
-  {
     "cardColor": "#ed0202",
     "category": "other",
     "categoryText": "社内イベント",
