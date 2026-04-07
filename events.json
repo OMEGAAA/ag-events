@@ -902,5 +902,35 @@
     "startDate": "2026-04-25",
     "startTime": "09:00",
     "title": "エイジェックユース(女子中学生)練習・測定のフィードバック"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月8日 13:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-08",
+        "endTime": "17:00",
+        "startDate": "2026-04-08",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-08",
+    "endTime": "17:00",
+    "id": 28,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "10名",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-08",
+    "startTime": "13:00",
+    "title": "AGK男子練習"
   }
 ]
