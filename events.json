@@ -909,36 +909,33 @@
     "title": "AGK男子練習"
   },
   {
-    "id": 29,
-    "title": "ユース測定",
+    "cardColor": "#ef0606",
+    "category": "other",
+    "categoryText": "社内イベント",
     "date": "12月6日 他2件",
     "dates": [
       {
-        "startDate": "2026-12-06",
         "endDate": "2026-12-06",
-        "startTime": "09:00",
-        "endTime": "19:00"
+        "endTime": "19:00",
+        "startDate": "2026-12-06",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2026-12-12",
         "endDate": "2026-12-12",
-        "startTime": "09:00",
-        "endTime": "19:00"
+        "endTime": "19:00",
+        "startDate": "2026-12-12",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2026-12-13",
         "endDate": "2026-12-13",
-        "startTime": "09:00",
-        "endTime": "19:00"
+        "endTime": "19:00",
+        "startDate": "2026-12-13",
+        "startTime": "09:00"
       }
     ],
-    "startDate": "2026-12-06",
     "endDate": "2026-12-13",
-    "startTime": "09:00",
     "endTime": "19:00",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "cardColor": "#ef0606",
+    "id": 29,
     "locations": [
       "室内練習場",
       "ベースボールエリア",
@@ -949,10 +946,13 @@
       "投手測定エリア",
       "食堂"
     ],
-    "participants": "定員なし",
-    "snsPR": "allowed",
-    "snsAvailableFrom": "2026-04-08",
     "manager": "岡 美都希",
-    "notes": ""
+    "notes": "",
+    "participants": "定員なし",
+    "snsAvailableFrom": "2026-04-08",
+    "snsPR": "allowed",
+    "startDate": "2026-12-06",
+    "startTime": "09:00",
+    "title": "ユース測定"
   }
 ]
