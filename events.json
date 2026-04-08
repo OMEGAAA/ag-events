@@ -907,5 +907,52 @@
     "startDate": "2026-04-08",
     "startTime": "13:00",
     "title": "AGK男子練習"
+  },
+  {
+    "cardColor": "#ef0606",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "12月6日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-12-06",
+        "endTime": "19:00",
+        "startDate": "2026-12-06",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-12",
+        "endTime": "19:00",
+        "startDate": "2026-12-12",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-13",
+        "endTime": "19:00",
+        "startDate": "2026-12-13",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-12-13",
+    "endTime": "19:00",
+    "id": 29,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "アローズエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂"
+    ],
+    "manager": "岡 美都希",
+    "notes": "",
+    "participants": "定員なし",
+    "snsAvailableFrom": "2026-12-13",
+    "snsPR": "allowed",
+    "startDate": "2026-12-06",
+    "startTime": "09:00",
+    "title": "ユース測定"
   }
 ]
