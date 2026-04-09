@@ -757,8 +757,9 @@ function renderMonthCal() {
         weekStart.setDate(gridStart.getDate() + week * 7);
         const weekEnd = new Date(weekStart);
         weekEnd.setDate(weekStart.getDate() + 6);
-        const weekStartStr = weekStart.toISOString().slice(0, 10);
-        const weekEndStr = weekEnd.toISOString().slice(0, 10);
+        const toLocalStr = (d) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+        const weekStartStr = toLocalStr(weekStart);
+        const weekEndStr = toLocalStr(weekEnd);
 
         // Collect all event entries overlapping this week
         const weekEntries = [];
