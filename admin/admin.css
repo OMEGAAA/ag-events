@@ -312,6 +312,15 @@ body {
 }
 .btn-delete:hover { background: rgba(239,68,68,0.2); }
 
+.btn-archive {
+    background: rgba(139,92,246,0.12);
+    border: 1px solid rgba(139,92,246,0.3);
+    color: #c4b5fd;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+}
+.btn-archive:hover { background: rgba(139,92,246,0.22); }
+
 /* ---- EVENTS SECTION ---- */
 .events-section {
     background: var(--surface);

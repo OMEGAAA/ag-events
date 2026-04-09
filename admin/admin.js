@@ -15,6 +15,12 @@ let statusTimer = null;
 let isDirty = false;
 let pendingCount = 0;
 
+// ---- ARCHIVE ----
+let archivedEvents = [];
+let archivedSha = '';
+let isArchivedDirty = false;
+let archivedPendingCount = 0;
+
 // ---- FIREBASE ----
 const FIREBASE_KEY = 'ag_firebase_config';
 let db = null;
@@ -399,6 +405,7 @@ async function fetchFromGitHub() {
             showStatus(`読み込み完了！ ${events.length}件のイベントが見つかりました。`, 'success');
         }
         await fetchReportsFromGitHub();
+        await fetchArchivedFromGitHub();
     } catch (e) {
         const msg = e.status
             ? getFriendlyError(e.status, e.message)
@@ -491,7 +498,7 @@ function updateDeployButton() {
 }
 
 window.addEventListener('beforeunload', (e) => {
-    if (isDirty || isReportsDirty) {
+    if (isDirty || isReportsDirty || isArchivedDirty) {
         e.preventDefault();
         e.returnValue = '保存されていない変更があります。「公開サイトに反映する」を押してから移動してください。';
     }
@@ -674,6 +681,7 @@ function renderEventList() {
             <td>
                 <div class="td-actions">
                     <button class="btn btn-edit" onclick="openEditModal(${Number(e.id)})">編集</button>
+                    <button class="btn btn-archive" onclick="archiveEvent(${Number(e.id)})">アーカイブ</button>
                     <button class="btn btn-delete" onclick="deleteEvent(${Number(e.id)})">削除</button>
                 </div>
             </td>
@@ -1123,8 +1131,202 @@ function deleteReport(id) {
     renderReportList();
 }
 
+// ---- ARCHIVE ----
+
+function getArchivedPath() {
+    return config.filePath.replace(/[^/]+$/, 'archived_events.json');
+}
+
+async function fetchArchivedFromGitHub() {
+    if (!config.owner || !config.repo || !config.token) return;
+    const path = getArchivedPath();
+    try {
+        const res = await fetch(
+            `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}?ref=${config.branch}`,
+            { headers: { 'Authorization': `Bearer ${config.token}`, 'Accept': 'application/vnd.github.v3+json' } }
+        );
+        if (res.status === 404) {
+            archivedEvents = [];
+            archivedSha = '';
+            renderArchivedList();
+            return;
+        }
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        archivedSha = data.sha;
+        archivedEvents = JSON.parse(decodeBase64Utf8(data.content));
+        renderArchivedList();
+    } catch (e) {
+        archivedEvents = [];
+        archivedSha = '';
+        renderArchivedList();
+    }
+}
+
+async function pushArchivedToGitHub() {
+    if (!config.owner || !config.repo || !config.token) {
+        showStatus('GitHubの設定を確認してください。', 'error');
+        return;
+    }
+    const btn = document.getElementById('btn-archived-deploy');
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '反映中...';
+    showStatus('アーカイブを公開しています...', 'info');
+    try {
+        const path = getArchivedPath();
+        const body = {
+            message: `アーカイブ更新 (${new Date().toLocaleString('ja-JP')})`,
+            content: encodeUtf8Base64(JSON.stringify(archivedEvents, null, 2)),
+            branch: config.branch
+        };
+        if (archivedSha) body.sha = archivedSha;
+        const res = await fetch(
+            `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${config.token}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            }
+        );
+        if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            throw { status: res.status, message: err.message || '' };
+        }
+        const data = await res.json();
+        archivedSha = data.content.sha;
+        markArchivedClean();
+        showStatus('アーカイブの公開が完了しました！', 'success');
+    } catch (e) {
+        const msg = e.status
+            ? getFriendlyError(e.status, e.message)
+            : `反映に失敗しました: ${e.message || e}`;
+        showStatus(msg, 'error');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+        updateArchivedDeployButton();
+    }
+}
+
+function markArchivedDirty(action) {
+    isArchivedDirty = true;
+    archivedPendingCount++;
+    updateArchivedDeployButton();
+    showStatus(`${action}（まだ公開されていません）`, 'info');
+}
+
+function markArchivedClean() {
+    isArchivedDirty = false;
+    archivedPendingCount = 0;
+    updateArchivedDeployButton();
+}
+
+function updateArchivedDeployButton() {
+    const btn = document.getElementById('btn-archived-deploy');
+    if (!btn) return;
+    if (isArchivedDirty && archivedPendingCount > 0) {
+        btn.textContent = `アーカイブを公開する（未反映: ${archivedPendingCount}件）`;
+        btn.classList.add('has-changes');
+    } else {
+        btn.textContent = 'アーカイブを公開する';
+        btn.classList.remove('has-changes');
+    }
+}
+
+function archiveEvent(id) {
+    const event = events.find(e => e.id === id);
+    if (!event) return;
+    if (!confirm(`「${event.title}」をアーカイブに移動しますか？\n\nイベント一覧から削除され、アーカイブ一覧に移動します。`)) return;
+
+    // アーカイブに追加
+    const archivedData = { ...event, archivedAt: new Date().toISOString() };
+    const maxId = archivedEvents.length > 0 ? Math.max(...archivedEvents.map(e => e.id)) : 0;
+    archivedData.id = maxId + 1;
+    archivedEvents.push(archivedData);
+    markArchivedDirty(`「${event.title}」をアーカイブに移動しました`);
+    renderArchivedList();
+
+    // イベント一覧から削除
+    events = events.filter(e => e.id !== id);
+    markDirty(`「${event.title}」をアーカイブに移動しました`);
+    if (isFirebaseConnected) { writeEventsToFirebase(); } else { renderEventList(); }
+}
+
+function restoreEvent(id) {
+    const archived = archivedEvents.find(e => e.id === id);
+    if (!archived) return;
+    if (!confirm(`「${archived.title}」をイベント一覧に戻しますか？`)) return;
+
+    // イベント一覧に復元
+    const restored = { ...archived };
+    delete restored.archivedAt;
+    const maxId = events.length > 0 ? Math.max(...events.map(e => e.id)) : 0;
+    restored.id = maxId + 1;
+    events.push(restored);
+    markDirty(`「${archived.title}」をイベント一覧に復元しました`);
+    if (isFirebaseConnected) { writeEventsToFirebase(); } else { renderEventList(); }
+
+    // アーカイブから削除
+    archivedEvents = archivedEvents.filter(e => e.id !== id);
+    markArchivedDirty(`「${archived.title}」をイベント一覧に復元しました`);
+    renderArchivedList();
+}
+
+function deleteArchivedEvent(id) {
+    const event = archivedEvents.find(e => e.id === id);
+    if (!event) return;
+    if (!confirm(`「${event.title}」をアーカイブから完全に削除しますか？\n\nこの操作は取り消せません。`)) return;
+    archivedEvents = archivedEvents.filter(e => e.id !== id);
+    markArchivedDirty(`「${event.title}」を完全に削除しました`);
+    renderArchivedList();
+}
+
+function renderArchivedList() {
+    const tbody = document.getElementById('archived-tbody');
+    const desc  = document.getElementById('archived-section-desc');
+    if (!tbody) return;
+
+    if (archivedEvents.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="empty-state">アーカイブされたイベントはありません。</td></tr>`;
+        if (desc) desc.textContent = 'アーカイブはまだありません';
+        return;
+    }
+
+    if (desc) desc.textContent = `${archivedEvents.length}件のイベントがアーカイブされています`;
+
+    tbody.innerHTML = archivedEvents
+        .slice().sort((a, b) => (b.archivedAt || '').localeCompare(a.archivedAt || ''))
+        .map(e => {
+            const locText = Array.isArray(e.locations) && e.locations.length > 0
+                ? e.locations.join('・')
+                : (e.location || '—');
+            const archivedDate = e.archivedAt ? new Date(e.archivedAt).toLocaleDateString('ja-JP') : '—';
+            return `
+            <tr>
+                <td><div class="event-title-cell">${escapeHtml(e.title)}</div></td>
+                <td style="white-space:nowrap; font-size:0.85rem; color:var(--text-secondary);">${escapeHtml(e.date)}</td>
+                <td style="font-size:0.82rem;">${escapeHtml(locText)}</td>
+                <td><span class="category-badge ${escapeHtml(e.category)}">${escapeHtml(e.categoryText)}</span></td>
+                <td style="font-size:0.85rem; color:var(--text-secondary);">${escapeHtml(e.manager || '—')}</td>
+                <td style="font-size:0.85rem; color:var(--text-secondary);">${escapeHtml(archivedDate)}</td>
+                <td>
+                    <div class="td-actions">
+                        <button class="btn btn-edit" onclick="restoreEvent(${Number(e.id)})">復元</button>
+                        <button class="btn btn-delete" onclick="deleteArchivedEvent(${Number(e.id)})">削除</button>
+                    </div>
+                </td>
+            </tr>`;
+        }).join('');
+}
+
 // ---- INIT ----
 loadConfig();
 loadFirebaseConfig();
 renderEventList();
 renderReportList();
+renderArchivedList();

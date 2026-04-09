@@ -229,6 +229,43 @@
             </div>
         </div>
 
+        <!-- Archived Events -->
+        <div class="events-section archived-section">
+            <div class="events-section-header">
+                <div>
+                    <h3>アーカイブ</h3>
+                    <p class="section-desc" id="archived-section-desc">実施済みイベントのアーカイブです</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-success" id="btn-archived-deploy" onclick="pushArchivedToGitHub()">
+                        アーカイブを公開する
+                    </button>
+                </div>
+            </div>
+            <div class="events-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>タイトル</th>
+                            <th>日付</th>
+                            <th>開催場所</th>
+                            <th>カテゴリ</th>
+                            <th>担当者</th>
+                            <th>アーカイブ日</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="archived-tbody">
+                        <tr>
+                            <td colspan="7" class="empty-state">
+                                アーカイブされたイベントはありません
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </div>
 
     <!-- ========== イベント追加・編集モーダル ========== -->
