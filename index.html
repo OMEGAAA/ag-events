@@ -124,7 +124,8 @@
                         <p class="rf-firebase-desc">実施報告の送信にはFirebase接続が必要です。管理者から提供された設定を貼り付けてください。</p>
                         <div class="report-form-group">
                             <label>Firebase設定（firebaseConfig をそのまま貼り付け）</label>
-                            <textarea id="rf-firebase-config" rows="7" placeholder="const firebaseConfig = {&#10;  apiKey: &quot;AIzaSy...&quot;,&#10;  databaseURL: &quot;https://...&quot;,&#10;  ...&#10;};"></textarea>
+                            <textarea id="rf-firebase-config" rows="7"
+                                placeholder="const firebaseConfig = {&#10;  apiKey: &quot;AIzaSy...&quot;,&#10;  databaseURL: &quot;https://...&quot;,&#10;  ...&#10;};"></textarea>
                         </div>
                         <button class="primary-btn" onclick="connectReportFirebase()">接続する</button>
                     </div>
@@ -142,17 +143,17 @@
 
                     <div class="report-form-group">
                         <label>イベント名 <span class="rf-required">※必須</span></label>
-                        <input type="text" id="rf-event-title" placeholder="例: インフィールド・クリニック2026春">
+                        <input type="text" id="rf-event-title" placeholder="例: 第1回チーム研修">
                     </div>
 
                     <div class="report-form-group">
                         <label>日程 <span class="rf-required">※必須</span></label>
-                        <input type="text" id="rf-event-date-text" placeholder="例: 2026年3月30日（月）、31日（火）">
+                        <input type="text" id="rf-event-date-text" placeholder="例: 2026年3月30日(月)">
                     </div>
 
                     <div class="report-form-group">
                         <label>主催 <span class="rf-required">※必須</span></label>
-                        <input type="text" id="rf-organizer" placeholder="例: Ulunoa base 武拓人 × SKILLED.C 緑川大陸">
+                        <input type="text" id="rf-organizer" placeholder="例: エイジェックスポーツ科学総合センター">
                     </div>
 
                     <div class="report-form-group">
@@ -168,19 +169,22 @@
                     <div class="report-form-group">
                         <label>内容（任意）<span class="rf-field-hint">各行が箇条書きになります</span></label>
                         <div id="rf-contents-list"></div>
-                        <button type="button" class="secondary-btn rf-add-row-btn" onclick="addContentRow()">＋ 内容を追加</button>
+                        <button type="button" class="secondary-btn rf-add-row-btn" onclick="addContentRow()">＋
+                            内容を追加</button>
                     </div>
 
                     <div class="report-form-group">
                         <label>本文（任意）<span class="rf-field-hint">段落ごとに追加してください</span></label>
                         <div id="rf-paragraphs-list"></div>
-                        <button type="button" class="secondary-btn rf-add-row-btn" onclick="addParagraphRow()">＋ 段落を追加</button>
+                        <button type="button" class="secondary-btn rf-add-row-btn" onclick="addParagraphRow()">＋
+                            段落を追加</button>
                     </div>
 
                     <div class="report-form-group">
                         <label>写真URL（OneDriveの共有リンクなど）</label>
                         <div id="rf-photos-list"></div>
-                        <button type="button" class="secondary-btn rf-add-row-btn" onclick="addReportPhotoRow()">＋ 写真を追加</button>
+                        <button type="button" class="secondary-btn rf-add-row-btn" onclick="addReportPhotoRow()">＋
+                            写真を追加</button>
                     </div>
 
                     <div class="report-form-group">
