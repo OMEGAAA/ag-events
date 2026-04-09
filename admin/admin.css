@@ -370,6 +370,26 @@ th {
     white-space: nowrap;
 }
 
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+th.sortable:hover {
+    color: var(--text-primary);
+    background: rgba(255,255,255,0.04);
+}
+
+.sort-icon {
+    display: inline-block;
+    margin-left: 0.2rem;
+    font-size: 0.72rem;
+    opacity: 0.35;
+}
+.sort-icon.active {
+    opacity: 1;
+    color: var(--accent-blue);
+}
+
 td {
     padding: 0.7rem 0.75rem;
     border-bottom: 1px solid rgba(255,255,255,0.04);

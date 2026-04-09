@@ -15,6 +15,10 @@ let statusTimer = null;
 let isDirty = false;
 let pendingCount = 0;
 
+// ---- SORT ----
+let eventSortKey = 'date';
+let eventSortDir = 1; // 1=昇順, -1=降順
+
 // ---- ARCHIVE ----
 let archivedEvents = [];
 let archivedSha = '';
@@ -629,9 +633,75 @@ function checkOverlaps(targetEvent, allEvents) {
     });
 }
 
+function sortEventList(key) {
+    if (eventSortKey === key) {
+        eventSortDir = -eventSortDir;
+    } else {
+        eventSortKey = key;
+        eventSortDir = 1;
+    }
+    renderEventList();
+}
+
+function getSortedEvents() {
+    return events.slice().sort((a, b) => {
+        let av, bv;
+        switch (eventSortKey) {
+            case 'title':
+                av = a.title || '';
+                bv = b.title || '';
+                break;
+            case 'date':
+                av = a.date || '';
+                bv = b.date || '';
+                break;
+            case 'location':
+                av = Array.isArray(a.locations) && a.locations.length > 0 ? a.locations.join('') : (a.location || '');
+                bv = Array.isArray(b.locations) && b.locations.length > 0 ? b.locations.join('') : (b.location || '');
+                break;
+            case 'category':
+                av = a.categoryText || '';
+                bv = b.categoryText || '';
+                break;
+            case 'sns':
+                av = a.snsPR || '';
+                bv = b.snsPR || '';
+                break;
+            case 'manager':
+                av = a.manager || '';
+                bv = b.manager || '';
+                break;
+            default:
+                av = a.date || '';
+                bv = b.date || '';
+        }
+        if (av < bv) return -1 * eventSortDir;
+        if (av > bv) return 1 * eventSortDir;
+        return 0;
+    });
+}
+
+function getEventSortIcon(key) {
+    if (eventSortKey !== key) return '<span class="sort-icon">↕</span>';
+    return eventSortDir === 1 ? '<span class="sort-icon active">↑</span>' : '<span class="sort-icon active">↓</span>';
+}
+
+function updateEventSortHeaders() {
+    const cols = ['title', 'date', 'location', 'category', 'sns', 'manager'];
+    cols.forEach(key => {
+        const el = document.getElementById(`th-event-${key}`);
+        if (el) {
+            const label = el.getAttribute('data-label');
+            el.innerHTML = `${label} ${getEventSortIcon(key)}`;
+        }
+    });
+}
+
 function renderEventList() {
     const tbody = document.getElementById('events-tbody');
     const desc  = document.getElementById('section-desc');
+
+    updateEventSortHeaders();
 
     if (events.length === 0) {
         tbody.innerHTML = `<tr><td colspan="7" class="empty-state">イベントがありません。「＋ イベントを追加」から追加してください。</td></tr>`;
@@ -641,7 +711,7 @@ function renderEventList() {
 
     if (desc) desc.textContent = `${events.length}件のイベントが登録されています`;
 
-    tbody.innerHTML = events.map(e => {
+    tbody.innerHTML = getSortedEvents().map(e => {
         const locText = Array.isArray(e.locations) && e.locations.length > 0
             ? e.locations.join('・')
             : (e.location || '—');

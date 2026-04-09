@@ -144,12 +144,12 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>タイトル</th>
-                            <th>日付</th>
-                            <th>開催場所</th>
-                            <th>カテゴリ</th>
-                            <th>HP/SNS</th>
-                            <th>担当者</th>
+                            <th id="th-event-title" data-label="タイトル" class="sortable" onclick="sortEventList('title')">タイトル <span class="sort-icon">↕</span></th>
+                            <th id="th-event-date" data-label="日付" class="sortable" onclick="sortEventList('date')">日付 <span class="sort-icon active">↑</span></th>
+                            <th id="th-event-location" data-label="開催場所" class="sortable" onclick="sortEventList('location')">開催場所 <span class="sort-icon">↕</span></th>
+                            <th id="th-event-category" data-label="カテゴリ" class="sortable" onclick="sortEventList('category')">カテゴリ <span class="sort-icon">↕</span></th>
+                            <th id="th-event-sns" data-label="HP/SNS" class="sortable" onclick="sortEventList('sns')">HP/SNS <span class="sort-icon">↕</span></th>
+                            <th id="th-event-manager" data-label="担当者" class="sortable" onclick="sortEventList('manager')">担当者 <span class="sort-icon">↕</span></th>
                             <th>操作</th>
                         </tr>
                     </thead>
