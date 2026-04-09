@@ -1096,6 +1096,7 @@ function renderReportList() {
                 <td style="font-size:0.85rem; color:var(--text-secondary);">${photoCount > 0 ? `📷 ${photoCount}枚` : '—'}</td>
                 <td>
                     <div class="td-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="viewReport(${Number(r.id)})">詳細</button>
                         <button class="btn btn-edit" onclick="openEditReportModal(${Number(r.id)})">編集</button>
                         <button class="btn btn-delete" onclick="deleteReport(${Number(r.id)})">削除</button>
                     </div>
@@ -1131,6 +1132,84 @@ function openEditReportModal(id) {
 
 function closeReportModal() {
     document.getElementById('report-modal-overlay').style.display = 'none';
+}
+
+// ---- 実績詳細・コピー ----
+
+function buildReportArticleText(r) {
+    const title = r.eventTitle || '';
+    const dateText = r.eventDateText || r.eventDate || '';
+    const organizer = r.organizer || '';
+    const supporter = r.supporter || '';
+    const target = r.target || '';
+    const contents = Array.isArray(r.contents) ? r.contents : [];
+    const paragraphs = Array.isArray(r.paragraphs) ? r.paragraphs : [];
+
+    // ヘッダー行（日程短縮形+タイトル）は手動で記入するため省略し、ブロックのみ生成
+    let text = '';
+    text += `当施設を利用するイベントとして、下記が開催されました。\n\n`;
+    text += `イベント名：${title}\n`;
+    text += `日程　　　：${dateText}\n`;
+    text += `主催　　　：${organizer}\n`;
+    if (supporter) text += `協力　　　：${supporter}\n`;
+    if (target)    text += `対象　　　：${target}\n`;
+    if (contents.length > 0) {
+        text += `内容　　　：${contents.join('、')}\n`;
+    }
+    if (paragraphs.length > 0) {
+        text += '\n';
+        paragraphs.forEach(p => { text += `${p}\n\n`; });
+    }
+    text += `単に場所をご利用いただくだけでなく、主催者が希望する内容に合わせて様々なご支援が可能ですので、ぜひお気軽にお問い合わせフォームよりご連絡ください。`;
+    return text;
+}
+
+function viewReport(id) {
+    const r = reports.find(rep => rep.id === id);
+    if (!r) return;
+
+    document.getElementById('report-detail-title').textContent = r.eventTitle || '実績詳細';
+
+    // テキストエリア
+    document.getElementById('report-detail-textarea').value = buildReportArticleText(r);
+
+    // プレビュー
+    const contents = Array.isArray(r.contents) ? r.contents : [];
+    const paragraphs = Array.isArray(r.paragraphs) ? r.paragraphs : [];
+    const rows = [
+        ['イベント名', r.eventTitle || ''],
+        ['日程', r.eventDateText || r.eventDate || ''],
+        ['主催', r.organizer || ''],
+        ...(r.supporter ? [['協力', r.supporter]] : []),
+        ...(r.target    ? [['対象', r.target]]    : []),
+        ...(contents.length > 0 ? [['内容', contents.join('、')]] : []),
+    ];
+    const tableRows = rows.map(([k, v]) => `<tr><th>${escapeHtml(k)}</th><td>${escapeHtml(v)}</td></tr>`).join('');
+    const paraHtml = paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('');
+    document.getElementById('report-detail-preview-body').innerHTML = `
+        <p class="rd-intro">当施設を利用するイベントとして、下記が開催されました。</p>
+        <table class="rd-table">${tableRows}</table>
+        ${paraHtml}
+        <p class="rd-closing">単に場所をご利用いただくだけでなく、主催者が希望する内容に合わせて様々なご支援が可能ですので、ぜひお気軽にお問い合わせフォームよりご連絡ください。</p>
+    `;
+
+    document.getElementById('report-detail-overlay').style.display = 'flex';
+}
+
+function closeReportDetail() {
+    document.getElementById('report-detail-overlay').style.display = 'none';
+}
+
+function copyReportText() {
+    const ta = document.getElementById('report-detail-textarea');
+    ta.select();
+    navigator.clipboard.writeText(ta.value).then(() => {
+        const toast = document.getElementById('report-copy-toast');
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 2000);
+    }).catch(() => {
+        document.execCommand('copy');
+    });
 }
 
 function clearReportForm() {

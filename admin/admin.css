@@ -578,6 +578,108 @@ tr:hover td { background: rgba(255,255,255,0.025); }
 .sns-not-allowed { background:rgba(239,68,68,0.15);  color:#fca5a5; }
 .sns-pending     { background:rgba(245,158,11,0.18); color:#fcd34d; }
 
+/* ---- REPORT DETAIL MODAL ---- */
+.report-detail-modal {
+    max-width: 720px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+.report-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.report-detail-header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+.report-detail-copy-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.report-detail-copy-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+.report-detail-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-family: inherit;
+    line-height: 1.75;
+    padding: 0.75rem 1rem;
+    resize: vertical;
+}
+.report-copy-toast {
+    text-align: center;
+    font-size: 0.82rem;
+    color: #34d399;
+    font-weight: 600;
+    padding: 0.3rem 0;
+}
+.report-detail-preview h4 {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.rd-intro {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0 0 0.75rem;
+}
+.rd-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+.rd-table th {
+    width: 5.5rem;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.04);
+    color: var(--text-secondary);
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: left;
+    vertical-align: top;
+}
+.rd-table td {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    vertical-align: top;
+    line-height: 1.6;
+}
+.report-detail-preview p {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    line-height: 1.8;
+    margin: 0 0 0.75rem;
+}
+.rd-closing {
+    color: var(--text-secondary) !important;
+    font-style: italic;
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+}
+
 /* ---- GUIDE MODAL ---- */
 .guide-modal {
     max-width: 620px;
