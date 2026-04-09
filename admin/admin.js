@@ -141,9 +141,9 @@ function renderPendingReports() {
         const submitted = r.submittedAt ? new Date(r.submittedAt).toLocaleString('ja-JP') : '';
         return `<tr>
             <td>${escapeHtml(r.eventTitle || '')}</td>
-            <td>${escapeHtml(r.eventDate || '')}</td>
+            <td style="font-size:0.82rem;">${escapeHtml(r.eventDateText || r.eventDate || '')}</td>
             <td>${escapeHtml(r.reporter || '')}</td>
-            <td>${escapeHtml(r.actualParticipants || '')}</td>
+            <td style="font-size:0.82rem;">${escapeHtml(r.organizer || '—')}</td>
             <td>${escapeHtml(submitted)}</td>
             <td class="action-cell">
                 <button class="btn btn-primary btn-sm" onclick="viewPendingReport('${escapeHtml(key)}')">詳細</button>
@@ -157,15 +157,18 @@ function renderPendingReports() {
 function viewPendingReport(key) {
     const r = pendingReports[key];
     if (!r) return;
-    const photos = (r.photos || []).map(u => `<a href="${escapeHtml(u)}" target="_blank" rel="noopener">${escapeHtml(u)}</a>`).join('<br>');
+    const contentsList = (r.contents || []).map(c => `　・${c}`).join('\n');
+    const paraText = (r.paragraphs || []).join('\n\n');
     alert(
         `【${r.eventTitle}】\n` +
-        `開催日: ${r.eventDate}\n` +
-        `報告者: ${r.reporter}\n` +
-        `実参加人数: ${r.actualParticipants || '未入力'}\n` +
-        `概要: ${r.summary || '未入力'}\n` +
-        `コメント: ${r.comments || 'なし'}\n` +
+        `日程: ${r.eventDateText || r.eventDate || ''}\n` +
+        `主催: ${r.organizer || '未入力'}\n` +
+        `協力: ${r.supporter || 'なし'}\n` +
+        `対象: ${r.target || '未入力'}\n` +
+        `内容:\n${contentsList || '　未入力'}\n\n` +
+        `本文:\n${paraText || '未入力'}\n\n` +
         `写真: ${(r.photos || []).length}枚\n` +
+        `報告者: ${r.reporter}\n` +
         `送信日時: ${r.submittedAt ? new Date(r.submittedAt).toLocaleString('ja-JP') : ''}`
     );
 }
@@ -180,14 +183,18 @@ function approvePendingReport(key) {
     const reportData = {
         id: maxId + 1,
         eventTitle: r.eventTitle || '',
+        eventDateText: r.eventDateText || '',
         eventDate: r.eventDate || '',
         category: r.category || 'other',
         categoryText: r.categoryText || '',
         cardColor: r.cardColor || '',
+        organizer: r.organizer || '',
+        supporter: r.supporter || '',
+        target: r.target || '',
+        contents: r.contents || [],
+        paragraphs: r.paragraphs || [],
         actualParticipants: r.actualParticipants || '',
-        summary: r.summary || '',
         photos: r.photos || [],
-        comments: r.comments || '',
         manager: r.reporter || '',
     };
     reports.push(reportData);

@@ -1903,6 +1903,43 @@ main {
 }
 .rf-photo-remove:hover { background: #FEE2E2; }
 
+.rf-paragraph-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+    align-items: flex-start;
+}
+.rf-paragraph-row textarea {
+    flex: 1;
+    padding: 0.5rem 0.7rem;
+    border: 1px solid var(--border-medium);
+    border-radius: 8px;
+    background: var(--surface-raised);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+}
+.rf-paragraph-row textarea:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+}
+.rf-para-remove {
+    flex-shrink: 0;
+    margin-top: 0.3rem;
+}
+
+.rf-field-hint {
+    font-size: 0.78rem;
+    color: var(--text-muted, #9ca3af);
+    margin-left: 0.5rem;
+    font-weight: 400;
+}
+
+.rf-add-row-btn {
+    margin-top: 0.4rem;
+}
+
 .report-form-actions {
     margin-top: 1.5rem;
     text-align: center;

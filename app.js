@@ -1041,7 +1041,7 @@ function renderReportEventSelect() {
         const bDate = getEventDates(b)[0]?.startDate || '';
         return bDate.localeCompare(aDate);
     });
-    select.innerHTML = '<option value="">-- イベントを選択してください --</option>';
+    select.innerHTML = '<option value="">-- 選択すると下の項目が自動入力されます --</option>';
     pastEvents.forEach(e => {
         const dates = getEventDates(e);
         const dateStr = dates[0]?.startDate || '';
@@ -1050,6 +1050,54 @@ function renderReportEventSelect() {
         opt.textContent = `${dateStr} - ${e.title}`;
         select.appendChild(opt);
     });
+}
+
+function onReportEventSelect() {
+    const select = document.getElementById('rf-event-select');
+    const eventId = parseInt(select?.value);
+    if (!eventId) return;
+    const ev = events.find(e => e.id === eventId);
+    if (!ev) return;
+
+    // イベント名を自動入力
+    const titleEl = document.getElementById('rf-event-title');
+    if (titleEl && !titleEl.value) titleEl.value = ev.title || '';
+
+    // 日程テキストを自動生成
+    const dateEl = document.getElementById('rf-event-date-text');
+    if (dateEl && !dateEl.value) {
+        const dates = getEventDates(ev);
+        const fmt = (s) => {
+            const d = new Date(s + 'T00:00:00');
+            const DOW = ['日', '月', '火', '水', '木', '金', '土'];
+            return `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日（${DOW[d.getDay()]}）`;
+        };
+        if (dates.length === 1) {
+            dateEl.value = fmt(dates[0].startDate);
+        } else {
+            dateEl.value = dates.map(d => fmt(d.startDate)).join('、');
+        }
+    }
+}
+
+function addContentRow(text) {
+    const list = document.getElementById('rf-contents-list');
+    if (!list) return;
+    const row = document.createElement('div');
+    row.className = 'rf-photo-row';
+    row.innerHTML = `<input type="text" class="rf-content-item" placeholder="例: 守備指導、スローイング指導" value="${escapeHtml(text || '')}">
+        <button type="button" class="rf-photo-remove" onclick="this.parentElement.remove()">✕</button>`;
+    list.appendChild(row);
+}
+
+function addParagraphRow(text) {
+    const list = document.getElementById('rf-paragraphs-list');
+    if (!list) return;
+    const row = document.createElement('div');
+    row.className = 'rf-paragraph-row';
+    row.innerHTML = `<textarea class="rf-paragraph-item" rows="4" placeholder="本文の段落を入力してください">${escapeHtml(text || '')}</textarea>
+        <button type="button" class="rf-photo-remove rf-para-remove" onclick="this.parentElement.remove()">✕</button>`;
+    list.appendChild(row);
 }
 
 function addReportPhotoRow(url) {
@@ -1076,22 +1124,37 @@ function submitReport() {
         showReportMessage('Firebaseに接続してください。', 'error');
         return;
     }
+
+    const title = document.getElementById('rf-event-title').value.trim();
+    if (!title) { showReportMessage('イベント名を入力してください。', 'error'); return; }
+
+    const dateText = document.getElementById('rf-event-date-text').value.trim();
+    if (!dateText) { showReportMessage('日程を入力してください。', 'error'); return; }
+
+    const organizer = document.getElementById('rf-organizer').value.trim();
+    if (!organizer) { showReportMessage('主催を入力してください。', 'error'); return; }
+
+    const reporter = document.getElementById('rf-reporter-name').value.trim();
+    if (!reporter) { showReportMessage('報告者名を入力してください。', 'error'); return; }
+
+    // 登録済みイベントとのリンク（任意）
     const selectEl = document.getElementById('rf-event-select');
     const eventId = selectEl ? parseInt(selectEl.value) : null;
-    if (!eventId) {
-        showReportMessage('イベントを選択してください。', 'error');
-        return;
-    }
-    const reporter = document.getElementById('rf-reporter-name').value.trim();
-    if (!reporter) {
-        showReportMessage('報告者名を入力してください。', 'error');
-        return;
-    }
+    const ev = eventId ? events.find(e => e.id === eventId) : null;
+    const rawDate = ev ? (getEventDates(ev)[0]?.startDate || '') : '';
 
-    const ev = events.find(e => e.id === eventId);
-    if (!ev) { showReportMessage('イベントが見つかりません。', 'error'); return; }
+    const contents = [];
+    document.querySelectorAll('#rf-contents-list .rf-content-item').forEach(input => {
+        const v = input.value.trim();
+        if (v) contents.push(v);
+    });
 
-    const dates = getEventDates(ev);
+    const paragraphs = [];
+    document.querySelectorAll('#rf-paragraphs-list .rf-paragraph-item').forEach(ta => {
+        const v = ta.value.trim();
+        if (v) paragraphs.push(v);
+    });
+
     const photos = [];
     document.querySelectorAll('#rf-photos-list .rf-photo-url').forEach(input => {
         const v = input.value.trim();
@@ -1099,16 +1162,19 @@ function submitReport() {
     });
 
     const reportData = {
-        eventId: ev.id,
-        eventTitle: ev.title,
-        eventDate: dates[0]?.startDate || '',
-        category: ev.category || 'other',
-        categoryText: ev.categoryText || '',
-        cardColor: ev.cardColor || '',
-        actualParticipants: document.getElementById('rf-actual-participants').value.trim(),
-        summary: document.getElementById('rf-summary').value.trim(),
+        eventId: ev ? ev.id : null,
+        eventTitle: title,
+        eventDateText: dateText,
+        eventDate: rawDate,
+        category: ev ? (ev.category || 'other') : 'other',
+        categoryText: ev ? (ev.categoryText || '') : '',
+        cardColor: ev ? (ev.cardColor || '') : '',
+        organizer: organizer,
+        supporter: document.getElementById('rf-supporter').value.trim(),
+        target: document.getElementById('rf-target').value.trim(),
+        contents: contents,
+        paragraphs: paragraphs,
         photos: photos,
-        comments: document.getElementById('rf-report-comments').value.trim(),
         reporter: reporter,
         submittedAt: new Date().toISOString(),
     };
@@ -1116,12 +1182,16 @@ function submitReport() {
     rfDb.ref('pendingReports').push(reportData)
         .then(() => {
             showReportMessage('実施報告を送信しました。管理者の承認をお待ちください。', 'success');
-            // フォームリセット
             selectEl.value = '';
-            document.getElementById('rf-actual-participants').value = '';
-            document.getElementById('rf-summary').value = '';
-            document.getElementById('rf-report-comments').value = '';
+            document.getElementById('rf-event-title').value = '';
+            document.getElementById('rf-event-date-text').value = '';
+            document.getElementById('rf-organizer').value = '';
+            document.getElementById('rf-supporter').value = '';
+            document.getElementById('rf-target').value = '';
+            document.getElementById('rf-contents-list').innerHTML = '';
+            document.getElementById('rf-paragraphs-list').innerHTML = '';
             document.getElementById('rf-photos-list').innerHTML = '';
+            document.getElementById('rf-reporter-name').value = '';
         })
         .catch(e => {
             showReportMessage('送信に失敗しました: ' + e.message, 'error');

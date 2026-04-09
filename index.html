@@ -132,32 +132,55 @@
 
                 <!-- 報告フォーム本体 -->
                 <div id="rf-form-body" class="rf-form-body">
+
                     <div class="report-form-group">
-                        <label>イベント <span class="rf-required">※必須</span></label>
-                        <select id="rf-event-select">
-                            <option value="">-- イベントを選択してください --</option>
+                        <label>登録済みイベントから選択（任意）</label>
+                        <select id="rf-event-select" onchange="onReportEventSelect()">
+                            <option value="">-- 選択すると下の項目が自動入力されます --</option>
                         </select>
                     </div>
 
                     <div class="report-form-group">
-                        <label>実参加人数</label>
-                        <input type="text" id="rf-actual-participants" placeholder="例: 25名">
+                        <label>イベント名 <span class="rf-required">※必須</span></label>
+                        <input type="text" id="rf-event-title" placeholder="例: インフィールド・クリニック2026春">
                     </div>
 
                     <div class="report-form-group">
-                        <label>概要</label>
-                        <textarea id="rf-summary" rows="4" placeholder="イベントの実施内容・様子など"></textarea>
+                        <label>日程 <span class="rf-required">※必須</span></label>
+                        <input type="text" id="rf-event-date-text" placeholder="例: 2026年3月30日（月）、31日（火）">
+                    </div>
+
+                    <div class="report-form-group">
+                        <label>主催 <span class="rf-required">※必須</span></label>
+                        <input type="text" id="rf-organizer" placeholder="例: Ulunoa base 武拓人 × SKILLED.C 緑川大陸">
+                    </div>
+
+                    <div class="report-form-group">
+                        <label>協力（任意）</label>
+                        <input type="text" id="rf-supporter" placeholder="例: エイジェックスポーツ科学総合センター">
+                    </div>
+
+                    <div class="report-form-group">
+                        <label>対象（任意）</label>
+                        <input type="text" id="rf-target" placeholder="例: 小学5・6年生、中学生">
+                    </div>
+
+                    <div class="report-form-group">
+                        <label>内容（任意）<span class="rf-field-hint">各行が箇条書きになります</span></label>
+                        <div id="rf-contents-list"></div>
+                        <button type="button" class="secondary-btn rf-add-row-btn" onclick="addContentRow()">＋ 内容を追加</button>
+                    </div>
+
+                    <div class="report-form-group">
+                        <label>本文（任意）<span class="rf-field-hint">段落ごとに追加してください</span></label>
+                        <div id="rf-paragraphs-list"></div>
+                        <button type="button" class="secondary-btn rf-add-row-btn" onclick="addParagraphRow()">＋ 段落を追加</button>
                     </div>
 
                     <div class="report-form-group">
                         <label>写真URL（OneDriveの共有リンクなど）</label>
                         <div id="rf-photos-list"></div>
-                        <button type="button" class="secondary-btn rf-add-photo-btn" onclick="addReportPhotoRow()">＋ 写真を追加</button>
-                    </div>
-
-                    <div class="report-form-group">
-                        <label>コメント</label>
-                        <textarea id="rf-report-comments" rows="3" placeholder="反省点・改善点など"></textarea>
+                        <button type="button" class="secondary-btn rf-add-row-btn" onclick="addReportPhotoRow()">＋ 写真を追加</button>
                     </div>
 
                     <div class="report-form-group">
