@@ -2,37 +2,6 @@
   {
     "cardColor": "",
     "category": "other",
-    "categoryText": "イベント",
-    "date": "3月31日 09:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-03-31",
-        "endTime": "17:00",
-        "startDate": "2026-03-31",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-03-31",
-    "endTime": "17:00",
-    "id": 1,
-    "locations": [
-      "室内練習場",
-      "ベースボールエリア",
-      "スタジオ",
-      "パワーエリア"
-    ],
-    "manager": "",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-03-31",
-    "startTime": "09:00",
-    "title": "Ulunoa　base"
-  },
-  {
-    "cardColor": "",
-    "category": "other",
     "categoryText": "測定",
     "date": "4月2日 11:00〜17:00",
     "dates": [
