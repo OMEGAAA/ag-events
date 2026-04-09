@@ -1010,5 +1010,33 @@
     "startDate": "2026-04-16",
     "startTime": "16:30",
     "title": "パーソナルレッスン"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "4月2日 10:28〜11:28",
+    "dates": [
+      {
+        "endDate": "2026-04-02",
+        "endTime": "11:28",
+        "startDate": "2026-04-02",
+        "startTime": "10:28"
+      }
+    ],
+    "endDate": "2026-04-02",
+    "endTime": "11:28",
+    "id": 34,
+    "locations": [
+      "外部"
+    ],
+    "manager": "山﨑",
+    "notes": "",
+    "participants": "20",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-02",
+    "startTime": "10:28",
+    "title": "テスト"
   }
 ]
