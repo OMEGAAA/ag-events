@@ -1010,5 +1010,37 @@
     "startDate": "2026-05-16",
     "startTime": "09:30",
     "title": "GOLD RUSHのレッスン"
+  },
+  {
+    "cardColor": "#edfc1d",
+    "category": "other",
+    "categoryText": "他団体利用",
+    "date": "5月14日 13:00〜19:00",
+    "dates": [
+      {
+        "endDate": "2026-05-14",
+        "endTime": "19:00",
+        "startDate": "2026-05-14",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-05-14",
+    "endTime": "19:00",
+    "id": 32,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "松橋朝也",
+    "notes": "",
+    "participants": "20～30名",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-14",
+    "startTime": "13:00",
+    "title": "デンソーブライトペガサス室内練習場レンタル"
   }
 ]
