@@ -1111,5 +1111,136 @@
     "startDate": "2026-04-10",
     "startTime": "13:00",
     "title": "AGK男子野球部練習"
+  },
+  {
+    "cardColor": "#03fc20",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "5月1日 他17件",
+    "dates": [
+      {
+        "endDate": "2026-05-01",
+        "endTime": "19:00",
+        "startDate": "2026-05-01",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-07",
+        "endTime": "19:00",
+        "startDate": "2026-05-07",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-08",
+        "endTime": "19:00",
+        "startDate": "2026-05-08",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-11",
+        "endTime": "19:00",
+        "startDate": "2026-05-11",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-12",
+        "endTime": "19:00",
+        "startDate": "2026-05-12",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-13",
+        "endTime": "19:00",
+        "startDate": "2026-05-13",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-14",
+        "endTime": "19:00",
+        "startDate": "2026-05-14",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-25",
+        "endTime": "19:00",
+        "startDate": "2026-05-15",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-18",
+        "endTime": "19:00",
+        "startDate": "2026-05-18",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-19",
+        "endTime": "19:00",
+        "startDate": "2026-05-19",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-20",
+        "endTime": "19:00",
+        "startDate": "2026-05-20",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-21",
+        "endTime": "19:00",
+        "startDate": "2026-05-21",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-22",
+        "endTime": "19:00",
+        "startDate": "2026-05-22",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-25",
+        "endTime": "19:00",
+        "startDate": "2026-05-25",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-26",
+        "endTime": "19:00",
+        "startDate": "2026-05-26",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-27",
+        "endTime": "19:00",
+        "startDate": "2026-05-27",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-28",
+        "endTime": "19:00",
+        "startDate": "2026-05-28",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-29",
+        "endTime": "19:00",
+        "startDate": "2026-05-29",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-05-29",
+    "endTime": "19:00",
+    "id": 37,
+    "locations": [
+      "バッティングブースA",
+      "打撃エリア"
+    ],
+    "manager": "大塚璃音",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-01",
+    "startTime": "10:00",
+    "title": "打撃測定"
   }
 ]
