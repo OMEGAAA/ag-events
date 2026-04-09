@@ -1,0 +1,34 @@
+[
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "3月31日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-03-31",
+        "endTime": "17:00",
+        "startDate": "2026-03-31",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-03-31",
+    "endTime": "17:00",
+    "id": 1,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "スタジオ",
+      "パワーエリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-03-31",
+    "startTime": "09:00",
+    "title": "Ulunoa　base",
+    "archivedAt": "2026-04-09T00:36:56.838Z"
+  }
+]
