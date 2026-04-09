@@ -1,34 +1,5 @@
 [
   {
-    "cardColor": "",
-    "category": "other",
-    "categoryText": "測定",
-    "date": "4月2日 11:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-04-02",
-        "endTime": "17:00",
-        "startDate": "2026-04-02",
-        "startTime": "11:00"
-      }
-    ],
-    "endDate": "2026-04-02",
-    "endTime": "17:00",
-    "id": 2,
-    "locations": [
-      "室内練習場",
-      "ベースボールエリア"
-    ],
-    "manager": "佐藤",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-04-02",
-    "startTime": "11:00",
-    "title": "栃木高校様測定"
-  },
-  {
     "cardColor": "#c2bd2e",
     "category": "health",
     "categoryText": "健康アカデミー",
