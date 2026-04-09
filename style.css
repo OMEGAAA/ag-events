@@ -1940,6 +1940,89 @@ main {
     margin-top: 0.4rem;
 }
 
+/* ---- 参考例パネル ---- */
+.rf-example-panel {
+    border: 1px solid var(--border-medium);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+.rf-example-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.1rem;
+    background: var(--surface-raised);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    user-select: none;
+    transition: background 0.15s;
+}
+.rf-example-header:hover { background: var(--surface-hover, rgba(255,255,255,0.06)); }
+.rf-example-toggle {
+    font-size: 0.8rem;
+    color: var(--accent-blue);
+}
+.rf-example-body {
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid var(--border-medium);
+    background: var(--surface-base, var(--surface));
+}
+.rf-example-article {
+    max-width: 680px;
+}
+.rf-ex-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+    line-height: 1.5;
+}
+.rf-ex-intro {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin: 0 0 1rem;
+}
+.rf-ex-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-bottom: 1.25rem;
+}
+.rf-ex-table th {
+    width: 5.5rem;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid var(--border-medium);
+    background: var(--surface-raised);
+    color: var(--text-secondary);
+    font-weight: 500;
+    white-space: nowrap;
+    vertical-align: top;
+    text-align: left;
+}
+.rf-ex-table td {
+    padding: 0.45rem 0.7rem;
+    border: 1px solid var(--border-medium);
+    color: var(--text-primary);
+    line-height: 1.6;
+    vertical-align: top;
+}
+.rf-ex-body p {
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    line-height: 1.8;
+    margin: 0 0 0.9rem;
+}
+.rf-ex-closing {
+    color: var(--text-secondary) !important;
+    font-style: italic;
+    border-top: 1px solid var(--border-medium);
+    padding-top: 0.9rem;
+    margin-top: 0.5rem;
+}
+
 .report-form-actions {
     margin-top: 1.5rem;
     text-align: center;
