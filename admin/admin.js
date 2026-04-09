@@ -652,8 +652,8 @@ function getSortedEvents() {
                 bv = b.title || '';
                 break;
             case 'date':
-                av = a.date || '';
-                bv = b.date || '';
+                av = (Array.isArray(a.dates) && a.dates.length > 0 ? a.dates[0].startDate : a.startDate) || '';
+                bv = (Array.isArray(b.dates) && b.dates.length > 0 ? b.dates[0].startDate : b.startDate) || '';
                 break;
             case 'location':
                 av = Array.isArray(a.locations) && a.locations.length > 0 ? a.locations.join('') : (a.location || '');
@@ -672,8 +672,8 @@ function getSortedEvents() {
                 bv = b.manager || '';
                 break;
             default:
-                av = a.date || '';
-                bv = b.date || '';
+                av = (Array.isArray(a.dates) && a.dates.length > 0 ? a.dates[0].startDate : a.startDate) || '';
+                bv = (Array.isArray(b.dates) && b.dates.length > 0 ? b.dates[0].startDate : b.startDate) || '';
         }
         if (av < bv) return -1 * eventSortDir;
         if (av > bv) return 1 * eventSortDir;
