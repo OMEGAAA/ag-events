@@ -954,5 +954,33 @@
     "startDate": "2026-12-06",
     "startTime": "09:00",
     "title": "ユース測定"
+  },
+  {
+    "cardColor": "#996fd8",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月9日 11:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-04-09",
+        "endTime": "18:00",
+        "startDate": "2026-04-09",
+        "startTime": "11:00"
+      }
+    ],
+    "endDate": "2026-04-09",
+    "endTime": "18:00",
+    "id": 30,
+    "locations": [
+      "アローズエリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "6",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-09",
+    "startTime": "11:00",
+    "title": "入校式"
   }
 ]
