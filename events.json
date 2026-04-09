@@ -1078,5 +1078,38 @@
     "startDate": "2026-04-22",
     "startTime": "09:00",
     "title": "ASA"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月10日 13:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-10",
+        "endTime": "17:00",
+        "startDate": "2026-04-10",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-10",
+    "endTime": "17:00",
+    "id": 36,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-10",
+    "startTime": "13:00",
+    "title": "AGK男子野球部練習"
   }
 ]
