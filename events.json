@@ -982,33 +982,5 @@
     "startDate": "2026-05-14",
     "startTime": "13:00",
     "title": "デンソーブライトペガサス室内練習場レンタル"
-  },
-  {
-    "cardColor": "#1b3ce4",
-    "category": "other",
-    "categoryText": "パーソナルレッスン",
-    "date": "4月16日 16:30〜19:00",
-    "dates": [
-      {
-        "endDate": "2026-04-16",
-        "endTime": "19:00",
-        "startDate": "2026-04-16",
-        "startTime": "16:30"
-      }
-    ],
-    "endDate": "2026-04-16",
-    "endTime": "19:00",
-    "id": 33,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "野口裕斗",
-    "notes": "",
-    "participants": "1",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-04-16",
-    "startTime": "16:30",
-    "title": "パーソナルレッスン"
   }
 ]
