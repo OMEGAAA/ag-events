@@ -2091,5 +2091,39 @@
     "startDate": "2026-05-01",
     "startTime": "10:00",
     "title": "投球測定"
+  },
+  {
+    "cardColor": "#f53dd3",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "11月7日 07:00〜19:00",
+    "dates": [
+      {
+        "endDate": "2026-11-07",
+        "endTime": "19:00",
+        "startDate": "2026-11-07",
+        "startTime": "07:00"
+      }
+    ],
+    "endDate": "2026-11-07",
+    "endTime": "19:00",
+    "id": 67,
+    "locations": [
+      "室内練習場",
+      "アローズエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂"
+    ],
+    "manager": "中阪　麻優花",
+    "notes": "詳細が決まり次第共有させていただきます。",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-11-07",
+    "startTime": "07:00",
+    "title": "さくらカップ"
   }
 ]
