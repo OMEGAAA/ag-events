@@ -1270,5 +1270,120 @@
     "startDate": "2026-04-13",
     "startTime": "09:00",
     "title": "エイジェック高等学院"
+  },
+  {
+    "cardColor": "#0a1af5",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月16日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-16",
+        "endTime": "12:00",
+        "startDate": "2026-04-16",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-16",
+    "endTime": "12:00",
+    "id": 41,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-16",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院"
+  },
+  {
+    "cardColor": "#2207ed",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月22日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-22",
+        "endTime": "12:00",
+        "startDate": "2026-04-22",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-22",
+    "endTime": "12:00",
+    "id": 42,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-22",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月23日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-23",
+        "endTime": "12:00",
+        "startDate": "2026-04-23",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-23",
+    "endTime": "12:00",
+    "id": 43,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-23",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月24日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-24",
+        "endTime": "12:00",
+        "startDate": "2026-04-24",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-24",
+    "endTime": "12:00",
+    "id": 44,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-24",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院"
   }
 ]
