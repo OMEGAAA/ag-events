@@ -1441,5 +1441,33 @@
     "startDate": "2026-04-28",
     "startTime": "13:00",
     "title": "エイジェック高等学院"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月30日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-30",
+        "endTime": "12:00",
+        "startDate": "2026-04-30",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-30",
+    "endTime": "12:00",
+    "id": 47,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-30",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院"
   }
 ]
