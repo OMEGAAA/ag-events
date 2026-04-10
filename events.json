@@ -1113,7 +1113,7 @@
     "title": "AGK男子野球部練習"
   },
   {
-    "cardColor": "#03fc20",
+    "cardColor": "#0703fc",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月1日 他17件",
@@ -1975,121 +1975,121 @@
     "title": "エイジェック高等学院"
   },
   {
-    "id": 66,
-    "title": "投球測定",
+    "cardColor": "#07f702",
+    "category": "other",
+    "categoryText": "社内イベント",
     "date": "5月1日 他15件",
     "dates": [
       {
-        "startDate": "2026-05-01",
         "endDate": "2026-05-01",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-01",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-06",
         "endDate": "2026-05-06",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-06",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-07",
         "endDate": "2026-05-07",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-07",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-08",
         "endDate": "2026-05-08",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-08",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-11",
         "endDate": "2026-05-11",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-11",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-12",
         "endDate": "2026-05-12",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-12",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-14",
         "endDate": "2026-05-14",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-14",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-15",
         "endDate": "2026-05-15",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-15",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-18",
         "endDate": "2026-05-18",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-18",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-19",
         "endDate": "2026-05-19",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-19",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-21",
         "endDate": "2026-05-21",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-21",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-22",
         "endDate": "2026-05-22",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-22",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-25",
         "endDate": "2026-05-25",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-25",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-26",
         "endDate": "2026-05-26",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-26",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-28",
         "endDate": "2026-05-28",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-28",
+        "startTime": "10:00"
       },
       {
-        "startDate": "2026-05-29",
         "endDate": "2026-05-29",
-        "startTime": "10:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-05-29",
+        "startTime": "10:00"
       }
     ],
-    "startDate": "2026-05-01",
     "endDate": "2026-05-29",
-    "startTime": "10:00",
     "endTime": "18:00",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "cardColor": "#07f702",
+    "id": 66,
     "locations": [
       "投手測定エリア"
     ],
-    "participants": "1",
-    "snsPR": "not-allowed",
-    "snsAvailableFrom": "",
     "manager": "林　明良",
-    "notes": ""
+    "notes": "",
+    "participants": "1",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-01",
+    "startTime": "10:00",
+    "title": "投球測定"
   }
 ]
