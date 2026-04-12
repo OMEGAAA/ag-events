@@ -2125,5 +2125,35 @@
     "startDate": "2026-04-12",
     "startTime": "09:00",
     "title": "エイジェック男子硬式野球部"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月20日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-20",
+        "endTime": "12:00",
+        "startDate": "2026-04-20",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-20",
+    "endTime": "12:00",
+    "id": 69,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-20",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院"
   }
 ]
