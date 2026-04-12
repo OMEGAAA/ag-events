@@ -2093,5 +2093,37 @@
     "startDate": "2026-11-07",
     "startTime": "07:00",
     "title": "さくらカップ小学の部"
+  },
+  {
+    "cardColor": "#fb0404",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月12日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-12",
+        "endTime": "17:00",
+        "startDate": "2026-04-12",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-12",
+    "endTime": "17:00",
+    "id": 68,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村 航大",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-12",
+    "startTime": "09:00",
+    "title": "エイジェック男子硬式野球部"
   }
 ]
