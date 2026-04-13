@@ -2157,5 +2157,39 @@
     "startDate": "2026-04-17",
     "startTime": "09:00",
     "title": "エイジェック高等学院"
+  },
+  {
+    "cardColor": "#04fb21",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "8月9日〜8月14日 09:00〜19:00",
+    "dates": [
+      {
+        "endDate": "2026-08-14",
+        "endTime": "19:00",
+        "startDate": "2026-08-09",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-08-14",
+    "endTime": "19:00",
+    "id": 74,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂"
+    ],
+    "manager": "松橋朝也",
+    "notes": "",
+    "participants": "20名",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-09",
+    "startTime": "09:00",
+    "title": "地球環境高校合宿（仮）"
   }
 ]
