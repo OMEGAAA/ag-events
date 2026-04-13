@@ -2191,5 +2191,33 @@
     "startDate": "2026-08-09",
     "startTime": "09:00",
     "title": "地球環境高校合宿（仮）"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月13日 13:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-04-13",
+        "endTime": "16:00",
+        "startDate": "2026-04-13",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-13",
+    "endTime": "16:00",
+    "id": 75,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-13",
+    "startTime": "13:00",
+    "title": "エイジェック高等学院"
   }
 ]
