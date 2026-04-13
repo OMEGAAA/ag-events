@@ -2130,30 +2130,28 @@
     "cardColor": "",
     "category": "other",
     "categoryText": "社内イベント",
-    "date": "4月20日 09:00〜12:00",
+    "date": "4月20日 13:00〜16:00",
     "dates": [
       {
         "endDate": "2026-04-20",
-        "endTime": "12:00",
+        "endTime": "16:00",
         "startDate": "2026-04-20",
-        "startTime": "09:00"
+        "startTime": "13:00"
       }
     ],
     "endDate": "2026-04-20",
-    "endTime": "12:00",
+    "endTime": "16:00",
     "id": 69,
     "locations": [
-      "室内練習場",
-      "バッティングブースA",
-      "バッティングブースB"
+      "室内練習場"
     ],
     "manager": "大塚　克己",
     "notes": "",
     "participants": "10",
     "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
+    "snsPR": "pending",
     "startDate": "2026-04-20",
-    "startTime": "09:00",
+    "startTime": "13:00",
     "title": "エイジェック高等学院"
   },
   {
