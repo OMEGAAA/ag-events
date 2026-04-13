@@ -314,42 +314,6 @@
     "title": "アローズ競技特化イベント"
   },
   {
-    "cardColor": "#ed0202",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "4月2日 他1件",
-    "dates": [
-      {
-        "endDate": "2026-04-02",
-        "endTime": "10:00",
-        "startDate": "2026-04-02",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-04-03",
-        "endTime": "17:00",
-        "startDate": "2026-04-03",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-04-03",
-    "endTime": "10:00",
-    "id": 13,
-    "locations": [
-      "室内練習場",
-      "ベースボールエリア",
-      "パワーエリア"
-    ],
-    "manager": "神宮隆太",
-    "notes": "",
-    "participants": "３０名ほど",
-    "snsAvailableFrom": "2026-04-02",
-    "snsPR": "allowed",
-    "startDate": "2026-04-02",
-    "startTime": "09:00",
-    "title": "TGB練習"
-  },
-  {
     "cardColor": "",
     "category": "other",
     "categoryText": "大会",
@@ -660,66 +624,6 @@
     "title": "個人レッスン"
   },
   {
-    "cardColor": "#db1fa9",
-    "category": "other",
-    "categoryText": "野球部練習",
-    "date": "4月7日 13:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-04-07",
-        "endTime": "17:00",
-        "startDate": "2026-04-07",
-        "startTime": "13:00"
-      }
-    ],
-    "endDate": "2026-04-07",
-    "endTime": "17:00",
-    "id": 23,
-    "locations": [
-      "室内練習場",
-      "ベースボールエリア",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア"
-    ],
-    "manager": "辻野",
-    "notes": "",
-    "participants": "30名",
-    "snsAvailableFrom": "",
-    "snsPR": "allowed",
-    "startDate": "2026-04-07",
-    "startTime": "13:00",
-    "title": "女子野球の練習"
-  },
-  {
-    "cardColor": "",
-    "category": "other",
-    "categoryText": "その他",
-    "date": "4月7日 08:30〜13:00",
-    "dates": [
-      {
-        "endDate": "2026-04-07",
-        "endTime": "13:00",
-        "startDate": "2026-04-07",
-        "startTime": "08:30"
-      }
-    ],
-    "endDate": "2026-04-07",
-    "endTime": "13:00",
-    "id": 24,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "町田",
-    "notes": "",
-    "participants": "25",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-04-07",
-    "startTime": "08:30",
-    "title": "ＴＧＢ練習"
-  },
-  {
     "cardColor": "",
     "category": "other",
     "categoryText": "社内イベント",
@@ -978,34 +882,6 @@
     "startDate": "2026-04-16",
     "startTime": "16:30",
     "title": "パーソナルレッスン"
-  },
-  {
-    "cardColor": "",
-    "category": "other",
-    "categoryText": "その他",
-    "date": "4月2日 10:28〜11:28",
-    "dates": [
-      {
-        "endDate": "2026-04-02",
-        "endTime": "11:28",
-        "startDate": "2026-04-02",
-        "startTime": "10:28"
-      }
-    ],
-    "endDate": "2026-04-02",
-    "endTime": "11:28",
-    "id": 34,
-    "locations": [
-      "外部"
-    ],
-    "manager": "山﨑",
-    "notes": "",
-    "participants": "20",
-    "snsAvailableFrom": "2026-04-01",
-    "snsPR": "allowed",
-    "startDate": "2026-04-02",
-    "startTime": "10:28",
-    "title": "テスト"
   },
   {
     "cardColor": "#f41010",
