@@ -2219,5 +2219,41 @@
     "startDate": "2026-04-13",
     "startTime": "13:00",
     "title": "エイジェック高等学院"
+  },
+  {
+    "cardColor": "#cdddb1",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "6月20日 09:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-06-20",
+        "endTime": "18:00",
+        "startDate": "2026-06-20",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-20",
+    "endTime": "18:00",
+    "id": 76,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "アローズエリア",
+      "スタジオ",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "200",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-20",
+    "startTime": "09:00",
+    "title": "メリーランド祭"
   }
 ]
