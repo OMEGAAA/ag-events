@@ -2311,5 +2311,105 @@
     "startDate": "2026-04-15",
     "startTime": "18:00",
     "title": "TGB選手練習"
+  },
+  {
+    "id": 79,
+    "title": "打撃測定",
+    "date": "5月2日 他12件",
+    "dates": [
+      {
+        "startDate": "2026-05-02",
+        "endDate": "2026-05-02",
+        "startTime": "18:00",
+        "endTime": "22:00"
+      },
+      {
+        "startDate": "2026-05-03",
+        "endDate": "2026-05-03",
+        "startTime": "18:00",
+        "endTime": "22:00"
+      },
+      {
+        "startDate": "2026-05-04",
+        "endDate": "2026-05-04",
+        "startTime": "18:00",
+        "endTime": "22:00"
+      },
+      {
+        "startDate": "2026-05-05",
+        "endDate": "2026-05-05",
+        "startTime": "18:00",
+        "endTime": "22:00"
+      },
+      {
+        "startDate": "2026-05-06",
+        "endDate": "2026-05-06",
+        "startTime": "18:00",
+        "endTime": "22:00"
+      },
+      {
+        "startDate": "2026-05-09",
+        "endDate": "2026-05-09",
+        "startTime": "18:00",
+        "endTime": "22:00"
+      },
+      {
+        "startDate": "2026-05-10",
+        "endDate": "2026-05-10",
+        "startTime": "18:00",
+        "endTime": "22:00"
+      },
+      {
+        "startDate": "2026-05-16",
+        "endDate": "2026-05-16",
+        "startTime": "18:00",
+        "endTime": "22:00"
+      },
+      {
+        "startDate": "2026-05-17",
+        "endDate": "2026-05-17",
+        "startTime": "18:00",
+        "endTime": "22:00"
+      },
+      {
+        "startDate": "2026-05-23",
+        "endDate": "2026-05-23",
+        "startTime": "18:00",
+        "endTime": "22:00"
+      },
+      {
+        "startDate": "2026-05-24",
+        "endDate": "2026-05-24",
+        "startTime": "18:00",
+        "endTime": "22:00"
+      },
+      {
+        "startDate": "2026-05-30",
+        "endDate": "2026-05-30",
+        "startTime": "18:00",
+        "endTime": "22:00"
+      },
+      {
+        "startDate": "2026-05-31",
+        "endDate": "2026-05-31",
+        "startTime": "18:00",
+        "endTime": "22:00"
+      }
+    ],
+    "startDate": "2026-05-02",
+    "endDate": "2026-05-31",
+    "startTime": "18:00",
+    "endTime": "22:00",
+    "category": "other",
+    "categoryText": "測定",
+    "cardColor": "",
+    "locations": [
+      "打撃エリア"
+    ],
+    "participants": "1",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "manager": "大塚璃音",
+    "notes": ""
   }
 ]
