@@ -2283,5 +2283,33 @@
     "startDate": "2026-04-27",
     "startTime": "17:00",
     "title": "パーソナルアカデミー"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "4月15日 18:00〜20:00",
+    "dates": [
+      {
+        "endDate": "2026-04-15",
+        "endTime": "20:00",
+        "startDate": "2026-04-15",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-04-15",
+    "endTime": "20:00",
+    "id": 78,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "佐藤正紘",
+    "notes": "",
+    "participants": "3",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-15",
+    "startTime": "18:00",
+    "title": "TGB選手練習"
   }
 ]
