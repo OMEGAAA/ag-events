@@ -2255,5 +2255,33 @@
     "startDate": "2026-06-20",
     "startTime": "09:00",
     "title": "メリーランド祭"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "個人レッスン",
+    "date": "4月27日 17:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-04-27",
+        "endTime": "18:00",
+        "startDate": "2026-04-27",
+        "startTime": "17:00"
+      }
+    ],
+    "endDate": "2026-04-27",
+    "endTime": "18:00",
+    "id": 77,
+    "locations": [
+      "バッティングブースB"
+    ],
+    "manager": "曽川",
+    "notes": "",
+    "participants": "１",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-27",
+    "startTime": "17:00",
+    "title": "パーソナルアカデミー"
   }
 ]
