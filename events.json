@@ -2411,5 +2411,39 @@
     "startDate": "2026-04-25",
     "startTime": "09:00",
     "title": "AGK女子野球部練習"
+  },
+  {
+    "cardColor": "#c3a7ec",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "4月23日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-04-23",
+        "endTime": "12:00",
+        "startDate": "2026-04-23",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-04-30",
+        "endTime": "12:00",
+        "startDate": "2026-04-30",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-04-30",
+    "endTime": "12:00",
+    "id": 81,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "15",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-23",
+    "startTime": "10:00",
+    "title": "健康フィットネス"
   }
 ]
