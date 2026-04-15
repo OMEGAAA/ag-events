@@ -2445,5 +2445,209 @@
     "startDate": "2026-04-23",
     "startTime": "10:00",
     "title": "健康フィットネス"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "5月14日 他29件",
+    "dates": [
+      {
+        "endDate": "2026-05-14",
+        "endTime": "20:15",
+        "startDate": "2026-05-14",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-05-21",
+        "endTime": "20:15",
+        "startDate": "2026-05-21",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-05-28",
+        "endTime": "20:15",
+        "startDate": "2026-05-28",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-06-04",
+        "endTime": "20:15",
+        "startDate": "2026-06-04",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-06-11",
+        "endTime": "20:15",
+        "startDate": "2026-06-11",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-06-18",
+        "endTime": "20:15",
+        "startDate": "2026-06-18",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-06-25",
+        "endTime": "20:15",
+        "startDate": "2026-06-25",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-07-02",
+        "endTime": "20:15",
+        "startDate": "2026-07-02",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-07-09",
+        "endTime": "20:15",
+        "startDate": "2026-07-09",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-07-16",
+        "endTime": "20:15",
+        "startDate": "2026-07-16",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-07-30",
+        "endTime": "20:15",
+        "startDate": "2026-07-30",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-08-06",
+        "endTime": "20:15",
+        "startDate": "2026-08-06",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-08-20",
+        "endTime": "20:15",
+        "startDate": "2026-08-20",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-08-27",
+        "endTime": "20:15",
+        "startDate": "2026-08-27",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-09-03",
+        "endTime": "20:15",
+        "startDate": "2026-09-03",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-09-10",
+        "endTime": "20:15",
+        "startDate": "2026-09-10",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-09-17",
+        "endTime": "20:15",
+        "startDate": "2026-09-17",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-10-01",
+        "endTime": "20:15",
+        "startDate": "2026-10-01",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-10-08",
+        "endTime": "20:15",
+        "startDate": "2026-10-08",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-10-15",
+        "endTime": "20:15",
+        "startDate": "2026-10-15",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-10-22",
+        "endTime": "20:15",
+        "startDate": "2026-10-22",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-10-29",
+        "endTime": "20:15",
+        "startDate": "2026-10-29",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-11-05",
+        "endTime": "20:15",
+        "startDate": "2026-11-05",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-11-12",
+        "endTime": "20:15",
+        "startDate": "2026-11-12",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-11-19",
+        "endTime": "20:15",
+        "startDate": "2026-11-19",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-11-26",
+        "endTime": "20:15",
+        "startDate": "2026-11-26",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-12-03",
+        "endTime": "20:15",
+        "startDate": "2026-12-03",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-12-10",
+        "endTime": "20:15",
+        "startDate": "2026-12-10",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-12-17",
+        "endTime": "20:15",
+        "startDate": "2026-12-17",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-12-24",
+        "endTime": "20:15",
+        "startDate": "2026-12-24",
+        "startTime": "18:30"
+      }
+    ],
+    "endDate": "2026-12-24",
+    "endTime": "20:15",
+    "id": 82,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "バッティングブースB"
+    ],
+    "manager": "岡",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "allowed",
+    "startDate": "2026-05-14",
+    "startTime": "18:30",
+    "title": "エイジェックユース平日練習"
   }
 ]
