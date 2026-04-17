@@ -123,6 +123,154 @@ main {
     margin: 0 auto;
 }
 
+/* ---- FULLCALENDAR ---- */
+#view-calendar {
+    margin: 0 -5%;
+    padding: 1.5rem 5%;
+}
+
+.fc-jump-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.fc-jump-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.fc-jump-bar input[type="date"] {
+    border: 1px solid var(--border-medium);
+    border-radius: 8px;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.82rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.fc-jump-bar input[type="date"]:focus {
+    border-color: var(--accent-orange);
+}
+
+.fc-jump-btn {
+    padding: 0.35rem 1rem;
+    background: var(--accent-orange);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.fc-jump-btn:hover {
+    background: #ea6510;
+}
+
+#fullcalendar {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    padding: 1rem;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+}
+
+#fullcalendar .fc {
+    font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+}
+
+#fullcalendar .fc-button-primary {
+    background-color: var(--surface-raised) !important;
+    border-color: var(--border-medium) !important;
+    color: var(--text-primary) !important;
+    font-family: inherit !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    box-shadow: none !important;
+}
+
+#fullcalendar .fc-button-primary:not(:disabled):hover {
+    background-color: var(--surface-hover) !important;
+}
+
+#fullcalendar .fc-button-primary:not(:disabled).fc-button-active {
+    background-color: var(--accent-orange) !important;
+    border-color: var(--accent-orange) !important;
+    color: #fff !important;
+}
+
+#fullcalendar .fc-toolbar-title {
+    font-family: 'Barlow Condensed', 'Noto Sans JP', sans-serif;
+    font-size: 1.4rem !important;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.04em;
+}
+
+#fullcalendar .fc-col-header-cell-cushion {
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+#fullcalendar .fc-daygrid-day-number {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.82rem;
+}
+
+#fullcalendar .fc-day-today .fc-daygrid-day-number {
+    background-color: var(--accent-orange);
+    color: #fff;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px 2px 0 auto;
+}
+
+#fullcalendar .fc-day-today {
+    background-color: rgba(249, 115, 22, 0.04) !important;
+}
+
+#fullcalendar .fc-event {
+    cursor: pointer;
+    border: none !important;
+    border-radius: 5px !important;
+    font-size: 0.73rem;
+}
+
+#fullcalendar .fc-event-title {
+    font-weight: 500;
+    padding: 0 2px;
+}
+
+#fullcalendar .fc-timegrid-slot-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+#fullcalendar .fc-scrollgrid {
+    border-color: var(--glass-border) !important;
+}
+
+#fullcalendar td, #fullcalendar th {
+    border-color: var(--glass-border) !important;
+}
+
 .view-section {
     animation: fadeIn 0.4s ease-out forwards;
 }

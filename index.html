@@ -9,6 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css' rel='stylesheet' />
 </head>
 
 <body>
@@ -43,69 +44,12 @@
 
         <!-- Calendar View -->
         <div id="view-calendar" class="view-section" style="display: none;">
-            <section class="gantt-header">
-                <h2 id="calendar-title">月間スケジュール</h2>
-                <p id="calendar-desc">現在予定されている社内イベントのスケジュール進行です。</p>
-            </section>
-
-            <div class="gantt-controls">
-                <!-- Gantt navigation -->
-                <div class="gantt-nav" id="gantt-nav">
-                    <button id="gantt-prev" class="icon-btn">&lt; 前へ</button>
-                    <span id="gantt-current-date-label">2026年 11月</span>
-                    <button id="gantt-next" class="icon-btn">次へ &gt;</button>
-                </div>
-                <!-- Month calendar navigation (hidden by default) -->
-                <div class="gantt-nav" id="month-cal-nav" style="display:none;">
-                    <button id="month-cal-prev" class="icon-btn">&lt; 前月</button>
-                    <span id="month-cal-label" style="min-width:150px; text-align:center;"></span>
-                    <button id="month-cal-next" class="icon-btn">次月 &gt;</button>
-                </div>
-                <!-- Day navigation (hidden by default) -->
-                <div class="gantt-nav" id="day-nav" style="display:none;">
-                    <button id="day-prev" class="icon-btn">&lt; 前日</button>
-                    <span id="day-date-label" style="min-width:180px; text-align:center;"></span>
-                    <button id="day-next" class="icon-btn">次日 &gt;</button>
-                    <button id="day-today" class="icon-btn"
-                        style="border-left:1px solid rgba(255,255,255,0.15); padding-left:1rem; margin-left:0.5rem;">今日</button>
-                    <button id="day-mode-toggle-btn" class="icon-btn day-mode-btn" title="表示切替">⇄ 横</button>
-                </div>
-                <div class="gantt-view-options">
-                    <button class="view-btn" data-days="1">1日</button>
-                    <button class="view-btn" data-days="7">1週間</button>
-                    <button class="view-btn" data-days="14">2週間</button>
-                    <button class="view-btn active" data-days="30">1ヶ月</button>
-                    <button class="view-btn view-btn-cal" data-mode="month-cal">📅 カレンダー</button>
-                </div>
+            <div class="fc-jump-bar">
+                <span class="fc-jump-label">日付を指定</span>
+                <input type="date" id="fc-jump-date">
+                <button class="fc-jump-btn" onclick="jumpToDate()">移動</button>
             </div>
-
-            <!-- Gantt chart -->
-            <section class="gantt-view-container" id="gantt-view-container">
-                <div class="gantt-timeline-header" id="gantt-header-days"></div>
-                <div id="gantt-tracks"></div>
-            </section>
-
-            <!-- Monthly calendar grid view -->
-            <div id="month-cal-container" style="display:none;"></div>
-
-            <!-- 1日 timeline view -->
-            <div id="day-view-container" style="display:none;">
-                <!-- All-day events -->
-                <div class="day-allday-section">
-                    <div class="day-allday-label">終日</div>
-                    <div class="day-allday-events" id="day-allday-events"></div>
-                </div>
-                <!-- 24h timeline (PC Grid) -->
-                <div class="day-timeline-container hide-on-mobile" id="day-timeline-container">
-                    <!-- Populated by JS -->
-                </div>
-                <!-- 24h timeline (Mobile List/Agenda) -->
-                <div class="day-agenda-container hide-on-desktop" id="day-agenda-container">
-                    <!-- Populated by JS -->
-                </div>
-                <!-- Horizontal resource timeline view -->
-                <div id="day-horizontal-container" style="display:none;"></div>
-            </div>
+            <div id="fullcalendar"></div>
         </div>
         <!-- Report Form View -->
         <div id="view-report-form" class="view-section" style="display: none;">
@@ -247,6 +191,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
     <script src="app.js"></script>
 </body>
 
