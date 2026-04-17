@@ -2685,5 +2685,93 @@
     "startDate": "2026-06-02",
     "startTime": "10:00",
     "title": "しずわでら体育授業"
+  },
+  {
+    "cardColor": "",
+    "category": "health",
+    "categoryText": "健康アカデミー",
+    "date": "6月4日 他10件",
+    "dates": [
+      {
+        "endDate": "2026-06-04",
+        "endTime": "16:00",
+        "startDate": "2026-06-04",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-06-11",
+        "endTime": "16:00",
+        "startDate": "2026-06-11",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-06-18",
+        "endTime": "16:00",
+        "startDate": "2026-06-18",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-06-25",
+        "endTime": "16:00",
+        "startDate": "2026-06-25",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-07-02",
+        "endTime": "16:00",
+        "startDate": "2026-07-02",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-07-09",
+        "endTime": "16:00",
+        "startDate": "2026-07-09",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-07-16",
+        "endTime": "16:00",
+        "startDate": "2026-07-16",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-07-23",
+        "endTime": "16:00",
+        "startDate": "2026-07-23",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-07-30",
+        "endTime": "16:00",
+        "startDate": "2026-07-30",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-08-06",
+        "endTime": "16:00",
+        "startDate": "2026-08-06",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-08-20",
+        "endTime": "16:00",
+        "startDate": "2026-08-20",
+        "startTime": "14:00"
+      }
+    ],
+    "endDate": "2026-08-20",
+    "endTime": "16:00",
+    "id": 84,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-04",
+    "startTime": "14:00",
+    "title": "健康アカデミー"
   }
 ]
