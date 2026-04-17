@@ -441,6 +441,9 @@ function backToCalendar() {
     document.getElementById('fc-jump-bar').style.display = 'flex';
     document.getElementById('location-week-view').style.display = 'none';
     document.getElementById('location-day-view').style.display = 'none';
+    if (fullCal) {
+        setTimeout(() => fullCal.updateSize(), 0);
+    }
 }
 
 // ---- 場所/週ビュー ----
