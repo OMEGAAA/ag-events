@@ -44,12 +44,40 @@
 
         <!-- Calendar View -->
         <div id="view-calendar" class="view-section" style="display: none;">
-            <div class="fc-jump-bar">
+            <div class="fc-jump-bar" id="fc-jump-bar">
                 <span class="fc-jump-label">日付を指定</span>
                 <input type="date" id="fc-jump-date">
                 <button class="fc-jump-btn" onclick="jumpToDate()">移動</button>
             </div>
             <div id="fullcalendar"></div>
+
+            <!-- 場所/週ビュー -->
+            <div id="location-week-view" style="display:none;">
+                <div class="loc-view-nav">
+                    <button class="icon-btn" id="loc-week-prev">← 前週</button>
+                    <span id="loc-week-label"></span>
+                    <button class="icon-btn" id="loc-week-next">次週 →</button>
+                    <button class="fc-jump-btn" onclick="backToCalendar()">← 通常表示</button>
+                </div>
+                <div class="loc-week-scroll">
+                    <div id="location-week-grid"></div>
+                </div>
+            </div>
+
+            <!-- 場所/日ビュー -->
+            <div id="location-day-view" style="display:none;">
+                <div class="loc-view-nav">
+                    <button class="icon-btn" id="loc-day-prev">← 前日</button>
+                    <span id="loc-day-label"></span>
+                    <button class="icon-btn" id="loc-day-next">次日 →</button>
+                    <button class="fc-jump-btn" onclick="backToCalendar()">← 通常表示</button>
+                </div>
+                <div class="day-allday-section" id="loc-day-allday-section" style="display:none;">
+                    <div class="day-allday-label">終日</div>
+                    <div class="day-allday-events" id="loc-day-allday-events"></div>
+                </div>
+                <div class="loc-day-timeline" id="loc-day-timeline"></div>
+            </div>
         </div>
         <!-- Report Form View -->
         <div id="view-report-form" class="view-section" style="display: none;">

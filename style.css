@@ -2199,3 +2199,159 @@ main {
     color: #DC2626;
     border: 1px solid #FECACA;
 }
+
+/* ---- 場所別ビュー共通 ---- */
+.loc-view-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+#loc-week-label,
+#loc-day-label {
+    flex: 1;
+    text-align: center;
+    font-family: 'Barlow Condensed', 'Noto Sans JP', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.04em;
+}
+
+/* ---- 場所/日 タイムライン ---- */
+.loc-day-timeline {
+    display: flex;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 65vh;
+    padding: 0.5rem 0 0.5rem 1rem;
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+/* ---- 場所/週 テーブル ---- */
+.loc-week-scroll {
+    overflow-x: auto;
+    border-radius: 14px;
+    border: 1px solid var(--glass-border);
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.loc-week-table {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+}
+
+.loc-th-area {
+    background: var(--surface-raised);
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-medium);
+    min-width: 110px;
+    position: sticky;
+    left: 0;
+    z-index: 2;
+}
+
+.loc-th-day {
+    background: var(--surface-raised);
+    padding: 0.5rem 0.4rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-medium);
+    border-left: 1px solid var(--glass-border);
+    min-width: 90px;
+    line-height: 1.3;
+}
+
+.loc-dow {
+    font-size: 0.7rem;
+    opacity: 0.75;
+}
+
+.loc-td-area {
+    background: var(--surface-raised);
+    padding: 0.5rem 0.75rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--glass-border);
+    white-space: nowrap;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
+
+.loc-td-cell {
+    padding: 0.3rem 0.3rem;
+    vertical-align: top;
+    border-bottom: 1px solid var(--glass-border);
+    border-left: 1px solid var(--glass-border);
+    min-height: 48px;
+}
+
+.loc-today-col {
+    background: rgba(249, 115, 22, 0.05) !important;
+}
+
+.loc-th-day.loc-today-col {
+    color: var(--accent-orange) !important;
+    font-weight: 700;
+}
+
+.loc-ev-chip {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+    padding: 2px 5px;
+    margin-bottom: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-weight: 500;
+    background: rgba(100, 116, 139, 0.12);
+    color: #334155;
+    border-left: 3px solid #94a3b8;
+    line-height: 1.4;
+    overflow: hidden;
+    transition: opacity 0.15s;
+}
+
+.loc-ev-chip:hover { opacity: 0.75; }
+
+.loc-ev-chip.health   { background: rgba(5,150,105,0.1); border-color: #059669; color: #047857; }
+.loc-ev-chip.learning { background: rgba(234,88,12,0.1); border-color: #F97316; color: #C2410C; }
+.loc-ev-chip.social   { background: rgba(147,51,234,0.08); border-color: #9333EA; color: #7E22CE; }
+.loc-ev-chip.other    { background: rgba(100,116,139,0.1); border-color: #94A3B8; color: #475569; }
+
+.loc-ev-chip[style*="--card-color"] {
+    background: color-mix(in srgb, var(--card-color) 12%, transparent);
+    border-color: var(--card-color);
+    color: color-mix(in srgb, var(--card-color) 70%, #1e293b);
+}
+
+.loc-chip-time {
+    font-size: 0.65rem;
+    opacity: 0.75;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.loc-chip-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}

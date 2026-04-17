@@ -1,6 +1,11 @@
 let events = [];
 let reports = [];
 let fullCal = null;
+let locViewDate = new Date();
+let locViewType = null; // 'week' | 'day'
+
+const DEFAULT_LOCATIONS = ['室内練習場', 'ベースボールエリア', 'アローズエリア', 'スタジオ', 'パワーエリア', '食堂', '多目的室'];
+const DAY_NAMES = ['日', '月', '火', '水', '木', '金', '土'];
 
 const SNS_LABEL = {
     'allowed': { text: '掲載可', cls: 'sns-allowed', icon: '✅' },
@@ -357,10 +362,20 @@ function initCalendar() {
     fullCal = new FullCalendar.Calendar(el, {
         initialView: 'dayGridMonth',
         locale: 'ja',
+        customButtons: {
+            locationWeek: {
+                text: '場所/週',
+                click: function() { showLocationWeek(); }
+            },
+            locationDay: {
+                text: '場所/日',
+                click: function() { showLocationDay(); }
+            },
+        },
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,locationWeek,locationDay',
         },
         buttonText: {
             today: '今日',
@@ -384,6 +399,225 @@ function initCalendar() {
 
     fullCal.render();
 }
+
+// ---- 場所別ビュー共通 ----
+function getLocations() {
+    const set = new Set(DEFAULT_LOCATIONS);
+    events.forEach(e => {
+        const locs = Array.isArray(e.locations) && e.locations.length > 0 ? e.locations : (e.location ? [e.location] : []);
+        locs.forEach(l => set.add(l));
+    });
+    return [...set];
+}
+
+function eventHasLocation(e, loc) {
+    const locs = Array.isArray(e.locations) && e.locations.length > 0 ? e.locations : (e.location ? [e.location] : []);
+    return locs.includes(loc);
+}
+
+function showLocationWeek() {
+    locViewDate = fullCal ? new Date(fullCal.getDate()) : new Date();
+    locViewType = 'week';
+    document.getElementById('fullcalendar').style.display = 'none';
+    document.getElementById('fc-jump-bar').style.display = 'none';
+    document.getElementById('location-week-view').style.display = 'block';
+    document.getElementById('location-day-view').style.display = 'none';
+    renderLocationWeek();
+}
+
+function showLocationDay() {
+    locViewDate = fullCal ? new Date(fullCal.getDate()) : new Date();
+    locViewType = 'day';
+    document.getElementById('fullcalendar').style.display = 'none';
+    document.getElementById('fc-jump-bar').style.display = 'none';
+    document.getElementById('location-week-view').style.display = 'none';
+    document.getElementById('location-day-view').style.display = 'block';
+    renderLocationDay();
+}
+
+function backToCalendar() {
+    locViewType = null;
+    document.getElementById('fullcalendar').style.display = 'block';
+    document.getElementById('fc-jump-bar').style.display = 'flex';
+    document.getElementById('location-week-view').style.display = 'none';
+    document.getElementById('location-day-view').style.display = 'none';
+}
+
+// ---- 場所/週ビュー ----
+function getWeekMonday(date) {
+    const d = new Date(date);
+    const dow = d.getDay();
+    d.setDate(d.getDate() - (dow === 0 ? 6 : dow - 1));
+    d.setHours(0, 0, 0, 0);
+    return d;
+}
+
+function toDateStr(d) {
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function renderLocationWeek() {
+    const container = document.getElementById('location-week-grid');
+    if (!container) return;
+
+    const monday = getWeekMonday(locViewDate);
+    const sunday = new Date(monday);
+    sunday.setDate(monday.getDate() + 6);
+
+    const fmt = d => `${d.getMonth()+1}/${d.getDate()}`;
+    document.getElementById('loc-week-label').textContent =
+        `${monday.getFullYear()}年 ${fmt(monday)}(月) 〜 ${fmt(sunday)}(日)`;
+
+    const days = [];
+    for (let i = 0; i < 7; i++) {
+        const d = new Date(monday);
+        d.setDate(monday.getDate() + i);
+        days.push({ d, str: toDateStr(d) });
+    }
+
+    const todayStr = toDateStr(new Date());
+    const locations = getLocations();
+
+    let html = '<table class="loc-week-table"><thead><tr><th class="loc-th-area">エリア</th>';
+    days.forEach(({ d, str }) => {
+        const isToday = str === todayStr;
+        html += `<th class="loc-th-day${isToday ? ' loc-today-col' : ''}">${d.getMonth()+1}/${d.getDate()}<br><span class="loc-dow">${DAY_NAMES[d.getDay()]}</span></th>`;
+    });
+    html += '</tr></thead><tbody>';
+
+    locations.forEach(loc => {
+        html += `<tr><td class="loc-td-area">${escapeHtml(loc)}</td>`;
+        days.forEach(({ str }) => {
+            const isToday = str === todayStr;
+            const dayEvents = events.filter(e =>
+                eventHasLocation(e, loc) &&
+                getEventDates(e).some(d => d.startDate <= str && (d.endDate || d.startDate) >= str)
+            );
+            html += `<td class="loc-td-cell${isToday ? ' loc-today-col' : ''}">`;
+            dayEvents.forEach(e => {
+                const de = getMatchingDateEntry(e, str);
+                const timeStr = de.startTime ? `<span class="loc-chip-time">${de.startTime}</span>` : '';
+                const cvars = e.cardColor ? `style="--card-color:${escapeHtml(e.cardColor)}"` : '';
+                html += `<div class="loc-ev-chip ${escapeHtml(e.category)}" ${cvars} onclick="openDetail(${e.id})" title="${escapeHtml(e.title)}">${timeStr}<span class="loc-chip-title">${escapeHtml(e.title)}</span></div>`;
+            });
+            html += '</td>';
+        });
+        html += '</tr>';
+    });
+
+    html += '</tbody></table>';
+    container.innerHTML = html;
+}
+
+document.getElementById('loc-week-prev')?.addEventListener('click', () => {
+    locViewDate.setDate(locViewDate.getDate() - 7);
+    renderLocationWeek();
+});
+document.getElementById('loc-week-next')?.addEventListener('click', () => {
+    locViewDate.setDate(locViewDate.getDate() + 7);
+    renderLocationWeek();
+});
+
+// ---- 場所/日ビュー ----
+const LOC_DAY_HOUR_START = 6;
+const LOC_DAY_HOUR_END = 22;
+const LOC_DAY_PX_PER_HOUR = 60;
+
+function renderLocationDay() {
+    const timeline = document.getElementById('loc-day-timeline');
+    const alldaySection = document.getElementById('loc-day-allday-section');
+    const alldayEvents = document.getElementById('loc-day-allday-events');
+    if (!timeline) return;
+
+    const dayStr = toDateStr(locViewDate);
+    document.getElementById('loc-day-label').textContent =
+        `${locViewDate.getFullYear()}年${locViewDate.getMonth()+1}月${locViewDate.getDate()}日(${DAY_NAMES[locViewDate.getDay()]})`;
+
+    const dayEvs = events.filter(e => getEventDates(e).some(d => d.startDate <= dayStr && (d.endDate || d.startDate) >= dayStr));
+    const timed = dayEvs.filter(e => getMatchingDateEntry(e, dayStr).startTime);
+    const allDay = dayEvs.filter(e => !getMatchingDateEntry(e, dayStr).startTime);
+
+    // All-day section
+    if (allDay.length > 0) {
+        alldayEvents.innerHTML = allDay.map(e =>
+            `<div class="day-allday-event ${escapeHtml(e.category)}" onclick="openDetail(${e.id})">${escapeHtml(e.title)}</div>`
+        ).join('');
+        alldaySection.style.display = 'flex';
+    } else {
+        alldaySection.style.display = 'none';
+    }
+
+    const totalH = LOC_DAY_HOUR_END - LOC_DAY_HOUR_START;
+    const totalPx = totalH * LOC_DAY_PX_PER_HOUR;
+
+    const locations = getLocations();
+
+    // Time labels
+    let labelsHtml = '<div class="day-time-labels"><div class="day-loc-header-spacer"></div>';
+    for (let h = LOC_DAY_HOUR_START; h <= LOC_DAY_HOUR_END; h++) {
+        labelsHtml += `<div class="day-time-label">${String(h).padStart(2,'0')}:00</div>`;
+    }
+    labelsHtml += '</div>';
+
+    // Location columns
+    let colsHtml = '<div class="day-location-columns">';
+    const now = new Date();
+    const isToday = locViewDate.toDateString() === now.toDateString();
+
+    locations.forEach(loc => {
+        const locEvs = timed.filter(e => eventHasLocation(e, loc));
+
+        let slotsHtml = '';
+        for (let h = LOC_DAY_HOUR_START; h <= LOC_DAY_HOUR_END; h++) {
+            slotsHtml += '<div class="day-time-slot"></div>';
+        }
+
+        let evHtml = '';
+        locEvs.forEach(e => {
+            const de = getMatchingDateEntry(e, dayStr);
+            const [sh, sm] = de.startTime.split(':').map(Number);
+            const etStr = de.endTime || `${Math.min(sh + 1, 23)}:00`;
+            const [eh, em] = etStr.split(':').map(Number);
+            const top = (sh * 60 + sm - LOC_DAY_HOUR_START * 60);
+            const height = Math.max(28, (eh * 60 + em) - (sh * 60 + sm));
+            if (top < 0 || top > totalPx) return;
+            const cvars = e.cardColor ? `--card-color:${escapeHtml(e.cardColor)};` : '';
+            evHtml += `<div class="day-event-block ${escapeHtml(e.category)}" style="top:${top}px;height:${height}px;${cvars}" onclick="openDetail(${e.id})">
+                <div class="day-event-time">${escapeHtml(de.startTime)}${de.endTime ? '-'+escapeHtml(de.endTime) : ''}</div>
+                <div class="day-event-title">${escapeHtml(e.title)}</div>
+            </div>`;
+        });
+
+        let nowLineHtml = '';
+        if (isToday) {
+            const nowMin = now.getHours() * 60 + now.getMinutes() - LOC_DAY_HOUR_START * 60;
+            if (nowMin >= 0 && nowMin <= totalPx) {
+                nowLineHtml = `<div class="day-current-time" style="top:${nowMin}px;"></div>`;
+            }
+        }
+
+        colsHtml += `<div class="day-location-col">
+            <div class="day-location-header">${escapeHtml(loc)}</div>
+            <div class="day-events-col" style="height:${totalPx}px;">${slotsHtml}${evHtml}${nowLineHtml}</div>
+        </div>`;
+    });
+    colsHtml += '</div>';
+
+    timeline.innerHTML = labelsHtml + colsHtml;
+
+    // Scroll to 8am
+    const scrollTo = (8 - LOC_DAY_HOUR_START) * LOC_DAY_PX_PER_HOUR;
+    setTimeout(() => { timeline.scrollTop = scrollTo; }, 50);
+}
+
+document.getElementById('loc-day-prev')?.addEventListener('click', () => {
+    locViewDate.setDate(locViewDate.getDate() - 1);
+    renderLocationDay();
+});
+document.getElementById('loc-day-next')?.addEventListener('click', () => {
+    locViewDate.setDate(locViewDate.getDate() + 1);
+    renderLocationDay();
+});
 
 function jumpToDate() {
     const val = document.getElementById('fc-jump-date').value;
