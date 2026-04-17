@@ -852,46 +852,6 @@
     "title": "パーソナルレッスン"
   },
   {
-    "cardColor": "#f41010",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "4月22日 他2件",
-    "dates": [
-      {
-        "endDate": "2026-04-22",
-        "endTime": "17:00",
-        "startDate": "2026-04-22",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-04-23",
-        "endTime": "17:00",
-        "startDate": "2026-04-23",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-04-24",
-        "endTime": "17:00",
-        "startDate": "2026-04-24",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-04-24",
-    "endTime": "17:00",
-    "id": 35,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "湯浅永悟",
-    "notes": "施設の運営をお願い致します。",
-    "participants": "10名",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-04-22",
-    "startTime": "09:00",
-    "title": "ASA"
-  },
-  {
     "cardColor": "",
     "category": "other",
     "categoryText": "練習",
