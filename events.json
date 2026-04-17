@@ -2801,5 +2801,33 @@
     "startDate": "2026-04-22",
     "startTime": "09:00",
     "title": "ASA"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月17日 12:15〜14:15",
+    "dates": [
+      {
+        "endDate": "2026-04-17",
+        "endTime": "14:15",
+        "startDate": "2026-04-17",
+        "startTime": "12:15"
+      }
+    ],
+    "endDate": "2026-04-17",
+    "endTime": "14:15",
+    "id": 86,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-17",
+    "startTime": "12:15",
+    "title": "エイジェック高等学院"
   }
 ]
