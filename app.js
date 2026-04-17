@@ -350,7 +350,7 @@ function buildCalEvents() {
     return calEvents;
 }
 
-function initCalendar() {
+function initCalendar(initialDate) {
     const el = document.getElementById('fullcalendar');
     if (!el) return;
 
@@ -361,6 +361,7 @@ function initCalendar() {
 
     fullCal = new FullCalendar.Calendar(el, {
         initialView: 'dayGridMonth',
+        initialDate: initialDate || undefined,
         locale: 'ja',
         customButtons: {
             locationWeek: {
@@ -418,6 +419,7 @@ function eventHasLocation(e, loc) {
 function showLocationWeek() {
     locViewDate = fullCal ? new Date(fullCal.getDate()) : new Date();
     locViewType = 'week';
+    if (fullCal) { fullCal.destroy(); fullCal = null; }
     document.getElementById('fullcalendar').style.display = 'none';
     document.getElementById('fc-jump-bar').style.display = 'none';
     document.getElementById('location-week-view').style.display = 'block';
@@ -428,6 +430,7 @@ function showLocationWeek() {
 function showLocationDay() {
     locViewDate = fullCal ? new Date(fullCal.getDate()) : new Date();
     locViewType = 'day';
+    if (fullCal) { fullCal.destroy(); fullCal = null; }
     document.getElementById('fullcalendar').style.display = 'none';
     document.getElementById('fc-jump-bar').style.display = 'none';
     document.getElementById('location-week-view').style.display = 'none';
@@ -437,13 +440,11 @@ function showLocationDay() {
 
 function backToCalendar() {
     locViewType = null;
-    document.getElementById('fullcalendar').style.display = 'block';
-    document.getElementById('fc-jump-bar').style.display = 'flex';
     document.getElementById('location-week-view').style.display = 'none';
     document.getElementById('location-day-view').style.display = 'none';
-    if (fullCal) {
-        setTimeout(() => fullCal.updateSize(), 0);
-    }
+    document.getElementById('fc-jump-bar').style.display = 'flex';
+    document.getElementById('fullcalendar').style.display = 'block';
+    initCalendar(locViewDate);
 }
 
 // ---- 場所/週ビュー ----
