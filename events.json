@@ -2649,5 +2649,81 @@
     "startDate": "2026-05-14",
     "startTime": "18:30",
     "title": "エイジェックユース平日練習"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "6月2日 他8件",
+    "dates": [
+      {
+        "endDate": "2026-06-02",
+        "endTime": "11:00",
+        "startDate": "2026-06-02",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-09",
+        "endTime": "11:00",
+        "startDate": "2026-06-09",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-16",
+        "endTime": "11:00",
+        "startDate": "2026-06-16",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-23",
+        "endTime": "11:00",
+        "startDate": "2026-06-23",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-30",
+        "endTime": "11:00",
+        "startDate": "2026-06-30",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-07-07",
+        "endTime": "11:00",
+        "startDate": "2026-07-07",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-07-14",
+        "endTime": "11:00",
+        "startDate": "2026-07-14",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-07-21",
+        "endTime": "11:00",
+        "startDate": "2026-07-21",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-07-28",
+        "endTime": "11:00",
+        "startDate": "2026-07-28",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-07-28",
+    "endTime": "11:00",
+    "id": 83,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "山﨑",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-02",
+    "startTime": "10:00",
+    "title": "しずわでら体育授業"
   }
 ]
