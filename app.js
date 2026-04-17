@@ -350,18 +350,12 @@ function buildCalEvents() {
     return calEvents;
 }
 
-function initCalendar(initialDate) {
+function initCalendar() {
     const el = document.getElementById('fullcalendar');
-    if (!el) return;
-
-    if (fullCal) {
-        fullCal.refetchEvents();
-        return;
-    }
+    if (!el || fullCal) return;
 
     fullCal = new FullCalendar.Calendar(el, {
         initialView: 'dayGridMonth',
-        initialDate: initialDate || undefined,
         locale: 'ja',
         customButtons: {
             locationWeek: {
@@ -419,8 +413,7 @@ function eventHasLocation(e, loc) {
 function showLocationWeek() {
     locViewDate = fullCal ? new Date(fullCal.getDate()) : new Date();
     locViewType = 'week';
-    if (fullCal) { fullCal.destroy(); fullCal = null; }
-    document.getElementById('fullcalendar').style.display = 'none';
+    document.getElementById('fc-wrapper').classList.add('fc-hidden');
     document.getElementById('fc-jump-bar').style.display = 'none';
     document.getElementById('location-week-view').style.display = 'block';
     document.getElementById('location-day-view').style.display = 'none';
@@ -430,8 +423,7 @@ function showLocationWeek() {
 function showLocationDay() {
     locViewDate = fullCal ? new Date(fullCal.getDate()) : new Date();
     locViewType = 'day';
-    if (fullCal) { fullCal.destroy(); fullCal = null; }
-    document.getElementById('fullcalendar').style.display = 'none';
+    document.getElementById('fc-wrapper').classList.add('fc-hidden');
     document.getElementById('fc-jump-bar').style.display = 'none';
     document.getElementById('location-week-view').style.display = 'none';
     document.getElementById('location-day-view').style.display = 'block';
@@ -443,8 +435,10 @@ function backToCalendar() {
     document.getElementById('location-week-view').style.display = 'none';
     document.getElementById('location-day-view').style.display = 'none';
     document.getElementById('fc-jump-bar').style.display = 'flex';
-    document.getElementById('fullcalendar').style.display = 'block';
-    initCalendar(locViewDate);
+    document.getElementById('fc-wrapper').classList.remove('fc-hidden');
+    if (fullCal) {
+        requestAnimationFrame(() => fullCal.updateSize());
+    }
 }
 
 // ---- 場所/週ビュー ----

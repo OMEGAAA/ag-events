@@ -176,6 +176,12 @@ main {
     background: #ea6510;
 }
 
+#fc-wrapper.fc-hidden {
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
 #fullcalendar {
     background: #fff;
     border-radius: 16px;
