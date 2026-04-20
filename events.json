@@ -2831,34 +2831,6 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
-    "category": "other",
-    "categoryText": "エイジェック高等学院練習",
-    "date": "4月21日 13:00〜16:00",
-    "dates": [
-      {
-        "endDate": "2026-04-21",
-        "endTime": "16:00",
-        "startDate": "2026-04-21",
-        "startTime": "13:00"
-      }
-    ],
-    "endDate": "2026-04-21",
-    "endTime": "16:00",
-    "id": 87,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大塚",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-04-21",
-    "startTime": "13:00",
-    "title": "エイジェック高等学院練習"
-  },
-  {
     "cardColor": "#976363",
     "category": "other",
     "categoryText": "TGB練習",
