@@ -110,16 +110,23 @@ function setupFirebaseListeners() {
         renderPresence();
         renderEventList();
     });
-    // 未承認の実施報告をリスナー
+    // 未確認の実施報告をリスナー
     db.ref('pendingReports').on('value', (snap) => {
         const data = snap.val();
         pendingReports = data ? data : {};
         renderPendingReports();
     });
+    // 確認済みの実施報告をリスナー
+    db.ref('confirmedReports').on('value', (snap) => {
+        const data = snap.val();
+        confirmedReports = data ? data : {};
+        renderConfirmedReports();
+    });
 }
 
 // ---- PENDING REPORTS (実施報告の確認) ----
 let pendingReports = {};
+let confirmedReports = {};
 
 function renderPendingReports() {
     const section = document.getElementById('pending-reports-section');
@@ -171,19 +178,15 @@ function confirmPendingReport(key) {
         .catch(e => showStatus('確認の保存に失敗しました: ' + e.message, 'error'));
 }
 
-let currentPendingReportKey = null;
+let currentReportKey = null;
+let currentReportSource = null; // 'pending' | 'confirmed'
 
-function viewPendingReport(key) {
-    const r = pendingReports[key];
-    if (!r) return;
-    currentPendingReportKey = key;
-
-    document.getElementById('pending-report-title').textContent = `実施報告: ${r.eventTitle || '（タイトルなし）'}`;
-
+function renderReportDetail(r, source) {
     const contents = Array.isArray(r.contents) ? r.contents : [];
     const paragraphs = Array.isArray(r.paragraphs) ? r.paragraphs : [];
     const photos = Array.isArray(r.photos) ? r.photos : [];
     const submitted = r.submittedAt ? new Date(r.submittedAt).toLocaleString('ja-JP') : '';
+    const confirmed = r.confirmedAt ? new Date(r.confirmedAt).toLocaleString('ja-JP') : '';
 
     const infoRows = [
         ['日程', r.eventDateText || r.eventDate || '—'],
@@ -192,6 +195,10 @@ function viewPendingReport(key) {
         ...(r.target ? [['対象', r.target]] : []),
         ['報告者', r.reporter || '—'],
         ['送信日時', submitted],
+        ...(source === 'confirmed' ? [
+            ['確認日時', confirmed || '—'],
+            ['確認者', r.confirmedBy || '—'],
+        ] : []),
     ];
 
     const photosHtml = photos.length === 0
@@ -200,6 +207,9 @@ function viewPendingReport(key) {
             <a href="${escapeHtml(src)}" target="_blank" rel="noopener" class="pending-report-photo">
                 <img src="${escapeHtml(src)}" alt="写真${i + 1}" onerror="this.parentElement.classList.add('broken');">
             </a>`).join('')}</div>`;
+
+    document.getElementById('pending-report-title').textContent =
+        `${source === 'confirmed' ? '確認済み' : ''}実施報告: ${r.eventTitle || '（タイトルなし）'}`;
 
     document.getElementById('pending-report-body').innerHTML = `
         <table class="pending-report-table">
@@ -220,16 +230,126 @@ function viewPendingReport(key) {
             ${photosHtml}
         </div>
     `;
+
+    const actions = document.getElementById('pending-report-actions');
+    if (actions) {
+        actions.innerHTML = source === 'confirmed'
+            ? `<button class="btn btn-delete" onclick="deleteConfirmedReportFromModal()">削除</button>
+               <button class="btn btn-secondary" onclick="unconfirmReportFromModal()">未確認に戻す</button>`
+            : `<button class="btn btn-success" onclick="confirmPendingReportFromModal()">確認済みにする</button>`;
+    }
+
     document.getElementById('pending-report-overlay').style.display = 'flex';
+}
+
+function viewPendingReport(key) {
+    const r = pendingReports[key];
+    if (!r) return;
+    currentReportKey = key;
+    currentReportSource = 'pending';
+    renderReportDetail(r, 'pending');
+}
+
+function viewConfirmedReport(key) {
+    const r = confirmedReports[key];
+    if (!r) return;
+    currentReportKey = key;
+    currentReportSource = 'confirmed';
+    renderReportDetail(r, 'confirmed');
 }
 
 function closePendingReport() {
     document.getElementById('pending-report-overlay').style.display = 'none';
-    currentPendingReportKey = null;
+    currentReportKey = null;
+    currentReportSource = null;
 }
 
 function confirmPendingReportFromModal() {
-    if (currentPendingReportKey) confirmPendingReport(currentPendingReportKey);
+    if (currentReportKey && currentReportSource === 'pending') confirmPendingReport(currentReportKey);
+}
+
+function unconfirmReportFromModal() {
+    if (currentReportKey && currentReportSource === 'confirmed') unconfirmReport(currentReportKey);
+}
+
+function deleteConfirmedReportFromModal() {
+    if (currentReportKey && currentReportSource === 'confirmed') deleteConfirmedReport(currentReportKey);
+}
+
+function renderConfirmedReports() {
+    const section = document.getElementById('confirmed-reports-section');
+    const tbody = document.getElementById('confirmed-reports-tbody');
+    const badge = document.getElementById('confirmed-reports-badge');
+    if (!tbody || !section) return;
+
+    const entries = Object.entries(confirmedReports);
+    if (badge) badge.textContent = `${entries.length}件`;
+
+    if (entries.length === 0) {
+        section.style.display = 'none';
+        tbody.innerHTML = '<tr><td colspan="6" class="empty-state">確認済みの実施報告はありません</td></tr>';
+        return;
+    }
+
+    section.style.display = 'block';
+    const sorted = entries.sort((a, b) => {
+        const ta = a[1].confirmedAt || '';
+        const tb = b[1].confirmedAt || '';
+        return tb.localeCompare(ta);
+    });
+
+    tbody.innerHTML = sorted.map(([key, r]) => {
+        const confirmed = r.confirmedAt ? new Date(r.confirmedAt).toLocaleString('ja-JP') : '';
+        return `<tr>
+            <td>${escapeHtml(r.eventTitle || '')}</td>
+            <td style="font-size:0.82rem;">${escapeHtml(r.eventDateText || r.eventDate || '')}</td>
+            <td>${escapeHtml(r.reporter || '')}</td>
+            <td>${escapeHtml(r.confirmedBy || '—')}</td>
+            <td>${escapeHtml(confirmed)}</td>
+            <td class="action-cell">
+                <button class="btn btn-primary btn-sm" onclick="viewConfirmedReport('${escapeHtml(key)}')">詳細</button>
+                <button class="btn btn-secondary btn-sm" onclick="unconfirmReport('${escapeHtml(key)}')">未確認に戻す</button>
+                <button class="btn btn-delete btn-sm" onclick="deleteConfirmedReport('${escapeHtml(key)}')">削除</button>
+            </td>
+        </tr>`;
+    }).join('');
+}
+
+function unconfirmReport(key) {
+    const r = confirmedReports[key];
+    if (!r) return;
+    if (!db) { showStatus('Firebaseに接続してください。', 'error'); return; }
+    if (!confirm(`「${r.eventTitle}」を未確認に戻しますか？`)) return;
+
+    const restored = { ...r };
+    delete restored.confirmedAt;
+    delete restored.confirmedBy;
+
+    db.ref(`pendingReports/${key}`).set(restored)
+        .then(() => db.ref(`confirmedReports/${key}`).remove())
+        .then(() => {
+            showStatus(`「${r.eventTitle}」を未確認に戻しました。`, 'success');
+            if (document.getElementById('pending-report-overlay').style.display === 'flex') {
+                closePendingReport();
+            }
+        })
+        .catch(e => showStatus('戻す操作に失敗しました: ' + e.message, 'error'));
+}
+
+function deleteConfirmedReport(key) {
+    const r = confirmedReports[key];
+    if (!r) return;
+    if (!db) { showStatus('Firebaseに接続してください。', 'error'); return; }
+    if (!confirm(`「${r.eventTitle}」を完全に削除しますか？\nこの操作は取り消せません。`)) return;
+
+    db.ref(`confirmedReports/${key}`).remove()
+        .then(() => {
+            showStatus(`「${r.eventTitle}」を削除しました。`, 'success');
+            if (document.getElementById('pending-report-overlay').style.display === 'flex') {
+                closePendingReport();
+            }
+        })
+        .catch(e => showStatus('削除に失敗しました: ' + e.message, 'error'));
 }
 
 function writeEventsToFirebase() {

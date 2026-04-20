@@ -191,6 +191,33 @@
             </div>
         </div>
 
+        <!-- Confirmed Reports -->
+        <div class="events-section" id="confirmed-reports-section" style="display:none;">
+            <div class="events-section-header">
+                <div>
+                    <h3>確認済み報告 <span id="confirmed-reports-badge" class="pending-badge">0件</span></h3>
+                    <p class="section-desc">確認済みの実施報告の一覧です。</p>
+                </div>
+            </div>
+            <div class="events-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>イベント名</th>
+                            <th>日程</th>
+                            <th>報告者</th>
+                            <th>確認者</th>
+                            <th>確認日時</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="confirmed-reports-tbody">
+                        <tr><td colspan="6" class="empty-state">確認済みの実施報告はありません</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <!-- Archived Events -->
         <div class="events-section archived-section">
             <div class="events-section-header">
@@ -388,9 +415,7 @@
                 <button class="btn btn-secondary" onclick="closePendingReport()">✕ 閉じる</button>
             </div>
             <div id="pending-report-body" class="pending-report-body"></div>
-            <div class="modal-actions">
-                <button class="btn btn-success" onclick="confirmPendingReportFromModal()">確認済みにする</button>
-            </div>
+            <div id="pending-report-actions" class="modal-actions"></div>
         </div>
     </div>
 
