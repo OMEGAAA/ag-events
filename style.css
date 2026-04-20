@@ -2094,6 +2094,51 @@ main {
     margin-top: 0.4rem;
 }
 
+.rf-photo-actions {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 0.4rem;
+}
+
+.rf-upload-btn {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.rf-upload-status {
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+.rf-photo-row-file {
+    align-items: center;
+    padding: 0.4rem 0.6rem;
+    background: var(--surface-raised);
+    border: 1px solid var(--border-medium);
+    border-radius: 8px;
+}
+
+.rf-photo-thumb {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.rf-photo-filename {
+    flex: 1;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 /* ---- 参考例パネル ---- */
 .rf-example-panel {
     border: 1px solid var(--border-medium);

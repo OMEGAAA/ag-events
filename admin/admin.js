@@ -154,34 +154,150 @@ function renderPendingReports() {
     }).join('');
 }
 
+let currentPendingReportKey = null;
+
 function viewPendingReport(key) {
     const r = pendingReports[key];
     if (!r) return;
-    const contentsList = (r.contents || []).map(c => `　・${c}`).join('\n');
-    const paraText = (r.paragraphs || []).join('\n\n');
-    alert(
-        `【${r.eventTitle}】\n` +
-        `日程: ${r.eventDateText || r.eventDate || ''}\n` +
-        `主催: ${r.organizer || '未入力'}\n` +
-        `協力: ${r.supporter || 'なし'}\n` +
-        `対象: ${r.target || '未入力'}\n` +
-        `内容:\n${contentsList || '　未入力'}\n\n` +
-        `本文:\n${paraText || '未入力'}\n\n` +
-        `写真: ${(r.photos || []).length}枚\n` +
-        `報告者: ${r.reporter}\n` +
-        `送信日時: ${r.submittedAt ? new Date(r.submittedAt).toLocaleString('ja-JP') : ''}`
-    );
+    currentPendingReportKey = key;
+
+    document.getElementById('pending-report-title').textContent = `実施報告: ${r.eventTitle || '（タイトルなし）'}`;
+
+    const contents = Array.isArray(r.contents) ? r.contents : [];
+    const paragraphs = Array.isArray(r.paragraphs) ? r.paragraphs : [];
+    const photos = Array.isArray(r.photos) ? r.photos : [];
+    const submitted = r.submittedAt ? new Date(r.submittedAt).toLocaleString('ja-JP') : '';
+
+    const infoRows = [
+        ['日程', r.eventDateText || r.eventDate || '—'],
+        ['主催', r.organizer || '—'],
+        ...(r.supporter ? [['協力', r.supporter]] : []),
+        ...(r.target ? [['対象', r.target]] : []),
+        ['報告者', r.reporter || '—'],
+        ['送信日時', submitted],
+    ];
+
+    const photosHtml = photos.length === 0
+        ? '<p class="pending-report-empty">写真はアップロードされていません</p>'
+        : `<div class="pending-report-photos">${photos.map((src, i) => `
+            <a href="${escapeHtml(src)}" target="_blank" rel="noopener" class="pending-report-photo">
+                <img src="${escapeHtml(src)}" alt="写真${i + 1}" onerror="this.parentElement.classList.add('broken');">
+            </a>`).join('')}</div>`;
+
+    document.getElementById('pending-report-body').innerHTML = `
+        <table class="pending-report-table">
+            ${infoRows.map(([k, v]) => `<tr><th>${escapeHtml(k)}</th><td>${escapeHtml(v)}</td></tr>`).join('')}
+        </table>
+        ${contents.length > 0 ? `
+            <div class="pending-report-section">
+                <h4>内容</h4>
+                <ul>${contents.map(c => `<li>${escapeHtml(c)}</li>`).join('')}</ul>
+            </div>` : ''}
+        ${paragraphs.length > 0 ? `
+            <div class="pending-report-section">
+                <h4>本文</h4>
+                ${paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('')}
+            </div>` : ''}
+        <div class="pending-report-section">
+            <h4>写真 (${photos.length}枚)</h4>
+            ${photosHtml}
+        </div>
+    `;
+    document.getElementById('pending-report-overlay').style.display = 'flex';
 }
 
-function approvePendingReport(key) {
+function closePendingReport() {
+    document.getElementById('pending-report-overlay').style.display = 'none';
+    currentPendingReportKey = null;
+}
+
+function approvePendingReportFromModal() {
+    if (currentPendingReportKey) approvePendingReport(currentPendingReportKey);
+}
+
+function rejectPendingReportFromModal() {
+    if (currentPendingReportKey) {
+        rejectPendingReport(currentPendingReportKey);
+        closePendingReport();
+    }
+}
+
+function dataUrlToBase64(dataUrl) {
+    const m = dataUrl.match(/^data:(image\/[^;]+);base64,(.+)$/);
+    if (!m) return null;
+    const mime = m[1];
+    const ext = mime === 'image/jpeg' ? 'jpg'
+              : mime === 'image/png'  ? 'png'
+              : mime === 'image/webp' ? 'webp'
+              : mime === 'image/gif'  ? 'gif'
+              : 'bin';
+    return { base64: m[2], ext, mime };
+}
+
+async function uploadReportPhotoToGitHub(dataUrl, reportId, index) {
+    const decoded = dataUrlToBase64(dataUrl);
+    if (!decoded) return dataUrl;
+    const reportsDir = config.filePath.replace(/[^/]+$/, '');
+    const filename = `${Date.now()}_${index}.${decoded.ext}`;
+    const relPath = `reports/photos/${reportId}/${filename}`;
+    const repoPath = `${reportsDir}${relPath}`;
+    const res = await fetch(
+        `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${repoPath}`,
+        {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${config.token}`,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: `Upload report photo ${relPath}`,
+                branch: config.branch,
+                content: decoded.base64,
+            }),
+        }
+    );
+    if (!res.ok) {
+        const msg = await res.text().catch(() => '');
+        throw new Error(`GitHub upload failed (${res.status}): ${msg}`);
+    }
+    return relPath;
+}
+
+async function approvePendingReport(key) {
     const r = pendingReports[key];
     if (!r) return;
-    if (!confirm(`「${r.eventTitle}」の実施報告を承認して実績に追加しますか？`)) return;
+    if (!confirm(`「${r.eventTitle}」の実施報告を承認して実績に追加しますか？\n写真がある場合はGitHubにアップロードします。`)) return;
 
-    // reports配列に追加
+    if (!config.owner || !config.repo || !config.token) {
+        showStatus('GitHub接続設定が未完了です。先に接続してください。', 'error');
+        return;
+    }
+
     const maxId = reports.length > 0 ? Math.max(...reports.map(rep => rep.id)) : 0;
+    const newId = maxId + 1;
+
+    const rawPhotos = Array.isArray(r.photos) ? r.photos : [];
+    const uploadedPhotos = [];
+    try {
+        for (let i = 0; i < rawPhotos.length; i++) {
+            const src = rawPhotos[i];
+            if (typeof src !== 'string' || !src) continue;
+            if (src.startsWith('data:')) {
+                showStatus(`写真をアップロード中… (${i + 1}/${rawPhotos.length})`, 'info');
+                const path = await uploadReportPhotoToGitHub(src, newId, i);
+                uploadedPhotos.push(path);
+            } else {
+                uploadedPhotos.push(src);
+            }
+        }
+    } catch (e) {
+        showStatus('写真アップロードに失敗しました: ' + e.message, 'error');
+        return;
+    }
+
     const reportData = {
-        id: maxId + 1,
+        id: newId,
         eventTitle: r.eventTitle || '',
         eventDateText: r.eventDateText || '',
         eventDate: r.eventDate || '',
@@ -194,16 +310,18 @@ function approvePendingReport(key) {
         contents: r.contents || [],
         paragraphs: r.paragraphs || [],
         actualParticipants: r.actualParticipants || '',
-        photos: r.photos || [],
+        photos: uploadedPhotos,
         manager: r.reporter || '',
     };
     reports.push(reportData);
     markReportsDirty(`「${r.eventTitle}」の実施報告を承認しました`);
     renderReportList();
 
-    // Firebaseから削除
     db.ref(`pendingReports/${key}`).remove()
-        .then(() => showStatus(`「${r.eventTitle}」の実施報告を承認し、実績に追加しました。`, 'success'))
+        .then(() => {
+            showStatus(`「${r.eventTitle}」の実施報告を承認し、実績に追加しました。${uploadedPhotos.length > 0 ? `写真${uploadedPhotos.length}枚をアップロード済み。` : ''}「実績を公開する」を押して反映してください。`, 'success');
+            closePendingReport();
+        })
         .catch(e => showStatus('Firebase削除エラー: ' + e.message, 'error'));
 }
 
@@ -946,8 +1064,10 @@ function closeTokenGuide() {
 }
 
 // Close modals on overlay click
-['modal-overlay', 'token-guide-overlay', 'report-modal-overlay'].forEach(id => {
-    document.getElementById(id).addEventListener('click', (e) => {
+['modal-overlay', 'token-guide-overlay', 'report-modal-overlay', 'pending-report-overlay'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('click', (e) => {
         if (e.target === e.currentTarget) {
             e.currentTarget.style.display = 'none';
         }
@@ -1186,10 +1306,22 @@ function viewReport(id) {
     ];
     const tableRows = rows.map(([k, v]) => `<tr><th>${escapeHtml(k)}</th><td>${escapeHtml(v)}</td></tr>`).join('');
     const paraHtml = paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('');
+    const photos = Array.isArray(r.photos) ? r.photos : [];
+    const photosHtml = photos.length === 0 ? '' : `
+        <div class="rd-photos-section">
+            <h4>写真 (${photos.length}枚)</h4>
+            <div class="pending-report-photos">
+                ${photos.map((src, i) => `
+                    <a href="${escapeHtml(src)}" target="_blank" rel="noopener" class="pending-report-photo">
+                        <img src="${escapeHtml(src)}" alt="写真${i + 1}" onerror="this.parentElement.classList.add('broken');">
+                    </a>`).join('')}
+            </div>
+        </div>`;
     document.getElementById('report-detail-preview-body').innerHTML = `
         <p class="rd-intro">当施設を利用するイベントとして、下記が開催されました。</p>
         <table class="rd-table">${tableRows}</table>
         ${paraHtml}
+        ${photosHtml}
         <p class="rd-closing">単に場所をご利用いただくだけでなく、主催者が希望する内容に合わせて様々なご支援が可能ですので、ぜひお気軽にお問い合わせフォームよりご連絡ください。</p>
     `;
 

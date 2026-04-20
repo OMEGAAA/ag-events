@@ -578,6 +578,89 @@ tr:hover td { background: rgba(255,255,255,0.025); }
 .sns-not-allowed { background:rgba(239,68,68,0.15);  color:#fca5a5; }
 .sns-pending     { background:rgba(245,158,11,0.18); color:#fcd34d; }
 
+/* ---- PENDING REPORT MODAL ---- */
+.pending-report-modal {
+    max-width: 760px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.pending-report-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.pending-report-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+.pending-report-table th,
+.pending-report-table td {
+    text-align: left;
+    padding: 0.4rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+.pending-report-table th {
+    width: 100px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+.pending-report-section h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+}
+.pending-report-section ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    font-size: 0.88rem;
+}
+.pending-report-section p {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+.pending-report-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.6rem;
+}
+.pending-report-photo {
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--border);
+}
+.pending-report-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.pending-report-photo.broken {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+.pending-report-photo.broken::after {
+    content: '画像を表示できません';
+}
+.pending-report-empty {
+    color: var(--text-secondary);
+    font-size: 0.86rem;
+    margin: 0;
+}
+
 /* ---- REPORT DETAIL MODAL ---- */
 .report-detail-modal {
     max-width: 720px;

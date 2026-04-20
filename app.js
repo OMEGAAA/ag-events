@@ -785,10 +785,70 @@ function addReportPhotoRow(url) {
     const list = document.getElementById('rf-photos-list');
     if (!list) return;
     const row = document.createElement('div');
-    row.className = 'rf-photo-row';
+    row.className = 'rf-photo-row rf-photo-row-url';
     row.innerHTML = `<input type="text" class="rf-photo-url" placeholder="https://..." value="${escapeHtml(url || '')}">
         <button type="button" class="rf-photo-remove" onclick="this.parentElement.remove()">✕</button>`;
     list.appendChild(row);
+}
+
+function addReportPhotoFileRow(dataUrl, name) {
+    const list = document.getElementById('rf-photos-list');
+    if (!list) return;
+    const row = document.createElement('div');
+    row.className = 'rf-photo-row rf-photo-row-file';
+    row.dataset.url = dataUrl;
+    row.innerHTML = `<img class="rf-photo-thumb" src="${escapeHtml(dataUrl)}" alt="">
+        <span class="rf-photo-filename">${escapeHtml(name || '写真')}</span>
+        <button type="button" class="rf-photo-remove" onclick="this.parentElement.remove()">✕</button>`;
+    list.appendChild(row);
+}
+
+function compressReportImage(file, maxSize = 1600, quality = 0.85) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        const url = URL.createObjectURL(file);
+        img.onload = () => {
+            URL.revokeObjectURL(url);
+            let { width, height } = img;
+            if (width > maxSize || height > maxSize) {
+                if (width >= height) {
+                    height = Math.round(height * maxSize / width);
+                    width = maxSize;
+                } else {
+                    width = Math.round(width * maxSize / height);
+                    height = maxSize;
+                }
+            }
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+            resolve(canvas.toDataURL('image/jpeg', quality));
+        };
+        img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('画像の読み込みに失敗しました')); };
+        img.src = url;
+    });
+}
+
+async function handleReportPhotoFiles(input) {
+    const files = Array.from(input.files || []);
+    if (files.length === 0) return;
+    const status = document.getElementById('rf-photo-uploading');
+    if (status) { status.textContent = `写真を処理中… (0/${files.length})`; status.style.display = 'block'; }
+    let done = 0;
+    for (const file of files) {
+        if (!file.type.startsWith('image/')) continue;
+        try {
+            const dataUrl = await compressReportImage(file);
+            addReportPhotoFileRow(dataUrl, file.name);
+        } catch (e) {
+            showReportMessage(`${file.name} の処理に失敗しました: ${e.message}`, 'error');
+        }
+        done++;
+        if (status) status.textContent = `写真を処理中… (${done}/${files.length})`;
+    }
+    input.value = '';
+    if (status) status.style.display = 'none';
 }
 
 function showReportMessage(msg, type) {
@@ -836,9 +896,13 @@ function submitReport() {
     });
 
     const photos = [];
-    document.querySelectorAll('#rf-photos-list .rf-photo-url').forEach(input => {
-        const v = input.value.trim();
-        if (v) photos.push(v);
+    document.querySelectorAll('#rf-photos-list .rf-photo-row').forEach(row => {
+        if (row.classList.contains('rf-photo-row-file')) {
+            if (row.dataset.url) photos.push(row.dataset.url);
+        } else {
+            const input = row.querySelector('.rf-photo-url');
+            if (input && input.value.trim()) photos.push(input.value.trim());
+        }
     });
 
     const reportData = {

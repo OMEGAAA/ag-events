@@ -189,10 +189,19 @@
                     </div>
 
                     <div class="report-form-group">
-                        <label>写真URL（OneDriveの共有リンクなど）</label>
+                        <label>写真</label>
+                        <span class="rf-field-hint">スマホやPCの写真を直接アップロードできます。URLを貼り付けることも可能です。</span>
                         <div id="rf-photos-list"></div>
-                        <button type="button" class="secondary-btn rf-add-row-btn" onclick="addReportPhotoRow()">＋
-                            写真を追加</button>
+                        <div class="rf-photo-actions">
+                            <label class="secondary-btn rf-add-row-btn rf-upload-btn">
+                                📷 写真をアップロード
+                                <input type="file" id="rf-photo-file" accept="image/*" multiple
+                                    onchange="handleReportPhotoFiles(this)" style="display:none;">
+                            </label>
+                            <button type="button" class="secondary-btn rf-add-row-btn"
+                                onclick="addReportPhotoRow()">＋ URLを追加</button>
+                        </div>
+                        <div id="rf-photo-uploading" class="rf-upload-status" style="display:none;">写真を処理中…</div>
                     </div>
 
                     <div class="report-form-group">
