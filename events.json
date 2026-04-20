@@ -2885,5 +2885,63 @@
     "startDate": "2026-04-22",
     "startTime": "09:00",
     "title": "TGB練習"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "エイジェック高等学院練習",
+    "date": "4月20日 12:00〜15:00",
+    "dates": [
+      {
+        "endDate": "2026-04-20",
+        "endTime": "15:00",
+        "startDate": "2026-04-20",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-04-20",
+    "endTime": "15:00",
+    "id": 89,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-20",
+    "startTime": "12:00",
+    "title": "AGK高等学院練習"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "4月23日 19:00〜21:00",
+    "dates": [
+      {
+        "endDate": "2026-04-23",
+        "endTime": "21:00",
+        "startDate": "2026-04-23",
+        "startTime": "19:00"
+      }
+    ],
+    "endDate": "2026-04-23",
+    "endTime": "21:00",
+    "id": 90,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "鶴田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-23",
+    "startTime": "19:00",
+    "title": "TSK練習"
   }
 ]
