@@ -2857,5 +2857,33 @@
     "startDate": "2026-04-21",
     "startTime": "13:00",
     "title": "エイジェック高等学院練習"
+  },
+  {
+    "cardColor": "#976363",
+    "category": "other",
+    "categoryText": "TGB練習",
+    "date": "4月22日 09:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-04-22",
+        "endTime": "13:00",
+        "startDate": "2026-04-22",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-22",
+    "endTime": "13:00",
+    "id": 88,
+    "locations": [
+      "打撃エリア"
+    ],
+    "manager": "神宮隆太",
+    "notes": "",
+    "participants": "定員なし",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-22",
+    "startTime": "09:00",
+    "title": "TGB練習"
   }
 ]
