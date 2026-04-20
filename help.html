@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ヘルプ・マニュアル | AG Events</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         body {
             background-color: var(--bg-color);
@@ -100,7 +103,8 @@
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--border-medium);
-            scroll-margin-top: 100px; /* Offset for sticky header */
+            scroll-margin-top: 100px;
+            /* Offset for sticky header */
         }
 
         .help-content h3 {
@@ -118,7 +122,8 @@
             font-size: 1.05rem;
         }
 
-        .help-content ul, .help-content ol {
+        .help-content ul,
+        .help-content ol {
             margin-left: 1.5rem;
             margin-bottom: 1.5rem;
             color: var(--text-secondary);
@@ -150,7 +155,8 @@
             font-size: 0.95rem;
         }
 
-        .help-table th, .help-table td {
+        .help-table th,
+        .help-table td {
             border: 1px solid var(--glass-border);
             padding: 0.8rem 1rem;
             text-align: left;
@@ -174,6 +180,7 @@
         .faq-item {
             margin-bottom: 1.5rem;
         }
+
         .faq-q {
             font-weight: 700;
             color: var(--text-primary);
@@ -182,6 +189,7 @@
             align-items: flex-start;
             gap: 0.5rem;
         }
+
         .faq-a {
             color: var(--text-secondary);
             line-height: 1.7;
@@ -193,17 +201,20 @@
                 flex-direction: column;
                 padding: 0 1rem;
             }
+
             .help-sidebar {
                 width: 100%;
                 position: static;
                 height: auto;
             }
+
             .help-content {
                 padding: 1.5rem;
             }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Header (Same styling as main site) -->
@@ -229,10 +240,11 @@
                 <li><a href="#section-3">3. 管理画面の使い方</a></li>
                 <li><a href="#section-4">4. 初期設定（初回のみ）</a></li>
                 <li><a href="#section-5">5. イベント登録・編集・削除</a></li>
-                <li><a href="#section-6">6. 公開サイトへの反映手順</a></li>
-                <li><a href="#section-7">7. 複数人リアルタイム共同編集</a></li>
-                <li><a href="#section-8">8. 各項目の説明</a></li>
-                <li><a href="#section-9">9. よくある質問</a></li>
+                <li><a href="#section-6">6. 実施報告の確認と管理</a></li>
+                <li><a href="#section-7">7. 公開サイトへの反映手順</a></li>
+                <li><a href="#section-8">8. 複数人リアルタイム共同編集</a></li>
+                <li><a href="#section-9">9. 各項目の説明</a></li>
+                <li><a href="#section-10">10. よくある質問</a></li>
             </ul>
         </aside>
 
@@ -249,11 +261,23 @@
             <p>このシステムは、社内イベントの情報を一元管理・公開するための Web アプリケーションです。</p>
             <table class="help-table">
                 <thead>
-                    <tr><th>画面</th><th>URL</th><th>対象</th></tr>
+                    <tr>
+                        <th>画面</th>
+                        <th>URL</th>
+                        <th>対象</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>公開サイト</td><td><code>index.html</code></td><td>全社員（閲覧のみ）</td></tr>
-                    <tr><td>管理画面</td><td><code>admin/index.html</code></td><td>管理者（編集・公開）</td></tr>
+                    <tr>
+                        <td>公開サイト</td>
+                        <td><code>index.html</code></td>
+                        <td>全社員（閲覧のみ）</td>
+                    </tr>
+                    <tr>
+                        <td>管理画面</td>
+                        <td><code>admin/index.html</code></td>
+                        <td>管理者（編集・公開）</td>
+                    </tr>
                 </tbody>
             </table>
             <div class="alert-box">
@@ -262,7 +286,7 @@
 
             <!-- Section 2 -->
             <h2 id="section-2">2. 公開サイトの使い方（一般ユーザー向け）</h2>
-            
+
             <h3>2-1. ホームビュー（カード一覧）</h3>
             <p>サイトを開くと、登録されているイベントがカード形式で一覧表示されます。</p>
             <ul>
@@ -272,22 +296,36 @@
                 <li>カードの <strong>日付エリア</strong> をクリックすると、カレンダー画面のその日付に移動します。</li>
             </ul>
 
-            <h3>2-2. カレンダービュー（ガントチャート）</h3>
+            <h3>2-2. カレンダービュー</h3>
             <p>上部ナビゲーションの <strong>「カレンダー」</strong> をクリックすると、ガントチャート形式でスケジュールを確認できます。</p>
             <table class="help-table">
                 <thead>
-                    <tr><th>ボタン</th><th>表示内容</th></tr>
+                    <tr>
+                        <th>ボタン</th>
+                        <th>表示内容</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>1日</td><td>選択した1日の詳細タイムライン</td></tr>
-                    <tr><td>1週間</td><td>7日間のガントチャート</td></tr>
-                    <tr><td>2週間</td><td>14日間のガントチャート</td></tr>
-                    <tr><td>1ヶ月</td><td>30日間のガントチャート（デフォルト）</td></tr>
+                    <tr>
+                        <td>1日</td>
+                        <td>選択した1日の詳細タイムライン</td>
+                    </tr>
+                    <tr>
+                        <td>1週間</td>
+                        <td>7日間のタイムライン</td>
+                    </tr>
+                    <tr>
+                        <td>2週間</td>
+                        <td>14日間のタイムライン</td>
+                    </tr>
+                    <tr>
+                        <td>1ヶ月</td>
+                        <td>カレンダー（デフォルト）</td>
+                    </tr>
                 </tbody>
             </table>
             <ul>
                 <li><strong>「前へ」「次へ」</strong> ボタン: 表示期間を移動</li>
-                <li><strong>「−」「＋」</strong> ボタン: 列幅（ズーム）の調整</li>
                 <li><strong>今日の日付</strong> は赤い縦線で表示されます。イベントバーをクリックすると詳細が表示されます。</li>
             </ul>
 
@@ -301,6 +339,8 @@
                 <li><strong>GitHub 接続設定</strong> — データの読み込みと公開に必要</li>
                 <li><strong>リアルタイム同期（Firebase）</strong> — 複数管理者での共同編集（任意）</li>
                 <li><strong>イベント一覧</strong> — イベントの追加・編集・削除</li>
+                <li><strong>実施報告（承認待ち）</strong> — 閲覧サイトから送信された報告の確認</li>
+                <li><strong>確認済み報告</strong> — 承認済みの実施報告の管理</li>
             </ol>
 
             <!-- Section 4 -->
@@ -336,35 +376,85 @@
             </div>
 
             <!-- Section 6 -->
-            <h2 id="section-6">6. 公開サイトへの反映手順</h2>
+            <h2 id="section-6">6. 実施報告の確認と管理</h2>
+            <p>公開サイトから送信された「実施報告」は、管理画面で確認および承認を行うことができます。</p>
+            <h3>6-1. 実施報告の確認（承認）</h3>
+            <ol>
+                <li>管理画面の <strong>「実施報告」</strong> セクションに、未承認の報告が新着順で表示されます。</li>
+                <li>内容を確認し、問題なければ <strong>「確認」</strong> ボタンをクリックします。</li>
+                <li>報告は「実施報告」リストから消え、下部の <strong>「確認済み報告」</strong> に移動します。</li>
+            </ol>
+            <h3>6-2. 詳細の確認</h3>
+            <ul>
+                <li>一覧の「詳細」ボタンを押すと、投稿された写真や本文などの全容をモーダルで確認できます。</li>
+            </ul>
+            <h3>6-3. 確認済み報告の管理</h3>
+            <p><strong>「確認済み報告」</strong> セクションでは以下の操作が可能です。</p>
+            <ul>
+                <li><strong>詳細</strong>: 再度内容を確認できます。</li>
+                <li><strong>未確認に戻す</strong>: 誤って承認した場合などに、元の未承認リスト（実施報告）に戻します。</li>
+                <li><strong>削除</strong>: 不要な報告をシステムから完全に削除します（※取り消しできません）。</li>
+            </ul>
+
+            <!-- Section 7 -->
+            <h2 id="section-7">7. 公開サイトへの反映手順</h2>
             <p>イベントの追加・編集・削除を行っただけでは、公開サイトには反映されません。以下の手順で反映してください。</p>
             <ol>
                 <li>変更が完了したら、画面右上の <strong>「公開サイトに反映する」</strong> ボタンをクリック。</li>
                 <li>GitHub にデータが保存され、公開サイトに反映されます。</li>
             </ol>
 
-            <!-- Section 7 -->
-            <h2 id="section-7">7. 複数管理者でのリアルタイム共同編集（Firebase）</h2>
-            <p>Firebase を設定すると、複数の管理者が同時に管理画面を開いていても、リアルタイムで変更が同期されます。管理画面内の「リアルタイム同期」パネルから、Firebaseコンソールの <code>firebaseConfig</code> を貼り付けて接続してください。</p>
-
             <!-- Section 8 -->
-            <h2 id="section-8">8. 各項目の説明</h2>
+            <h2 id="section-8">8. 複数管理者でのリアルタイム共同編集（Firebase）</h2>
+            <p>Firebase を設定すると、複数の管理者が同時に管理画面を開いていても、リアルタイムで変更が同期されます。管理画面内の「リアルタイム同期」パネルから、Firebaseコンソールの
+                <code>firebaseConfig</code> を貼り付けて接続してください。</p>
+
+            <!-- Section 9 -->
+            <h2 id="section-9">9. 各項目の説明</h2>
             <table class="help-table">
                 <thead>
-                    <tr><th>項目</th><th>必須</th><th>説明</th></tr>
+                    <tr>
+                        <th>項目</th>
+                        <th>必須</th>
+                        <th>説明</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>タイトル</td><td>※必須</td><td>イベントの名称</td></tr>
-                    <tr><td>日程</td><td>※必須</td><td>開催日・時間</td></tr>
-                    <tr><td>カテゴリ</td><td>任意</td><td>イベント / 研修 / 社内イベント 等</td></tr>
-                    <tr><td>開催場所</td><td>任意</td><td>複数選択可。その他で自由入力。</td></tr>
-                    <tr><td>参加人数</td><td>任意</td><td>例: 20名、満席 など</td></tr>
-                    <tr><td>HP/SNS掲載可否</td><td>任意</td><td>掲載可 / 掲載不可 / 要確認</td></tr>
+                    <tr>
+                        <td>タイトル</td>
+                        <td>※必須</td>
+                        <td>イベントの名称</td>
+                    </tr>
+                    <tr>
+                        <td>日程</td>
+                        <td>※必須</td>
+                        <td>開催日・時間</td>
+                    </tr>
+                    <tr>
+                        <td>カテゴリ</td>
+                        <td>任意</td>
+                        <td>イベント / 研修 / 社内イベント 等</td>
+                    </tr>
+                    <tr>
+                        <td>開催場所</td>
+                        <td>任意</td>
+                        <td>複数選択可。その他で自由入力。</td>
+                    </tr>
+                    <tr>
+                        <td>参加人数</td>
+                        <td>任意</td>
+                        <td>例: 20名、満席 など</td>
+                    </tr>
+                    <tr>
+                        <td>HP/SNS掲載可否</td>
+                        <td>任意</td>
+                        <td>掲載可 / 掲載不可 / 要確認</td>
+                    </tr>
                 </tbody>
             </table>
 
-            <!-- Section 9 -->
-            <h2 id="section-9">9. よくある質問</h2>
+            <!-- Section 10 -->
+            <h2 id="section-10">10. よくある質問</h2>
             <div class="faq-item">
                 <div class="faq-q"><span>Q.</span> 「接続してデータを読み込む」を押してもイベントが表示されない</div>
                 <div class="faq-a">アクセストークンが正しいか確認してください。またトークンの有効期限が切れていないかも確認してください。</div>
@@ -375,11 +465,13 @@
             </div>
             <div class="faq-item">
                 <div class="faq-q"><span>Q.</span> 複数人で同時に編集するとどうなる？</div>
-                <div class="faq-a">Firebase を接続していない場合、後から「公開サイトに反映する」をクリックした方のデータで上書きされます。同時編集には Firebase のリアルタイム同期の使用を推奨します。</div>
+                <div class="faq-a">Firebase を接続していない場合、後から「公開サイトに反映する」をクリックした方のデータで上書きされます。同時編集には Firebase
+                    のリアルタイム同期の使用を推奨します。</div>
             </div>
 
         </main>
     </div>
 
 </body>
+
 </html>
