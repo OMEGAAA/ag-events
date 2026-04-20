@@ -222,82 +222,17 @@ function rejectPendingReportFromModal() {
     }
 }
 
-function dataUrlToBase64(dataUrl) {
-    const m = dataUrl.match(/^data:(image\/[^;]+);base64,(.+)$/);
-    if (!m) return null;
-    const mime = m[1];
-    const ext = mime === 'image/jpeg' ? 'jpg'
-              : mime === 'image/png'  ? 'png'
-              : mime === 'image/webp' ? 'webp'
-              : mime === 'image/gif'  ? 'gif'
-              : 'bin';
-    return { base64: m[2], ext, mime };
-}
-
-async function uploadReportPhotoToGitHub(dataUrl, reportId, index) {
-    const decoded = dataUrlToBase64(dataUrl);
-    if (!decoded) return dataUrl;
-    const reportsDir = config.filePath.replace(/[^/]+$/, '');
-    const filename = `${Date.now()}_${index}.${decoded.ext}`;
-    const relPath = `reports/photos/${reportId}/${filename}`;
-    const repoPath = `${reportsDir}${relPath}`;
-    const res = await fetch(
-        `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${repoPath}`,
-        {
-            method: 'PUT',
-            headers: {
-                'Authorization': `Bearer ${config.token}`,
-                'Accept': 'application/vnd.github.v3+json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                message: `Upload report photo ${relPath}`,
-                branch: config.branch,
-                content: decoded.base64,
-            }),
-        }
-    );
-    if (!res.ok) {
-        const msg = await res.text().catch(() => '');
-        throw new Error(`GitHub upload failed (${res.status}): ${msg}`);
-    }
-    return relPath;
-}
-
-async function approvePendingReport(key) {
+function approvePendingReport(key) {
     const r = pendingReports[key];
     if (!r) return;
-    if (!confirm(`「${r.eventTitle}」の実施報告を承認して実績に追加しますか？\n写真がある場合はGitHubにアップロードします。`)) return;
-
-    if (!config.owner || !config.repo || !config.token) {
-        showStatus('GitHub接続設定が未完了です。先に接続してください。', 'error');
-        return;
-    }
+    if (!confirm(`「${r.eventTitle}」の実施報告を承認して実績に追加しますか？`)) return;
 
     const maxId = reports.length > 0 ? Math.max(...reports.map(rep => rep.id)) : 0;
-    const newId = maxId + 1;
-
-    const rawPhotos = Array.isArray(r.photos) ? r.photos : [];
-    const uploadedPhotos = [];
-    try {
-        for (let i = 0; i < rawPhotos.length; i++) {
-            const src = rawPhotos[i];
-            if (typeof src !== 'string' || !src) continue;
-            if (src.startsWith('data:')) {
-                showStatus(`写真をアップロード中… (${i + 1}/${rawPhotos.length})`, 'info');
-                const path = await uploadReportPhotoToGitHub(src, newId, i);
-                uploadedPhotos.push(path);
-            } else {
-                uploadedPhotos.push(src);
-            }
-        }
-    } catch (e) {
-        showStatus('写真アップロードに失敗しました: ' + e.message, 'error');
-        return;
-    }
+    const photos = (Array.isArray(r.photos) ? r.photos : [])
+        .filter(src => typeof src === 'string' && src && !src.startsWith('data:'));
 
     const reportData = {
-        id: newId,
+        id: maxId + 1,
         eventTitle: r.eventTitle || '',
         eventDateText: r.eventDateText || '',
         eventDate: r.eventDate || '',
@@ -310,7 +245,7 @@ async function approvePendingReport(key) {
         contents: r.contents || [],
         paragraphs: r.paragraphs || [],
         actualParticipants: r.actualParticipants || '',
-        photos: uploadedPhotos,
+        photos,
         manager: r.reporter || '',
     };
     reports.push(reportData);
@@ -319,7 +254,7 @@ async function approvePendingReport(key) {
 
     db.ref(`pendingReports/${key}`).remove()
         .then(() => {
-            showStatus(`「${r.eventTitle}」の実施報告を承認し、実績に追加しました。${uploadedPhotos.length > 0 ? `写真${uploadedPhotos.length}枚をアップロード済み。` : ''}「実績を公開する」を押して反映してください。`, 'success');
+            showStatus(`「${r.eventTitle}」の実施報告を承認し、実績に追加しました。「実績を公開する」を押して反映してください。`, 'success');
             closePendingReport();
         })
         .catch(e => showStatus('Firebase削除エラー: ' + e.message, 'error'));

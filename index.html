@@ -85,11 +85,12 @@
         <div id="view-report-form" class="view-section" style="display: none;">
             <section class="report-form-section">
                 <h2>実施報告フォーム</h2>
-                <p class="report-form-desc">イベント実施後に実績情報を報告してください。送信された報告は管理者の承認後に反映されます。</p>
+                <p class="report-form-desc">イベント実施後に実績情報を報告してください。送信された報告は管理者の承認後にHPに反映されます。</p>
 
                 <!-- 参考例（折りたたみ） -->
                 <div class="rf-example-panel">
-                    <div class="rf-example-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'; this.querySelector('.rf-example-toggle').textContent = this.nextElementSibling.style.display === 'none' ? '▼ 開く' : '▲ 閉じる';">
+                    <div class="rf-example-header"
+                        onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'; this.querySelector('.rf-example-toggle').textContent = this.nextElementSibling.style.display === 'none' ? '▼ 開く' : '▲ 閉じる';">
                         <span>📄 記事の参考例を見る</span>
                         <span class="rf-example-toggle">▼ 開く</span>
                     </div>
@@ -98,11 +99,26 @@
                             <h3 class="rf-ex-title">3/30(月),31(火)インフィールド・クリニック2026春</h3>
                             <p class="rf-ex-intro">当施設を利用するイベントとして、下記が開催されました。</p>
                             <table class="rf-ex-table">
-                                <tr><th>イベント名</th><td>インフィールド・クリニック2026春</td></tr>
-                                <tr><th>日程</th><td>2026年3月30日（月）、31日（火）</td></tr>
-                                <tr><th>主催</th><td>Ulunoa base 武拓人 × SKILLED.C 緑川大陸</td></tr>
-                                <tr><th>協力</th><td>エイジェックスポーツ科学総合センター</td></tr>
-                                <tr><th>対象</th><td>小学5・6年生、中学生</td></tr>
+                                <tr>
+                                    <th>イベント名</th>
+                                    <td>インフィールド・クリニック2026春</td>
+                                </tr>
+                                <tr>
+                                    <th>日程</th>
+                                    <td>2026年3月30日（月）、31日（火）</td>
+                                </tr>
+                                <tr>
+                                    <th>主催</th>
+                                    <td>Ulunoa base 武拓人 × SKILLED.C 緑川大陸</td>
+                                </tr>
+                                <tr>
+                                    <th>協力</th>
+                                    <td>エイジェックスポーツ科学総合センター</td>
+                                </tr>
+                                <tr>
+                                    <th>対象</th>
+                                    <td>小学5・6年生、中学生</td>
+                                </tr>
                                 <tr>
                                     <th>内容</th>
                                     <td>
@@ -113,9 +129,12 @@
                             <div class="rf-ex-body">
                                 <p>2日間のプログラムにて、捕手・内野手に必要な守備技術やスローイング、連携プレーなど、実戦を想定した指導が行われました。</p>
                                 <p>あわせて、アローズラボ栃木店にて参加者一人ひとりのフィジカル測定を実施し、測定結果から自身の特長や課題を確認しながら、今後の競技力向上に向けた学びを深めました。</p>
-                                <p>また食事面では、当施設に在籍する管理栄養士監修のアスリート弁当の提供および栄養に関する説明も行われ、競技力向上に必要な身体づくりについて学ぶ内容も組み込まれました。</p>
-                                <p>今回のイベントは当施設も全面協力し、天候に左右されない室内練習場の提供やその他設備・スタッフなどをフル活用いただきました。参加者が競技に取り組みやすい環境を整えるとともに、測定およびフィードバックを通じて、技術指導とあわせた学びの場づくりを支援しました。</p>
-                                <p class="rf-ex-closing">単に場所をご利用いただくだけでなく、主催者が希望する内容に合わせて様々なご支援が可能ですので、ぜひお気軽にお問い合わせフォームよりご連絡ください。</p>
+                                <p>また食事面では、当施設に在籍する管理栄養士監修のアスリート弁当の提供および栄養に関する説明も行われ、競技力向上に必要な身体づくりについて学ぶ内容も組み込まれました。
+                                </p>
+                                <p>今回のイベントは当施設も全面協力し、天候に左右されない室内練習場の提供やその他設備・スタッフなどをフル活用いただきました。参加者が競技に取り組みやすい環境を整えるとともに、測定およびフィードバックを通じて、技術指導とあわせた学びの場づくりを支援しました。
+                                </p>
+                                <p class="rf-ex-closing">
+                                    単に場所をご利用いただくだけでなく、主催者が希望する内容に合わせて様々なご支援が可能ですので、ぜひお気軽にお問い合わせフォームよりご連絡ください。</p>
                             </div>
                         </div>
                     </div>
@@ -198,8 +217,8 @@
                                 <input type="file" id="rf-photo-file" accept="image/*" multiple
                                     onchange="handleReportPhotoFiles(this)" style="display:none;">
                             </label>
-                            <button type="button" class="secondary-btn rf-add-row-btn"
-                                onclick="addReportPhotoRow()">＋ URLを追加</button>
+                            <button type="button" class="secondary-btn rf-add-row-btn" onclick="addReportPhotoRow()">＋
+                                URLを追加</button>
                         </div>
                         <div id="rf-photo-uploading" class="rf-upload-status" style="display:none;">写真を処理中…</div>
                     </div>
@@ -230,6 +249,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
     <script src="app.js"></script>
 </body>
