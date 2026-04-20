@@ -147,14 +147,36 @@ function renderPendingReports() {
             <td>${escapeHtml(submitted)}</td>
             <td class="action-cell">
                 <button class="btn btn-primary btn-sm" onclick="viewPendingReport('${escapeHtml(key)}')">詳細</button>
+                <button class="btn btn-success btn-sm" onclick="confirmPendingReport('${escapeHtml(key)}')">確認</button>
             </td>
         </tr>`;
     }).join('');
 }
 
+function confirmPendingReport(key) {
+    const r = pendingReports[key];
+    if (!r) return;
+    if (!db) { showStatus('Firebaseに接続してください。', 'error'); return; }
+    if (!confirm(`「${r.eventTitle}」の実施報告を確認済みにしますか？\n一覧から外れ、確認済みリストに移動します。`)) return;
+
+    const record = { ...r, confirmedAt: new Date().toISOString(), confirmedBy: adminDisplayName || '' };
+    db.ref(`confirmedReports/${key}`).set(record)
+        .then(() => db.ref(`pendingReports/${key}`).remove())
+        .then(() => {
+            showStatus(`「${r.eventTitle}」を確認済みにしました。`, 'success');
+            if (document.getElementById('pending-report-overlay').style.display === 'flex') {
+                closePendingReport();
+            }
+        })
+        .catch(e => showStatus('確認の保存に失敗しました: ' + e.message, 'error'));
+}
+
+let currentPendingReportKey = null;
+
 function viewPendingReport(key) {
     const r = pendingReports[key];
     if (!r) return;
+    currentPendingReportKey = key;
 
     document.getElementById('pending-report-title').textContent = `実施報告: ${r.eventTitle || '（タイトルなし）'}`;
 
@@ -203,6 +225,11 @@ function viewPendingReport(key) {
 
 function closePendingReport() {
     document.getElementById('pending-report-overlay').style.display = 'none';
+    currentPendingReportKey = null;
+}
+
+function confirmPendingReportFromModal() {
+    if (currentPendingReportKey) confirmPendingReport(currentPendingReportKey);
 }
 
 function writeEventsToFirebase() {
