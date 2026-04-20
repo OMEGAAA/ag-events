@@ -118,7 +118,7 @@ function setupFirebaseListeners() {
     });
 }
 
-// ---- PENDING REPORTS (実施報告の受信・承認) ----
+// ---- PENDING REPORTS (実施報告の確認) ----
 let pendingReports = {};
 
 function renderPendingReports() {
@@ -132,7 +132,7 @@ function renderPendingReports() {
 
     if (entries.length === 0) {
         section.style.display = 'none';
-        tbody.innerHTML = '<tr><td colspan="6" class="empty-state">未承認の報告はありません</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="6" class="empty-state">実施報告はありません</td></tr>';
         return;
     }
 
@@ -147,19 +147,14 @@ function renderPendingReports() {
             <td>${escapeHtml(submitted)}</td>
             <td class="action-cell">
                 <button class="btn btn-primary btn-sm" onclick="viewPendingReport('${escapeHtml(key)}')">詳細</button>
-                <button class="btn btn-success btn-sm" onclick="approvePendingReport('${escapeHtml(key)}')">承認</button>
-                <button class="btn btn-delete btn-sm" onclick="rejectPendingReport('${escapeHtml(key)}')">却下</button>
             </td>
         </tr>`;
     }).join('');
 }
 
-let currentPendingReportKey = null;
-
 function viewPendingReport(key) {
     const r = pendingReports[key];
     if (!r) return;
-    currentPendingReportKey = key;
 
     document.getElementById('pending-report-title').textContent = `実施報告: ${r.eventTitle || '（タイトルなし）'}`;
 
@@ -208,66 +203,6 @@ function viewPendingReport(key) {
 
 function closePendingReport() {
     document.getElementById('pending-report-overlay').style.display = 'none';
-    currentPendingReportKey = null;
-}
-
-function approvePendingReportFromModal() {
-    if (currentPendingReportKey) approvePendingReport(currentPendingReportKey);
-}
-
-function rejectPendingReportFromModal() {
-    if (currentPendingReportKey) {
-        rejectPendingReport(currentPendingReportKey);
-        closePendingReport();
-    }
-}
-
-function approvePendingReport(key) {
-    const r = pendingReports[key];
-    if (!r) return;
-    if (!confirm(`「${r.eventTitle}」の実施報告を承認して実績に追加しますか？`)) return;
-
-    const maxId = reports.length > 0 ? Math.max(...reports.map(rep => rep.id)) : 0;
-    const photos = (Array.isArray(r.photos) ? r.photos : [])
-        .filter(src => typeof src === 'string' && src && !src.startsWith('data:'));
-
-    const reportData = {
-        id: maxId + 1,
-        eventTitle: r.eventTitle || '',
-        eventDateText: r.eventDateText || '',
-        eventDate: r.eventDate || '',
-        category: r.category || 'other',
-        categoryText: r.categoryText || '',
-        cardColor: r.cardColor || '',
-        organizer: r.organizer || '',
-        supporter: r.supporter || '',
-        target: r.target || '',
-        contents: r.contents || [],
-        paragraphs: r.paragraphs || [],
-        actualParticipants: r.actualParticipants || '',
-        photos,
-        manager: r.reporter || '',
-    };
-    reports.push(reportData);
-    markReportsDirty(`「${r.eventTitle}」の実施報告を承認しました`);
-    renderReportList();
-
-    db.ref(`pendingReports/${key}`).remove()
-        .then(() => {
-            showStatus(`「${r.eventTitle}」の実施報告を承認し、実績に追加しました。「実績を公開する」を押して反映してください。`, 'success');
-            closePendingReport();
-        })
-        .catch(e => showStatus('Firebase削除エラー: ' + e.message, 'error'));
-}
-
-function rejectPendingReport(key) {
-    const r = pendingReports[key];
-    if (!r) return;
-    if (!confirm(`「${r.eventTitle}」の実施報告を却下しますか？この操作は取り消せません。`)) return;
-
-    db.ref(`pendingReports/${key}`).remove()
-        .then(() => showStatus(`「${r.eventTitle}」の実施報告を却下しました。`, 'info'))
-        .catch(e => showStatus('Firebase削除エラー: ' + e.message, 'error'));
 }
 
 function writeEventsToFirebase() {

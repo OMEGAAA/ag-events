@@ -636,7 +636,6 @@ function openCalendarAtDate(dateStr) {
 // ---- REPORT FORM (Firebase) ----
 const RF_FIREBASE_KEY = 'ag_report_firebase_config';
 let rfDb = null;
-let rfStorage = null;
 let rfFirebaseConnected = false;
 
 function extractRfFirebaseConfig(str) {
@@ -687,7 +686,6 @@ function initReportFirebase(cfg) {
         }
         if (!firebase.apps.length) firebase.initializeApp(cfg);
         rfDb = firebase.database();
-        try { rfStorage = firebase.storage(); } catch (se) { rfStorage = null; }
         rfFirebaseConnected = true;
         updateRfBadge(true);
         document.getElementById('rf-firebase-body').style.display = 'none';
@@ -832,47 +830,22 @@ function compressReportImage(file, maxSize = 1600, quality = 0.85) {
     });
 }
 
-function dataUrlToBlob(dataUrl) {
-    const m = dataUrl.match(/^data:([^;]+);base64,(.+)$/);
-    if (!m) throw new Error('Invalid data URL');
-    const mime = m[1];
-    const binary = atob(m[2]);
-    const bytes = new Uint8Array(binary.length);
-    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-    return new Blob([bytes], { type: mime });
-}
-
-async function uploadPhotoToFirebaseStorage(file) {
-    const dataUrl = await compressReportImage(file);
-    const blob = dataUrlToBlob(dataUrl);
-    const safeName = (file.name || 'photo').replace(/[^\w.-]/g, '_');
-    const path = `reportPhotos/${Date.now()}_${Math.random().toString(36).slice(2, 8)}_${safeName}`;
-    const ref = rfStorage.ref(path);
-    await ref.put(blob, { contentType: 'image/jpeg' });
-    return await ref.getDownloadURL();
-}
-
 async function handleReportPhotoFiles(input) {
     const files = Array.from(input.files || []);
     if (files.length === 0) return;
-    if (!rfFirebaseConnected || !rfStorage) {
-        showReportMessage('Firebaseに接続してから写真をアップロードしてください。設定にstorageBucketが含まれているかもご確認ください。', 'error');
-        input.value = '';
-        return;
-    }
     const status = document.getElementById('rf-photo-uploading');
-    if (status) { status.textContent = `写真をアップロード中… (0/${files.length})`; status.style.display = 'block'; }
+    if (status) { status.textContent = `写真を処理中… (0/${files.length})`; status.style.display = 'block'; }
     let done = 0;
     for (const file of files) {
         if (!file.type.startsWith('image/')) { done++; continue; }
         try {
-            const url = await uploadPhotoToFirebaseStorage(file);
-            addReportPhotoFileRow(url, file.name);
+            const dataUrl = await compressReportImage(file);
+            addReportPhotoFileRow(dataUrl, file.name);
         } catch (e) {
-            showReportMessage(`${file.name} のアップロードに失敗しました: ${e.message}`, 'error');
+            showReportMessage(`${file.name} の処理に失敗しました: ${e.message}`, 'error');
         }
         done++;
-        if (status) status.textContent = `写真をアップロード中… (${done}/${files.length})`;
+        if (status) status.textContent = `写真を処理中… (${done}/${files.length})`;
     }
     input.value = '';
     if (status) status.style.display = 'none';
