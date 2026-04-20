@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ヘルプ・マニュアル | AG Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: var(--bg-color);
+            background-image: none;
+        }
+
+        .help-container {
+            max-width: 1200px;
+            margin: 2rem auto 6rem;
+            display: flex;
+            gap: 3rem;
+            padding: 0 5%;
+        }
+
+        /* Sidebar */
+        .help-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px;
+            height: max-content;
+            background: var(--surface-color);
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .help-sidebar h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--accent-orange);
+            padding-bottom: 0.5rem;
+            display: block;
+        }
+
+        .help-sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .help-sidebar li {
+            margin-bottom: 0.5rem;
+        }
+
+        .help-sidebar a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: block;
+            padding: 0.4rem 0.5rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .help-sidebar a:hover {
+            color: var(--accent-orange);
+            background: rgba(249, 115, 22, 0.08);
+            transform: translateX(3px);
+        }
+
+        /* Content */
+        .help-content {
+            flex: 1;
+            background: var(--surface-color);
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            padding: 3rem 4rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .help-content h1 {
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-family: inherit;
+        }
+
+        .help-content .doc-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border-medium);
+            padding-bottom: 1.5rem;
+        }
+
+        .help-content h2 {
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-medium);
+            scroll-margin-top: 100px; /* Offset for sticky header */
+        }
+
+        .help-content h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            scroll-margin-top: 100px;
+        }
+
+        .help-content p {
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .help-content ul, .help-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .help-content li {
+            margin-bottom: 0.4rem;
+        }
+
+        .help-content .alert-box {
+            background: rgba(249, 115, 22, 0.06);
+            border-left: 4px solid var(--accent-orange);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .help-content .alert-box p {
+            margin: 0;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .help-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .help-table th, .help-table td {
+            border: 1px solid var(--glass-border);
+            padding: 0.8rem 1rem;
+            text-align: left;
+        }
+
+        .help-table th {
+            background: var(--surface-raised);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        code {
+            background: var(--surface-raised);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.9em;
+            color: var(--accent-blue);
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+        .faq-q {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .faq-a {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            padding-left: 1.7rem;
+        }
+
+        @media (max-width: 900px) {
+            .help-container {
+                flex-direction: column;
+                padding: 0 1rem;
+            }
+            .help-sidebar {
+                width: 100%;
+                position: static;
+                height: auto;
+            }
+            .help-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (Same styling as main site) -->
+    <header class="glass-header">
+        <a href="index.html" style="text-decoration: none;">
+            <div class="logo">AG<span>EVENTS</span></div>
+        </a>
+        <nav>
+            <a href="index.html">ホーム</a>
+            <a href="index.html#calendar">カレンダー</a>
+            <a href="help.html" class="active">ヘルプ</a>
+            <a href="admin/index.html" class="primary-btn" style="padding: 0.4rem 1rem; text-decoration: none; color: white;">管理画面 ↗</a>
+        </nav>
+    </header>
+
+    <div class="help-container">
+        <!-- Sidebar Navigation -->
+        <aside class="help-sidebar">
+            <h3>目次</h3>
+            <ul>
+                <li><a href="#section-1">1. システム概要</a></li>
+                <li><a href="#section-2">2. 公開サイトの使い方</a></li>
+                <li><a href="#section-3">3. 管理画面の使い方</a></li>
+                <li><a href="#section-4">4. 初期設定（初回のみ）</a></li>
+                <li><a href="#section-5">5. イベント登録・編集・削除</a></li>
+                <li><a href="#section-6">6. 公開サイトへの反映手順</a></li>
+                <li><a href="#section-7">7. 複数人リアルタイム共同編集</a></li>
+                <li><a href="#section-8">8. 各項目の説明</a></li>
+                <li><a href="#section-9">9. よくある質問</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="help-content">
+            <h1>社内イベント管理システム マニュアル</h1>
+            <div class="doc-meta">
+                <p style="margin:0;">対象システム: スポーツ科学総合センター Events</p>
+                <p style="margin:0;">最終更新: 2026年3月30日</p>
+            </div>
+
+            <!-- Section 1 -->
+            <h2 id="section-1">1. システム概要</h2>
+            <p>このシステムは、社内イベントの情報を一元管理・公開するための Web アプリケーションです。</p>
+            <table class="help-table">
+                <thead>
+                    <tr><th>画面</th><th>URL</th><th>対象</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>公開サイト</td><td><code>index.html</code></td><td>全社員（閲覧のみ）</td></tr>
+                    <tr><td>管理画面</td><td><code>admin/index.html</code></td><td>管理者（編集・公開）</td></tr>
+                </tbody>
+            </table>
+            <div class="alert-box">
+                <p><strong>データの流れ:</strong> 管理画面で編集 → GitHub に保存 → 公開サイトに自動反映</p>
+            </div>
+
+            <!-- Section 2 -->
+            <h2 id="section-2">2. 公開サイトの使い方（一般ユーザー向け）</h2>
+            
+            <h3>2-1. ホームビュー（カード一覧）</h3>
+            <p>サイトを開くと、登録されているイベントがカード形式で一覧表示されます。</p>
+            <ul>
+                <li>カードは <strong>開催日が近い順</strong> に並んでいます。</li>
+                <li>各カードには <strong>日程・カテゴリ・タイトル・開催場所・参加人数・担当者</strong> が表示されます。</li>
+                <li><strong>「詳細を見る」</strong> ボタンをクリックすると、イベントの詳細情報がポップアップで表示されます。</li>
+                <li>カードの <strong>日付エリア</strong> をクリックすると、カレンダー画面のその日付に移動します。</li>
+            </ul>
+
+            <h3>2-2. カレンダービュー（ガントチャート）</h3>
+            <p>上部ナビゲーションの <strong>「カレンダー」</strong> をクリックすると、ガントチャート形式でスケジュールを確認できます。</p>
+            <table class="help-table">
+                <thead>
+                    <tr><th>ボタン</th><th>表示内容</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1日</td><td>選択した1日の詳細タイムライン</td></tr>
+                    <tr><td>1週間</td><td>7日間のガントチャート</td></tr>
+                    <tr><td>2週間</td><td>14日間のガントチャート</td></tr>
+                    <tr><td>1ヶ月</td><td>30日間のガントチャート（デフォルト）</td></tr>
+                </tbody>
+            </table>
+            <ul>
+                <li><strong>「前へ」「次へ」</strong> ボタン: 表示期間を移動</li>
+                <li><strong>「−」「＋」</strong> ボタン: 列幅（ズーム）の調整</li>
+                <li><strong>今日の日付</strong> は赤い縦線で表示されます。イベントバーをクリックすると詳細が表示されます。</li>
+            </ul>
+
+            <h3>2-3. イベントの申請</h3>
+            <p>社員がイベントを申請したい場合は、ホーム画面の <strong>「イベントを申請する」</strong> ボタンから Microsoft Forms にアクセスしてください。</p>
+
+            <!-- Section 3 -->
+            <h2 id="section-3">3. 管理画面の使い方（管理者向け）</h2>
+            <p>管理画面（<code>admin/index.html</code>）を開くと、以下のパネルが表示されます。</p>
+            <ol>
+                <li><strong>GitHub 接続設定</strong> — データの読み込みと公開に必要</li>
+                <li><strong>リアルタイム同期（Firebase）</strong> — 複数管理者での共同編集（任意）</li>
+                <li><strong>イベント一覧</strong> — イベントの追加・編集・削除</li>
+            </ol>
+
+            <!-- Section 4 -->
+            <h2 id="section-4">4. 初期設定（初回のみ）</h2>
+            <h3>4-1. GitHub アクセストークンの取得</h3>
+            <ol>
+                <li><code>github.com</code> に管理者アカウントでログインする。</li>
+                <li>右上のプロフィールアイコン → <strong>Settings</strong> をクリック。</li>
+                <li>左メニューの一番下 → <strong>Developer settings</strong> をクリック。</li>
+                <li><strong>Personal access tokens</strong> → <strong>Tokens (classic)</strong> をクリック。</li>
+                <li><strong>Generate new token</strong> → <strong>Generate new token (classic)</strong> をクリック。</li>
+                <li>Note に <code>AG Admin</code> と入力し、任意の有効期限を設定。</li>
+                <li>スコープ: <code>repo</code> にチェックを入れ、<strong>Generate token</strong> をクリック。</li>
+                <li>表示された <code>ghp_</code> で始まるトークンをコピーする。</li>
+            </ol>
+            <div class="alert-box">
+                <p><strong>重要:</strong> トークンは一度しか表示されません。必ずコピーしてから画面を閉じてください。</p>
+            </div>
+
+            <h3>4-2. GitHub 接続設定</h3>
+            <ol>
+                <li>管理画面の <strong>「GitHub 接続設定」</strong> パネルを開く。</li>
+                <li><strong>GitHubリポジトリのURL</strong> を入力欄に貼り付け、「自動設定」ボタンをクリック。</li>
+                <li><strong>アクセストークン</strong> を入力する（手順4-1で取得したもの）。</li>
+                <li><strong>「設定を保存」</strong> をクリックし、<strong>「接続してデータを読み込む」</strong> をクリック。</li>
+            </ol>
+
+            <!-- Section 5 -->
+            <h2 id="section-5">5. イベントの追加・編集・削除</h2>
+            <p>管理画面の「追加」ボタンからイベントフォームを開き登録します。一覧から「編集」「削除」も可能です。</p>
+            <div class="alert-box">
+                <p><strong>注意:</strong> 削除は元に戻せません。誤って削除した場合は、GitHubのコミット履歴から復元できます。</p>
+            </div>
+
+            <!-- Section 6 -->
+            <h2 id="section-6">6. 公開サイトへの反映手順</h2>
+            <p>イベントの追加・編集・削除を行っただけでは、公開サイトには反映されません。以下の手順で反映してください。</p>
+            <ol>
+                <li>変更が完了したら、画面右上の <strong>「公開サイトに反映する」</strong> ボタンをクリック。</li>
+                <li>GitHub にデータが保存され、公開サイトに反映されます。</li>
+            </ol>
+
+            <!-- Section 7 -->
+            <h2 id="section-7">7. 複数管理者でのリアルタイム共同編集（Firebase）</h2>
+            <p>Firebase を設定すると、複数の管理者が同時に管理画面を開いていても、リアルタイムで変更が同期されます。管理画面内の「リアルタイム同期」パネルから、Firebaseコンソールの <code>firebaseConfig</code> を貼り付けて接続してください。</p>
+
+            <!-- Section 8 -->
+            <h2 id="section-8">8. 各項目の説明</h2>
+            <table class="help-table">
+                <thead>
+                    <tr><th>項目</th><th>必須</th><th>説明</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>タイトル</td><td>※必須</td><td>イベントの名称</td></tr>
+                    <tr><td>日程</td><td>※必須</td><td>開催日・時間</td></tr>
+                    <tr><td>カテゴリ</td><td>任意</td><td>イベント / 研修 / 社内イベント 等</td></tr>
+                    <tr><td>開催場所</td><td>任意</td><td>複数選択可。その他で自由入力。</td></tr>
+                    <tr><td>参加人数</td><td>任意</td><td>例: 20名、満席 など</td></tr>
+                    <tr><td>HP/SNS掲載可否</td><td>任意</td><td>掲載可 / 掲載不可 / 要確認</td></tr>
+                </tbody>
+            </table>
+
+            <!-- Section 9 -->
+            <h2 id="section-9">9. よくある質問</h2>
+            <div class="faq-item">
+                <div class="faq-q"><span>Q.</span> 「接続してデータを読み込む」を押してもイベントが表示されない</div>
+                <div class="faq-a">アクセストークンが正しいか確認してください。またトークンの有効期限が切れていないかも確認してください。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><span>Q.</span> 「公開サイトに反映する」を押してもサイトに反映されない</div>
+                <div class="faq-a">GitHub Pages のデプロイには数分かかる場合があります。しばらく待ってからページをリロードしてください。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><span>Q.</span> 複数人で同時に編集するとどうなる？</div>
+                <div class="faq-a">Firebase を接続していない場合、後から「公開サイトに反映する」をクリックした方のデータで上書きされます。同時編集には Firebase のリアルタイム同期の使用を推奨します。</div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
