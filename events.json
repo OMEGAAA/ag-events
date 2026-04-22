@@ -3088,5 +3088,61 @@
     "startDate": "2026-04-24",
     "startTime": "09:00",
     "title": "男子野球部練習"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "パーソナルレッスン",
+    "date": "4月22日 16:00〜16:45",
+    "dates": [
+      {
+        "endDate": "2026-04-22",
+        "endTime": "16:45",
+        "startDate": "2026-04-22",
+        "startTime": "16:00"
+      }
+    ],
+    "endDate": "2026-04-22",
+    "endTime": "16:45",
+    "id": 96,
+    "locations": [
+      "バッティングブースB"
+    ],
+    "manager": "曽川",
+    "notes": "",
+    "participants": "1",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-22",
+    "startTime": "16:00",
+    "title": "パーソナルレッスン（曽川）"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月22日 12:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-04-22",
+        "endTime": "13:00",
+        "startDate": "2026-04-22",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-04-22",
+    "endTime": "13:00",
+    "id": 97,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "３",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-22",
+    "startTime": "12:00",
+    "title": "AGK高等学院練習"
   }
 ]
