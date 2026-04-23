@@ -3174,5 +3174,33 @@
     "startDate": "2026-04-22",
     "startTime": "15:00",
     "title": "AGK高等学院練習"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "4月30日 18:00〜20:00",
+    "dates": [
+      {
+        "endDate": "2026-04-30",
+        "endTime": "20:00",
+        "startDate": "2026-04-30",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-04-30",
+    "endTime": "20:00",
+    "id": 99,
+    "locations": [
+      "バッティングブースA"
+    ],
+    "manager": "曽川",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-30",
+    "startTime": "18:00",
+    "title": "個人レッスン(曽川)"
   }
 ]
