@@ -3293,5 +3293,39 @@
     "startDate": "2026-04-23",
     "startTime": "12:00",
     "title": "AGK高等学院練習"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "4月30日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-04-30",
+        "endTime": "20:00",
+        "startDate": "2026-04-30",
+        "startTime": "16:00"
+      },
+      {
+        "endDate": "2026-05-07",
+        "endTime": "21:00",
+        "startDate": "2026-05-07",
+        "startTime": "16:00"
+      }
+    ],
+    "endDate": "2026-05-07",
+    "endTime": "20:00",
+    "id": 103,
+    "locations": [
+      "バッティングブースB"
+    ],
+    "manager": "川相",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-30",
+    "startTime": "16:00",
+    "title": "個人レッスン(川相)"
   }
 ]
