@@ -533,28 +533,29 @@
     "cardColor": "",
     "category": "other",
     "categoryText": "野球教室",
-    "date": "11月15日 08:00〜14:00",
+    "date": "11月15日 10:00〜16:00",
     "dates": [
       {
         "endDate": "2026-11-15",
-        "endTime": "14:00",
+        "endTime": "16:00",
         "startDate": "2026-11-15",
-        "startTime": "08:00"
+        "startTime": "10:00"
       }
     ],
     "endDate": "2026-11-15",
-    "endTime": "14:00",
+    "endTime": "16:00",
     "id": 20,
     "locations": [
-      "室内練習場"
+      "室内練習場",
+      "食堂"
     ],
-    "manager": "福富",
+    "manager": "五十子",
     "notes": "",
-    "participants": "",
+    "participants": "100",
     "snsAvailableFrom": "",
     "snsPR": "pending",
     "startDate": "2026-11-15",
-    "startTime": "08:00",
+    "startTime": "10:00",
     "title": "仮）栃木県スポーツ協会　元気塾"
   },
   {
