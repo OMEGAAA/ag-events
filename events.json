@@ -3202,5 +3202,96 @@
     "startDate": "2026-04-30",
     "startTime": "18:00",
     "title": "個人レッスン(曽川)"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "4月25日 15:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-25",
+        "endTime": "17:00",
+        "startDate": "2026-04-25",
+        "startTime": "15:00"
+      }
+    ],
+    "endDate": "2026-04-25",
+    "endTime": "17:00",
+    "id": 100,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-25",
+    "startTime": "15:00",
+    "title": "AGK男子野球部練習"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月26日 13:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-26",
+        "endTime": "17:00",
+        "startDate": "2026-04-26",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-26",
+    "endTime": "17:00",
+    "id": 101,
+    "locations": [
+      "バッティングブースA",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-26",
+    "startTime": "13:00",
+    "title": "AGK男子野球部練習"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月23日 12:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-04-23",
+        "endTime": "13:00",
+        "startDate": "2026-04-23",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-04-23",
+    "endTime": "13:00",
+    "id": 102,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "6",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-23",
+    "startTime": "12:00",
+    "title": "AGK高等学院練習"
   }
 ]
