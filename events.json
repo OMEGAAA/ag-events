@@ -3145,5 +3145,33 @@
     "startDate": "2026-04-22",
     "startTime": "12:00",
     "title": "AGK高等学院練習"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月22日 15:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-22",
+        "endTime": "17:00",
+        "startDate": "2026-04-22",
+        "startTime": "15:00"
+      }
+    ],
+    "endDate": "2026-04-22",
+    "endTime": "17:00",
+    "id": 98,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-22",
+    "startTime": "15:00",
+    "title": "AGK高等学院練習"
   }
 ]
