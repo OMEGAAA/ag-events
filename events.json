@@ -3299,5 +3299,99 @@
     "startDate": "2026-04-30",
     "startTime": "16:00",
     "title": "個人レッスン(川相)"
+  },
+  {
+    "cardColor": "#c9ee11",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "5月5日 他11件",
+    "dates": [
+      {
+        "endDate": "2026-05-05",
+        "endTime": "16:00",
+        "startDate": "2026-05-05",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-05-06",
+        "endTime": "16:00",
+        "startDate": "2026-05-06",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-05-08",
+        "endTime": "15:00",
+        "startDate": "2026-05-08",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-05-12",
+        "endTime": "16:00",
+        "startDate": "2026-05-12",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-05-13",
+        "endTime": "16:00",
+        "startDate": "2026-05-13",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-05-15",
+        "endTime": "15:00",
+        "startDate": "2026-05-15",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-05-19",
+        "endTime": "16:00",
+        "startDate": "2026-05-19",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-05-20",
+        "endTime": "16:00",
+        "startDate": "2026-05-20",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-05-22",
+        "endTime": "15:00",
+        "startDate": "2026-05-22",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-05-26",
+        "endTime": "16:00",
+        "startDate": "2026-05-26",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-05-27",
+        "endTime": "16:00",
+        "startDate": "2026-05-27",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-05-29",
+        "endTime": "15:00",
+        "startDate": "2026-05-29",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-29",
+    "endTime": "16:00",
+    "id": 104,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木下　瑞樹",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-05",
+    "startTime": "14:00",
+    "title": "健康アカデミー"
   }
 ]
