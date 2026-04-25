@@ -3393,5 +3393,37 @@
     "startDate": "2026-05-05",
     "startTime": "14:00",
     "title": "健康アカデミー"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月27日〜4月28日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-28",
+        "endTime": "17:00",
+        "startDate": "2026-04-27",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-28",
+    "endTime": "17:00",
+    "id": 105,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "定員なし",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-27",
+    "startTime": "09:00",
+    "title": "男子野球部"
   }
 ]
