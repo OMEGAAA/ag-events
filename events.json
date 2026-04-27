@@ -3425,5 +3425,33 @@
     "startDate": "2026-04-27",
     "startTime": "09:00",
     "title": "男子野球部"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "4月27日 13:00〜15:00",
+    "dates": [
+      {
+        "endDate": "2026-04-27",
+        "endTime": "15:00",
+        "startDate": "2026-04-27",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-27",
+    "endTime": "15:00",
+    "id": 106,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "佐藤",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-27",
+    "startTime": "13:00",
+    "title": "エイジェック高等学院　実技トレーニング"
   }
 ]
