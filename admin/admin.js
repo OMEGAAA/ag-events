@@ -1842,6 +1842,319 @@ function renderDashboard() {
             </td>
         </tr>`;
     }).join('');
+
+    // 曜日別・時間帯別ビューも更新
+    renderWeekdayView();
+    renderTimeView();
+}
+
+// ---- DASHBOARD: 曜日別ビュー ----
+
+let currentDashboardView = 'facility';
+
+const WEEKDAY_NAMES = ['日', '月', '火', '水', '木', '金', '土'];
+const WEEKDAY_NAMES_ORDERED = ['月', '火', '水', '木', '金', '土', '日']; // 月曜始まり
+const WEEKDAY_INDEX_ORDER = [1, 2, 3, 4, 5, 6, 0]; // Date.getDay() → 月曜始まり
+
+function switchDashboardView(view) {
+    currentDashboardView = view;
+    document.querySelectorAll('.dashboard-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.dashboard-view').forEach(v => v.style.display = 'none');
+
+    if (view === 'facility') {
+        document.getElementById('tab-facility').classList.add('active');
+        document.getElementById('view-facility').style.display = 'block';
+    } else if (view === 'weekday') {
+        document.getElementById('tab-weekday').classList.add('active');
+        document.getElementById('view-weekday').style.display = 'block';
+    } else if (view === 'time') {
+        document.getElementById('tab-time').classList.add('active');
+        document.getElementById('view-time').style.display = 'block';
+    }
+}
+
+function calcWeekdayUtilization(year, month) {
+    const allEvents = [...events, ...archivedEvents];
+    const daysInMonth = getDaysInMonth(year, month);
+    const monthStr = `${year}-${String(month + 1).padStart(2, '0')}`;
+
+    // 月内の各曜日の日数をカウント
+    const weekdayCounts = new Array(7).fill(0); // [日,月,...土]
+    for (let d = 1; d <= daysInMonth; d++) {
+        const dow = new Date(year, month, d).getDay();
+        weekdayCounts[dow]++;
+    }
+
+    // 施設×曜日の稼働日数
+    const facilityWeekday = {};
+    FACILITY_LIST.forEach(f => {
+        facilityWeekday[f] = {
+            days: [new Set(), new Set(), new Set(), new Set(), new Set(), new Set(), new Set()], // 各曜日のSet
+            total: new Set()
+        };
+    });
+
+    allEvents.forEach(ev => {
+        const ranges = getEventDateRanges(ev);
+        const locs = Array.isArray(ev.locations) ? ev.locations : (ev.location ? [ev.location] : []);
+
+        ranges.forEach(r => {
+            const start = new Date(r.startDate + 'T00:00:00');
+            const end = new Date((r.endDate || r.startDate) + 'T00:00:00');
+
+            for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+                if (dateStr === monthStr) {
+                    const dayNum = d.getDate();
+                    const dow = d.getDay();
+                    locs.forEach(loc => {
+                        if (facilityWeekday[loc]) {
+                            facilityWeekday[loc].days[dow].add(dayNum);
+                            facilityWeekday[loc].total.add(dayNum);
+                        }
+                    });
+                }
+            }
+        });
+    });
+
+    // 結果を整形
+    const results = FACILITY_LIST.map((name, i) => {
+        const data = facilityWeekday[name];
+        const weekdayData = WEEKDAY_INDEX_ORDER.map(dow => ({
+            count: data.days[dow].size,
+            maxCount: weekdayCounts[dow],
+            rate: weekdayCounts[dow] > 0 ? Math.round((data.days[dow].size / weekdayCounts[dow]) * 100) : 0
+        }));
+        const totalDays = data.total.size;
+        return {
+            name,
+            color: FACILITY_COLORS[i],
+            weekdayData,
+            totalDays,
+            totalRate: daysInMonth > 0 ? Math.round((totalDays / daysInMonth) * 100) : 0
+        };
+    });
+
+    // 曜日別サマリー（全施設合計）
+    const weekdaySummary = WEEKDAY_INDEX_ORDER.map((dow, idx) => {
+        const totalActive = results.reduce((sum, r) => sum + r.weekdayData[idx].count, 0);
+        const maxPossible = weekdayCounts[dow] * FACILITY_LIST.length;
+        return {
+            label: WEEKDAY_NAMES_ORDERED[idx],
+            count: totalActive,
+            maxCount: weekdayCounts[dow],
+            avgRate: maxPossible > 0 ? Math.round((totalActive / maxPossible) * 100) : 0
+        };
+    });
+
+    return { results, weekdaySummary, weekdayCounts, daysInMonth };
+}
+
+function getHeatColor(rate) {
+    if (rate === 0) return 'rgba(255,255,255,0.03)';
+    if (rate <= 20) return 'rgba(59,130,246,0.12)';
+    if (rate <= 40) return 'rgba(59,130,246,0.22)';
+    if (rate <= 60) return 'rgba(16,185,129,0.22)';
+    if (rate <= 80) return 'rgba(16,185,129,0.35)';
+    return 'rgba(16,185,129,0.50)';
+}
+
+function getHeatTextColor(rate) {
+    if (rate === 0) return 'var(--text-secondary)';
+    if (rate <= 40) return '#93c5fd';
+    return '#6ee7b7';
+}
+
+function renderWeekdayView() {
+    const tbody = document.getElementById('weekday-tbody');
+    const summaryGrid = document.getElementById('weekday-summary-grid');
+    if (!tbody) return;
+
+    const allEvents = [...events, ...archivedEvents];
+    if (allEvents.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="9" class="empty-state">イベントデータを読み込むと曜日別稼働率が表示されます</td></tr>';
+        if (summaryGrid) summaryGrid.innerHTML = '';
+        return;
+    }
+
+    const data = calcWeekdayUtilization(dashboardYear, dashboardMonth);
+
+    // サマリーカード（曜日ごとの全施設平均稼働率）
+    if (summaryGrid) {
+        summaryGrid.innerHTML = data.weekdaySummary.map((ws, idx) => {
+            const isWeekend = idx >= 5; // 土=5, 日=6
+            const barHeight = Math.max(ws.avgRate, 2);
+            return `
+            <div class="weekday-summary-card ${isWeekend ? 'weekend' : ''}">
+                <div class="weekday-bar-container">
+                    <div class="weekday-bar" style="height:${barHeight}%;background:${ws.avgRate > 0 ? (isWeekend ? 'linear-gradient(180deg, #f59e0b, #fbbf24)' : 'linear-gradient(180deg, #3b82f6, #60a5fa)') : 'rgba(255,255,255,0.08)'};">
+                    </div>
+                </div>
+                <div class="weekday-summary-label">${ws.label}</div>
+                <div class="weekday-summary-rate">${ws.avgRate}%</div>
+                <div class="weekday-summary-count">${ws.count}件/${ws.maxCount}日</div>
+            </div>`;
+        }).join('');
+    }
+
+    // ヒートマップテーブル
+    if (data.results.every(r => r.totalDays === 0)) {
+        tbody.innerHTML = '<tr><td colspan="9" class="empty-state">この月にはイベントがありません</td></tr>';
+        return;
+    }
+
+    // 合計稼働日数順にソート
+    const sorted = data.results.slice().sort((a, b) => b.totalDays - a.totalDays);
+
+    tbody.innerHTML = sorted.map(r => {
+        const weekdayCells = r.weekdayData.map(wd => {
+            const bg = getHeatColor(wd.rate);
+            const textColor = getHeatTextColor(wd.rate);
+            return `<td class="weekday-heat-cell" style="background:${bg};">
+                <div class="weekday-heat-value" style="color:${textColor};">${wd.count}</div>
+                <div class="weekday-heat-rate" style="color:${textColor}; opacity:0.7;">${wd.rate}%</div>
+            </td>`;
+        }).join('');
+
+        const totalRateClass = getRateClass(r.totalRate);
+        return `
+        <tr>
+            <td>
+                <div class="facility-name">
+                    <span class="facility-dot" style="background:${r.color};"></span>
+                    ${escapeHtml(r.name)}
+                </div>
+            </td>
+            ${weekdayCells}
+            <td>
+                <div class="weekday-total">
+                    <strong>${r.totalDays}</strong>日
+                    <span class="utilization-percent ${totalRateClass}" style="font-size:0.75rem;">${r.totalRate}%</span>
+                </div>
+            </td>
+        </tr>`;
+    }).join('');
+}
+
+// ---- DASHBOARD: 時間帯別ビュー ----
+
+const TIME_SLOTS = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]; // 8:00 - 21:00 (1時間刻み)
+
+function calcTimeUtilization(year, month, targetFacility) {
+    const allEvents = [...events, ...archivedEvents];
+    const daysInMonth = getDaysInMonth(year, month);
+    const monthStr = `${year}-${String(month + 1).padStart(2, '0')}`;
+
+    const weekdayCounts = new Array(7).fill(0);
+    for (let d = 1; d <= daysInMonth; d++) {
+        weekdayCounts[new Date(year, month, d).getDay()]++;
+    }
+
+    // dayOfWeek(0-6) -> hour(8-20) -> Set of active days
+    const timeData = WEEKDAY_INDEX_ORDER.map(() => {
+        const hourMap = {};
+        TIME_SLOTS.forEach(h => hourMap[h] = new Set());
+        return hourMap;
+    });
+
+    const checkOverlap = (h, startMinutes, endMinutes) => {
+        const slotStart = h * 60;
+        const slotEnd = (h + 1) * 60;
+        return startMinutes < slotEnd && endMinutes > slotStart;
+    };
+
+    const parseTime = (tStr) => {
+        if (!tStr) return null;
+        const parts = tStr.split(':').map(Number);
+        return parts[0] * 60 + parts[1];
+    };
+
+    allEvents.forEach(ev => {
+        const ranges = getEventDateRanges(ev);
+        const locs = Array.isArray(ev.locations) ? ev.locations : (ev.location ? [ev.location] : []);
+        
+        const validLocs = locs.filter(l => targetFacility === 'all' ? FACILITY_LIST.includes(l) : l === targetFacility);
+        if (validLocs.length === 0) return;
+
+        ranges.forEach(r => {
+            const start = new Date(r.startDate + 'T00:00:00');
+            const end = new Date((r.endDate || r.startDate) + 'T00:00:00');
+            
+            const evStartMinutes = r.startTime ? parseTime(r.startTime) : 8 * 60;
+            const evEndMinutes = r.endTime ? parseTime(r.endTime) : 21 * 60;
+
+            for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+                if (dateStr === monthStr) {
+                    const dayNum = d.getDate();
+                    const dow = d.getDay();
+                    const dowIndex = WEEKDAY_INDEX_ORDER.indexOf(dow); // 0=Mon, 6=Sun
+                    
+                    if (dowIndex !== -1) {
+                        TIME_SLOTS.forEach(h => {
+                            if (checkOverlap(h, evStartMinutes, evEndMinutes)) {
+                                if (targetFacility === 'all') {
+                                    validLocs.forEach(loc => timeData[dowIndex][h].add(`${dayNum}-${loc}`));
+                                } else {
+                                    timeData[dowIndex][h].add(dayNum);
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
+    });
+
+    return { timeData, weekdayCounts };
+}
+
+function renderTimeView() {
+    const table = document.getElementById('time-table');
+    if (!table) return;
+
+    const allEvents = [...events, ...archivedEvents];
+    if (allEvents.length === 0) {
+        table.innerHTML = '<tbody><tr><td class="empty-state">イベントデータを読み込むと時間帯別稼働率が表示されます</td></tr></tbody>';
+        return;
+    }
+
+    const selectEl = document.getElementById('time-facility-select');
+    const targetFacility = selectEl ? selectEl.value : 'all';
+    const { timeData, weekdayCounts } = calcTimeUtilization(dashboardYear, dashboardMonth, targetFacility);
+
+    let theadHtml = '<thead><tr><th>曜日 \\ 時間</th>';
+    TIME_SLOTS.forEach(h => {
+        theadHtml += `<th><div style="font-size:0.75rem;">${h}:00</div></th>`;
+    });
+    theadHtml += '</tr></thead>';
+
+    let tbodyHtml = '<tbody>';
+    WEEKDAY_INDEX_ORDER.forEach((dow, idx) => {
+        const dowLabel = WEEKDAY_NAMES_ORDERED[idx];
+        const isWeekend = idx >= 5;
+        tbodyHtml += `<tr><td style="font-weight:600; color:${isWeekend ? '#fbbf24' : 'var(--text-primary)'};">${dowLabel}</td>`;
+        
+        const daysThisMonth = weekdayCounts[WEEKDAY_INDEX_ORDER[idx]];
+        const maxPossible = targetFacility === 'all' ? daysThisMonth * FACILITY_LIST.length : daysThisMonth;
+
+        TIME_SLOTS.forEach(h => {
+            const count = timeData[idx][h].size;
+            const rate = maxPossible > 0 ? Math.round((count / maxPossible) * 100) : 0;
+            const bg = getHeatColor(rate);
+            const textColor = getHeatTextColor(rate);
+
+            tbodyHtml += `<td class="weekday-heat-cell" style="background:${bg}; padding: 0.4rem 0.2rem !important;">
+                <div class="weekday-heat-value" style="color:${textColor}; font-size:0.85rem;">${count}</div>
+                <div class="weekday-heat-rate" style="color:${textColor}; opacity:0.7;">${rate}%</div>
+            </td>`;
+        });
+        tbodyHtml += '</tr>';
+    });
+    tbodyHtml += '</tbody>';
+
+    table.innerHTML = theadHtml + tbodyHtml;
 }
 
 // ---- INIT ----
@@ -1851,3 +2164,5 @@ renderEventList();
 renderReportList();
 renderArchivedList();
 renderDashboard();
+
+

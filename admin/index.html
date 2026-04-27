@@ -170,21 +170,92 @@
                     </div>
                 </div>
 
+                <!-- ビュー切り替えタブ -->
+                <div class="dashboard-tabs">
+                    <button class="dashboard-tab active" id="tab-facility" onclick="switchDashboardView('facility')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01"/></svg>
+                        施設別
+                    </button>
+                    <button class="dashboard-tab" id="tab-weekday" onclick="switchDashboardView('weekday')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
+                        曜日別
+                    </button>
+                    <button class="dashboard-tab" id="tab-time" onclick="switchDashboardView('time')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        時間帯別
+                    </button>
+                </div>
+
                 <!-- 施設別稼働率テーブル -->
-                <div class="utilization-table-wrapper">
-                    <table class="utilization-table">
-                        <thead>
-                            <tr>
-                                <th>施設名</th>
-                                <th>稼働日数</th>
-                                <th>稼働率</th>
-                                <th>利用イベント数</th>
-                            </tr>
-                        </thead>
-                        <tbody id="utilization-tbody">
-                            <tr><td colspan="4" class="empty-state">データを読み込んでください</td></tr>
-                        </tbody>
-                    </table>
+                <div id="view-facility" class="dashboard-view active">
+                    <div class="utilization-table-wrapper">
+                        <table class="utilization-table">
+                            <thead>
+                                <tr>
+                                    <th>施設名</th>
+                                    <th>稼働日数</th>
+                                    <th>稼働率</th>
+                                    <th>利用イベント数</th>
+                                </tr>
+                            </thead>
+                            <tbody id="utilization-tbody">
+                                <tr><td colspan="4" class="empty-state">データを読み込んでください</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 曜日別稼働率テーブル -->
+                <div id="view-weekday" class="dashboard-view" style="display:none;">
+                    <div class="weekday-summary-grid" id="weekday-summary-grid"></div>
+                    <div class="utilization-table-wrapper">
+                        <table class="utilization-table weekday-table">
+                            <thead>
+                                <tr>
+                                    <th>施設名</th>
+                                    <th>月</th>
+                                    <th>火</th>
+                                    <th>水</th>
+                                    <th>木</th>
+                                    <th>金</th>
+                                    <th>土</th>
+                                    <th>日</th>
+                                    <th>合計</th>
+                                </tr>
+                            </thead>
+                            <tbody id="weekday-tbody">
+                                <tr><td colspan="9" class="empty-state">データを読み込んでください</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 時間帯別稼働率テーブル -->
+                <div id="view-time" class="dashboard-view" style="display:none;">
+                    <div class="time-filter-container" style="margin-bottom: 1rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem;">
+                        <label for="time-facility-select" style="font-size: 0.85rem; color: var(--text-secondary);">対象施設:</label>
+                        <select id="time-facility-select" onchange="renderTimeView()" style="padding: 0.4rem 0.8rem; border-radius: 6px; background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border); color: var(--text-primary); font-size: 0.85rem; cursor: pointer;">
+                            <option value="all">全施設平均</option>
+                            <option value="室内練習場">室内練習場</option>
+                            <option value="ベースボールエリア">ベースボールエリア</option>
+                            <option value="アローズエリア">アローズエリア</option>
+                            <option value="スタジオ">スタジオ</option>
+                            <option value="バッティングブースA">バッティングブースA</option>
+                            <option value="バッティングブースB">バッティングブースB</option>
+                            <option value="打撃エリア">打撃エリア</option>
+                            <option value="投手測定エリア">投手測定エリア</option>
+                            <option value="食堂">食堂</option>
+                            <option value="多目的室">多目的室</option>
+                            <option value="パワーエリア">パワーエリア</option>
+                        </select>
+                    </div>
+                    <div class="utilization-table-wrapper">
+                        <table class="utilization-table weekday-table" id="time-table">
+                            <tbody>
+                                <tr><td class="empty-state">データを読み込んでください</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
