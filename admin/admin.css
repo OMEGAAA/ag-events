@@ -1013,9 +1013,42 @@ tr:hover td { background: rgba(255,255,255,0.025); }
 }
 
 .kpi-icon {
-    font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    filter: grayscale(0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kpi-icon svg {
+    width: 28px;
+    height: 28px;
+    opacity: 0.85;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.kpi-card:hover .kpi-icon svg {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* カードごとにアイコン色を変える */
+.kpi-card:nth-child(1) .kpi-icon svg { color: #60a5fa; }
+.kpi-card:nth-child(2) .kpi-icon svg { color: #a78bfa; }
+.kpi-card:nth-child(3) .kpi-icon svg { color: #fbbf24; }
+.kpi-card:nth-child(4) .kpi-icon svg { color: #34d399; }
+
+/* ヘッダーのインラインアイコン */
+.icon-inline {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-inline.icon-header {
+    width: 20px;
+    height: 20px;
+    color: var(--accent-blue);
+    margin-right: 0.15rem;
+    margin-top: -2px;
 }
 
 .kpi-value {
