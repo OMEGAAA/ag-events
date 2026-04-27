@@ -1952,18 +1952,21 @@ function calcWeekdayUtilization(year, month) {
 }
 
 function getHeatColor(rate) {
-    if (rate === 0) return 'rgba(255,255,255,0.03)';
-    if (rate <= 20) return 'rgba(59,130,246,0.12)';
-    if (rate <= 40) return 'rgba(59,130,246,0.22)';
-    if (rate <= 60) return 'rgba(16,185,129,0.22)';
-    if (rate <= 80) return 'rgba(16,185,129,0.35)';
-    return 'rgba(16,185,129,0.50)';
+    if (rate === 0) return 'rgba(255,255,255,0.02)';
+    if (rate <= 20) return 'rgba(59,130,246,0.15)'; // Blue
+    if (rate <= 40) return 'rgba(14,165,233,0.25)'; // Sky/Teal
+    if (rate <= 60) return 'rgba(234,179,8,0.25)';  // Yellow
+    if (rate <= 80) return 'rgba(249,115,22,0.3)';  // Orange
+    return 'rgba(239,68,68,0.4)';                   // Red
 }
 
 function getHeatTextColor(rate) {
-    if (rate === 0) return 'var(--text-secondary)';
-    if (rate <= 40) return '#93c5fd';
-    return '#6ee7b7';
+    if (rate === 0) return 'rgba(255,255,255,0.2)';
+    if (rate <= 20) return '#93c5fd';
+    if (rate <= 40) return '#7dd3fc';
+    if (rate <= 60) return '#fde047';
+    if (rate <= 80) return '#fdba74';
+    return '#fca5a5';
 }
 
 function renderWeekdayView() {
@@ -2011,9 +2014,11 @@ function renderWeekdayView() {
         const weekdayCells = r.weekdayData.map(wd => {
             const bg = getHeatColor(wd.rate);
             const textColor = getHeatTextColor(wd.rate);
-            return `<td class="weekday-heat-cell" style="background:${bg};">
-                <div class="weekday-heat-value" style="color:${textColor};">${wd.count}</div>
-                <div class="weekday-heat-rate" style="color:${textColor}; opacity:0.7;">${wd.rate}%</div>
+            // 0%の場合は数字を目立たせない、あるいは - にするなどの工夫も可
+            const displayValue = wd.rate > 0 ? `${wd.rate}<span style="font-size:0.65em">%</span>` : '<span style="opacity:0.3">-</span>';
+            
+            return `<td class="weekday-heat-cell" style="background:${bg};" title="稼働日数: ${wd.count}日 / 月間全${wd.maxCount}日中">
+                <div class="weekday-heat-value" style="color:${textColor};">${displayValue}</div>
             </td>`;
         }).join('');
 
@@ -2145,9 +2150,10 @@ function renderTimeView() {
             const bg = getHeatColor(rate);
             const textColor = getHeatTextColor(rate);
 
-            tbodyHtml += `<td class="weekday-heat-cell" style="background:${bg}; padding: 0.4rem 0.2rem !important;">
-                <div class="weekday-heat-value" style="color:${textColor}; font-size:0.85rem;">${count}</div>
-                <div class="weekday-heat-rate" style="color:${textColor}; opacity:0.7;">${rate}%</div>
+            const displayValue = rate > 0 ? `${rate}<span style="font-size:0.65em">%</span>` : '<span style="opacity:0.3">-</span>';
+
+            tbodyHtml += `<td class="weekday-heat-cell" style="background:${bg}; padding: 0.4rem 0.2rem !important;" title="利用枠: ${count}件 / 月間全${maxPossible}件中">
+                <div class="weekday-heat-value" style="color:${textColor}; font-size:0.85rem;">${displayValue}</div>
             </td>`;
         });
         tbodyHtml += '</tr>';
