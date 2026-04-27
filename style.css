@@ -1901,6 +1901,31 @@ main {
     padding: 1px 4px;
 }
 
+/* FullCalendar "+more" popover fix */
+.fc-popover {
+    background: #fff !important;
+    border: 1px solid var(--border-medium, #d1d5db) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+    z-index: 100 !important;
+}
+.fc-popover .fc-popover-header {
+    background: var(--surface-raised, #f3f4f6) !important;
+    padding: 0.5rem 0.75rem !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    border-bottom: 1px solid var(--glass-border, #e5e7eb) !important;
+    border-radius: 8px 8px 0 0 !important;
+    color: var(--text-primary, #1e293b) !important;
+}
+.fc-popover .fc-popover-body {
+    background: #fff !important;
+    padding: 0.4rem !important;
+    border-radius: 0 0 8px 8px !important;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
 @media (max-width: 640px) {
     #month-cal-container { padding: 0 2% 1.5rem; }
     .mc-bar-text { font-size: 0; }
