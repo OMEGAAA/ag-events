@@ -411,7 +411,7 @@ function eventHasLocation(e, loc) {
 }
 
 function showLocationWeek() {
-    locViewDate = fullCal ? new Date(fullCal.getDate()) : new Date();
+    locViewDate = new Date();
     locViewType = 'week';
     document.getElementById('fc-wrapper').classList.add('fc-hidden');
     document.getElementById('fc-jump-bar').style.display = 'none';
@@ -421,7 +421,7 @@ function showLocationWeek() {
 }
 
 function showLocationDay() {
-    locViewDate = fullCal ? new Date(fullCal.getDate()) : new Date();
+    locViewDate = new Date();
     locViewType = 'day';
     document.getElementById('fc-wrapper').classList.add('fc-hidden');
     document.getElementById('fc-jump-bar').style.display = 'none';
