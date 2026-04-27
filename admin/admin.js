@@ -2017,7 +2017,7 @@ function renderWeekdayView() {
             // 0%の場合は数字を目立たせない、あるいは - にするなどの工夫も可
             const displayValue = wd.rate > 0 ? `${wd.rate}<span style="font-size:0.65em">%</span>` : '<span style="opacity:0.3">-</span>';
             
-            return `<td class="weekday-heat-cell" style="background:${bg};" title="稼働日数: ${wd.count}日 / 月間全${wd.maxCount}日中">
+            return `<td class="weekday-heat-cell" style="background:${bg};" title="利用日数: ${wd.count}日 / その曜日（月間${wd.maxCount}日）中">
                 <div class="weekday-heat-value" style="color:${textColor};">${displayValue}</div>
             </td>`;
         }).join('');
@@ -2152,7 +2152,11 @@ function renderTimeView() {
 
             const displayValue = rate > 0 ? `${rate}<span style="font-size:0.65em">%</span>` : '<span style="opacity:0.3">-</span>';
 
-            tbodyHtml += `<td class="weekday-heat-cell" style="background:${bg}; padding: 0.4rem 0.2rem !important;" title="利用枠: ${count}件 / 月間全${maxPossible}件中">
+            const titleText = targetFacility === 'all' 
+                ? `利用: ${count}枠 / 最大${maxPossible}枠 (全施設合計)` 
+                : `利用: ${count}回 / その曜日（月間${maxPossible}日）中`;
+
+            tbodyHtml += `<td class="weekday-heat-cell" style="background:${bg}; padding: 0.4rem 0.2rem !important;" title="${titleText}">
                 <div class="weekday-heat-value" style="color:${textColor}; font-size:0.85rem;">${displayValue}</div>
             </td>`;
         });
