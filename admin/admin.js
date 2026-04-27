@@ -899,6 +899,9 @@ function renderEventList() {
             </td>
         </tr>`;
     }).join('');
+
+    // ダッシュボードも更新
+    if (typeof renderDashboard === 'function') renderDashboard();
 }
 
 // ---- CRUD ----
@@ -1627,6 +1630,218 @@ function renderArchivedList() {
                 </td>
             </tr>`;
         }).join('');
+
+    // ダッシュボードも更新
+    if (typeof renderDashboard === 'function') renderDashboard();
+}
+
+// ---- DASHBOARD (施設稼働率) ----
+
+const FACILITY_LIST = [
+    '室内練習場', 'ベースボールエリア', 'アローズエリア', 'スタジオ',
+    'バッティングブースA', 'バッティングブースB', '打撃エリア',
+    '投手測定エリア', '食堂', '多目的室', 'パワーエリア'
+];
+
+const FACILITY_COLORS = [
+    '#3b82f6', '#8b5cf6', '#10b981', '#f59e0b',
+    '#ef4444', '#ec4899', '#06b6d4', '#14b8a6',
+    '#f97316', '#6366f1', '#84cc16'
+];
+
+let dashboardYear = new Date().getFullYear();
+let dashboardMonth = new Date().getMonth(); // 0-indexed
+
+function toggleDashboard() {
+    const body = document.getElementById('dashboard-body');
+    const icon = document.getElementById('dashboard-toggle-icon');
+    const isHidden = body.style.display === 'none';
+    body.style.display = isHidden ? 'block' : 'none';
+    icon.textContent = isHidden ? '▲' : '▼';
+}
+
+function prevDashboardMonth() {
+    dashboardMonth--;
+    if (dashboardMonth < 0) { dashboardMonth = 11; dashboardYear--; }
+    renderDashboard();
+}
+
+function nextDashboardMonth() {
+    dashboardMonth++;
+    if (dashboardMonth > 11) { dashboardMonth = 0; dashboardYear++; }
+    renderDashboard();
+}
+
+function getDaysInMonth(year, month) {
+    return new Date(year, month + 1, 0).getDate();
+}
+
+function calcUtilization(year, month) {
+    const allEvents = [...events, ...archivedEvents];
+    const daysInMonth = getDaysInMonth(year, month);
+    const monthStr = `${year}-${String(month + 1).padStart(2, '0')}`;
+
+    // 月に該当するイベントを特定
+    const monthEvents = [];
+    const facilityData = {};
+
+    FACILITY_LIST.forEach(f => {
+        facilityData[f] = { days: new Set(), eventCount: 0, events: [] };
+    });
+
+    allEvents.forEach(ev => {
+        const ranges = getEventDateRanges(ev);
+        const locs = Array.isArray(ev.locations) ? ev.locations : (ev.location ? [ev.location] : []);
+        let touchesMonth = false;
+
+        ranges.forEach(r => {
+            // 各日程のすべての日をチェック
+            const start = new Date(r.startDate + 'T00:00:00');
+            const end = new Date((r.endDate || r.startDate) + 'T00:00:00');
+
+            for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+                if (dateStr === monthStr) {
+                    const dayNum = d.getDate();
+                    touchesMonth = true;
+                    locs.forEach(loc => {
+                        if (facilityData[loc]) {
+                            facilityData[loc].days.add(dayNum);
+                        }
+                    });
+                }
+            }
+        });
+
+        if (touchesMonth) {
+            monthEvents.push(ev);
+            locs.forEach(loc => {
+                if (facilityData[loc]) {
+                    facilityData[loc].eventCount++;
+                    facilityData[loc].events.push(ev);
+                }
+            });
+        }
+    });
+
+    // 結果を配列にまとめる
+    const results = FACILITY_LIST.map((name, i) => {
+        const data = facilityData[name];
+        const activeDays = data.days.size;
+        const rate = daysInMonth > 0 ? Math.round((activeDays / daysInMonth) * 100) : 0;
+        return {
+            name,
+            color: FACILITY_COLORS[i],
+            activeDays,
+            daysInMonth,
+            rate,
+            eventCount: data.eventCount
+        };
+    });
+
+    // 稼働施設数
+    const activeFacilities = results.filter(r => r.activeDays > 0).length;
+
+    // 最頻利用施設
+    const topFacility = results.reduce((max, r) => r.activeDays > max.activeDays ? r : max, results[0]);
+
+    // 平均稼働率（稼働した施設のみ or 全施設）
+    const avgRate = results.length > 0
+        ? Math.round(results.reduce((sum, r) => sum + r.rate, 0) / results.length)
+        : 0;
+
+    return {
+        monthEvents,
+        results,
+        activeFacilities,
+        topFacility,
+        avgRate,
+        daysInMonth
+    };
+}
+
+function getRateClass(rate) {
+    if (rate === 0) return 'rate-zero';
+    if (rate >= 30) return 'rate-high';
+    if (rate >= 10) return 'rate-medium';
+    return 'rate-low';
+}
+
+function renderDashboard() {
+    const label = document.getElementById('dashboard-month-label');
+    const badge = document.getElementById('dashboard-badge');
+
+    if (label) label.textContent = `${dashboardYear}年${dashboardMonth + 1}月`;
+
+    const allEvents = [...events, ...archivedEvents];
+
+    if (allEvents.length === 0) {
+        document.getElementById('kpi-event-count').textContent = '—';
+        document.getElementById('kpi-active-facilities').textContent = '—';
+        document.getElementById('kpi-top-facility').textContent = '—';
+        document.getElementById('kpi-avg-rate').textContent = '—';
+        document.getElementById('utilization-tbody').innerHTML =
+            '<tr><td colspan="4" class="empty-state">イベントデータを読み込むと稼働率が表示されます</td></tr>';
+        if (badge) badge.style.display = 'none';
+        return;
+    }
+
+    if (badge) badge.style.display = 'inline-block';
+
+    const data = calcUtilization(dashboardYear, dashboardMonth);
+
+    // KPIカード更新
+    document.getElementById('kpi-event-count').textContent = data.monthEvents.length;
+    document.getElementById('kpi-active-facilities').textContent =
+        `${data.activeFacilities} / ${FACILITY_LIST.length}`;
+
+    const topEl = document.getElementById('kpi-top-facility');
+    if (data.topFacility && data.topFacility.activeDays > 0) {
+        topEl.textContent = data.topFacility.name;
+        topEl.className = 'kpi-value kpi-small';
+    } else {
+        topEl.textContent = '—';
+        topEl.className = 'kpi-value';
+    }
+
+    document.getElementById('kpi-avg-rate').textContent = `${data.avgRate}%`;
+
+    // テーブル描画
+    const tbody = document.getElementById('utilization-tbody');
+    if (data.results.every(r => r.activeDays === 0)) {
+        tbody.innerHTML = '<tr><td colspan="4" class="empty-state">この月にはイベントがありません</td></tr>';
+        return;
+    }
+
+    // 稼働率順にソート（降順）
+    const sorted = data.results.slice().sort((a, b) => b.rate - a.rate || b.activeDays - a.activeDays);
+
+    tbody.innerHTML = sorted.map(r => {
+        const rateClass = getRateClass(r.rate);
+        return `
+        <tr>
+            <td>
+                <div class="facility-name">
+                    <span class="facility-dot" style="background:${r.color};"></span>
+                    ${escapeHtml(r.name)}
+                </div>
+            </td>
+            <td>
+                <span class="days-count"><strong>${r.activeDays}</strong> / ${r.daysInMonth}日</span>
+            </td>
+            <td class="utilization-bar-cell">
+                <div class="utilization-bar-wrapper">
+                    <div class="utilization-bar-track">
+                        <div class="utilization-bar-fill ${rateClass}" style="width:${r.rate}%;"></div>
+                    </div>
+                    <span class="utilization-percent ${rateClass}">${r.rate}%</span>
+                </div>
+            </td>
+            <td>
+                <span class="event-count-badge ${r.eventCount > 0 ? 'has-events' : ''}">${r.eventCount}件</span>
+            </td>
+        </tr>`;
+    }).join('');
 }
 
 // ---- INIT ----
@@ -1635,3 +1850,4 @@ loadFirebaseConfig();
 renderEventList();
 renderReportList();
 renderArchivedList();
+renderDashboard();

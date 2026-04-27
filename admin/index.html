@@ -128,6 +128,67 @@
         <!-- Presence bar -->
         <div id="presence-bar" class="presence-bar" style="display:none;"></div>
 
+        <!-- ========== 施設稼働率ダッシュボード ========== -->
+        <div class="events-section dashboard-section" id="dashboard-section">
+            <div class="settings-panel-header" onclick="toggleDashboard()">
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                    <h3>📊 施設稼働率ダッシュボード</h3>
+                    <span class="connection-badge connected" id="dashboard-badge" style="display:none;">データあり</span>
+                </div>
+                <span id="dashboard-toggle-icon">▲</span>
+            </div>
+
+            <div id="dashboard-body">
+                <!-- 月切り替えナビ -->
+                <div class="month-nav">
+                    <button class="btn btn-secondary btn-sm" onclick="prevDashboardMonth()">← 前月</button>
+                    <span class="month-nav-label" id="dashboard-month-label">2026年4月</span>
+                    <button class="btn btn-secondary btn-sm" onclick="nextDashboardMonth()">次月 →</button>
+                </div>
+
+                <!-- サマリーKPIカード -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">📅</div>
+                        <div class="kpi-value" id="kpi-event-count">—</div>
+                        <div class="kpi-label">当月イベント数</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🏢</div>
+                        <div class="kpi-value" id="kpi-active-facilities">—</div>
+                        <div class="kpi-label">稼働施設数</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🏆</div>
+                        <div class="kpi-value" id="kpi-top-facility">—</div>
+                        <div class="kpi-label">最頻利用施設</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">📈</div>
+                        <div class="kpi-value" id="kpi-avg-rate">—</div>
+                        <div class="kpi-label">平均稼働率</div>
+                    </div>
+                </div>
+
+                <!-- 施設別稼働率テーブル -->
+                <div class="utilization-table-wrapper">
+                    <table class="utilization-table">
+                        <thead>
+                            <tr>
+                                <th>施設名</th>
+                                <th>稼働日数</th>
+                                <th>稼働率</th>
+                                <th>利用イベント数</th>
+                            </tr>
+                        </thead>
+                        <tbody id="utilization-tbody">
+                            <tr><td colspan="4" class="empty-state">データを読み込んでください</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
         <!-- Events Management -->
         <div class="events-section">
             <div class="events-section-header">
