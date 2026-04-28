@@ -3453,5 +3453,34 @@
     "startDate": "2026-04-27",
     "startTime": "13:00",
     "title": "エイジェック高等学院　実技トレーニング"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "5月1日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-05-01",
+        "endTime": "12:00",
+        "startDate": "2026-05-01",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-01",
+    "endTime": "12:00",
+    "id": 107,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "菅谷力也",
+    "notes": "",
+    "participants": "30",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-01",
+    "startTime": "09:00",
+    "title": "白鷗大学野球部（雨天時）"
   }
 ]
