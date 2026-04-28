@@ -3544,5 +3544,153 @@
     "startDate": "2026-05-24",
     "startTime": "09:00",
     "title": "AGK男子練習"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "6月2日 他20件",
+    "dates": [
+      {
+        "endDate": "2026-06-02",
+        "endTime": "18:00",
+        "startDate": "2026-06-02",
+        "startTime": "16:00"
+      },
+      {
+        "endDate": "2026-06-03",
+        "endTime": "16:00",
+        "startDate": "2026-06-03",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-04",
+        "endTime": "16:00",
+        "startDate": "2026-06-04",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-05",
+        "endTime": "16:00",
+        "startDate": "2026-06-05",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-08",
+        "endTime": "16:00",
+        "startDate": "2026-06-08",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-09",
+        "endTime": "18:00",
+        "startDate": "2026-06-09",
+        "startTime": "16:00"
+      },
+      {
+        "endDate": "2026-06-10",
+        "endTime": "16:00",
+        "startDate": "2026-06-10",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-11",
+        "endTime": "16:00",
+        "startDate": "2026-06-11",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-12",
+        "endTime": "16:00",
+        "startDate": "2026-06-12",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-15",
+        "endTime": "16:00",
+        "startDate": "2026-06-15",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-16",
+        "endTime": "18:00",
+        "startDate": "2026-06-16",
+        "startTime": "16:00"
+      },
+      {
+        "endDate": "2026-06-17",
+        "endTime": "16:00",
+        "startDate": "2026-06-17",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-18",
+        "endTime": "16:00",
+        "startDate": "2026-06-18",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-19",
+        "endTime": "16:00",
+        "startDate": "2026-06-19",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-22",
+        "endTime": "16:00",
+        "startDate": "2026-06-22",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-23",
+        "endTime": "18:00",
+        "startDate": "2026-06-23",
+        "startTime": "16:00"
+      },
+      {
+        "endDate": "2026-06-24",
+        "endTime": "16:00",
+        "startDate": "2026-06-24",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-25",
+        "endTime": "16:00",
+        "startDate": "2026-06-25",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-26",
+        "endTime": "16:00",
+        "startDate": "2026-06-26",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-29",
+        "endTime": "16:00",
+        "startDate": "2026-06-29",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-30",
+        "endTime": "18:00",
+        "startDate": "2026-06-30",
+        "startTime": "16:00"
+      }
+    ],
+    "endDate": "2026-06-30",
+    "endTime": "18:00",
+    "id": 110,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "６",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-02",
+    "startTime": "16:00",
+    "title": "エイジェック高等学院"
   }
 ]
