@@ -3482,5 +3482,33 @@
     "startDate": "2026-05-01",
     "startTime": "09:00",
     "title": "白鷗大学野球部（雨天時）"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "5月11日 17:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-05-11",
+        "endTime": "18:00",
+        "startDate": "2026-05-11",
+        "startTime": "17:00"
+      }
+    ],
+    "endDate": "2026-05-11",
+    "endTime": "18:00",
+    "id": 108,
+    "locations": [
+      "バッティングブースB"
+    ],
+    "manager": "川相",
+    "notes": "",
+    "participants": "1",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-11",
+    "startTime": "17:00",
+    "title": "個人レッスン"
   }
 ]
