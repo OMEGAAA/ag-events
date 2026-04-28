@@ -3510,5 +3510,39 @@
     "startDate": "2026-05-11",
     "startTime": "17:00",
     "title": "個人レッスン"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "5月24日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-05-24",
+        "endTime": "17:00",
+        "startDate": "2026-05-24",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-24",
+    "endTime": "17:00",
+    "id": 109,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-24",
+    "startTime": "09:00",
+    "title": "AGK男子練習"
   }
 ]
