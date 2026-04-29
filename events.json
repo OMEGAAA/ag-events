@@ -1,6 +1,6 @@
 [
   {
-    "cardColor": "#c2bd2e",
+    "cardColor": "#ffff00",
     "category": "health",
     "categoryText": "健康アカデミー",
     "date": "4月2日 他7件",
@@ -58,6 +58,7 @@
     "endTime": "16:00",
     "id": 3,
     "locations": [
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "木下",
@@ -128,7 +129,7 @@
     "title": "しずわでら体育授業"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "外部",
     "date": "4月9日 19:00〜21:00",
@@ -157,7 +158,7 @@
     "title": "TSK様"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "アカデミー",
     "date": "4月11日 09:30〜16:30",
@@ -228,7 +229,7 @@
     "title": "埼玉叡明高校硬式野球部様(仮予約)"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "その他",
     "date": "5月3日 09:00〜16:00",
@@ -246,6 +247,7 @@
     "locations": [
       "室内練習場",
       "アローズエリア",
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "五十子",
@@ -258,7 +260,7 @@
     "title": "新宿牛込ベースボールクラブ"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "イベント",
     "date": "5月9日 09:00〜17:00",
@@ -286,7 +288,7 @@
     "title": "子ども習い事フェスタ"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "イベント",
     "date": "5月10日 12:00〜17:00",
@@ -314,7 +316,7 @@
     "title": "アローズ競技特化イベント"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "大会",
     "date": "8月26日 他2件",
@@ -345,8 +347,9 @@
       "室内練習場",
       "ベースボールエリア",
       "アローズエリア",
+      "食堂",
       "パワーエリア",
-      "食堂"
+      "パワーエリア"
     ],
     "manager": "木下",
     "notes": "",
@@ -402,7 +405,7 @@
     "title": "さくらカップ中学の部"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "大会",
     "date": "10月30日 他1件",
@@ -427,8 +430,9 @@
       "室内練習場",
       "ベースボールエリア",
       "アローズエリア",
+      "食堂",
       "パワーエリア",
-      "食堂"
+      "パワーエリア"
     ],
     "manager": "吉井",
     "notes": "",
@@ -440,7 +444,7 @@
     "title": "さくらカップ高校の部"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "大会",
     "date": "11月1日〜11月3日 09:00〜21:00",
@@ -459,8 +463,9 @@
       "室内練習場",
       "ベースボールエリア",
       "アローズエリア",
+      "食堂",
       "パワーエリア",
-      "食堂"
+      "パワーエリア"
     ],
     "manager": "吉井",
     "notes": "",
@@ -472,7 +477,7 @@
     "title": "さくらカップ高校の部"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "ノックイベント",
     "date": "11月28日 09:00〜17:00",
@@ -502,7 +507,7 @@
     "title": "1万本ノック"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "測定",
     "date": "5月21日 09:00〜18:00",
@@ -530,7 +535,7 @@
     "title": "東大測定（オイシックス）"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "野球教室",
     "date": "11月15日 10:00〜16:00",
@@ -559,7 +564,7 @@
     "title": "栃木県スポーツ協会　元気塾"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "測定会",
     "date": "4月14日 他1件",
@@ -597,7 +602,7 @@
     "title": "BCL測定"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "パーソナルレッスン",
     "date": "4月11日 16:00〜17:00",
@@ -625,7 +630,7 @@
     "title": "個人レッスン"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月18日 09:00〜18:00",
@@ -661,7 +666,7 @@
     "title": "ユース測定会"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "測定",
     "date": "4月7日 08:15〜12:00",
@@ -692,7 +697,7 @@
     "title": "BCL測定　TGB"
   },
   {
-    "cardColor": "",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "練習",
     "date": "4月8日 13:00〜17:00",
@@ -722,7 +727,7 @@
     "title": "AGK男子練習"
   },
   {
-    "cardColor": "#ef0606",
+    "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "12月6日 他2件",
@@ -769,7 +774,7 @@
     "title": "ユース測定"
   },
   {
-    "cardColor": "#996fd8",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月9日 11:00〜18:00",
@@ -787,7 +792,7 @@
     "locations": [
       "アローズエリア"
     ],
-    "manager": "",
+    "manager": "大塚",
     "notes": "",
     "participants": "6",
     "snsAvailableFrom": "",
@@ -797,7 +802,7 @@
     "title": "入校式"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月16日 09:30〜16:00",
@@ -825,7 +830,7 @@
     "title": "GOLD RUSHのレッスン"
   },
   {
-    "cardColor": "#0a33ff",
+    "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "パーソナルレッスン",
     "date": "4月16日 16:30〜19:00",
@@ -853,7 +858,7 @@
     "title": "パーソナルレッスン"
   },
   {
-    "cardColor": "",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "練習",
     "date": "4月10日 13:00〜17:00",
@@ -1017,7 +1022,7 @@
     "title": "打撃測定"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月13日 09:00〜12:00",
@@ -1045,7 +1050,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月16日 09:00〜12:00",
@@ -1272,7 +1277,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月7日 09:00〜12:00",
@@ -1300,7 +1305,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月8日 09:00〜12:00",
@@ -1328,7 +1333,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月11日 09:00〜12:00",
@@ -1384,7 +1389,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月12日 13:00〜16:00",
@@ -1412,7 +1417,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月14日 09:00〜12:00",
@@ -1440,7 +1445,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月15日 09:00〜12:00",
@@ -1468,7 +1473,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月18日 09:00〜12:00",
@@ -1496,7 +1501,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月19日 13:00〜16:00",
@@ -1524,7 +1529,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月20日 09:00〜12:00",
@@ -1552,7 +1557,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月21日 09:00〜12:00",
@@ -1580,7 +1585,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月22日 09:00〜12:00",
@@ -1608,7 +1613,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月25日 09:00〜12:00",
@@ -1636,7 +1641,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月26日 13:00〜16:00",
@@ -1664,7 +1669,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月27日 09:00〜12:00",
@@ -1692,7 +1697,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月28日 09:00〜12:00",
@@ -1720,7 +1725,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月29日 09:00〜12:00",
@@ -1866,7 +1871,7 @@
     "title": "投球測定"
   },
   {
-    "cardColor": "#f53dd3",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "11月7日 07:00〜19:00",
@@ -1900,7 +1905,7 @@
     "title": "さくらカップ小学の部"
   },
   {
-    "cardColor": "#fb0404",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月12日 09:00〜17:00",
@@ -1932,7 +1937,7 @@
     "title": "エイジェック男子硬式野球部"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月20日 13:00〜16:00",
@@ -1960,7 +1965,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月16日 09:00〜13:00",
@@ -1991,7 +1996,7 @@
     "title": "エイジェック男子硬式野球部"
   },
   {
-    "cardColor": "",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月17日 13:00〜16:00",
@@ -2022,7 +2027,7 @@
     "title": "エイジェック男子硬式野球部"
   },
   {
-    "cardColor": "",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月19日 他1件",
@@ -2060,7 +2065,7 @@
     "title": "エイジェック男子硬式野球部"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月17日 09:00〜12:00",
@@ -2088,7 +2093,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "#04fb21",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "8月9日〜8月14日 09:00〜19:00",
@@ -2122,7 +2127,7 @@
     "title": "地球環境高校合宿（仮）"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月13日 13:00〜16:00",
@@ -2138,6 +2143,7 @@
     "endTime": "16:00",
     "id": 75,
     "locations": [
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "大塚　克己",
@@ -2150,7 +2156,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "#cdddb1",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "イベント",
     "date": "6月20日 09:00〜18:00",
@@ -2242,7 +2248,7 @@
     "title": "TGB選手練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#32cd32",
     "category": "other",
     "categoryText": "測定",
     "date": "5月2日 他12件",
@@ -2408,7 +2414,7 @@
     "title": "健康フィットネス"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "練習",
     "date": "5月14日 他29件",
@@ -2600,6 +2606,7 @@
     "locations": [
       "室内練習場",
       "バッティングブースB",
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "岡",
@@ -2612,7 +2619,7 @@
     "title": "エイジェックユース平日練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "イベント",
     "date": "6月2日 他8件",
@@ -2688,7 +2695,7 @@
     "title": "しずわでら体育授業"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ffff00",
     "category": "health",
     "categoryText": "健康アカデミー",
     "date": "6月4日 他10件",
@@ -2764,6 +2771,7 @@
     "endTime": "16:00",
     "id": 84,
     "locations": [
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "木下",
@@ -2776,7 +2784,7 @@
     "title": "健康アカデミー"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月17日 12:15〜14:15",
@@ -2792,6 +2800,7 @@
     "endTime": "14:15",
     "id": 86,
     "locations": [
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "大塚　克己",
@@ -2832,7 +2841,7 @@
     "title": "TGB練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "エイジェック高等学院練習",
     "date": "4月20日 12:00〜15:00",
@@ -2848,6 +2857,7 @@
     "endTime": "15:00",
     "id": 89,
     "locations": [
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "大塚",
@@ -2890,7 +2900,7 @@
     "title": "TSK練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "練習",
     "date": "4月20日 他4件",
@@ -2930,6 +2940,7 @@
     "endTime": "17:00",
     "id": 91,
     "locations": [
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "大塚",
@@ -3301,7 +3312,7 @@
     "title": "個人レッスン(川相)"
   },
   {
-    "cardColor": "#c9ee11",
+    "cardColor": "#ffff00",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月5日 他11件",
@@ -3484,7 +3495,7 @@
     "title": "白鷗大学野球部（雨天時）"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "アカデミー",
     "date": "5月11日 17:00〜18:00",
@@ -3512,7 +3523,7 @@
     "title": "個人レッスン"
   },
   {
-    "cardColor": "",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "その他",
     "date": "5月24日 09:00〜17:00",
@@ -3534,6 +3545,7 @@
       "バッティングブースB",
       "打撃エリア",
       "投手測定エリア",
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "山村",
@@ -3546,7 +3558,7 @@
     "title": "AGK男子練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "6月2日 他20件",
@@ -3682,6 +3694,7 @@
     "endTime": "18:00",
     "id": 110,
     "locations": [
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "大塚　克己",
@@ -3694,7 +3707,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "#f60404",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "イベント",
     "date": "5月19日 17:15〜18:45",
@@ -3722,7 +3735,7 @@
     "title": "ダンススクール体験会"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "その他",
     "date": "6月2日 他20件",
@@ -3870,7 +3883,7 @@
     "title": "AGK高等学院練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "練習",
     "date": "5月1日 他17件",
@@ -3988,6 +4001,7 @@
     "endTime": "16:00",
     "id": 113,
     "locations": [
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "大塚",
