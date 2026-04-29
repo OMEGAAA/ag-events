@@ -2243,104 +2243,104 @@
     "title": "TGB選手練習"
   },
   {
-    "cardColor": "#32cd32",
-    "category": "other",
-    "categoryText": "測定",
+    "id": 79,
+    "title": "打撃測定",
     "date": "5月2日 他12件",
     "dates": [
       {
-        "endDate": "2026-05-02",
-        "endTime": "22:00",
         "startDate": "2026-05-02",
-        "startTime": "18:00"
+        "endDate": "2026-05-02",
+        "startTime": "18:00",
+        "endTime": "22:00"
       },
       {
-        "endDate": "2026-05-03",
-        "endTime": "22:00",
         "startDate": "2026-05-03",
-        "startTime": "18:00"
+        "endDate": "2026-05-03",
+        "startTime": "18:00",
+        "endTime": "22:00"
       },
       {
-        "endDate": "2026-05-04",
-        "endTime": "22:00",
         "startDate": "2026-05-04",
-        "startTime": "18:00"
+        "endDate": "2026-05-04",
+        "startTime": "18:00",
+        "endTime": "22:00"
       },
       {
-        "endDate": "2026-05-05",
-        "endTime": "22:00",
         "startDate": "2026-05-05",
-        "startTime": "18:00"
+        "endDate": "2026-05-05",
+        "startTime": "18:00",
+        "endTime": "22:00"
       },
       {
-        "endDate": "2026-05-06",
-        "endTime": "22:00",
         "startDate": "2026-05-06",
-        "startTime": "18:00"
+        "endDate": "2026-05-06",
+        "startTime": "18:00",
+        "endTime": "22:00"
       },
       {
-        "endDate": "2026-05-09",
-        "endTime": "22:00",
         "startDate": "2026-05-09",
-        "startTime": "18:00"
+        "endDate": "2026-05-09",
+        "startTime": "18:00",
+        "endTime": "22:00"
       },
       {
-        "endDate": "2026-05-10",
-        "endTime": "22:00",
         "startDate": "2026-05-10",
-        "startTime": "18:00"
+        "endDate": "2026-05-10",
+        "startTime": "18:00",
+        "endTime": "22:00"
       },
       {
-        "endDate": "2026-05-16",
-        "endTime": "22:00",
         "startDate": "2026-05-16",
-        "startTime": "18:00"
+        "endDate": "2026-05-16",
+        "startTime": "18:00",
+        "endTime": "22:00"
       },
       {
-        "endDate": "2026-05-17",
-        "endTime": "22:00",
         "startDate": "2026-05-17",
-        "startTime": "18:00"
+        "endDate": "2026-05-17",
+        "startTime": "18:00",
+        "endTime": "22:00"
       },
       {
-        "endDate": "2026-05-23",
-        "endTime": "22:00",
         "startDate": "2026-05-23",
-        "startTime": "18:00"
+        "endDate": "2026-05-23",
+        "startTime": "18:00",
+        "endTime": "22:00"
       },
       {
-        "endDate": "2026-05-24",
-        "endTime": "22:00",
         "startDate": "2026-05-24",
-        "startTime": "18:00"
+        "endDate": "2026-05-24",
+        "startTime": "18:00",
+        "endTime": "22:00"
       },
       {
-        "endDate": "2026-05-30",
-        "endTime": "22:00",
         "startDate": "2026-05-30",
-        "startTime": "18:00"
+        "endDate": "2026-05-30",
+        "startTime": "18:00",
+        "endTime": "22:00"
       },
       {
-        "endDate": "2026-05-31",
-        "endTime": "22:00",
         "startDate": "2026-05-31",
-        "startTime": "18:00"
+        "endDate": "2026-05-31",
+        "startTime": "18:00",
+        "endTime": "22:00"
       }
     ],
+    "startDate": "2026-05-02",
     "endDate": "2026-05-31",
+    "startTime": "18:00",
     "endTime": "22:00",
-    "id": 79,
+    "category": "other",
+    "categoryText": "測定",
+    "cardColor": "#32cd32",
     "locations": [
       "打撃エリア"
     ],
-    "manager": "大塚璃音",
-    "notes": "",
     "participants": "1",
-    "snsAvailableFrom": "",
     "snsPR": "not-allowed",
-    "startDate": "2026-05-02",
-    "startTime": "18:00",
-    "title": "打撃測定"
+    "snsAvailableFrom": "",
+    "manager": "大塚璃音",
+    "notes": ""
   },
   {
     "cardColor": "",
