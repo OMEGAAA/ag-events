@@ -3720,5 +3720,153 @@
     "startDate": "2026-05-19",
     "startTime": "17:15",
     "title": "ダンススクール体験会"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "6月2日 他20件",
+    "dates": [
+      {
+        "endDate": "2026-06-02",
+        "endTime": "16:00",
+        "startDate": "2026-06-02",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-06-03",
+        "endTime": "12:00",
+        "startDate": "2026-06-03",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-04",
+        "endTime": "12:00",
+        "startDate": "2026-06-04",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-05",
+        "endTime": "12:00",
+        "startDate": "2026-06-05",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-08",
+        "endTime": "12:00",
+        "startDate": "2026-06-08",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-09",
+        "endTime": "16:00",
+        "startDate": "2026-06-09",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-06-10",
+        "endTime": "12:00",
+        "startDate": "2026-06-10",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-11",
+        "endTime": "12:00",
+        "startDate": "2026-06-11",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-12",
+        "endTime": "12:00",
+        "startDate": "2026-06-12",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-15",
+        "endTime": "12:00",
+        "startDate": "2026-06-15",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-16",
+        "endTime": "16:00",
+        "startDate": "2026-06-16",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-06-17",
+        "endTime": "12:00",
+        "startDate": "2026-06-17",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-18",
+        "endTime": "12:00",
+        "startDate": "2026-06-18",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-19",
+        "endTime": "12:00",
+        "startDate": "2026-06-19",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-22",
+        "endTime": "12:00",
+        "startDate": "2026-06-22",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-23",
+        "endTime": "16:00",
+        "startDate": "2026-06-23",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-06-24",
+        "endTime": "12:00",
+        "startDate": "2026-06-24",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-25",
+        "endTime": "12:00",
+        "startDate": "2026-06-25",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-26",
+        "endTime": "12:00",
+        "startDate": "2026-06-26",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-29",
+        "endTime": "12:00",
+        "startDate": "2026-06-29",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-30",
+        "endTime": "16:00",
+        "startDate": "2026-06-30",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-06-30",
+    "endTime": "16:00",
+    "id": 112,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-02",
+    "startTime": "13:00",
+    "title": "AGK高等学院練習"
   }
 ]
