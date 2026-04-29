@@ -1102,7 +1102,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月23日 09:00〜12:00",
@@ -1131,7 +1131,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月24日 09:00〜12:00",
@@ -1160,7 +1160,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月27日 09:00〜12:00",
@@ -1188,7 +1188,7 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月28日 13:00〜16:00",
@@ -2187,7 +2187,7 @@
     "title": "メリーランド祭"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "個人レッスン",
     "date": "4月27日 17:00〜18:00",
@@ -2343,7 +2343,7 @@
     "title": "打撃測定"
   },
   {
-    "cardColor": "",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "女子野球練習",
     "date": "4月25日 09:00〜15:00",
@@ -2375,7 +2375,7 @@
     "title": "AGK女子野球部練習"
   },
   {
-    "cardColor": "#c3a7ec",
+    "cardColor": "#ffff00",
     "category": "other",
     "categoryText": "イベント",
     "date": "4月23日 他1件",
@@ -2397,6 +2397,7 @@
     "endTime": "12:00",
     "id": 81,
     "locations": [
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "木下",
@@ -2865,7 +2866,7 @@
     "title": "AGK高等学院練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "イベント",
     "date": "4月23日 19:00〜21:00",
@@ -2948,7 +2949,7 @@
     "title": "エイジェック高等学院生徒練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "練習",
     "date": "4月23日 他1件",
@@ -2983,7 +2984,7 @@
     "title": "男子野球部練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "練習",
     "date": "4月23日 12:00〜17:00",
@@ -3012,7 +3013,7 @@
     "title": "男子野球部練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "練習",
     "date": "4月24日 12:00〜15:00",
@@ -3041,7 +3042,7 @@
     "title": "男子野球部練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "練習",
     "date": "4月24日 09:00〜17:00",
@@ -3057,6 +3058,7 @@
     "endTime": "17:00",
     "id": 95,
     "locations": [
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "山村",
@@ -3097,7 +3099,7 @@
     "title": "パーソナルレッスン（曽川）"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "練習",
     "date": "4月22日 12:00〜13:00",
@@ -3113,6 +3115,7 @@
     "endTime": "13:00",
     "id": 97,
     "locations": [
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "大塚",
@@ -3125,7 +3128,7 @@
     "title": "AGK高等学院練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "練習",
     "date": "4月22日 15:00〜17:00",
@@ -3216,7 +3219,7 @@
     "title": "AGK男子野球部練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "練習",
     "date": "4月26日 13:00〜17:00",
@@ -3246,7 +3249,7 @@
     "title": "AGK男子野球部練習"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "練習",
     "date": "4月23日 12:00〜13:00",
@@ -3262,6 +3265,7 @@
     "endTime": "13:00",
     "id": 102,
     "locations": [
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "大塚",
@@ -3402,7 +3406,7 @@
     "title": "健康アカデミー"
   },
   {
-    "cardColor": "",
+    "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "4月27日〜4月28日 09:00〜17:00",
@@ -3422,6 +3426,7 @@
       "バッティングブースB",
       "打撃エリア",
       "投手測定エリア",
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "山村",
@@ -3434,7 +3439,7 @@
     "title": "男子野球部"
   },
   {
-    "cardColor": "",
+    "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "その他",
     "date": "4月27日 13:00〜15:00",
@@ -3450,6 +3455,7 @@
     "endTime": "15:00",
     "id": 106,
     "locations": [
+      "パワーエリア",
       "パワーエリア"
     ],
     "manager": "佐藤",
