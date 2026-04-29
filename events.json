@@ -3692,5 +3692,33 @@
     "startDate": "2026-06-02",
     "startTime": "16:00",
     "title": "エイジェック高等学院"
+  },
+  {
+    "cardColor": "#f60404",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "5月19日 17:15〜18:45",
+    "dates": [
+      {
+        "endDate": "2026-05-19",
+        "endTime": "18:45",
+        "startDate": "2026-05-19",
+        "startTime": "17:15"
+      }
+    ],
+    "endDate": "2026-05-19",
+    "endTime": "18:45",
+    "id": 111,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木村 美穂",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-19",
+    "startTime": "17:15",
+    "title": "ダンススクール体験会"
   }
 ]
