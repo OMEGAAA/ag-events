@@ -1,74 +1,74 @@
 [
   {
-    "id": 3,
-    "title": "健康アカデミー（一旦5月まで）",
+    "cardColor": "#ffff00",
+    "category": "health",
+    "categoryText": "健康アカデミー",
     "date": "4月2日 他7件",
     "dates": [
       {
-        "startDate": "2026-04-02",
         "endDate": "2026-04-02",
-        "startTime": "13:00",
-        "endTime": "16:00"
+        "endTime": "16:00",
+        "startDate": "2026-04-02",
+        "startTime": "13:00"
       },
       {
-        "startDate": "2026-04-09",
         "endDate": "2026-04-09",
-        "startTime": "13:00",
-        "endTime": "16:00"
+        "endTime": "16:00",
+        "startDate": "2026-04-09",
+        "startTime": "13:00"
       },
       {
-        "startDate": "2026-04-23",
         "endDate": "2026-04-23",
-        "startTime": "13:00",
-        "endTime": "16:00"
+        "endTime": "16:00",
+        "startDate": "2026-04-23",
+        "startTime": "13:00"
       },
       {
-        "startDate": "2026-04-30",
         "endDate": "2026-04-30",
-        "startTime": "13:00",
-        "endTime": "16:00"
+        "endTime": "16:00",
+        "startDate": "2026-04-30",
+        "startTime": "13:00"
       },
       {
-        "startDate": "2026-05-07",
         "endDate": "2026-05-07",
-        "startTime": "13:00",
-        "endTime": "16:00"
+        "endTime": "16:00",
+        "startDate": "2026-05-07",
+        "startTime": "13:00"
       },
       {
-        "startDate": "2026-05-14",
         "endDate": "2026-05-14",
-        "startTime": "13:00",
-        "endTime": "16:00"
+        "endTime": "16:00",
+        "startDate": "2026-05-14",
+        "startTime": "13:00"
       },
       {
-        "startDate": "2026-05-21",
         "endDate": "2026-05-21",
-        "startTime": "13:00",
-        "endTime": "16:00"
+        "endTime": "16:00",
+        "startDate": "2026-05-21",
+        "startTime": "13:00"
       },
       {
-        "startDate": "2026-05-28",
         "endDate": "2026-05-28",
-        "startTime": "13:00",
-        "endTime": "16:00"
+        "endTime": "16:00",
+        "startDate": "2026-05-28",
+        "startTime": "13:00"
       }
     ],
-    "startDate": "2026-04-02",
     "endDate": "2026-05-28",
-    "startTime": "13:00",
     "endTime": "16:00",
-    "category": "health",
-    "categoryText": "健康アカデミー",
-    "cardColor": "#ffff00",
+    "id": 3,
     "locations": [
       "パワーエリア",
       "パワーエリア"
     ],
-    "participants": "",
-    "snsPR": "not-allowed",
-    "snsAvailableFrom": "",
     "manager": "木下",
-    "notes": ""
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-02",
+    "startTime": "13:00",
+    "title": "健康アカデミー（一旦5月まで）"
   },
   {
     "cardColor": "#ff69b4",
@@ -886,7 +886,7 @@
     "title": "AGK男子野球部練習"
   },
   {
-    "cardColor": "#0703fc",
+    "cardColor": "#32cd32",
     "category": "other",
     "categoryText": "社内イベント",
     "date": "5月1日 他17件",
@@ -2243,104 +2243,104 @@
     "title": "TGB選手練習"
   },
   {
-    "id": 79,
-    "title": "打撃測定",
+    "cardColor": "#32cd32",
+    "category": "other",
+    "categoryText": "測定",
     "date": "5月2日 他12件",
     "dates": [
       {
-        "startDate": "2026-05-02",
         "endDate": "2026-05-02",
-        "startTime": "18:00",
-        "endTime": "22:00"
+        "endTime": "22:00",
+        "startDate": "2026-05-02",
+        "startTime": "18:00"
       },
       {
-        "startDate": "2026-05-03",
         "endDate": "2026-05-03",
-        "startTime": "18:00",
-        "endTime": "22:00"
+        "endTime": "22:00",
+        "startDate": "2026-05-03",
+        "startTime": "18:00"
       },
       {
-        "startDate": "2026-05-04",
         "endDate": "2026-05-04",
-        "startTime": "18:00",
-        "endTime": "22:00"
+        "endTime": "22:00",
+        "startDate": "2026-05-04",
+        "startTime": "18:00"
       },
       {
-        "startDate": "2026-05-05",
         "endDate": "2026-05-05",
-        "startTime": "18:00",
-        "endTime": "22:00"
+        "endTime": "22:00",
+        "startDate": "2026-05-05",
+        "startTime": "18:00"
       },
       {
-        "startDate": "2026-05-06",
         "endDate": "2026-05-06",
-        "startTime": "18:00",
-        "endTime": "22:00"
+        "endTime": "22:00",
+        "startDate": "2026-05-06",
+        "startTime": "18:00"
       },
       {
-        "startDate": "2026-05-09",
         "endDate": "2026-05-09",
-        "startTime": "18:00",
-        "endTime": "22:00"
+        "endTime": "22:00",
+        "startDate": "2026-05-09",
+        "startTime": "18:00"
       },
       {
-        "startDate": "2026-05-10",
         "endDate": "2026-05-10",
-        "startTime": "18:00",
-        "endTime": "22:00"
+        "endTime": "22:00",
+        "startDate": "2026-05-10",
+        "startTime": "18:00"
       },
       {
-        "startDate": "2026-05-16",
         "endDate": "2026-05-16",
-        "startTime": "18:00",
-        "endTime": "22:00"
+        "endTime": "22:00",
+        "startDate": "2026-05-16",
+        "startTime": "18:00"
       },
       {
-        "startDate": "2026-05-17",
         "endDate": "2026-05-17",
-        "startTime": "18:00",
-        "endTime": "22:00"
+        "endTime": "22:00",
+        "startDate": "2026-05-17",
+        "startTime": "18:00"
       },
       {
-        "startDate": "2026-05-23",
         "endDate": "2026-05-23",
-        "startTime": "18:00",
-        "endTime": "22:00"
+        "endTime": "22:00",
+        "startDate": "2026-05-23",
+        "startTime": "18:00"
       },
       {
-        "startDate": "2026-05-24",
         "endDate": "2026-05-24",
-        "startTime": "18:00",
-        "endTime": "22:00"
+        "endTime": "22:00",
+        "startDate": "2026-05-24",
+        "startTime": "18:00"
       },
       {
-        "startDate": "2026-05-30",
         "endDate": "2026-05-30",
-        "startTime": "18:00",
-        "endTime": "22:00"
+        "endTime": "22:00",
+        "startDate": "2026-05-30",
+        "startTime": "18:00"
       },
       {
-        "startDate": "2026-05-31",
         "endDate": "2026-05-31",
-        "startTime": "18:00",
-        "endTime": "22:00"
+        "endTime": "22:00",
+        "startDate": "2026-05-31",
+        "startTime": "18:00"
       }
     ],
-    "startDate": "2026-05-02",
     "endDate": "2026-05-31",
-    "startTime": "18:00",
     "endTime": "22:00",
-    "category": "other",
-    "categoryText": "測定",
-    "cardColor": "#32cd32",
+    "id": 79,
     "locations": [
       "打撃エリア"
     ],
-    "participants": "1",
-    "snsPR": "not-allowed",
-    "snsAvailableFrom": "",
     "manager": "大塚璃音",
-    "notes": ""
+    "notes": "",
+    "participants": "1",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-02",
+    "startTime": "18:00",
+    "title": "打撃測定"
   },
   {
     "cardColor": "",
