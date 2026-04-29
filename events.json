@@ -1,74 +1,74 @@
 [
   {
-    "cardColor": "#ffff00",
-    "category": "health",
-    "categoryText": "健康アカデミー",
+    "id": 3,
+    "title": "健康アカデミー（一旦5月まで）",
     "date": "4月2日 他7件",
     "dates": [
       {
-        "endDate": "2026-04-02",
-        "endTime": "16:00",
         "startDate": "2026-04-02",
-        "startTime": "13:00"
+        "endDate": "2026-04-02",
+        "startTime": "13:00",
+        "endTime": "16:00"
       },
       {
-        "endDate": "2026-04-09",
-        "endTime": "16:00",
         "startDate": "2026-04-09",
-        "startTime": "13:00"
+        "endDate": "2026-04-09",
+        "startTime": "13:00",
+        "endTime": "16:00"
       },
       {
-        "endDate": "2026-04-23",
-        "endTime": "16:00",
         "startDate": "2026-04-23",
-        "startTime": "13:00"
+        "endDate": "2026-04-23",
+        "startTime": "13:00",
+        "endTime": "16:00"
       },
       {
-        "endDate": "2026-04-30",
-        "endTime": "16:00",
         "startDate": "2026-04-30",
-        "startTime": "13:00"
+        "endDate": "2026-04-30",
+        "startTime": "13:00",
+        "endTime": "16:00"
       },
       {
-        "endDate": "2026-05-07",
-        "endTime": "16:00",
         "startDate": "2026-05-07",
-        "startTime": "13:00"
+        "endDate": "2026-05-07",
+        "startTime": "13:00",
+        "endTime": "16:00"
       },
       {
-        "endDate": "2026-05-14",
-        "endTime": "16:00",
         "startDate": "2026-05-14",
-        "startTime": "13:00"
+        "endDate": "2026-05-14",
+        "startTime": "13:00",
+        "endTime": "16:00"
       },
       {
-        "endDate": "2026-05-21",
-        "endTime": "16:00",
         "startDate": "2026-05-21",
-        "startTime": "13:00"
+        "endDate": "2026-05-21",
+        "startTime": "13:00",
+        "endTime": "16:00"
       },
       {
-        "endDate": "2026-05-28",
-        "endTime": "16:00",
         "startDate": "2026-05-28",
-        "startTime": "13:00"
+        "endDate": "2026-05-28",
+        "startTime": "13:00",
+        "endTime": "16:00"
       }
     ],
+    "startDate": "2026-04-02",
     "endDate": "2026-05-28",
+    "startTime": "13:00",
     "endTime": "16:00",
-    "id": 3,
+    "category": "health",
+    "categoryText": "健康アカデミー",
+    "cardColor": "#ffff00",
     "locations": [
       "パワーエリア",
       "パワーエリア"
     ],
-    "manager": "木下",
-    "notes": "",
     "participants": "",
-    "snsAvailableFrom": "",
     "snsPR": "not-allowed",
-    "startDate": "2026-04-02",
-    "startTime": "13:00",
-    "title": "健康アカデミー（一旦5月まで）"
+    "snsAvailableFrom": "",
+    "manager": "木下",
+    "notes": ""
   },
   {
     "cardColor": "#ff69b4",
