@@ -4076,5 +4076,33 @@
     "startDate": "2026-05-01",
     "startTime": "12:00",
     "title": "TGB練習"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "5月1日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-05-01",
+        "endTime": "12:00",
+        "startDate": "2026-05-01",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-01",
+    "endTime": "12:00",
+    "id": 116,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "菅谷",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-01",
+    "startTime": "09:00",
+    "title": "白鷗大学硬式野球部　練習"
   }
 ]
