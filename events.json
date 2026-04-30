@@ -4047,5 +4047,34 @@
     "startDate": "2026-05-02",
     "startTime": "10:00",
     "title": "TGB練習"
+  },
+  {
+    "cardColor": "#e169b4",
+    "category": "other",
+    "categoryText": "TGB練習",
+    "date": "5月1日 12:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-05-01",
+        "endTime": "17:00",
+        "startDate": "2026-05-01",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-05-01",
+    "endTime": "17:00",
+    "id": 115,
+    "locations": [
+      "室内練習場",
+      "バッティングブースB"
+    ],
+    "manager": "神宮",
+    "notes": "",
+    "participants": "50名",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-01",
+    "startTime": "12:00",
+    "title": "TGB練習"
   }
 ]
