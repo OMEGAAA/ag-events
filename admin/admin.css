@@ -1109,6 +1109,11 @@ tr:hover td { background: rgba(255,255,255,0.025); }
     border-bottom: none;
 }
 
+.usage-hours {
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
 /* 施設名 */
 .facility-name {
     font-weight: 600;

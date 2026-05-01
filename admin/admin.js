@@ -1676,6 +1676,21 @@ function getDaysInMonth(year, month) {
     return new Date(year, month + 1, 0).getDate();
 }
 
+function parseDashboardTime(tStr, fallbackMinutes) {
+    if (!tStr) return fallbackMinutes;
+    const parts = tStr.split(':').map(Number);
+    if (parts.length < 2 || Number.isNaN(parts[0]) || Number.isNaN(parts[1])) {
+        return fallbackMinutes;
+    }
+    return parts[0] * 60 + parts[1];
+}
+
+function formatUtilizationHours(totalMinutes) {
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    return minutes > 0 ? `${hours}時間${minutes}分` : `${hours}時間`;
+}
+
 function calcUtilization(year, month) {
     const allEvents = [...events, ...archivedEvents];
     const daysInMonth = getDaysInMonth(year, month);
@@ -1686,7 +1701,7 @@ function calcUtilization(year, month) {
     const facilityData = {};
 
     FACILITY_LIST.forEach(f => {
-        facilityData[f] = { days: new Set(), eventCount: 0, events: [] };
+        facilityData[f] = { days: new Set(), eventCount: 0, events: [], totalMinutes: 0 };
     });
 
     allEvents.forEach(ev => {
@@ -1698,6 +1713,9 @@ function calcUtilization(year, month) {
             // 各日程のすべての日をチェック
             const start = new Date(r.startDate + 'T00:00:00');
             const end = new Date((r.endDate || r.startDate) + 'T00:00:00');
+            const startMinutes = parseDashboardTime(r.startTime, 8 * 60);
+            const endMinutes = parseDashboardTime(r.endTime, 21 * 60);
+            const durationMinutes = Math.max(endMinutes - startMinutes, 0);
 
             for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
                 const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
@@ -1707,6 +1725,7 @@ function calcUtilization(year, month) {
                     locs.forEach(loc => {
                         if (facilityData[loc]) {
                             facilityData[loc].days.add(dayNum);
+                            facilityData[loc].totalMinutes += durationMinutes;
                         }
                     });
                 }
@@ -1735,6 +1754,8 @@ function calcUtilization(year, month) {
             activeDays,
             daysInMonth,
             rate,
+            totalMinutes: data.totalMinutes,
+            totalHoursText: formatUtilizationHours(data.totalMinutes),
             eventCount: data.eventCount
         };
     });
@@ -1781,7 +1802,7 @@ function renderDashboard() {
         document.getElementById('kpi-top-facility').textContent = '—';
         document.getElementById('kpi-avg-rate').textContent = '—';
         document.getElementById('utilization-tbody').innerHTML =
-            '<tr><td colspan="4" class="empty-state">イベントデータを読み込むと稼働率が表示されます</td></tr>';
+            '<tr><td colspan="5" class="empty-state">イベントデータを読み込むと稼働率が表示されます</td></tr>';
         if (badge) badge.style.display = 'none';
         return;
     }
@@ -1809,7 +1830,7 @@ function renderDashboard() {
     // テーブル描画
     const tbody = document.getElementById('utilization-tbody');
     if (data.results.every(r => r.activeDays === 0)) {
-        tbody.innerHTML = '<tr><td colspan="4" class="empty-state">この月にはイベントがありません</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="5" class="empty-state">この月にはイベントがありません</td></tr>';
         return;
     }
 
@@ -1828,6 +1849,9 @@ function renderDashboard() {
             </td>
             <td>
                 <span class="days-count"><strong>${r.activeDays}</strong> / ${r.daysInMonth}日</span>
+            </td>
+            <td>
+                <span class="usage-hours"><strong>${r.totalHoursText}</strong></span>
             </td>
             <td class="utilization-bar-cell">
                 <div class="utilization-bar-wrapper">
