@@ -1652,13 +1652,6 @@ const FACILITY_COLORS = [
 let dashboardYear = new Date().getFullYear();
 let dashboardMonth = new Date().getMonth(); // 0-indexed
 
-function toggleDashboard() {
-    const body = document.getElementById('dashboard-body');
-    const icon = document.getElementById('dashboard-toggle-icon');
-    const isHidden = body.style.display === 'none';
-    body.style.display = isHidden ? 'block' : 'none';
-    icon.textContent = isHidden ? '▲' : '▼';
-}
 
 function prevDashboardMonth() {
     dashboardMonth--;
@@ -1691,95 +1684,6 @@ function formatUtilizationHours(totalMinutes) {
     return minutes > 0 ? `${hours}時間${minutes}分` : `${hours}時間`;
 }
 
-function calcUtilization(year, month) {
-    const allEvents = [...events, ...archivedEvents];
-    const daysInMonth = getDaysInMonth(year, month);
-    const monthStr = `${year}-${String(month + 1).padStart(2, '0')}`;
-
-    // 月に該当するイベントを特定
-    const monthEvents = [];
-    const facilityData = {};
-
-    FACILITY_LIST.forEach(f => {
-        facilityData[f] = { days: new Set(), eventCount: 0, events: [], totalMinutes: 0 };
-    });
-
-    allEvents.forEach(ev => {
-        const ranges = getEventDateRanges(ev);
-        const locs = Array.isArray(ev.locations) ? ev.locations : (ev.location ? [ev.location] : []);
-        let touchesMonth = false;
-
-        ranges.forEach(r => {
-            // 各日程のすべての日をチェック
-            const start = new Date(r.startDate + 'T00:00:00');
-            const end = new Date((r.endDate || r.startDate) + 'T00:00:00');
-            const startMinutes = parseDashboardTime(r.startTime, 8 * 60);
-            const endMinutes = parseDashboardTime(r.endTime, 21 * 60);
-            const durationMinutes = Math.max(endMinutes - startMinutes, 0);
-
-            for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
-                if (dateStr === monthStr) {
-                    const dayNum = d.getDate();
-                    touchesMonth = true;
-                    locs.forEach(loc => {
-                        if (facilityData[loc]) {
-                            facilityData[loc].days.add(dayNum);
-                            facilityData[loc].totalMinutes += durationMinutes;
-                        }
-                    });
-                }
-            }
-        });
-
-        if (touchesMonth) {
-            monthEvents.push(ev);
-            locs.forEach(loc => {
-                if (facilityData[loc]) {
-                    facilityData[loc].eventCount++;
-                    facilityData[loc].events.push(ev);
-                }
-            });
-        }
-    });
-
-    // 結果を配列にまとめる
-    const results = FACILITY_LIST.map((name, i) => {
-        const data = facilityData[name];
-        const activeDays = data.days.size;
-        const rate = daysInMonth > 0 ? Math.round((activeDays / daysInMonth) * 100) : 0;
-        return {
-            name,
-            color: FACILITY_COLORS[i],
-            activeDays,
-            daysInMonth,
-            rate,
-            totalMinutes: data.totalMinutes,
-            totalHoursText: formatUtilizationHours(data.totalMinutes),
-            eventCount: data.eventCount
-        };
-    });
-
-    // 稼働施設数
-    const activeFacilities = results.filter(r => r.activeDays > 0).length;
-
-    // 最頻利用施設
-    const topFacility = results.reduce((max, r) => r.activeDays > max.activeDays ? r : max, results[0]);
-
-    // 平均稼働率（稼働した施設のみ or 全施設）
-    const avgRate = results.length > 0
-        ? Math.round(results.reduce((sum, r) => sum + r.rate, 0) / results.length)
-        : 0;
-
-    return {
-        monthEvents,
-        results,
-        activeFacilities,
-        topFacility,
-        avgRate,
-        daysInMonth
-    };
-}
 
 function getRateClass(rate) {
     if (rate === 0) return 'rate-zero';
@@ -1788,89 +1692,6 @@ function getRateClass(rate) {
     return 'rate-low';
 }
 
-function renderDashboard() {
-    const label = document.getElementById('dashboard-month-label');
-    const badge = document.getElementById('dashboard-badge');
-
-    if (label) label.textContent = `${dashboardYear}年${dashboardMonth + 1}月`;
-
-    const allEvents = [...events, ...archivedEvents];
-
-    if (allEvents.length === 0) {
-        document.getElementById('kpi-event-count').textContent = '—';
-        document.getElementById('kpi-active-facilities').textContent = '—';
-        document.getElementById('kpi-top-facility').textContent = '—';
-        document.getElementById('kpi-avg-rate').textContent = '—';
-        document.getElementById('utilization-tbody').innerHTML =
-            '<tr><td colspan="5" class="empty-state">イベントデータを読み込むと稼働率が表示されます</td></tr>';
-        if (badge) badge.style.display = 'none';
-        return;
-    }
-
-    if (badge) badge.style.display = 'inline-block';
-
-    const data = calcUtilization(dashboardYear, dashboardMonth);
-
-    // KPIカード更新
-    document.getElementById('kpi-event-count').textContent = data.monthEvents.length;
-    document.getElementById('kpi-active-facilities').textContent =
-        `${data.activeFacilities} / ${FACILITY_LIST.length}`;
-
-    const topEl = document.getElementById('kpi-top-facility');
-    if (data.topFacility && data.topFacility.activeDays > 0) {
-        topEl.textContent = data.topFacility.name;
-        topEl.className = 'kpi-value kpi-small';
-    } else {
-        topEl.textContent = '—';
-        topEl.className = 'kpi-value';
-    }
-
-    document.getElementById('kpi-avg-rate').textContent = `${data.avgRate}%`;
-
-    // テーブル描画
-    const tbody = document.getElementById('utilization-tbody');
-    if (data.results.every(r => r.activeDays === 0)) {
-        tbody.innerHTML = '<tr><td colspan="5" class="empty-state">この月にはイベントがありません</td></tr>';
-        return;
-    }
-
-    // 稼働率順にソート（降順）
-    const sorted = data.results.slice().sort((a, b) => b.rate - a.rate || b.activeDays - a.activeDays);
-
-    tbody.innerHTML = sorted.map(r => {
-        const rateClass = getRateClass(r.rate);
-        return `
-        <tr>
-            <td>
-                <div class="facility-name">
-                    <span class="facility-dot" style="background:${r.color};"></span>
-                    ${escapeHtml(r.name)}
-                </div>
-            </td>
-            <td>
-                <span class="days-count"><strong>${r.activeDays}</strong> / ${r.daysInMonth}日</span>
-            </td>
-            <td>
-                <span class="usage-hours"><strong>${r.totalHoursText}</strong></span>
-            </td>
-            <td class="utilization-bar-cell">
-                <div class="utilization-bar-wrapper">
-                    <div class="utilization-bar-track">
-                        <div class="utilization-bar-fill ${rateClass}" style="width:${r.rate}%;"></div>
-                    </div>
-                    <span class="utilization-percent ${rateClass}">${r.rate}%</span>
-                </div>
-            </td>
-            <td>
-                <span class="event-count-badge ${r.eventCount > 0 ? 'has-events' : ''}">${r.eventCount}件</span>
-            </td>
-        </tr>`;
-    }).join('');
-
-    // 曜日別・時間帯別ビューも更新
-    renderWeekdayView();
-    renderTimeView();
-}
 
 // ---- DASHBOARD: 曜日別ビュー ----
 
@@ -1897,83 +1718,6 @@ function switchDashboardView(view) {
     }
 }
 
-function calcWeekdayUtilization(year, month) {
-    const allEvents = [...events, ...archivedEvents];
-    const daysInMonth = getDaysInMonth(year, month);
-    const monthStr = `${year}-${String(month + 1).padStart(2, '0')}`;
-
-    // 月内の各曜日の日数をカウント
-    const weekdayCounts = new Array(7).fill(0); // [日,月,...土]
-    for (let d = 1; d <= daysInMonth; d++) {
-        const dow = new Date(year, month, d).getDay();
-        weekdayCounts[dow]++;
-    }
-
-    // 施設×曜日の稼働日数
-    const facilityWeekday = {};
-    FACILITY_LIST.forEach(f => {
-        facilityWeekday[f] = {
-            days: [new Set(), new Set(), new Set(), new Set(), new Set(), new Set(), new Set()], // 各曜日のSet
-            total: new Set()
-        };
-    });
-
-    allEvents.forEach(ev => {
-        const ranges = getEventDateRanges(ev);
-        const locs = Array.isArray(ev.locations) ? ev.locations : (ev.location ? [ev.location] : []);
-
-        ranges.forEach(r => {
-            const start = new Date(r.startDate + 'T00:00:00');
-            const end = new Date((r.endDate || r.startDate) + 'T00:00:00');
-
-            for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
-                if (dateStr === monthStr) {
-                    const dayNum = d.getDate();
-                    const dow = d.getDay();
-                    locs.forEach(loc => {
-                        if (facilityWeekday[loc]) {
-                            facilityWeekday[loc].days[dow].add(dayNum);
-                            facilityWeekday[loc].total.add(dayNum);
-                        }
-                    });
-                }
-            }
-        });
-    });
-
-    // 結果を整形
-    const results = FACILITY_LIST.map((name, i) => {
-        const data = facilityWeekday[name];
-        const weekdayData = WEEKDAY_INDEX_ORDER.map(dow => ({
-            count: data.days[dow].size,
-            maxCount: weekdayCounts[dow],
-            rate: weekdayCounts[dow] > 0 ? Math.round((data.days[dow].size / weekdayCounts[dow]) * 100) : 0
-        }));
-        const totalDays = data.total.size;
-        return {
-            name,
-            color: FACILITY_COLORS[i],
-            weekdayData,
-            totalDays,
-            totalRate: daysInMonth > 0 ? Math.round((totalDays / daysInMonth) * 100) : 0
-        };
-    });
-
-    // 曜日別サマリー（全施設合計）
-    const weekdaySummary = WEEKDAY_INDEX_ORDER.map((dow, idx) => {
-        const totalActive = results.reduce((sum, r) => sum + r.weekdayData[idx].count, 0);
-        const maxPossible = weekdayCounts[dow] * FACILITY_LIST.length;
-        return {
-            label: WEEKDAY_NAMES_ORDERED[idx],
-            count: totalActive,
-            maxCount: weekdayCounts[dow],
-            avgRate: maxPossible > 0 ? Math.round((totalActive / maxPossible) * 100) : 0
-        };
-    });
-
-    return { results, weekdaySummary, weekdayCounts, daysInMonth };
-}
 
 function getHeatColor(rate) {
     if (rate === 0) return 'rgba(255,255,255,0.02)';
@@ -1993,6 +1737,341 @@ function getHeatTextColor(rate) {
     return '#fca5a5';
 }
 
+
+// ---- DASHBOARD: 時間帯別ビュー ----
+
+const TIME_SLOTS = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]; // 8:00 - 21:00 (1時間刻み)
+
+
+
+// ---- DASHBOARD: time-based facility utilization ----
+
+const BUSINESS_START_MINUTES = 8 * 60;
+const BUSINESS_END_MINUTES = 21 * 60;
+const BUSINESS_MINUTES_PER_DAY = BUSINESS_END_MINUTES - BUSINESS_START_MINUTES;
+const WEEKDAY_LABELS_ORDERED = ['月', '火', '水', '木', '金', '土', '日'];
+
+const FACILITY_DISPLAY_NAMES = [
+    '室内練習場',
+    'ベースボールエリア',
+    'アローズエリア',
+    'スタジオ',
+    'バッティングブースA',
+    'バッティングブースB',
+    '打席エリア',
+    '投球測定エリア',
+    '食堂',
+    '多目的室',
+    'パワーエリア'
+];
+
+function getFacilityLabel(name) {
+    const idx = FACILITY_LIST.indexOf(name);
+    return idx >= 0 ? FACILITY_DISPLAY_NAMES[idx] : name;
+}
+
+function getUniqueFacilities(ev) {
+    const locs = Array.isArray(ev.locations) ? ev.locations : (ev.location ? [ev.location] : []);
+    return [...new Set(locs)].filter(loc => FACILITY_LIST.includes(loc));
+}
+
+function clampMinutes(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+}
+
+function getRangeMinutesWithinBusinessHours(range) {
+    const startMinutes = parseDashboardTime(range.startTime, BUSINESS_START_MINUTES);
+    const endMinutes = parseDashboardTime(range.endTime, BUSINESS_END_MINUTES);
+    const start = clampMinutes(startMinutes, BUSINESS_START_MINUTES, BUSINESS_END_MINUTES);
+    const end = clampMinutes(endMinutes, BUSINESS_START_MINUTES, BUSINESS_END_MINUTES);
+    return Math.max(end - start, 0);
+}
+
+function setupDashboardLabels() {
+    const section = document.getElementById('dashboard-section');
+    if (!section || section.dataset.labelsReady === 'true') return;
+
+    const title = section.querySelector('.settings-panel-header h3');
+    if (title && title.childNodes.length > 0) {
+        title.childNodes[title.childNodes.length - 1].nodeValue = ' 施設稼働率ダッシュボード';
+    }
+
+    const toggleIcon = document.getElementById('dashboard-toggle-icon');
+    if (toggleIcon) toggleIcon.textContent = '▲';
+
+    const monthButtons = section.querySelectorAll('.month-nav button');
+    if (monthButtons[0]) monthButtons[0].textContent = '← 前月';
+    if (monthButtons[1]) monthButtons[1].textContent = '次月 →';
+
+    const labels = section.querySelectorAll('.kpi-label');
+    ['当月イベント数', '稼働施設数', '最も利用された施設', '平均稼働率'].forEach((text, i) => {
+        if (labels[i]) labels[i].textContent = text;
+    });
+
+    const tabs = [
+        ['tab-facility', '施設別'],
+        ['tab-weekday', '曜日別'],
+        ['tab-time', '時間帯別']
+    ];
+    tabs.forEach(([id, text]) => {
+        const tab = document.getElementById(id);
+        if (!tab) return;
+        const textNode = [...tab.childNodes].reverse().find(node => node.nodeType === Node.TEXT_NODE);
+        if (textNode) textNode.nodeValue = ` ${text}`;
+    });
+
+    const facilityHeaders = document.querySelectorAll('#view-facility th');
+    ['施設名', '稼働日数', '利用時間', '稼働率', '利用イベント数'].forEach((text, i) => {
+        if (facilityHeaders[i]) facilityHeaders[i].textContent = text;
+    });
+
+    const weekdayHeaders = document.querySelectorAll('#view-weekday th');
+    ['施設名', '月', '火', '水', '木', '金', '土', '日', '合計'].forEach((text, i) => {
+        if (weekdayHeaders[i]) weekdayHeaders[i].textContent = text;
+    });
+
+    const timeLabel = document.querySelector('label[for="time-facility-select"]');
+    if (timeLabel) timeLabel.textContent = '対象施設:';
+    section.dataset.labelsReady = 'true';
+}
+
+function toggleDashboard() {
+    const body = document.getElementById('dashboard-body');
+    const icon = document.getElementById('dashboard-toggle-icon');
+    const isHidden = body.style.display === 'none';
+    body.style.display = isHidden ? 'block' : 'none';
+    if (icon) icon.textContent = isHidden ? '▲' : '▼';
+}
+
+function populateTimeFacilitySelect() {
+    const select = document.getElementById('time-facility-select');
+    if (!select || select.dataset.populated === 'true') return;
+    const current = select.value || 'all';
+    select.innerHTML = '<option value="all">全施設平均</option>' +
+        FACILITY_LIST.map(name => `<option value="${escapeHtml(name)}">${escapeHtml(getFacilityLabel(name))}</option>`).join('');
+    select.value = FACILITY_LIST.includes(current) ? current : 'all';
+    select.dataset.populated = 'true';
+}
+
+function calcUtilization(year, month) {
+    const allEvents = [...events, ...archivedEvents];
+    const daysInMonth = getDaysInMonth(year, month);
+    const monthStr = `${year}-${String(month + 1).padStart(2, '0')}`;
+    const availableMinutes = daysInMonth * BUSINESS_MINUTES_PER_DAY;
+    const monthEvents = [];
+    const facilityData = {};
+
+    FACILITY_LIST.forEach(f => {
+        facilityData[f] = { days: new Set(), eventIds: new Set(), totalMinutes: 0 };
+    });
+
+    allEvents.forEach(ev => {
+        const ranges = getEventDateRanges(ev);
+        const locs = getUniqueFacilities(ev);
+        let touchesMonth = false;
+
+        ranges.forEach(r => {
+            if (!r.startDate) return;
+            const start = new Date(r.startDate + 'T00:00:00');
+            const end = new Date((r.endDate || r.startDate) + 'T00:00:00');
+            const durationMinutes = getRangeMinutesWithinBusinessHours(r);
+            if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || durationMinutes <= 0) return;
+
+            for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+                if (dateStr !== monthStr) continue;
+                const dayNum = d.getDate();
+                touchesMonth = true;
+                locs.forEach(loc => {
+                    facilityData[loc].days.add(dayNum);
+                    facilityData[loc].totalMinutes += durationMinutes;
+                    facilityData[loc].eventIds.add(ev.id || `${ev.title || ''}-${r.startDate}-${r.startTime || ''}`);
+                });
+            }
+        });
+
+        if (touchesMonth) monthEvents.push(ev);
+    });
+
+    const results = FACILITY_LIST.map((name, i) => {
+        const data = facilityData[name];
+        const rate = availableMinutes > 0 ? Math.round((data.totalMinutes / availableMinutes) * 100) : 0;
+        return {
+            name,
+            color: FACILITY_COLORS[i],
+            activeDays: data.days.size,
+            daysInMonth,
+            availableMinutes,
+            availableHoursText: formatUtilizationHours(availableMinutes),
+            rate: Math.min(rate, 100),
+            rawRate: rate,
+            totalMinutes: data.totalMinutes,
+            totalHoursText: formatUtilizationHours(data.totalMinutes),
+            eventCount: data.eventIds.size
+        };
+    });
+
+    const activeFacilities = results.filter(r => r.totalMinutes > 0).length;
+    const topFacility = results.reduce((max, r) => r.totalMinutes > max.totalMinutes ? r : max, results[0]);
+    const avgRate = results.length > 0
+        ? Math.round(results.reduce((sum, r) => sum + r.rate, 0) / results.length)
+        : 0;
+
+    return { monthEvents, results, activeFacilities, topFacility, avgRate, daysInMonth, availableMinutes };
+}
+
+function renderDashboard() {
+    const label = document.getElementById('dashboard-month-label');
+    const badge = document.getElementById('dashboard-badge');
+    const tbody = document.getElementById('utilization-tbody');
+
+    setupDashboardLabels();
+    if (label) label.textContent = `${dashboardYear}年${dashboardMonth + 1}月`;
+    populateTimeFacilitySelect();
+
+    const allEvents = [...events, ...archivedEvents];
+    if (allEvents.length === 0) {
+        document.getElementById('kpi-event-count').textContent = '—';
+        document.getElementById('kpi-active-facilities').textContent = '—';
+        document.getElementById('kpi-top-facility').textContent = '—';
+        document.getElementById('kpi-avg-rate').textContent = '—';
+        if (tbody) tbody.innerHTML = '<tr><td colspan="5" class="empty-state">イベントデータを読み込むと稼働率が表示されます</td></tr>';
+        if (badge) badge.style.display = 'none';
+        renderWeekdayView();
+        renderTimeView();
+        return;
+    }
+
+    if (badge) {
+        badge.style.display = 'inline-block';
+        badge.textContent = 'データあり';
+    }
+
+    const data = calcUtilization(dashboardYear, dashboardMonth);
+    document.getElementById('kpi-event-count').textContent = data.monthEvents.length;
+    document.getElementById('kpi-active-facilities').textContent = `${data.activeFacilities} / ${FACILITY_LIST.length}`;
+
+    const topEl = document.getElementById('kpi-top-facility');
+    if (data.topFacility && data.topFacility.totalMinutes > 0) {
+        topEl.textContent = getFacilityLabel(data.topFacility.name);
+        topEl.className = 'kpi-value kpi-small';
+    } else {
+        topEl.textContent = '—';
+        topEl.className = 'kpi-value';
+    }
+    document.getElementById('kpi-avg-rate').textContent = `${data.avgRate}%`;
+
+    if (!tbody) return;
+    if (data.results.every(r => r.totalMinutes === 0)) {
+        tbody.innerHTML = '<tr><td colspan="5" class="empty-state">この月にはイベントがありません</td></tr>';
+        renderWeekdayView();
+        renderTimeView();
+        return;
+    }
+
+    const sorted = data.results.slice().sort((a, b) => b.rate - a.rate || b.totalMinutes - a.totalMinutes);
+    tbody.innerHTML = sorted.map(r => {
+        const rateClass = getRateClass(r.rate);
+        const rawNote = r.rawRate > 100 ? '（100%超過）' : '';
+        return `
+        <tr>
+            <td>
+                <div class="facility-name">
+                    <span class="facility-dot" style="background:${r.color};"></span>
+                    ${escapeHtml(getFacilityLabel(r.name))}
+                </div>
+            </td>
+            <td><span class="days-count"><strong>${r.activeDays}</strong> / ${r.daysInMonth}日</span></td>
+            <td><span class="usage-hours"><strong>${r.totalHoursText}</strong> / ${r.availableHoursText}</span></td>
+            <td class="utilization-bar-cell">
+                <div class="utilization-bar-wrapper" title="利用時間 ÷ 利用可能時間（8:00-21:00）${rawNote}">
+                    <div class="utilization-bar-track">
+                        <div class="utilization-bar-fill ${rateClass}" style="width:${r.rate}%;"></div>
+                    </div>
+                    <span class="utilization-percent ${rateClass}">${r.rate}%</span>
+                </div>
+            </td>
+            <td><span class="event-count-badge ${r.eventCount > 0 ? 'has-events' : ''}">${r.eventCount}件</span></td>
+        </tr>`;
+    }).join('');
+
+    renderWeekdayView();
+    renderTimeView();
+}
+
+function calcWeekdayUtilization(year, month) {
+    const allEvents = [...events, ...archivedEvents];
+    const daysInMonth = getDaysInMonth(year, month);
+    const monthStr = `${year}-${String(month + 1).padStart(2, '0')}`;
+    const weekdayCounts = new Array(7).fill(0);
+
+    for (let d = 1; d <= daysInMonth; d++) {
+        weekdayCounts[new Date(year, month, d).getDay()]++;
+    }
+
+    const facilityWeekday = {};
+    FACILITY_LIST.forEach(f => {
+        facilityWeekday[f] = {
+            minutes: new Array(7).fill(0),
+            days: [new Set(), new Set(), new Set(), new Set(), new Set(), new Set(), new Set()]
+        };
+    });
+
+    allEvents.forEach(ev => {
+        const locs = getUniqueFacilities(ev);
+        getEventDateRanges(ev).forEach(r => {
+            if (!r.startDate) return;
+            const start = new Date(r.startDate + 'T00:00:00');
+            const end = new Date((r.endDate || r.startDate) + 'T00:00:00');
+            const durationMinutes = getRangeMinutesWithinBusinessHours(r);
+            if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || durationMinutes <= 0) return;
+
+            for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+                if (dateStr !== monthStr) continue;
+                const dow = d.getDay();
+                const dayNum = d.getDate();
+                locs.forEach(loc => {
+                    facilityWeekday[loc].minutes[dow] += durationMinutes;
+                    facilityWeekday[loc].days[dow].add(dayNum);
+                });
+            }
+        });
+    });
+
+    const results = FACILITY_LIST.map((name, i) => {
+        const data = facilityWeekday[name];
+        const weekdayData = WEEKDAY_INDEX_ORDER.map(dow => {
+            const available = weekdayCounts[dow] * BUSINESS_MINUTES_PER_DAY;
+            const rawRate = available > 0 ? Math.round((data.minutes[dow] / available) * 100) : 0;
+            return {
+                minutes: data.minutes[dow],
+                days: data.days[dow].size,
+                availableMinutes: available,
+                rate: Math.min(rawRate, 100),
+                rawRate
+            };
+        });
+        const totalMinutes = data.minutes.reduce((sum, minutes) => sum + minutes, 0);
+        const availableMinutes = daysInMonth * BUSINESS_MINUTES_PER_DAY;
+        const totalRate = availableMinutes > 0 ? Math.min(Math.round((totalMinutes / availableMinutes) * 100), 100) : 0;
+        return { name, color: FACILITY_COLORS[i], weekdayData, totalMinutes, totalRate };
+    });
+
+    const weekdaySummary = WEEKDAY_INDEX_ORDER.map((dow, idx) => {
+        const totalMinutes = results.reduce((sum, r) => sum + r.weekdayData[idx].minutes, 0);
+        const maxPossible = weekdayCounts[dow] * BUSINESS_MINUTES_PER_DAY * FACILITY_LIST.length;
+        return {
+            label: WEEKDAY_LABELS_ORDERED[idx],
+            minutes: totalMinutes,
+            maxCount: weekdayCounts[dow],
+            avgRate: maxPossible > 0 ? Math.min(Math.round((totalMinutes / maxPossible) * 100), 100) : 0
+        };
+    });
+
+    return { results, weekdaySummary, weekdayCounts, daysInMonth };
+}
+
 function renderWeekdayView() {
     const tbody = document.getElementById('weekday-tbody');
     const summaryGrid = document.getElementById('weekday-summary-grid');
@@ -2006,59 +2085,50 @@ function renderWeekdayView() {
     }
 
     const data = calcWeekdayUtilization(dashboardYear, dashboardMonth);
-
-    // サマリーカード（曜日ごとの全施設平均稼働率）
     if (summaryGrid) {
         summaryGrid.innerHTML = data.weekdaySummary.map((ws, idx) => {
-            const isWeekend = idx >= 5; // 土=5, 日=6
+            const isWeekend = idx >= 5;
             const barHeight = Math.max(ws.avgRate, 2);
             return `
             <div class="weekday-summary-card ${isWeekend ? 'weekend' : ''}">
                 <div class="weekday-bar-container">
-                    <div class="weekday-bar" style="height:${barHeight}%;background:${ws.avgRate > 0 ? (isWeekend ? 'linear-gradient(180deg, #f59e0b, #fbbf24)' : 'linear-gradient(180deg, #3b82f6, #60a5fa)') : 'rgba(255,255,255,0.08)'};">
-                    </div>
+                    <div class="weekday-bar" style="height:${barHeight}%;background:${ws.avgRate > 0 ? (isWeekend ? 'linear-gradient(180deg, #f59e0b, #fbbf24)' : 'linear-gradient(180deg, #3b82f6, #60a5fa)') : 'rgba(255,255,255,0.08)'};"></div>
                 </div>
                 <div class="weekday-summary-label">${ws.label}</div>
                 <div class="weekday-summary-rate">${ws.avgRate}%</div>
-                <div class="weekday-summary-count">${ws.count}件/${ws.maxCount}日</div>
+                <div class="weekday-summary-count">${formatUtilizationHours(ws.minutes)}</div>
             </div>`;
         }).join('');
     }
 
-    // ヒートマップテーブル
-    if (data.results.every(r => r.totalDays === 0)) {
+    if (data.results.every(r => r.totalMinutes === 0)) {
         tbody.innerHTML = '<tr><td colspan="9" class="empty-state">この月にはイベントがありません</td></tr>';
         return;
     }
 
-    // 合計稼働日数順にソート
-    const sorted = data.results.slice().sort((a, b) => b.totalDays - a.totalDays);
-
+    const sorted = data.results.slice().sort((a, b) => b.totalMinutes - a.totalMinutes);
     tbody.innerHTML = sorted.map(r => {
         const weekdayCells = r.weekdayData.map(wd => {
             const bg = getHeatColor(wd.rate);
             const textColor = getHeatTextColor(wd.rate);
-            // 0%の場合は数字を目立たせない、あるいは - にするなどの工夫も可
             const displayValue = wd.rate > 0 ? `${wd.rate}<span style="font-size:0.65em">%</span>` : '<span style="opacity:0.3">-</span>';
-            
-            return `<td class="weekday-heat-cell" style="background:${bg};" title="利用日数: ${wd.count}日 / その曜日（月間${wd.maxCount}日）中">
+            return `<td class="weekday-heat-cell" style="background:${bg};" title="利用時間: ${formatUtilizationHours(wd.minutes)} / 利用可能: ${formatUtilizationHours(wd.availableMinutes)}">
                 <div class="weekday-heat-value" style="color:${textColor};">${displayValue}</div>
             </td>`;
         }).join('');
-
         const totalRateClass = getRateClass(r.totalRate);
         return `
         <tr>
             <td>
                 <div class="facility-name">
                     <span class="facility-dot" style="background:${r.color};"></span>
-                    ${escapeHtml(r.name)}
+                    ${escapeHtml(getFacilityLabel(r.name))}
                 </div>
             </td>
             ${weekdayCells}
             <td>
                 <div class="weekday-total">
-                    <strong>${r.totalDays}</strong>日
+                    <strong>${formatUtilizationHours(r.totalMinutes)}</strong>
                     <span class="utilization-percent ${totalRateClass}" style="font-size:0.75rem;">${r.totalRate}%</span>
                 </div>
             </td>
@@ -2066,21 +2136,16 @@ function renderWeekdayView() {
     }).join('');
 }
 
-// ---- DASHBOARD: 時間帯別ビュー ----
-
-const TIME_SLOTS = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]; // 8:00 - 21:00 (1時間刻み)
-
 function calcTimeUtilization(year, month, targetFacility) {
     const allEvents = [...events, ...archivedEvents];
     const daysInMonth = getDaysInMonth(year, month);
     const monthStr = `${year}-${String(month + 1).padStart(2, '0')}`;
-
     const weekdayCounts = new Array(7).fill(0);
+
     for (let d = 1; d <= daysInMonth; d++) {
         weekdayCounts[new Date(year, month, d).getDay()]++;
     }
 
-    // dayOfWeek(0-6) -> hour(8-20) -> Set of active days
     const timeData = WEEKDAY_INDEX_ORDER.map(() => {
         const hourMap = {};
         TIME_SLOTS.forEach(h => hourMap[h] = new Set());
@@ -2093,45 +2158,33 @@ function calcTimeUtilization(year, month, targetFacility) {
         return startMinutes < slotEnd && endMinutes > slotStart;
     };
 
-    const parseTime = (tStr) => {
-        if (!tStr) return null;
-        const parts = tStr.split(':').map(Number);
-        return parts[0] * 60 + parts[1];
-    };
-
     allEvents.forEach(ev => {
-        const ranges = getEventDateRanges(ev);
-        const locs = Array.isArray(ev.locations) ? ev.locations : (ev.location ? [ev.location] : []);
-        
-        const validLocs = locs.filter(l => targetFacility === 'all' ? FACILITY_LIST.includes(l) : l === targetFacility);
+        const locs = getUniqueFacilities(ev);
+        const validLocs = locs.filter(l => targetFacility === 'all' ? true : l === targetFacility);
         if (validLocs.length === 0) return;
 
-        ranges.forEach(r => {
+        getEventDateRanges(ev).forEach(r => {
+            if (!r.startDate) return;
             const start = new Date(r.startDate + 'T00:00:00');
             const end = new Date((r.endDate || r.startDate) + 'T00:00:00');
-            
-            const evStartMinutes = r.startTime ? parseTime(r.startTime) : 8 * 60;
-            const evEndMinutes = r.endTime ? parseTime(r.endTime) : 21 * 60;
+            const startMinutes = clampMinutes(parseDashboardTime(r.startTime, BUSINESS_START_MINUTES), BUSINESS_START_MINUTES, BUSINESS_END_MINUTES);
+            const endMinutes = clampMinutes(parseDashboardTime(r.endTime, BUSINESS_END_MINUTES), BUSINESS_START_MINUTES, BUSINESS_END_MINUTES);
+            if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || endMinutes <= startMinutes) return;
 
             for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
                 const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
-                if (dateStr === monthStr) {
-                    const dayNum = d.getDate();
-                    const dow = d.getDay();
-                    const dowIndex = WEEKDAY_INDEX_ORDER.indexOf(dow); // 0=Mon, 6=Sun
-                    
-                    if (dowIndex !== -1) {
-                        TIME_SLOTS.forEach(h => {
-                            if (checkOverlap(h, evStartMinutes, evEndMinutes)) {
-                                if (targetFacility === 'all') {
-                                    validLocs.forEach(loc => timeData[dowIndex][h].add(`${dayNum}-${loc}`));
-                                } else {
-                                    timeData[dowIndex][h].add(dayNum);
-                                }
-                            }
-                        });
+                if (dateStr !== monthStr) continue;
+                const dayNum = d.getDate();
+                const dowIndex = WEEKDAY_INDEX_ORDER.indexOf(d.getDay());
+                if (dowIndex === -1) continue;
+                TIME_SLOTS.forEach(h => {
+                    if (!checkOverlap(h, startMinutes, endMinutes)) return;
+                    if (targetFacility === 'all') {
+                        validLocs.forEach(loc => timeData[dowIndex][h].add(`${dayNum}-${loc}`));
+                    } else {
+                        timeData[dowIndex][h].add(dayNum);
                     }
-                }
+                });
             }
         });
     });
@@ -2142,6 +2195,7 @@ function calcTimeUtilization(year, month, targetFacility) {
 function renderTimeView() {
     const table = document.getElementById('time-table');
     if (!table) return;
+    populateTimeFacilitySelect();
 
     const allEvents = [...events, ...archivedEvents];
     if (allEvents.length === 0) {
@@ -2161,33 +2215,26 @@ function renderTimeView() {
 
     let tbodyHtml = '<tbody>';
     WEEKDAY_INDEX_ORDER.forEach((dow, idx) => {
-        const dowLabel = WEEKDAY_NAMES_ORDERED[idx];
+        const dowLabel = WEEKDAY_LABELS_ORDERED[idx];
         const isWeekend = idx >= 5;
         tbodyHtml += `<tr><td style="font-weight:600; color:${isWeekend ? '#fbbf24' : 'var(--text-primary)'};">${dowLabel}</td>`;
-        
-        const daysThisMonth = weekdayCounts[WEEKDAY_INDEX_ORDER[idx]];
-        const maxPossible = targetFacility === 'all' ? daysThisMonth * FACILITY_LIST.length : daysThisMonth;
 
+        const daysThisMonth = weekdayCounts[dow];
+        const maxPossible = targetFacility === 'all' ? daysThisMonth * FACILITY_LIST.length : daysThisMonth;
         TIME_SLOTS.forEach(h => {
             const count = timeData[idx][h].size;
-            const rate = maxPossible > 0 ? Math.round((count / maxPossible) * 100) : 0;
-            const bg = getHeatColor(rate);
-            const textColor = getHeatTextColor(rate);
-
+            const rate = maxPossible > 0 ? Math.min(Math.round((count / maxPossible) * 100), 100) : 0;
             const displayValue = rate > 0 ? `${rate}<span style="font-size:0.65em">%</span>` : '<span style="opacity:0.3">-</span>';
-
-            const titleText = targetFacility === 'all' 
-                ? `利用: ${count}枠 / 最大${maxPossible}枠 (全施設合計)` 
-                : `利用: ${count}回 / その曜日（月間${maxPossible}日）中`;
-
-            tbodyHtml += `<td class="weekday-heat-cell" style="background:${bg}; padding: 0.4rem 0.2rem !important;" title="${titleText}">
-                <div class="weekday-heat-value" style="color:${textColor}; font-size:0.85rem;">${displayValue}</div>
+            const titleText = targetFacility === 'all'
+                ? `利用枠: ${count} / 最大${maxPossible}（全施設合計）`
+                : `利用日数: ${count}日 / 最大${maxPossible}日`;
+            tbodyHtml += `<td class="weekday-heat-cell" style="background:${getHeatColor(rate)}; padding: 0.4rem 0.2rem !important;" title="${titleText}">
+                <div class="weekday-heat-value" style="color:${getHeatTextColor(rate)}; font-size:0.85rem;">${displayValue}</div>
             </td>`;
         });
         tbodyHtml += '</tr>';
     });
     tbodyHtml += '</tbody>';
-
     table.innerHTML = theadHtml + tbodyHtml;
 }
 
