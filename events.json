@@ -4136,5 +4136,37 @@
     "startDate": "2026-05-06",
     "startTime": "09:00",
     "title": "男子野球部"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "5月4日 09:00〜14:00",
+    "dates": [
+      {
+        "endDate": "2026-05-04",
+        "endTime": "14:00",
+        "startDate": "2026-05-04",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-04",
+    "endTime": "14:00",
+    "id": 118,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "パワーエリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-04",
+    "startTime": "09:00",
+    "title": "女子野球部"
   }
 ]
