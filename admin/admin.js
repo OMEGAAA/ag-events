@@ -552,6 +552,11 @@ async function fetchFromGitHub() {
         }
         await fetchReportsFromGitHub();
         await fetchArchivedFromGitHub();
+        const archivedCount = autoArchiveExpiredEvents();
+        if (archivedCount > 0) {
+            if (isFirebaseConnected) { writeEventsToFirebase(); } else { renderEventList(); }
+            showStatus(`${archivedCount}件の期限切れイベントを自動アーカイブしました。公開サイトへ反映してください。`, 'info');
+        }
     } catch (e) {
         const msg = e.status
             ? getFriendlyError(e.status, e.message)
@@ -1445,6 +1450,54 @@ function getArchivedPath() {
     return config.filePath.replace(/[^/]+$/, 'archived_events.json');
 }
 
+function getTodayDateString() {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function getEventLastDate(ev) {
+    return getEventDateRanges(ev)
+        .map(d => d.endDate || d.startDate || '')
+        .filter(Boolean)
+        .sort()
+        .pop() || '';
+}
+
+function isEventExpired(ev, todayStr = getTodayDateString()) {
+    const lastDate = getEventLastDate(ev);
+    return !!lastDate && lastDate < todayStr;
+}
+
+function getNextArchivedId() {
+    const ids = archivedEvents.map(e => Number(e.id)).filter(Number.isFinite);
+    return ids.length > 0 ? Math.max(...ids) + 1 : 1;
+}
+
+function autoArchiveExpiredEvents() {
+    const todayStr = getTodayDateString();
+    const expired = events.filter(e => isEventExpired(e, todayStr));
+    if (expired.length === 0) return 0;
+
+    let nextId = getNextArchivedId();
+    const archivedAt = new Date().toISOString();
+    let addedToArchive = 0;
+    expired.forEach(event => {
+        const alreadyArchived = archivedEvents.some(e => e.originalEventId === event.id);
+        if (alreadyArchived) return;
+        archivedEvents.push({ ...event, id: nextId++, originalEventId: event.id, archivedAt });
+        addedToArchive++;
+    });
+
+    const expiredIds = new Set(expired.map(e => e.id));
+    events = events.filter(e => !expiredIds.has(e.id));
+    if (addedToArchive > 0) {
+        markArchivedDirty(`${addedToArchive}件の期限切れイベントを自動アーカイブしました`);
+        renderArchivedList();
+    }
+    markDirty(`${expired.length}件の期限切れイベントをイベント一覧から移動しました`);
+    return expired.length;
+}
+
 async function fetchArchivedFromGitHub() {
     if (!config.owner || !config.repo || !config.token) return;
     const path = getArchivedPath();
@@ -1552,7 +1605,7 @@ function archiveEvent(id) {
     if (!confirm(`「${event.title}」をアーカイブに移動しますか？\n\nイベント一覧から削除され、アーカイブ一覧に移動します。`)) return;
 
     // アーカイブに追加
-    const archivedData = { ...event, archivedAt: new Date().toISOString() };
+    const archivedData = { ...event, originalEventId: event.id, archivedAt: new Date().toISOString() };
     const maxId = archivedEvents.length > 0 ? Math.max(...archivedEvents.map(e => e.id)) : 0;
     archivedData.id = maxId + 1;
     archivedEvents.push(archivedData);
@@ -1573,6 +1626,7 @@ function restoreEvent(id) {
     // イベント一覧に復元
     const restored = { ...archived };
     delete restored.archivedAt;
+    delete restored.originalEventId;
     const maxId = events.length > 0 ? Math.max(...events.map(e => e.id)) : 0;
     restored.id = maxId + 1;
     events.push(restored);
