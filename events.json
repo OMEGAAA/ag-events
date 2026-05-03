@@ -4168,5 +4168,39 @@
     "startDate": "2026-05-04",
     "startTime": "09:00",
     "title": "女子野球部"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "5月5日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-05-05",
+        "endTime": "19:15",
+        "startDate": "2026-05-05",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-05-13",
+        "endTime": "20:45",
+        "startDate": "2026-05-13",
+        "startTime": "20:00"
+      }
+    ],
+    "endDate": "2026-05-13",
+    "endTime": "19:15",
+    "id": 119,
+    "locations": [
+      "バッティングブースB"
+    ],
+    "manager": "大久保翔太",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-05",
+    "startTime": "18:30",
+    "title": "個人レッスン（大久保）"
   }
 ]
