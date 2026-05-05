@@ -2676,5 +2676,34 @@
     "startDate": "2026-05-05",
     "startTime": "09:00",
     "title": "男子野球部練習"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "5月7日 14:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-05-07",
+        "endTime": "16:00",
+        "startDate": "2026-05-07",
+        "startTime": "14:00"
+      }
+    ],
+    "endDate": "2026-05-07",
+    "endTime": "16:00",
+    "id": 122,
+    "locations": [
+      "バッティングブースA",
+      "打撃エリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-07",
+    "startTime": "14:00",
+    "title": "男子野球部測定"
   }
 ]
