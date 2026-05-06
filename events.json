@@ -2639,5 +2639,80 @@
     "startDate": "2026-05-07",
     "startTime": "14:00",
     "title": "男子野球部測定"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "5月7日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-05-07",
+        "endTime": "17:00",
+        "startDate": "2026-05-07",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-05-08",
+        "endTime": "17:00",
+        "startDate": "2026-05-08",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-05-09",
+        "endTime": "17:00",
+        "startDate": "2026-05-09",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-09",
+    "endTime": "17:00",
+    "id": 123,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-07",
+    "startTime": "13:00",
+    "title": "男子野球部練習"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "5月7日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-05-07",
+        "endTime": "17:00",
+        "startDate": "2026-05-07",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-05-08",
+        "endTime": "17:00",
+        "startDate": "2026-05-08",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-05-08",
+    "endTime": "17:00",
+    "id": 124,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-07",
+    "startTime": "13:00",
+    "title": "男子野球部練習"
   }
 ]
