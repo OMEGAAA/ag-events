@@ -681,34 +681,6 @@
     "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
-    "date": "5月7日 09:00〜12:00",
-    "dates": [
-      {
-        "endDate": "2026-05-07",
-        "endTime": "12:00",
-        "startDate": "2026-05-07",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-07",
-    "endTime": "12:00",
-    "id": 49,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大塚　克己",
-    "notes": "",
-    "participants": "10",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-07",
-    "startTime": "09:00",
-    "title": "エイジェック高等学院"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "社内イベント",
     "date": "5月8日 09:00〜12:00",
     "dates": [
       {
@@ -1899,40 +1871,6 @@
     "title": "エイジェック高等学院生徒練習"
   },
   {
-    "cardColor": "#ff4500",
-    "category": "other",
-    "categoryText": "アカデミー",
-    "date": "4月30日 他1件",
-    "dates": [
-      {
-        "endDate": "2026-04-30",
-        "endTime": "20:00",
-        "startDate": "2026-04-30",
-        "startTime": "16:00"
-      },
-      {
-        "endDate": "2026-05-07",
-        "endTime": "21:00",
-        "startDate": "2026-05-07",
-        "startTime": "16:00"
-      }
-    ],
-    "endDate": "2026-05-07",
-    "endTime": "20:00",
-    "id": 103,
-    "locations": [
-      "バッティングブースB"
-    ],
-    "manager": "川相",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-04-30",
-    "startTime": "16:00",
-    "title": "個人レッスン(川相)"
-  },
-  {
     "cardColor": "#ffff00",
     "category": "other",
     "categoryText": "社内イベント",
@@ -2546,38 +2484,6 @@
     "title": "AGK高等学院練習"
   },
   {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "5月6日 09:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-05-06",
-        "endTime": "17:00",
-        "startDate": "2026-05-06",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-06",
-    "endTime": "17:00",
-    "id": 117,
-    "locations": [
-      "室内練習場",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "パワーエリア"
-    ],
-    "manager": "山村",
-    "notes": "",
-    "participants": "定員なし",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-05-06",
-    "startTime": "09:00",
-    "title": "男子野球部"
-  },
-  {
     "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "その他",
@@ -2610,35 +2516,6 @@
     "startDate": "2026-05-05",
     "startTime": "18:30",
     "title": "個人レッスン（大久保）"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "測定",
-    "date": "5月7日 14:00〜16:00",
-    "dates": [
-      {
-        "endDate": "2026-05-07",
-        "endTime": "16:00",
-        "startDate": "2026-05-07",
-        "startTime": "14:00"
-      }
-    ],
-    "endDate": "2026-05-07",
-    "endTime": "16:00",
-    "id": 122,
-    "locations": [
-      "バッティングブースA",
-      "打撃エリア"
-    ],
-    "manager": "山村",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-05-07",
-    "startTime": "14:00",
-    "title": "男子野球部測定"
   },
   {
     "cardColor": "#0000ff",
@@ -2714,5 +2591,38 @@
     "startDate": "2026-05-07",
     "startTime": "13:00",
     "title": "男子野球部練習"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "野球教室イベント",
+    "date": "8月19日〜8月20日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-08-20",
+        "endTime": "17:00",
+        "startDate": "2026-08-19",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-08-20",
+    "endTime": "17:00",
+    "id": 125,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "高野圭祐",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-19",
+    "startTime": "09:00",
+    "title": "ウルノアベース他3社コラボイベント(仮)"
   }
 ]
