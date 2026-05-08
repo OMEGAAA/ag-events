@@ -2624,5 +2624,33 @@
     "startDate": "2026-08-19",
     "startTime": "09:00",
     "title": "ウルノアベース他3社コラボイベント(仮)"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "6月14日 09:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-06-14",
+        "endTime": "16:00",
+        "startDate": "2026-06-14",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-14",
+    "endTime": "16:00",
+    "id": 126,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "関口雄大",
+    "notes": "",
+    "participants": "5",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-14",
+    "startTime": "09:00",
+    "title": "本庄第一中学校測定"
   }
 ]
