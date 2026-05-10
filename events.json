@@ -170,34 +170,6 @@
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "イベント",
-    "date": "5月9日 09:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-05-09",
-        "endTime": "17:00",
-        "startDate": "2026-05-09",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-09",
-    "endTime": "17:00",
-    "id": 9,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大久保",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-05-09",
-    "startTime": "09:00",
-    "title": "子ども習い事フェスタ"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "イベント",
     "date": "5月10日 12:00〜17:00",
     "dates": [
       {
@@ -676,34 +648,6 @@
     "startDate": "2026-05-01",
     "startTime": "10:00",
     "title": "打撃測定"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "5月8日 09:00〜12:00",
-    "dates": [
-      {
-        "endDate": "2026-05-08",
-        "endTime": "12:00",
-        "startDate": "2026-05-08",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-08",
-    "endTime": "12:00",
-    "id": 50,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大塚　克己",
-    "notes": "",
-    "participants": "10",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-08",
-    "startTime": "09:00",
-    "title": "エイジェック高等学院"
   },
   {
     "cardColor": "#ff0000",
@@ -2516,81 +2460,6 @@
     "startDate": "2026-05-05",
     "startTime": "18:30",
     "title": "個人レッスン（大久保）"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "5月7日 他2件",
-    "dates": [
-      {
-        "endDate": "2026-05-07",
-        "endTime": "17:00",
-        "startDate": "2026-05-07",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-05-08",
-        "endTime": "17:00",
-        "startDate": "2026-05-08",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-05-09",
-        "endTime": "17:00",
-        "startDate": "2026-05-09",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-09",
-    "endTime": "17:00",
-    "id": 123,
-    "locations": [
-      "バッティングブースA",
-      "バッティングブースB"
-    ],
-    "manager": "山村",
-    "notes": "",
-    "participants": "40",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-05-07",
-    "startTime": "13:00",
-    "title": "男子野球部練習"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "5月7日 他1件",
-    "dates": [
-      {
-        "endDate": "2026-05-07",
-        "endTime": "17:00",
-        "startDate": "2026-05-07",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-05-08",
-        "endTime": "17:00",
-        "startDate": "2026-05-08",
-        "startTime": "13:00"
-      }
-    ],
-    "endDate": "2026-05-08",
-    "endTime": "17:00",
-    "id": 124,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "山村",
-    "notes": "",
-    "participants": "40",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-05-07",
-    "startTime": "13:00",
-    "title": "男子野球部練習"
   },
   {
     "cardColor": "#ff69b4",
