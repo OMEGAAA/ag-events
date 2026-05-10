@@ -2521,5 +2521,33 @@
     "startDate": "2026-06-14",
     "startTime": "09:00",
     "title": "本庄第一中学校測定"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "5月12日 19:00〜20:30",
+    "dates": [
+      {
+        "endDate": "2026-05-12",
+        "endTime": "20:30",
+        "startDate": "2026-05-12",
+        "startTime": "19:00"
+      }
+    ],
+    "endDate": "2026-05-12",
+    "endTime": "20:30",
+    "id": 127,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "木下　瑞樹",
+    "notes": "",
+    "participants": "2人",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-12",
+    "startTime": "19:00",
+    "title": "パーソナルレッスン"
   }
 ]
