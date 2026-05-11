@@ -169,34 +169,6 @@
   {
     "cardColor": "#ff69b4",
     "category": "other",
-    "categoryText": "イベント",
-    "date": "5月10日 12:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-05-10",
-        "endTime": "17:00",
-        "startDate": "2026-05-10",
-        "startTime": "12:00"
-      }
-    ],
-    "endDate": "2026-05-10",
-    "endTime": "17:00",
-    "id": 10,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "山口",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-05-10",
-    "startTime": "12:00",
-    "title": "アローズ競技特化イベント"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
     "categoryText": "大会",
     "date": "8月26日 他2件",
     "dates": [
