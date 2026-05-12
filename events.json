@@ -2776,37 +2776,37 @@
     "date": "6月1日 他4件",
     "dates": [
       {
-        "endDate": "2026-06-02",
+        "endDate": "2026-06-01",
         "endTime": "22:00",
         "startDate": "2026-06-01",
         "startTime": "10:00"
       },
       {
-        "endDate": "2026-06-09",
+        "endDate": "2026-06-08",
         "endTime": "22:00",
         "startDate": "2026-06-08",
         "startTime": "10:00"
       },
       {
-        "endDate": "2026-06-16",
+        "endDate": "2026-06-15",
         "endTime": "22:00",
         "startDate": "2026-06-15",
         "startTime": "10:00"
       },
       {
-        "endDate": "2026-06-23",
+        "endDate": "2026-06-22",
         "endTime": "22:00",
         "startDate": "2026-06-22",
         "startTime": "10:00"
       },
       {
-        "endDate": "2026-06-30",
+        "endDate": "2026-06-29",
         "endTime": "22:00",
         "startDate": "2026-06-29",
         "startTime": "10:00"
       }
     ],
-    "endDate": "2026-06-30",
+    "endDate": "2026-06-29",
     "endTime": "22:00",
     "id": 134,
     "locations": [
@@ -2947,31 +2947,31 @@
     "date": "6月6日 他3件",
     "dates": [
       {
-        "endDate": "2026-06-07",
+        "endDate": "2026-06-06",
         "endTime": "22:00",
         "startDate": "2026-06-06",
         "startTime": "18:00"
       },
       {
-        "endDate": "2026-06-14",
+        "endDate": "2026-06-13",
         "endTime": "22:00",
         "startDate": "2026-06-13",
         "startTime": "18:00"
       },
       {
-        "endDate": "2026-06-21",
+        "endDate": "2026-06-20",
         "endTime": "22:00",
         "startDate": "2026-06-20",
         "startTime": "18:00"
       },
       {
-        "endDate": "2026-06-28",
+        "endDate": "2026-06-27",
         "endTime": "22:00",
         "startDate": "2026-06-27",
         "startTime": "18:00"
       }
     ],
-    "endDate": "2026-06-28",
+    "endDate": "2026-06-27",
     "endTime": "22:00",
     "id": 137,
     "locations": [
@@ -2984,6 +2984,106 @@
     "snsAvailableFrom": "",
     "snsPR": "not-allowed",
     "startDate": "2026-06-06",
+    "startTime": "18:00",
+    "title": "打撃測定予約枠"
+  },
+  {
+    "cardColor": "#32cd32",
+    "category": "other",
+    "categoryText": "打撃測定予約枠",
+    "date": "6月2日 他4件",
+    "dates": [
+      {
+        "endDate": "2026-06-02",
+        "endTime": "22:00",
+        "startDate": "2026-06-02",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-09",
+        "endTime": "22:00",
+        "startDate": "2026-06-09",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-16",
+        "endTime": "22:00",
+        "startDate": "2026-06-16",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-23",
+        "endTime": "22:00",
+        "startDate": "2026-06-23",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-30",
+        "endTime": "22:00",
+        "startDate": "2026-06-30",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-06-30",
+    "endTime": "22:00",
+    "id": 138,
+    "locations": [
+      "バッティングブースA",
+      "打撃エリア"
+    ],
+    "manager": "大塚璃音",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-02",
+    "startTime": "10:00",
+    "title": "打撃測定予約枠"
+  },
+  {
+    "cardColor": "#32cd32",
+    "category": "other",
+    "categoryText": "打撃測定予約枠",
+    "date": "6月7日 他3件",
+    "dates": [
+      {
+        "endDate": "2026-06-07",
+        "endTime": "22:00",
+        "startDate": "2026-06-07",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-06-14",
+        "endTime": "22:00",
+        "startDate": "2026-06-14",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-06-21",
+        "endTime": "22:00",
+        "startDate": "2026-06-21",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-06-28",
+        "endTime": "22:00",
+        "startDate": "2026-06-28",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-06-28",
+    "endTime": "22:00",
+    "id": 139,
+    "locations": [
+      "バッティングブースA",
+      "打撃エリア"
+    ],
+    "manager": "大塚璃音",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-07",
     "startTime": "18:00",
     "title": "打撃測定予約枠"
   }
