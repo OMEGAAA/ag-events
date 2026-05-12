@@ -2465,5 +2465,237 @@
     "startDate": "2026-05-12",
     "startTime": "19:00",
     "title": "パーソナルレッスン"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "AGK高等学院練習",
+    "date": "7月2日 他7件",
+    "dates": [
+      {
+        "endDate": "2026-07-03",
+        "endTime": "12:00",
+        "startDate": "2026-07-02",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-06",
+        "endTime": "12:00",
+        "startDate": "2026-07-06",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-10",
+        "endTime": "12:00",
+        "startDate": "2026-07-08",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-13",
+        "endTime": "12:00",
+        "startDate": "2026-07-13",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-17",
+        "endTime": "12:00",
+        "startDate": "2026-07-15",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-24",
+        "endTime": "12:00",
+        "startDate": "2026-07-22",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-27",
+        "endTime": "12:00",
+        "startDate": "2026-07-27",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-31",
+        "endTime": "12:00",
+        "startDate": "2026-07-29",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-07-31",
+    "endTime": "12:00",
+    "id": 128,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "3",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-02",
+    "startTime": "09:00",
+    "title": "AGK高等学院練習"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "AGK高等学院練習",
+    "date": "7月7日 他3件",
+    "dates": [
+      {
+        "endDate": "2026-07-07",
+        "endTime": "16:00",
+        "startDate": "2026-07-07",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-07-14",
+        "endTime": "16:00",
+        "startDate": "2026-07-14",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-07-21",
+        "endTime": "16:00",
+        "startDate": "2026-07-21",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-07-28",
+        "endTime": "16:00",
+        "startDate": "2026-07-28",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-07-28",
+    "endTime": "16:00",
+    "id": 129,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-07",
+    "startTime": "13:00",
+    "title": "AGK高等学院練習"
+  },
+  {
+    "cardColor": "#fa0000",
+    "category": "other",
+    "categoryText": "AGK高等学院練習",
+    "date": "7月7日 他3件",
+    "dates": [
+      {
+        "endDate": "2026-07-07",
+        "endTime": "12:00",
+        "startDate": "2026-07-07",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-14",
+        "endTime": "12:00",
+        "startDate": "2026-07-14",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-21",
+        "endTime": "12:00",
+        "startDate": "2026-07-21",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-28",
+        "endTime": "12:00",
+        "startDate": "2026-07-28",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-07-28",
+    "endTime": "12:00",
+    "id": 130,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "3",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-07",
+    "startTime": "09:00",
+    "title": "AGK高等学院練習"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "AGK高等学院練習",
+    "date": "7月2日 他7件",
+    "dates": [
+      {
+        "endDate": "2026-07-03",
+        "endTime": "16:00",
+        "startDate": "2026-07-02",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-07-06",
+        "endTime": "16:00",
+        "startDate": "2026-07-06",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-07-10",
+        "endTime": "16:00",
+        "startDate": "2026-07-08",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-07-13",
+        "endTime": "16:00",
+        "startDate": "2026-07-13",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-07-17",
+        "endTime": "16:00",
+        "startDate": "2026-07-15",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-07-24",
+        "endTime": "16:00",
+        "startDate": "2026-07-22",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-07-27",
+        "endTime": "16:00",
+        "startDate": "2026-07-27",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-07-31",
+        "endTime": "16:00",
+        "startDate": "2026-07-29",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-07-31",
+    "endTime": "16:00",
+    "id": 131,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "3",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-02",
+    "startTime": "12:00",
+    "title": "AGK高等学院練習"
   }
 ]
