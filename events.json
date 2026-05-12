@@ -2768,5 +2768,223 @@
     "startDate": "2026-06-06",
     "startTime": "09:00",
     "title": "ダンスレッスン"
+  },
+  {
+    "cardColor": "#32cd32",
+    "category": "other",
+    "categoryText": "打撃測定予約枠",
+    "date": "6月1日 他4件",
+    "dates": [
+      {
+        "endDate": "2026-06-02",
+        "endTime": "22:00",
+        "startDate": "2026-06-01",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-09",
+        "endTime": "22:00",
+        "startDate": "2026-06-08",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-16",
+        "endTime": "22:00",
+        "startDate": "2026-06-15",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-23",
+        "endTime": "22:00",
+        "startDate": "2026-06-22",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-30",
+        "endTime": "22:00",
+        "startDate": "2026-06-29",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-06-30",
+    "endTime": "22:00",
+    "id": 134,
+    "locations": [
+      "バッティングブースA",
+      "打撃エリア"
+    ],
+    "manager": "大塚璃音",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-01",
+    "startTime": "10:00",
+    "title": "打撃測定予約枠"
+  },
+  {
+    "cardColor": "#32cd32",
+    "category": "other",
+    "categoryText": "打撃測定予約枠",
+    "date": "6月4日 他3件",
+    "dates": [
+      {
+        "endDate": "2026-06-04",
+        "endTime": "22:00",
+        "startDate": "2026-06-04",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-11",
+        "endTime": "22:00",
+        "startDate": "2026-06-11",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-18",
+        "endTime": "22:00",
+        "startDate": "2026-06-18",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-25",
+        "endTime": "22:00",
+        "startDate": "2026-06-25",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-06-25",
+    "endTime": "22:00",
+    "id": 135,
+    "locations": [
+      "バッティングブースA",
+      "投手測定エリア"
+    ],
+    "manager": "大塚璃音",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-04",
+    "startTime": "10:00",
+    "title": "打撃測定予約枠"
+  },
+  {
+    "cardColor": "#32cd32",
+    "category": "other",
+    "categoryText": "打撃測定予約枠",
+    "date": "6月3日 他7件",
+    "dates": [
+      {
+        "endDate": "2026-06-03",
+        "endTime": "19:00",
+        "startDate": "2026-06-03",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-05",
+        "endTime": "19:00",
+        "startDate": "2026-06-05",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-10",
+        "endTime": "19:00",
+        "startDate": "2026-06-10",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-12",
+        "endTime": "19:00",
+        "startDate": "2026-06-12",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-17",
+        "endTime": "19:00",
+        "startDate": "2026-06-17",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-19",
+        "endTime": "19:00",
+        "startDate": "2026-06-19",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-24",
+        "endTime": "19:00",
+        "startDate": "2026-06-24",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-06-26",
+        "endTime": "19:00",
+        "startDate": "2026-06-26",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-06-26",
+    "endTime": "19:00",
+    "id": 136,
+    "locations": [
+      "バッティングブースA",
+      "打撃エリア"
+    ],
+    "manager": "大塚璃音",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-03",
+    "startTime": "10:00",
+    "title": "打撃測定予約枠"
+  },
+  {
+    "cardColor": "#32cd32",
+    "category": "other",
+    "categoryText": "打撃測定予約枠",
+    "date": "6月6日 他3件",
+    "dates": [
+      {
+        "endDate": "2026-06-07",
+        "endTime": "22:00",
+        "startDate": "2026-06-06",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-06-14",
+        "endTime": "22:00",
+        "startDate": "2026-06-13",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-06-21",
+        "endTime": "22:00",
+        "startDate": "2026-06-20",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-06-28",
+        "endTime": "22:00",
+        "startDate": "2026-06-27",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-06-28",
+    "endTime": "22:00",
+    "id": 137,
+    "locations": [
+      "バッティングブースA",
+      "打撃エリア"
+    ],
+    "manager": "大塚璃音",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-06",
+    "startTime": "18:00",
+    "title": "打撃測定予約枠"
   }
 ]
