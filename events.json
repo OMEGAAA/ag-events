@@ -2697,5 +2697,76 @@
     "startDate": "2026-07-02",
     "startTime": "12:00",
     "title": "AGK高等学院練習"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "AGK男子練習",
+    "date": "6月7日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-06-07",
+        "endTime": "17:00",
+        "startDate": "2026-06-07",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-14",
+        "endTime": "17:00",
+        "startDate": "2026-06-14",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-21",
+        "endTime": "17:00",
+        "startDate": "2026-06-21",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-21",
+    "endTime": "17:00",
+    "id": 132,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-07",
+    "startTime": "09:00",
+    "title": "AGK男子練習"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "ダンスレッスン",
+    "date": "6月6日 09:00〜16:30",
+    "dates": [
+      {
+        "endDate": "2026-06-06",
+        "endTime": "16:30",
+        "startDate": "2026-06-06",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-06",
+    "endTime": "16:30",
+    "id": 133,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木村",
+    "notes": "",
+    "participants": "11",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-06",
+    "startTime": "09:00",
+    "title": "ダンスレッスン"
   }
 ]
