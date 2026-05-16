@@ -625,34 +625,6 @@
     "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
-    "date": "5月15日 09:00〜12:00",
-    "dates": [
-      {
-        "endDate": "2026-05-15",
-        "endTime": "12:00",
-        "startDate": "2026-05-15",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-15",
-    "endTime": "12:00",
-    "id": 55,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大塚　克己",
-    "notes": "",
-    "participants": "10",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-15",
-    "startTime": "09:00",
-    "title": "エイジェック高等学院"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "社内イベント",
     "date": "5月18日 09:00〜12:00",
     "dates": [
       {
@@ -3006,31 +2978,32 @@
     "title": "ユース練習/説明会"
   },
   {
-    "cardColor": "#0000ff",
+    "cardColor": "#ff4500",
     "category": "other",
-    "categoryText": "その他",
-    "date": "5月15日 08:30〜10:30",
+    "categoryText": "アカデミー",
+    "date": "5月22日 16:00〜17:00",
     "dates": [
       {
-        "endDate": "2026-05-15",
-        "endTime": "10:30",
-        "startDate": "2026-05-15",
-        "startTime": "08:30"
+        "endDate": "2026-05-22",
+        "endTime": "17:00",
+        "startDate": "2026-05-22",
+        "startTime": "16:00"
       }
     ],
-    "endDate": "2026-05-15",
-    "endTime": "10:30",
+    "endDate": "2026-05-22",
+    "endTime": "17:00",
     "id": 142,
     "locations": [
-      "食堂"
+      "バッティングブースA",
+      "バッティングブースB"
     ],
-    "manager": "山村",
+    "manager": "曽川",
     "notes": "",
-    "participants": "",
+    "participants": "2",
     "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-05-15",
-    "startTime": "08:30",
-    "title": "AGK男子野球部ミーティング"
+    "snsPR": "pending",
+    "startDate": "2026-05-22",
+    "startTime": "16:00",
+    "title": "パーソナルレッスン"
   }
 ]
