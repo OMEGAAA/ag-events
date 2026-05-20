@@ -3107,5 +3107,39 @@
     "startDate": "2026-05-22",
     "startTime": "10:00",
     "title": "戸田中央メディックス"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "5月29日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-05-29",
+        "endTime": "17:00",
+        "startDate": "2026-05-29",
+        "startTime": "16:00"
+      },
+      {
+        "endDate": "2026-06-05",
+        "endTime": "17:00",
+        "startDate": "2026-06-05",
+        "startTime": "16:00"
+      }
+    ],
+    "endDate": "2026-06-05",
+    "endTime": "17:00",
+    "id": 148,
+    "locations": [
+      "バッティングブースB"
+    ],
+    "manager": "曽川",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-29",
+    "startTime": "16:00",
+    "title": "パーソナルレッスン"
   }
 ]
