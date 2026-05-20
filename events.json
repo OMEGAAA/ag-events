@@ -597,34 +597,6 @@
     "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
-    "date": "5月19日 13:00〜16:00",
-    "dates": [
-      {
-        "endDate": "2026-05-19",
-        "endTime": "16:00",
-        "startDate": "2026-05-19",
-        "startTime": "13:00"
-      }
-    ],
-    "endDate": "2026-05-19",
-    "endTime": "16:00",
-    "id": 57,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大塚　克己",
-    "notes": "",
-    "participants": "10",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-19",
-    "startTime": "13:00",
-    "title": "エイジェック高等学院"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "社内イベント",
     "date": "5月20日 09:00〜12:00",
     "dates": [
       {
@@ -1869,34 +1841,6 @@
     "title": "エイジェック高等学院"
   },
   {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "イベント",
-    "date": "5月19日 17:15〜18:45",
-    "dates": [
-      {
-        "endDate": "2026-05-19",
-        "endTime": "18:45",
-        "startDate": "2026-05-19",
-        "startTime": "17:15"
-      }
-    ],
-    "endDate": "2026-05-19",
-    "endTime": "18:45",
-    "id": 111,
-    "locations": [
-      "スタジオ"
-    ],
-    "manager": "木村 美穂",
-    "notes": "",
-    "participants": "10",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-05-19",
-    "startTime": "17:15",
-    "title": "ダンススクール体験会"
-  },
-  {
     "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "その他",
@@ -2949,5 +2893,33 @@
     "startDate": "2026-05-22",
     "startTime": "16:00",
     "title": "パーソナルレッスン"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "5月22日 12:00〜13:30",
+    "dates": [
+      {
+        "endDate": "2026-05-22",
+        "endTime": "13:30",
+        "startDate": "2026-05-22",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-05-22",
+    "endTime": "13:30",
+    "id": 143,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "星野　真澄",
+    "notes": "",
+    "participants": "１",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-22",
+    "startTime": "12:00",
+    "title": "TAT測定"
   }
 ]
