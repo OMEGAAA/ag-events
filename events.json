@@ -3018,5 +3018,64 @@
     "startDate": "2026-07-01",
     "startTime": "09:00",
     "title": "AGK男子練習"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "AGK男子練習",
+    "date": "7月6日 他5件",
+    "dates": [
+      {
+        "endDate": "2026-07-06",
+        "endTime": "17:00",
+        "startDate": "2026-07-06",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-07",
+        "endTime": "17:00",
+        "startDate": "2026-07-07",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-08",
+        "endTime": "17:00",
+        "startDate": "2026-07-08",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-13",
+        "endTime": "17:00",
+        "startDate": "2026-07-13",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-14",
+        "endTime": "17:00",
+        "startDate": "2026-07-14",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-05-15",
+        "endTime": "17:00",
+        "startDate": "2026-07-15",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-15",
+    "endTime": "17:00",
+    "id": 146,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "30名",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-06",
+    "startTime": "09:00",
+    "title": "AGK男子練習"
   }
 ]
