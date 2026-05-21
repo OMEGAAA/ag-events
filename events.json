@@ -3121,5 +3121,36 @@
     "startDate": "2026-05-21",
     "startTime": "12:00",
     "title": "東大測定"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "5月22日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-05-22",
+        "endTime": "12:00",
+        "startDate": "2026-05-22",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-22",
+    "endTime": "12:00",
+    "id": 152,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "大塚克己",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-22",
+    "startTime": "09:00",
+    "title": "AGK高等学院練習"
   }
 ]
