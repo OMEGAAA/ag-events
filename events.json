@@ -361,34 +361,6 @@
   {
     "cardColor": "#ff69b4",
     "category": "other",
-    "categoryText": "測定",
-    "date": "5月21日 09:00〜18:00",
-    "dates": [
-      {
-        "endDate": "2026-05-21",
-        "endTime": "18:00",
-        "startDate": "2026-05-21",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-21",
-    "endTime": "18:00",
-    "id": 19,
-    "locations": [
-      "ベースボールエリア"
-    ],
-    "manager": "五十子",
-    "notes": "",
-    "participants": "10名",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-21",
-    "startTime": "09:00",
-    "title": "東大測定（オイシックス）"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
     "categoryText": "野球教室",
     "date": "11月15日 10:00〜16:00",
     "dates": [
@@ -592,34 +564,6 @@
     "startDate": "2026-05-01",
     "startTime": "10:00",
     "title": "打撃測定"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "5月21日 09:00〜12:00",
-    "dates": [
-      {
-        "endDate": "2026-05-21",
-        "endTime": "12:00",
-        "startDate": "2026-05-21",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-21",
-    "endTime": "12:00",
-    "id": 59,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大塚　克己",
-    "notes": "",
-    "participants": "10",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-21",
-    "startTime": "09:00",
-    "title": "エイジェック高等学院"
   },
   {
     "cardColor": "#ff0000",
@@ -3149,5 +3093,33 @@
     "startDate": "2026-07-26",
     "startTime": "13:00",
     "title": "台湾少年野球サマーキャンプ【仮】"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "5月21日 12:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-05-21",
+        "endTime": "18:00",
+        "startDate": "2026-05-21",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-05-21",
+    "endTime": "18:00",
+    "id": 151,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-21",
+    "startTime": "12:00",
+    "title": "東大測定"
   }
 ]
