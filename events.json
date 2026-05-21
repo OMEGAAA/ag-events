@@ -597,34 +597,6 @@
     "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
-    "date": "5月20日 09:00〜12:00",
-    "dates": [
-      {
-        "endDate": "2026-05-20",
-        "endTime": "12:00",
-        "startDate": "2026-05-20",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-20",
-    "endTime": "12:00",
-    "id": 58,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大塚　克己",
-    "notes": "",
-    "participants": "10",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-20",
-    "startTime": "09:00",
-    "title": "エイジェック高等学院"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "社内イベント",
     "date": "5月21日 09:00〜12:00",
     "dates": [
       {
@@ -2802,36 +2774,6 @@
     "title": "打撃測定予約枠"
   },
   {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "測定",
-    "date": "5月20日 09:00〜12:00",
-    "dates": [
-      {
-        "endDate": "2026-05-20",
-        "endTime": "12:00",
-        "startDate": "2026-05-20",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-20",
-    "endTime": "12:00",
-    "id": 140,
-    "locations": [
-      "バッティングブースA",
-      "バッティングブースB",
-      "投手測定エリア"
-    ],
-    "manager": "福田",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-05-20",
-    "startTime": "09:00",
-    "title": "エイジェック高等学院測定"
-  },
-  {
     "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "練習",
@@ -3141,5 +3083,71 @@
     "startDate": "2026-05-29",
     "startTime": "16:00",
     "title": "パーソナルレッスン"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "野球教室",
+    "date": "7月25日 13:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-07-25",
+        "endTime": "18:00",
+        "startDate": "2026-07-25",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-07-25",
+    "endTime": "18:00",
+    "id": 149,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "高野圭祐",
+    "notes": "",
+    "participants": "20",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-25",
+    "startTime": "13:00",
+    "title": "台湾少年野球サマーキャンプ【仮】"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "野球教室",
+    "date": "7月26日 13:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-07-26",
+        "endTime": "18:00",
+        "startDate": "2026-07-26",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-07-26",
+    "endTime": "18:00",
+    "id": 150,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "高野圭祐",
+    "notes": "",
+    "participants": "20",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-26",
+    "startTime": "13:00",
+    "title": "台湾少年野球サマーキャンプ【仮】"
   }
 ]
