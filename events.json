@@ -3156,5 +3156,33 @@
     "startDate": "2026-07-09",
     "startTime": "09:00",
     "title": "AGK男子野球部練習"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "7月9日 08:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-07-09",
+        "endTime": "12:00",
+        "startDate": "2026-07-09",
+        "startTime": "08:00"
+      }
+    ],
+    "endDate": "2026-07-09",
+    "endTime": "12:00",
+    "id": 154,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "山村航大",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-09",
+    "startTime": "08:00",
+    "title": "AGK男子野球部練習"
   }
 ]
