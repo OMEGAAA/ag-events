@@ -8,10 +8,16 @@ const DEFAULT_LOCATIONS = ['室内練習場', 'ベースボールエリア', '�
 const DAY_NAMES = ['日', '月', '火', '水', '木', '金', '土'];
 
 const SNS_LABEL = {
-    'allowed': { text: '掲載可', cls: 'sns-allowed', icon: '✅' },
+    'allowed': { text: '掲載可（顔出しOK）', cls: 'sns-allowed', icon: '✅' },
+    'allowed-face-ok': { text: '掲載可（顔出しOK）', cls: 'sns-allowed', icon: '✅' },
+    'allowed-face-ng': { text: '掲載可（顔出しNG）', cls: 'sns-allowed', icon: '✅' },
     'not-allowed': { text: '掲載不可', cls: 'sns-not-allowed', icon: '🚫' },
     'pending': { text: '要確認', cls: 'sns-pending', icon: '⚠️' }
 };
+
+function isSnsAllowed(value) {
+    return value === 'allowed' || value === 'allowed-face-ok' || value === 'allowed-face-ng';
+}
 
 const today = new Date();
 
@@ -291,7 +297,7 @@ function openDetail(id) {
             const s = SNS_LABEL[e.snsPR];
             if (!s) return '';
             let dateHint = '';
-            if (e.snsPR === 'allowed' && e.snsAvailableFrom) {
+            if (isSnsAllowed(e.snsPR) && e.snsAvailableFrom) {
                 dateHint = `<div style="font-size:0.85rem; color:var(--text-secondary); margin-top:0.25rem;">${escapeHtml(e.snsAvailableFrom)} 以降に告知可能</div>`;
             }
             return `

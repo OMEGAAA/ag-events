@@ -733,10 +733,20 @@ function escapeHtml(str) {
 }
 
 const SNS_LABEL = {
-    'allowed':     { text: '掲載可',  cls: 'sns-allowed' },
+    'allowed':         { text: '掲載可（顔出しOK）', cls: 'sns-allowed' },
+    'allowed-face-ok': { text: '掲載可（顔出しOK）', cls: 'sns-allowed' },
+    'allowed-face-ng': { text: '掲載可（顔出しNG）', cls: 'sns-allowed' },
     'not-allowed': { text: '掲載不可', cls: 'sns-not-allowed' },
     'pending':     { text: '要確認',  cls: 'sns-pending' }
 };
+
+function normalizeSnsValue(value) {
+    return value === 'allowed' ? 'allowed-face-ok' : (value || 'not-allowed');
+}
+
+function isSnsAllowed(value) {
+    return value === 'allowed' || value === 'allowed-face-ok' || value === 'allowed-face-ng';
+}
 
 // ---- DATE ROWS ----
 
@@ -984,7 +994,7 @@ function renderEventList() {
             ? e.locations.join('・')
             : (e.location || '—');
         const sns     = SNS_LABEL[e.snsPR] || SNS_LABEL['pending'];
-        const snsDate = e.snsPR === 'allowed' && e.snsAvailableFrom
+        const snsDate = isSnsAllowed(e.snsPR) && e.snsAvailableFrom
             ? `<div style="font-size:0.74rem; color:var(--text-secondary); margin-top:0.2rem;">${e.snsAvailableFrom}〜</div>`
             : '';
             
@@ -1089,11 +1099,11 @@ function openEditModal(id) {
     }
 
     // HP/SNS
-    const snsVal = event.snsPR || 'not-allowed';
+    const snsVal = normalizeSnsValue(event.snsPR);
     const snsRadio = document.querySelector(`input[name="f-sns"][value="${snsVal}"]`);
     if (snsRadio) snsRadio.checked = true;
     document.getElementById('f-sns-date').value = event.snsAvailableFrom || '';
-    document.getElementById('sns-date-row').style.display = snsVal === 'allowed' ? 'block' : 'none';
+    document.getElementById('sns-date-row').style.display = isSnsAllowed(snsVal) ? 'block' : 'none';
 
     // 利用区分（未設定の旧データは internal を初期選択）
     const usageVal = event.usageType || 'internal';
@@ -1140,7 +1150,7 @@ function toggleLocationOther() {
 
 function toggleSnsDate() {
     const val = document.querySelector('input[name="f-sns"]:checked')?.value;
-    document.getElementById('sns-date-row').style.display = val === 'allowed' ? 'block' : 'none';
+    document.getElementById('sns-date-row').style.display = isSnsAllowed(val) ? 'block' : 'none';
 }
 
 function saveEvent() {
@@ -1180,7 +1190,7 @@ function saveEvent() {
     });
     const participants = document.getElementById('f-participants').value.trim();
     const snsPR        = document.querySelector('input[name="f-sns"]:checked')?.value || 'not-allowed';
-    const snsAvailableFrom = snsPR === 'allowed' ? document.getElementById('f-sns-date').value.trim() : '';
+    const snsAvailableFrom = isSnsAllowed(snsPR) ? document.getElementById('f-sns-date').value.trim() : '';
     const usageType    = document.querySelector('input[name="f-usage-type"]:checked')?.value || 'internal';
     const manager      = document.getElementById('f-manager').value.trim();
     const notes        = document.getElementById('f-notes').value.trim();
