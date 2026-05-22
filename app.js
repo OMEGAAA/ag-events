@@ -367,7 +367,9 @@ function initCalendar() {
         },
         height: 'calc(100vh - 180px)',
         eventDisplay: 'block',
-        dayMaxEvents: 4,
+        dayMaxEvents: true, // セルの高さに応じて「+N more」を自動表示
+        moreLinkText: (n) => `他${n}件`,
+        moreLinkClick: 'popover',
         eventTimeFormat: {
             hour: '2-digit',
             minute: '2-digit',
