@@ -45,23 +45,47 @@
 
         <!-- Calendar View -->
         <div id="view-calendar" class="view-section" style="display: none;">
-            <div class="fc-jump-bar" id="fc-jump-bar">
-                <span class="fc-jump-label">日付を指定</span>
-                <input type="date" id="fc-jump-date">
-                <button class="fc-jump-btn" onclick="jumpToDate()">移動</button>
+            <!-- 統一カレンダーツールバー -->
+            <div class="cal-toolbar">
+                <div class="cal-toolbar-row cal-toolbar-row-main">
+                    <div class="cal-nav-group">
+                        <button class="cal-nav-btn" onclick="calPrev()" title="前へ" aria-label="前へ">‹</button>
+                        <button class="cal-nav-btn cal-today-btn" onclick="calToday()">今日</button>
+                        <button class="cal-nav-btn" onclick="calNext()" title="次へ" aria-label="次へ">›</button>
+                    </div>
+                    <div class="cal-title" id="cal-title">　</div>
+                    <div class="cal-jump-group">
+                        <input type="date" id="cal-jump-date" class="cal-jump-input">
+                        <button class="cal-nav-btn cal-jump-btn" onclick="calJumpToDate()">移動</button>
+                    </div>
+                </div>
+                <div class="cal-toolbar-row cal-view-tabs" id="cal-view-tabs">
+                    <button class="cal-view-tab active" data-view="dayGridMonth" onclick="switchCalView('dayGridMonth')">
+                        <span class="cal-view-tab-icon">📅</span><span class="cal-view-tab-label">月</span>
+                    </button>
+                    <button class="cal-view-tab" data-view="timeGridWeek" onclick="switchCalView('timeGridWeek')">
+                        <span class="cal-view-tab-icon">🗓️</span><span class="cal-view-tab-label">週</span>
+                    </button>
+                    <button class="cal-view-tab" data-view="timeGridDay" onclick="switchCalView('timeGridDay')">
+                        <span class="cal-view-tab-icon">📆</span><span class="cal-view-tab-label">日</span>
+                    </button>
+                    <span class="cal-view-tab-divider" aria-hidden="true"></span>
+                    <button class="cal-view-tab" data-view="locationWeek" onclick="switchCalView('locationWeek')">
+                        <span class="cal-view-tab-icon">📍</span><span class="cal-view-tab-label">場所 / 週</span>
+                    </button>
+                    <button class="cal-view-tab" data-view="locationDay" onclick="switchCalView('locationDay')">
+                        <span class="cal-view-tab-icon">📍</span><span class="cal-view-tab-label">場所 / 日</span>
+                    </button>
+                </div>
             </div>
+
             <div id="fc-wrapper">
                 <div id="fullcalendar"></div>
             </div>
 
             <!-- 場所/週ビュー -->
             <div id="location-week-view" style="display:none;">
-                <div class="loc-view-nav">
-                    <button class="icon-btn" id="loc-week-prev">← 前週</button>
-                    <span id="loc-week-label"></span>
-                    <button class="icon-btn" id="loc-week-next">次週 →</button>
-                    <button class="fc-jump-btn" onclick="backToCalendar()">← 通常表示</button>
-                </div>
+                <span id="loc-week-label" class="loc-view-hidden-label"></span>
                 <div class="loc-week-scroll">
                     <div id="location-week-grid"></div>
                 </div>
@@ -69,12 +93,7 @@
 
             <!-- 場所/日ビュー -->
             <div id="location-day-view" style="display:none;">
-                <div class="loc-view-nav">
-                    <button class="icon-btn" id="loc-day-prev">← 前日</button>
-                    <span id="loc-day-label"></span>
-                    <button class="icon-btn" id="loc-day-next">次日 →</button>
-                    <button class="fc-jump-btn" onclick="backToCalendar()">← 通常表示</button>
-                </div>
+                <span id="loc-day-label" class="loc-view-hidden-label"></span>
                 <div class="day-allday-section" id="loc-day-allday-section" style="display:none;">
                     <div class="day-allday-label">終日</div>
                     <div class="day-allday-events" id="loc-day-allday-events"></div>

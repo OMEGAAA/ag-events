@@ -129,24 +129,81 @@ main {
     padding: 1.5rem 5%;
 }
 
-.fc-jump-bar {
+/* ---- 統一カレンダーツールバー ---- */
+.cal-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+    padding: 0.85rem 1rem;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-light, rgba(0,0,0,0.06));
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.cal-toolbar-row {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 1rem;
     flex-wrap: wrap;
 }
 
-.fc-jump-label {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    font-weight: 500;
+.cal-toolbar-row-main {
+    justify-content: space-between;
 }
 
-.fc-jump-bar input[type="date"] {
+.cal-nav-group,
+.cal-jump-group {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+}
+
+.cal-title {
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 0.5rem;
+}
+
+.cal-nav-btn {
+    padding: 0.45rem 0.9rem;
+    background: #fff;
+    color: var(--text-primary);
     border: 1px solid var(--border-medium);
     border-radius: 8px;
-    padding: 0.35rem 0.75rem;
+    font-size: 0.85rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    line-height: 1;
+}
+
+.cal-nav-btn:hover {
+    background: var(--accent-orange);
+    color: #fff;
+    border-color: var(--accent-orange);
+}
+
+.cal-today-btn {
+    min-width: 56px;
+}
+
+.cal-jump-input {
+    border: 1px solid var(--border-medium);
+    border-radius: 8px;
+    padding: 0.35rem 0.6rem;
     font-size: 0.82rem;
     font-family: inherit;
     color: var(--text-primary);
@@ -155,31 +212,142 @@ main {
     transition: border-color 0.2s;
 }
 
-.fc-jump-bar input[type="date"]:focus {
+.cal-jump-input:focus {
     border-color: var(--accent-orange);
 }
 
-.fc-jump-btn {
-    padding: 0.35rem 1rem;
+.cal-jump-btn {
+    padding: 0.4rem 0.85rem;
     background: var(--accent-orange);
     color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 0.82rem;
-    font-family: inherit;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
+    border-color: var(--accent-orange);
+    font-size: 0.8rem;
 }
 
-.fc-jump-btn:hover {
+.cal-jump-btn:hover {
     background: #ea6510;
+    border-color: #ea6510;
+    color: #fff;
+}
+
+/* ビュータブ */
+.cal-view-tabs {
+    background: rgba(15, 23, 42, 0.04);
+    border-radius: 10px;
+    padding: 0.3rem;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.cal-view-tab {
+    flex: 1 1 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.85rem;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text-secondary);
+    border-radius: 8px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    white-space: nowrap;
+}
+
+.cal-view-tab:hover {
+    background: rgba(255,255,255,0.7);
+    color: var(--text-primary);
+}
+
+.cal-view-tab.active {
+    background: var(--accent-orange);
+    color: #fff;
+    border-color: var(--accent-orange);
+    box-shadow: 0 2px 8px rgba(245,116,28,0.25);
+}
+
+.cal-view-tab.active .cal-view-tab-icon {
+    filter: brightness(0) invert(1);
+}
+
+.cal-view-tab-icon {
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.cal-view-tab-label {
+    font-weight: 600;
+}
+
+.cal-view-tab-divider {
+    width: 1px;
+    align-self: stretch;
+    margin: 0.25rem 0.2rem;
+    background: rgba(0,0,0,0.12);
+}
+
+/* 場所ビューの非表示ラベル（タイトル取得用に保持） */
+.loc-view-hidden-label {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 
 #fc-wrapper.fc-hidden {
-    max-height: 0;
-    overflow: hidden;
-    pointer-events: none;
+    display: none;
+}
+
+/* レスポンシブ */
+@media (max-width: 720px) {
+    .cal-toolbar {
+        padding: 0.65rem 0.7rem;
+        gap: 0.5rem;
+    }
+    .cal-toolbar-row-main {
+        gap: 0.4rem;
+    }
+    .cal-title {
+        order: -1;
+        flex: 1 0 100%;
+        text-align: center;
+        font-size: 1rem;
+        padding: 0.1rem 0 0.3rem;
+    }
+    .cal-nav-group,
+    .cal-jump-group {
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+    .cal-nav-btn {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.8rem;
+    }
+    .cal-view-tab-label {
+        display: none;
+    }
+    .cal-view-tab {
+        padding: 0.55rem 0.4rem;
+        flex: 1 1 0;
+    }
+    .cal-view-tab-icon {
+        font-size: 1.1rem;
+    }
+    .cal-view-tab-divider {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .cal-jump-group .cal-jump-input {
+        max-width: 130px;
+        font-size: 0.78rem;
+    }
 }
 
 #fullcalendar {
@@ -2276,25 +2444,10 @@ main {
     border: 1px solid #FECACA;
 }
 
-/* ---- 場所別ビュー共通 ---- */
-.loc-view-nav {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-}
-
-#loc-week-label,
-#loc-day-label {
-    flex: 1;
-    text-align: center;
-    font-family: 'Barlow Condensed', 'Noto Sans JP', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: 0.04em;
-}
+/* ---- 場所別ビュー共通 ----
+   ナビは統一ツールバー(.cal-toolbar)に集約済み。
+   #loc-week-label / #loc-day-label は updateCalTitle() がテキストを参照するため残しているが、
+   .loc-view-hidden-label で視覚的には非表示。 */
 
 /* ---- 場所/日 タイムライン ---- */
 .loc-day-timeline {

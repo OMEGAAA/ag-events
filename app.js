@@ -357,32 +357,15 @@ function initCalendar() {
     fullCal = new FullCalendar.Calendar(el, {
         initialView: 'dayGridMonth',
         locale: 'ja',
-        customButtons: {
-            locationWeek: {
-                text: '場所/週',
-                click: function() { showLocationWeek(); }
-            },
-            locationDay: {
-                text: '場所/日',
-                click: function() { showLocationDay(); }
-            },
-        },
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay,locationWeek,locationDay',
-        },
-        buttonText: {
-            today: '今日',
-            month: '月',
-            week: '週',
-            day: '日',
-        },
+        headerToolbar: false, // カスタムツールバーで一元管理
         events: buildCalEvents(),
         eventClick: function(info) {
             openDetail(info.event.extendedProps.eventId);
         },
-        height: 'calc(100vh - 120px)',
+        datesSet: function() {
+            updateCalTitle();
+        },
+        height: 'calc(100vh - 180px)',
         eventDisplay: 'block',
         dayMaxEvents: 4,
         eventTimeFormat: {
@@ -393,6 +376,111 @@ function initCalendar() {
     });
 
     fullCal.render();
+    updateCalTitle();
+}
+
+// ---- UNIFIED CALENDAR TOOLBAR ----
+let currentCalView = 'dayGridMonth';
+
+function switchCalView(view) {
+    currentCalView = view;
+    document.querySelectorAll('#cal-view-tabs .cal-view-tab').forEach(b => {
+        b.classList.toggle('active', b.dataset.view === view);
+    });
+
+    const fcWrap = document.getElementById('fc-wrapper');
+    const wkView = document.getElementById('location-week-view');
+    const dyView = document.getElementById('location-day-view');
+
+    if (view === 'locationWeek') {
+        locViewType = 'week';
+        fcWrap.classList.add('fc-hidden');
+        wkView.style.display = 'block';
+        dyView.style.display = 'none';
+        renderLocationWeek();
+    } else if (view === 'locationDay') {
+        locViewType = 'day';
+        fcWrap.classList.add('fc-hidden');
+        wkView.style.display = 'none';
+        dyView.style.display = 'block';
+        renderLocationDay();
+    } else {
+        locViewType = null;
+        fcWrap.classList.remove('fc-hidden');
+        wkView.style.display = 'none';
+        dyView.style.display = 'none';
+        if (fullCal) {
+            fullCal.changeView(view);
+            requestAnimationFrame(() => fullCal.updateSize());
+        }
+    }
+    updateCalTitle();
+}
+
+function calPrev() {
+    if (locViewType === 'week') {
+        locViewDate.setDate(locViewDate.getDate() - 7);
+        renderLocationWeek();
+        updateCalTitle();
+    } else if (locViewType === 'day') {
+        locViewDate.setDate(locViewDate.getDate() - 1);
+        renderLocationDay();
+        updateCalTitle();
+    } else if (fullCal) {
+        fullCal.prev();
+    }
+}
+
+function calNext() {
+    if (locViewType === 'week') {
+        locViewDate.setDate(locViewDate.getDate() + 7);
+        renderLocationWeek();
+        updateCalTitle();
+    } else if (locViewType === 'day') {
+        locViewDate.setDate(locViewDate.getDate() + 1);
+        renderLocationDay();
+        updateCalTitle();
+    } else if (fullCal) {
+        fullCal.next();
+    }
+}
+
+function calToday() {
+    if (locViewType === 'week' || locViewType === 'day') {
+        locViewDate = new Date();
+        if (locViewType === 'week') renderLocationWeek();
+        else renderLocationDay();
+        updateCalTitle();
+    } else if (fullCal) {
+        fullCal.today();
+    }
+}
+
+function calJumpToDate() {
+    const val = document.getElementById('cal-jump-date').value;
+    if (!val) return;
+    if (locViewType === 'week' || locViewType === 'day') {
+        locViewDate = new Date(val + 'T00:00:00');
+        if (locViewType === 'week') renderLocationWeek();
+        else renderLocationDay();
+        updateCalTitle();
+    } else if (fullCal) {
+        fullCal.gotoDate(val);
+    }
+}
+
+function updateCalTitle() {
+    const titleEl = document.getElementById('cal-title');
+    if (!titleEl) return;
+    if (locViewType === 'week') {
+        const lbl = document.getElementById('loc-week-label');
+        titleEl.textContent = lbl ? lbl.textContent : '';
+    } else if (locViewType === 'day') {
+        const lbl = document.getElementById('loc-day-label');
+        titleEl.textContent = lbl ? lbl.textContent : '';
+    } else if (fullCal) {
+        titleEl.textContent = fullCal.view.title;
+    }
 }
 
 // ---- 場所別ビュー共通 ----
@@ -408,37 +496,6 @@ function getLocations() {
 function eventHasLocation(e, loc) {
     const locs = Array.isArray(e.locations) && e.locations.length > 0 ? e.locations : (e.location ? [e.location] : []);
     return locs.includes(loc);
-}
-
-function showLocationWeek() {
-    locViewDate = new Date();
-    locViewType = 'week';
-    document.getElementById('fc-wrapper').classList.add('fc-hidden');
-    document.getElementById('fc-jump-bar').style.display = 'none';
-    document.getElementById('location-week-view').style.display = 'block';
-    document.getElementById('location-day-view').style.display = 'none';
-    renderLocationWeek();
-}
-
-function showLocationDay() {
-    locViewDate = new Date();
-    locViewType = 'day';
-    document.getElementById('fc-wrapper').classList.add('fc-hidden');
-    document.getElementById('fc-jump-bar').style.display = 'none';
-    document.getElementById('location-week-view').style.display = 'none';
-    document.getElementById('location-day-view').style.display = 'block';
-    renderLocationDay();
-}
-
-function backToCalendar() {
-    locViewType = null;
-    document.getElementById('location-week-view').style.display = 'none';
-    document.getElementById('location-day-view').style.display = 'none';
-    document.getElementById('fc-jump-bar').style.display = 'flex';
-    document.getElementById('fc-wrapper').classList.remove('fc-hidden');
-    if (fullCal) {
-        requestAnimationFrame(() => fullCal.updateSize());
-    }
 }
 
 // ---- 場所/週ビュー ----
@@ -506,15 +563,6 @@ function renderLocationWeek() {
     html += '</tbody></table>';
     container.innerHTML = html;
 }
-
-document.getElementById('loc-week-prev')?.addEventListener('click', () => {
-    locViewDate.setDate(locViewDate.getDate() - 7);
-    renderLocationWeek();
-});
-document.getElementById('loc-week-next')?.addEventListener('click', () => {
-    locViewDate.setDate(locViewDate.getDate() + 7);
-    renderLocationWeek();
-});
 
 // ---- 場所/日ビュー ----
 const LOC_DAY_HOUR_START = 6;
@@ -608,26 +656,12 @@ function renderLocationDay() {
     setTimeout(() => { timeline.scrollTop = scrollTo; }, 50);
 }
 
-document.getElementById('loc-day-prev')?.addEventListener('click', () => {
-    locViewDate.setDate(locViewDate.getDate() - 1);
-    renderLocationDay();
-});
-document.getElementById('loc-day-next')?.addEventListener('click', () => {
-    locViewDate.setDate(locViewDate.getDate() + 1);
-    renderLocationDay();
-});
-
-function jumpToDate() {
-    const val = document.getElementById('fc-jump-date').value;
-    if (!val || !fullCal) return;
-    fullCal.gotoDate(val);
-    fullCal.changeView('dayGridMonth');
-}
-
 function openCalendarAtDate(dateStr) {
     setActiveNav(navCalendar);
     viewCal.style.display = 'block';
     initCalendar();
+    // 場所ビューを抜けて通常ビューに戻す
+    if (locViewType) switchCalView('dayGridMonth');
     if (fullCal) {
         fullCal.gotoDate(dateStr);
     }
