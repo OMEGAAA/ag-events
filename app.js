@@ -365,9 +365,10 @@ function initCalendar() {
         datesSet: function() {
             updateCalTitle();
         },
-        height: 'calc(100vh - 180px)',
+        height: 'auto',
         eventDisplay: 'block',
-        dayMaxEvents: true, // セルの高さに応じて「+N more」を自動表示
+        dayMaxEvents: false,
+        dayMaxEventRows: false,
         moreLinkText: (n) => `他${n}件`,
         moreLinkClick: 'popover',
         eventTimeFormat: {
@@ -412,6 +413,7 @@ function switchCalView(view) {
         wkView.style.display = 'none';
         dyView.style.display = 'none';
         if (fullCal) {
+            fullCal.setOption('height', view === 'dayGridMonth' ? 'auto' : 'calc(100vh - 180px)');
             fullCal.changeView(view);
             requestAnimationFrame(() => fullCal.updateSize());
         }

@@ -420,11 +420,41 @@ main {
     background-color: rgba(249, 115, 22, 0.04) !important;
 }
 
+#fullcalendar .fc-daygrid-day-frame {
+    min-height: 104px;
+    display: flex;
+    flex-direction: column;
+}
+
+#fullcalendar .fc-daygrid-day-top {
+    flex: 0 0 auto;
+}
+
+#fullcalendar .fc-daygrid-day-events {
+    flex: 1 1 auto;
+    max-height: 112px;
+    overflow-y: auto;
+    padding: 0 2px 4px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(82, 100, 128, 0.35) transparent;
+}
+
+#fullcalendar .fc-daygrid-day-events::-webkit-scrollbar {
+    width: 6px;
+}
+
+#fullcalendar .fc-daygrid-day-events::-webkit-scrollbar-thumb {
+    background: rgba(82, 100, 128, 0.35);
+    border-radius: 999px;
+}
+
 #fullcalendar .fc-event {
     cursor: pointer;
     border: none !important;
     border-radius: 5px !important;
     font-size: 0.73rem;
+    margin: 1px 0 !important;
+    min-height: 18px;
 }
 
 #fullcalendar .fc-event-title {
