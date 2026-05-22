@@ -28,6 +28,12 @@
         <!-- Status Bar -->
         <div id="status-bar" class="status-bar"></div>
 
+        <!-- 一括折りたたみ -->
+        <div class="section-bulk-toggle">
+            <button type="button" class="btn-text" onclick="setAllSectionsCollapsed(true)">▼ すべて折りたたむ</button>
+            <button type="button" class="btn-text" onclick="setAllSectionsCollapsed(false)">▲ すべて開く</button>
+        </div>
+
         <!-- GitHub Settings Panel -->
         <div class="settings-panel">
             <div class="settings-panel-header" onclick="toggleSettings()">
@@ -170,6 +176,13 @@
                     </div>
                 </div>
 
+                <!-- 利用区分フィルタ -->
+                <div class="usage-filter" id="usage-filter">
+                    <button type="button" class="usage-filter-btn active" data-usage="all" onclick="setDashboardUsageFilter('all')">全て</button>
+                    <button type="button" class="usage-filter-btn" data-usage="external" onclick="setDashboardUsageFilter('external')">外部利用（料金発生）</button>
+                    <button type="button" class="usage-filter-btn" data-usage="internal" onclick="setDashboardUsageFilter('internal')">内部利用（料金なし）</button>
+                </div>
+
                 <!-- ビュー切り替えタブ -->
                 <div class="dashboard-tabs">
                     <button class="dashboard-tab active" id="tab-facility" onclick="switchDashboardView('facility')">
@@ -229,7 +242,6 @@
                             </tbody>
                         </table>
                     </div>
-                    </div>
                 </div>
 
                 <!-- 時間帯別稼働率テーブル -->
@@ -258,24 +270,48 @@
                             </tbody>
                         </table>
                     </div>
-                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Events Management -->
         <div class="events-section">
-            <div class="events-section-header">
+            <div class="events-section-header collapsible-header" id="section-header-events" onclick="toggleSection('events', event)">
                 <div>
-                    <h3>イベント一覧</h3>
+                    <h3>
+                        <span class="section-toggle-icon" id="section-toggle-events">▲</span>
+                        イベント一覧
+                        <span class="section-count-badge" id="section-count-events"></span>
+                    </h3>
                     <p class="section-desc" id="section-desc">まず上の「接続してデータを読み込む」を押してください</p>
                 </div>
-                <div class="header-actions">
+                <div class="header-actions" onclick="event.stopPropagation()">
                     <button class="btn btn-secondary" onclick="openAddModal()">＋ イベントを追加</button>
                     <button class="btn btn-success" id="btn-deploy" onclick="pushToGitHub()">
                         公開サイトに反映する
                     </button>
                 </div>
+            </div>
+
+            <div id="section-body-events">
+
+            <!-- 検索・絞り込みバー -->
+            <div class="event-filter-bar">
+                <div class="event-filter-search">
+                    <span class="event-filter-icon">🔍</span>
+                    <input type="search" id="event-search-input" placeholder="タイトル / 担当者 / 場所 / カテゴリで検索..." oninput="onEventFilterChange()">
+                </div>
+                <select id="event-usage-filter" onchange="onEventFilterChange()" class="event-filter-select">
+                    <option value="all">利用区分：すべて</option>
+                    <option value="external">外部利用のみ</option>
+                    <option value="internal">内部利用のみ</option>
+                    <option value="unset">未分類のみ</option>
+                </select>
+                <select id="event-category-filter" onchange="onEventFilterChange()" class="event-filter-select">
+                    <option value="all">カテゴリ：すべて</option>
+                </select>
+                <button type="button" class="btn btn-secondary btn-sm event-filter-clear" onclick="clearEventFilters()">クリア</button>
+                <span class="event-filter-count" id="event-filter-count"></span>
             </div>
 
             <div class="events-table-wrapper">
@@ -300,16 +336,23 @@
                     </tbody>
                 </table>
             </div>
+            </div><!-- /section-body-events -->
         </div>
 
         <!-- Pending Reports from Viewing Site -->
         <div class="events-section" id="pending-reports-section" style="display:none;">
-            <div class="events-section-header">
+            <div class="events-section-header collapsible-header" id="section-header-pending-reports" onclick="toggleSection('pending-reports', event)">
                 <div>
-                    <h3>実施報告 <span id="pending-reports-badge" class="pending-badge">0件</span></h3>
+                    <h3>
+                        <span class="section-toggle-icon" id="section-toggle-pending-reports">▲</span>
+                        実施報告
+                        <span id="pending-reports-badge" class="pending-badge">0件</span>
+                        <span class="section-count-badge" id="section-count-pending-reports"></span>
+                    </h3>
                     <p class="section-desc" id="pending-reports-desc">閲覧サイトから送信された実施報告の一覧です。</p>
                 </div>
             </div>
+            <div id="section-body-pending-reports">
             <div class="events-table-wrapper">
                 <table>
                     <thead>
@@ -327,16 +370,22 @@
                     </tbody>
                 </table>
             </div>
+            </div><!-- /section-body-pending-reports -->
         </div>
 
         <!-- Confirmed Reports -->
         <div class="events-section" id="confirmed-reports-section" style="display:none;">
-            <div class="events-section-header">
+            <div class="events-section-header collapsible-header" id="section-header-confirmed-reports" onclick="toggleSection('confirmed-reports', event)">
                 <div>
-                    <h3>確認済み報告</h3>
+                    <h3>
+                        <span class="section-toggle-icon" id="section-toggle-confirmed-reports">▼</span>
+                        確認済み報告
+                        <span class="section-count-badge" id="section-count-confirmed-reports"></span>
+                    </h3>
                     <p class="section-desc">確認済みの実施報告の一覧です。</p>
                 </div>
             </div>
+            <div id="section-body-confirmed-reports" style="display:none;">
             <div class="events-table-wrapper">
                 <table>
                     <thead>
@@ -354,21 +403,27 @@
                     </tbody>
                 </table>
             </div>
+            </div><!-- /section-body-confirmed-reports -->
         </div>
 
         <!-- Archived Events -->
         <div class="events-section archived-section">
-            <div class="events-section-header">
+            <div class="events-section-header collapsible-header" id="section-header-archived" onclick="toggleSection('archived', event)">
                 <div>
-                    <h3>アーカイブ</h3>
+                    <h3>
+                        <span class="section-toggle-icon" id="section-toggle-archived">▼</span>
+                        アーカイブ
+                        <span class="section-count-badge" id="section-count-archived"></span>
+                    </h3>
                     <p class="section-desc" id="archived-section-desc">実施済みイベントのアーカイブです</p>
                 </div>
-                <div class="header-actions">
+                <div class="header-actions" onclick="event.stopPropagation()">
                     <button class="btn btn-success" id="btn-archived-deploy" onclick="pushArchivedToGitHub()">
                         アーカイブを公開する
                     </button>
                 </div>
             </div>
+            <div id="section-body-archived" style="display:none;">
             <div class="events-table-wrapper">
                 <table>
                     <thead>
@@ -391,6 +446,7 @@
                     </tbody>
                 </table>
             </div>
+            </div><!-- /section-body-archived -->
         </div>
 
     </div>
@@ -424,6 +480,21 @@
                         <option value="研修">
                         <option value="社内イベント">
                     </datalist>
+                </div>
+
+                <!-- 利用区分 -->
+                <div class="form-group full-width">
+                    <label>利用区分 <span class="required">※必須</span></label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="f-usage-type" value="external">
+                            <span>外部利用（料金発生）</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="f-usage-type" value="internal" checked>
+                            <span>内部利用（料金なし）</span>
+                        </label>
+                    </div>
                 </div>
 
                 <!-- カード上部テーマカラー -->

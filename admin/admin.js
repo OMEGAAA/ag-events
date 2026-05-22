@@ -25,6 +25,69 @@ let archivedSha = '';
 let isArchivedDirty = false;
 let archivedPendingCount = 0;
 
+// ---- COLLAPSIBLE SECTIONS ----
+const COLLAPSE_STORAGE_KEY = 'ag_admin_collapse_state';
+// 初期表示時に開いている=false / 折りたたみ=true
+let sectionCollapseState = {
+    events: false,
+    'pending-reports': false,
+    'confirmed-reports': true,
+    archived: true,
+};
+
+function loadCollapseState() {
+    try {
+        const saved = JSON.parse(localStorage.getItem(COLLAPSE_STORAGE_KEY) || '{}');
+        sectionCollapseState = { ...sectionCollapseState, ...saved };
+    } catch (e) {}
+}
+
+function saveCollapseState() {
+    try { localStorage.setItem(COLLAPSE_STORAGE_KEY, JSON.stringify(sectionCollapseState)); } catch (e) {}
+}
+
+function applyCollapseState(key) {
+    const body = document.getElementById(`section-body-${key}`);
+    const icon = document.getElementById(`section-toggle-${key}`);
+    if (!body) return;
+    const collapsed = !!sectionCollapseState[key];
+    body.style.display = collapsed ? 'none' : 'block';
+    if (icon) icon.textContent = collapsed ? '▼' : '▲';
+    const header = document.getElementById(`section-header-${key}`);
+    if (header) header.classList.toggle('is-collapsed', collapsed);
+}
+
+function applyAllCollapseStates() {
+    ['events', 'pending-reports', 'confirmed-reports', 'archived'].forEach(applyCollapseState);
+}
+
+function toggleSection(key, ev) {
+    if (ev) ev.stopPropagation();
+    sectionCollapseState[key] = !sectionCollapseState[key];
+    applyCollapseState(key);
+    saveCollapseState();
+}
+
+function setAllSectionsCollapsed(collapsed) {
+    ['events', 'pending-reports', 'confirmed-reports', 'archived'].forEach(k => {
+        sectionCollapseState[k] = collapsed;
+        applyCollapseState(k);
+    });
+    saveCollapseState();
+}
+
+function updateSectionCountBadge(key, count) {
+    const el = document.getElementById(`section-count-${key}`);
+    if (!el) return;
+    if (count > 0) {
+        el.textContent = `${count}件`;
+        el.style.display = 'inline-block';
+    } else {
+        el.textContent = '0件';
+        el.style.display = 'inline-block';
+    }
+}
+
 // ---- FIREBASE ----
 const FIREBASE_KEY = 'ag_firebase_config';
 let db = null;
@@ -136,6 +199,7 @@ function renderPendingReports() {
 
     const entries = Object.entries(pendingReports);
     if (badge) badge.textContent = `${entries.length}件`;
+    updateSectionCountBadge('pending-reports', entries.length);
 
     if (entries.length === 0) {
         section.style.display = 'none';
@@ -144,6 +208,7 @@ function renderPendingReports() {
     }
 
     section.style.display = 'block';
+    applyCollapseState('pending-reports');
     tbody.innerHTML = entries.map(([key, r]) => {
         const submitted = r.submittedAt ? new Date(r.submittedAt).toLocaleString('ja-JP') : '';
         return `<tr>
@@ -284,6 +349,7 @@ function renderConfirmedReports() {
 
     const entries = Object.entries(confirmedReports);
     if (badge) badge.textContent = `${entries.length}件`;
+    updateSectionCountBadge('confirmed-reports', entries.length);
 
     if (entries.length === 0) {
         section.style.display = 'none';
@@ -292,6 +358,7 @@ function renderConfirmedReports() {
     }
 
     section.style.display = 'block';
+    applyCollapseState('confirmed-reports');
     const sorted = entries.sort((a, b) => {
         const ta = a[1].confirmedAt || '';
         const tb = b[1].confirmedAt || '';
@@ -790,44 +857,6 @@ function sortEventList(key) {
     renderEventList();
 }
 
-function getSortedEvents() {
-    return events.slice().sort((a, b) => {
-        let av, bv;
-        switch (eventSortKey) {
-            case 'title':
-                av = a.title || '';
-                bv = b.title || '';
-                break;
-            case 'date':
-                av = (Array.isArray(a.dates) && a.dates.length > 0 ? a.dates[0].startDate : a.startDate) || '';
-                bv = (Array.isArray(b.dates) && b.dates.length > 0 ? b.dates[0].startDate : b.startDate) || '';
-                break;
-            case 'location':
-                av = Array.isArray(a.locations) && a.locations.length > 0 ? a.locations.join('') : (a.location || '');
-                bv = Array.isArray(b.locations) && b.locations.length > 0 ? b.locations.join('') : (b.location || '');
-                break;
-            case 'category':
-                av = a.categoryText || '';
-                bv = b.categoryText || '';
-                break;
-            case 'sns':
-                av = a.snsPR || '';
-                bv = b.snsPR || '';
-                break;
-            case 'manager':
-                av = a.manager || '';
-                bv = b.manager || '';
-                break;
-            default:
-                av = (Array.isArray(a.dates) && a.dates.length > 0 ? a.dates[0].startDate : a.startDate) || '';
-                bv = (Array.isArray(b.dates) && b.dates.length > 0 ? b.dates[0].startDate : b.startDate) || '';
-        }
-        if (av < bv) return -1 * eventSortDir;
-        if (av > bv) return 1 * eventSortDir;
-        return 0;
-    });
-}
-
 function getEventSortIcon(key) {
     if (eventSortKey !== key) return '<span class="sort-icon">↕</span>';
     return eventSortDir === 1 ? '<span class="sort-icon active">↑</span>' : '<span class="sort-icon active">↓</span>';
@@ -844,21 +873,113 @@ function updateEventSortHeaders() {
     });
 }
 
+// ---- EVENT FILTER (検索・絞り込み) ----
+
+function onEventFilterChange() {
+    renderEventList();
+}
+
+function clearEventFilters() {
+    const searchEl = document.getElementById('event-search-input');
+    const usageEl = document.getElementById('event-usage-filter');
+    const catEl = document.getElementById('event-category-filter');
+    if (searchEl) searchEl.value = '';
+    if (usageEl) usageEl.value = 'all';
+    if (catEl) catEl.value = 'all';
+    renderEventList();
+}
+
+function refreshCategoryFilterOptions() {
+    const sel = document.getElementById('event-category-filter');
+    if (!sel) return;
+    const current = sel.value || 'all';
+    const cats = [...new Set(events.map(e => (e.categoryText || '').trim()).filter(Boolean))].sort();
+    sel.innerHTML = '<option value="all">カテゴリ：すべて</option>' +
+        cats.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+    sel.value = (current === 'all' || cats.includes(current)) ? current : 'all';
+}
+
+function getFilteredEvents() {
+    const q = (document.getElementById('event-search-input')?.value || '').trim().toLowerCase();
+    const usage = document.getElementById('event-usage-filter')?.value || 'all';
+    const cat = document.getElementById('event-category-filter')?.value || 'all';
+
+    return events.filter(e => {
+        if (usage === 'external' && e.usageType !== 'external') return false;
+        if (usage === 'internal' && e.usageType !== 'internal') return false;
+        if (usage === 'unset' && (e.usageType === 'external' || e.usageType === 'internal')) return false;
+        if (cat !== 'all' && (e.categoryText || '') !== cat) return false;
+
+        if (q) {
+            const locText = Array.isArray(e.locations) && e.locations.length > 0
+                ? e.locations.join(' ')
+                : (e.location || '');
+            const haystack = [
+                e.title, e.categoryText, e.manager, locText, e.participants, e.notes
+            ].map(v => String(v ?? '').toLowerCase()).join(' ');
+            if (!haystack.includes(q)) return false;
+        }
+        return true;
+    });
+}
+
+function getSortedFilteredEvents() {
+    const filtered = getFilteredEvents();
+    return filtered.slice().sort((a, b) => {
+        let av, bv;
+        switch (eventSortKey) {
+            case 'title':    av = a.title || ''; bv = b.title || ''; break;
+            case 'date':     av = (Array.isArray(a.dates) && a.dates.length > 0 ? a.dates[0].startDate : a.startDate) || '';
+                             bv = (Array.isArray(b.dates) && b.dates.length > 0 ? b.dates[0].startDate : b.startDate) || ''; break;
+            case 'location': av = Array.isArray(a.locations) && a.locations.length > 0 ? a.locations.join('') : (a.location || '');
+                             bv = Array.isArray(b.locations) && b.locations.length > 0 ? b.locations.join('') : (b.location || ''); break;
+            case 'category': av = a.categoryText || ''; bv = b.categoryText || ''; break;
+            case 'sns':      av = a.snsPR || ''; bv = b.snsPR || ''; break;
+            case 'manager':  av = a.manager || ''; bv = b.manager || ''; break;
+            default:         av = (Array.isArray(a.dates) && a.dates.length > 0 ? a.dates[0].startDate : a.startDate) || '';
+                             bv = (Array.isArray(b.dates) && b.dates.length > 0 ? b.dates[0].startDate : b.startDate) || '';
+        }
+        if (av < bv) return -1 * eventSortDir;
+        if (av > bv) return 1 * eventSortDir;
+        return 0;
+    });
+}
+
 function renderEventList() {
     const tbody = document.getElementById('events-tbody');
     const desc  = document.getElementById('section-desc');
+    const countEl = document.getElementById('event-filter-count');
 
     updateEventSortHeaders();
+    refreshCategoryFilterOptions();
+
+    updateSectionCountBadge('events', events.length);
 
     if (events.length === 0) {
         tbody.innerHTML = `<tr><td colspan="7" class="empty-state">イベントがありません。「＋ イベントを追加」から追加してください。</td></tr>`;
         if (desc) desc.textContent = 'イベントはまだありません';
+        if (countEl) countEl.textContent = '';
         return;
     }
 
-    if (desc) desc.textContent = `${events.length}件のイベントが登録されています`;
+    const sortedFiltered = getSortedFilteredEvents();
+    const isFiltered = sortedFiltered.length !== events.length;
 
-    tbody.innerHTML = getSortedEvents().map(e => {
+    if (desc) desc.textContent = `${events.length}件のイベントが登録されています`;
+    if (countEl) {
+        countEl.textContent = isFiltered
+            ? `${sortedFiltered.length} / ${events.length}件 を表示`
+            : `${events.length}件`;
+        countEl.classList.toggle('is-filtered', isFiltered);
+    }
+
+    if (sortedFiltered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="empty-state">条件に一致するイベントがありません。<button class="btn-text" onclick="clearEventFilters()">絞り込みをクリア</button></td></tr>`;
+        if (typeof renderDashboard === 'function') renderDashboard();
+        return;
+    }
+
+    tbody.innerHTML = sortedFiltered.map(e => {
         const locText = Array.isArray(e.locations) && e.locations.length > 0
             ? e.locations.join('・')
             : (e.location || '—');
@@ -881,6 +1002,12 @@ function renderEventList() {
             ? `<div class="editing-badge" title="${escapeHtml(editingUser[1].name)}が編集中">✏️ ${escapeHtml(editingUser[1].name)}</div>`
             : '';
 
+        const usageBadge = e.usageType === 'external'
+            ? '<span class="usage-badge usage-external" title="外部利用（料金発生）">外部</span>'
+            : e.usageType === 'internal'
+                ? '<span class="usage-badge usage-internal" title="内部利用（料金なし）">内部</span>'
+                : '';
+
         return `
         <tr class="${overlaps.length > 0 ? 'row-overlap' : ''}">
             <td>
@@ -889,7 +1016,7 @@ function renderEventList() {
             </td>
             <td style="white-space:nowrap; font-size:0.85rem; color:var(--text-secondary);">${escapeHtml(e.date)}</td>
             <td style="font-size:0.82rem;">${escapeHtml(locText)}</td>
-            <td><span class="category-badge ${escapeHtml(e.category)}">${escapeHtml(e.categoryText)}</span></td>
+            <td><span class="category-badge ${escapeHtml(e.category)}">${escapeHtml(e.categoryText)}</span>${usageBadge}</td>
             <td>
                 <span class="sns-badge ${sns.cls}">${sns.text}</span>
                 ${snsDate}
@@ -968,6 +1095,11 @@ function openEditModal(id) {
     document.getElementById('f-sns-date').value = event.snsAvailableFrom || '';
     document.getElementById('sns-date-row').style.display = snsVal === 'allowed' ? 'block' : 'none';
 
+    // 利用区分（未設定の旧データは internal を初期選択）
+    const usageVal = event.usageType || 'internal';
+    const usageRadio = document.querySelector(`input[name="f-usage-type"][value="${usageVal}"]`);
+    if (usageRadio) usageRadio.checked = true;
+
     updatePresence(id);
     document.getElementById('modal-overlay').style.display = 'flex';
 }
@@ -995,6 +1127,8 @@ function clearForm() {
     const defaultSns = document.querySelector('input[name="f-sns"][value="not-allowed"]');
     if (defaultSns) defaultSns.checked = true;
     document.getElementById('sns-date-row').style.display = 'none';
+    const defaultUsage = document.querySelector('input[name="f-usage-type"][value="internal"]');
+    if (defaultUsage) defaultUsage.checked = true;
     clearDateRows();
 }
 
@@ -1047,13 +1181,14 @@ function saveEvent() {
     const participants = document.getElementById('f-participants').value.trim();
     const snsPR        = document.querySelector('input[name="f-sns"]:checked')?.value || 'not-allowed';
     const snsAvailableFrom = snsPR === 'allowed' ? document.getElementById('f-sns-date').value.trim() : '';
+    const usageType    = document.querySelector('input[name="f-usage-type"]:checked')?.value || 'internal';
     const manager      = document.getElementById('f-manager').value.trim();
     const notes        = document.getElementById('f-notes').value.trim();
     let cardColor      = document.getElementById('f-card-color').value;
     if (cardColor === '#000000') cardColor = '';
 
     const tempId    = editingId !== null ? editingId : -1;
-    const eventData = { id: tempId, title, date, dates, startDate, endDate, startTime, endTime, category, categoryText, cardColor, locations, participants, snsPR, snsAvailableFrom, manager, notes };
+    const eventData = { id: tempId, title, date, dates, startDate, endDate, startTime, endTime, category, categoryText, cardColor, locations, participants, snsPR, snsAvailableFrom, usageType, manager, notes };
 
     const overlaps = checkOverlaps(eventData, events);
     if (overlaps.length > 0) {
@@ -1653,6 +1788,8 @@ function renderArchivedList() {
     const desc  = document.getElementById('archived-section-desc');
     if (!tbody) return;
 
+    updateSectionCountBadge('archived', archivedEvents.length);
+
     if (archivedEvents.length === 0) {
         tbody.innerHTML = `<tr><td colspan="7" class="empty-state">アーカイブされたイベントはありません。</td></tr>`;
         if (desc) desc.textContent = 'アーカイブはまだありません';
@@ -1705,6 +1842,28 @@ const FACILITY_COLORS = [
 
 let dashboardYear = new Date().getFullYear();
 let dashboardMonth = new Date().getMonth(); // 0-indexed
+let dashboardUsageFilter = 'all'; // 'all' | 'external' | 'internal'
+
+function getDashboardEvents() {
+    const all = [...events, ...archivedEvents];
+    if (dashboardUsageFilter === 'all') return all;
+    return all.filter(e => (e.usageType || '') === dashboardUsageFilter);
+}
+
+function setDashboardUsageFilter(filter) {
+    if (filter !== 'all' && filter !== 'external' && filter !== 'internal') return;
+    dashboardUsageFilter = filter;
+    document.querySelectorAll('#usage-filter .usage-filter-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.usage === filter);
+    });
+    renderDashboard();
+}
+
+function usageFilterLabel(filter) {
+    if (filter === 'external') return '外部利用';
+    if (filter === 'internal') return '内部利用';
+    return '全て';
+}
 
 
 function prevDashboardMonth() {
@@ -1812,8 +1971,8 @@ const FACILITY_DISPLAY_NAMES = [
     'スタジオ',
     'バッティングブースA',
     'バッティングブースB',
-    '打席エリア',
-    '投球測定エリア',
+    '打撃エリア',
+    '投手測定エリア',
     '食堂',
     '多目的室',
     'パワーエリア'
@@ -1908,7 +2067,7 @@ function populateTimeFacilitySelect() {
 }
 
 function calcUtilization(year, month) {
-    const allEvents = [...events, ...archivedEvents];
+    const allEvents = getDashboardEvents();
     const daysInMonth = getDaysInMonth(year, month);
     const monthStr = `${year}-${String(month + 1).padStart(2, '0')}`;
     const availableMinutes = daysInMonth * BUSINESS_MINUTES_PER_DAY;
@@ -1983,14 +2142,18 @@ function renderDashboard() {
     if (label) label.textContent = `${dashboardYear}年${dashboardMonth + 1}月`;
     populateTimeFacilitySelect();
 
-    const allEvents = [...events, ...archivedEvents];
+    const allEvents = getDashboardEvents();
+    const hasAnyData = events.length > 0 || archivedEvents.length > 0;
     if (allEvents.length === 0) {
         document.getElementById('kpi-event-count').textContent = '—';
         document.getElementById('kpi-active-facilities').textContent = '—';
         document.getElementById('kpi-top-facility').textContent = '—';
         document.getElementById('kpi-avg-rate').textContent = '—';
-        if (tbody) tbody.innerHTML = '<tr><td colspan="5" class="empty-state">イベントデータを読み込むと稼働率が表示されます</td></tr>';
-        if (badge) badge.style.display = 'none';
+        const msg = hasAnyData
+            ? `この利用区分（${usageFilterLabel(dashboardUsageFilter)}）のイベントはありません`
+            : 'イベントデータを読み込むと稼働率が表示されます';
+        if (tbody) tbody.innerHTML = `<tr><td colspan="5" class="empty-state">${escapeHtml(msg)}</td></tr>`;
+        if (badge) badge.style.display = hasAnyData ? 'inline-block' : 'none';
         renderWeekdayView();
         renderTimeView();
         return;
@@ -2054,7 +2217,7 @@ function renderDashboard() {
 }
 
 function calcWeekdayUtilization(year, month) {
-    const allEvents = [...events, ...archivedEvents];
+    const allEvents = getDashboardEvents();
     const daysInMonth = getDaysInMonth(year, month);
     const monthStr = `${year}-${String(month + 1).padStart(2, '0')}`;
     const weekdayCounts = new Array(7).fill(0);
@@ -2131,9 +2294,13 @@ function renderWeekdayView() {
     const summaryGrid = document.getElementById('weekday-summary-grid');
     if (!tbody) return;
 
-    const allEvents = [...events, ...archivedEvents];
+    const allEvents = getDashboardEvents();
+    const hasAnyData = events.length > 0 || archivedEvents.length > 0;
     if (allEvents.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="9" class="empty-state">イベントデータを読み込むと曜日別稼働率が表示されます</td></tr>';
+        const msg = hasAnyData
+            ? `この利用区分（${usageFilterLabel(dashboardUsageFilter)}）のイベントはありません`
+            : 'イベントデータを読み込むと曜日別稼働率が表示されます';
+        tbody.innerHTML = `<tr><td colspan="9" class="empty-state">${escapeHtml(msg)}</td></tr>`;
         if (summaryGrid) summaryGrid.innerHTML = '';
         return;
     }
@@ -2191,7 +2358,7 @@ function renderWeekdayView() {
 }
 
 function calcTimeUtilization(year, month, targetFacility) {
-    const allEvents = [...events, ...archivedEvents];
+    const allEvents = getDashboardEvents();
     const daysInMonth = getDaysInMonth(year, month);
     const monthStr = `${year}-${String(month + 1).padStart(2, '0')}`;
     const weekdayCounts = new Array(7).fill(0);
@@ -2251,9 +2418,13 @@ function renderTimeView() {
     if (!table) return;
     populateTimeFacilitySelect();
 
-    const allEvents = [...events, ...archivedEvents];
+    const allEvents = getDashboardEvents();
+    const hasAnyData = events.length > 0 || archivedEvents.length > 0;
     if (allEvents.length === 0) {
-        table.innerHTML = '<tbody><tr><td class="empty-state">イベントデータを読み込むと時間帯別稼働率が表示されます</td></tr></tbody>';
+        const msg = hasAnyData
+            ? `この利用区分（${usageFilterLabel(dashboardUsageFilter)}）のイベントはありません`
+            : 'イベントデータを読み込むと時間帯別稼働率が表示されます';
+        table.innerHTML = `<tbody><tr><td class="empty-state">${escapeHtml(msg)}</td></tr></tbody>`;
         return;
     }
 
@@ -2295,9 +2466,11 @@ function renderTimeView() {
 // ---- INIT ----
 loadConfig();
 loadFirebaseConfig();
+loadCollapseState();
 renderEventList();
 renderReportList();
 renderArchivedList();
 renderDashboard();
+applyAllCollapseStates();
 
 
