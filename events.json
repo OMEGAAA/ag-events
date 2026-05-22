@@ -3095,34 +3095,6 @@
     "title": "台湾少年野球サマーキャンプ【仮】"
   },
   {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "測定",
-    "date": "5月21日 12:00〜18:00",
-    "dates": [
-      {
-        "endDate": "2026-05-21",
-        "endTime": "18:00",
-        "startDate": "2026-05-21",
-        "startTime": "12:00"
-      }
-    ],
-    "endDate": "2026-05-21",
-    "endTime": "18:00",
-    "id": 151,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "福田直樹",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-21",
-    "startTime": "12:00",
-    "title": "東大測定"
-  },
-  {
     "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "練習",
@@ -3152,5 +3124,37 @@
     "startDate": "2026-05-22",
     "startTime": "09:00",
     "title": "AGK高等学院練習"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "7月9日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-07-09",
+        "endTime": "17:00",
+        "startDate": "2026-07-09",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-07-09",
+    "endTime": "17:00",
+    "id": 153,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村航大",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-09",
+    "startTime": "09:00",
+    "title": "AGK男子野球部練習"
   }
 ]
