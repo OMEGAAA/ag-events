@@ -3071,5 +3071,34 @@
     "startTime": "09:30",
     "title": "シルバー大学",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "5月21日 12:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-05-21",
+        "endTime": "18:00",
+        "startDate": "2026-05-21",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-05-21",
+    "endTime": "18:00",
+    "id": 157,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "7",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-21",
+    "startTime": "12:00",
+    "title": "東大測定（オイシックス）",
+    "usageType": "external"
   }
 ]
