@@ -3039,5 +3039,37 @@
     "startTime": "09:00",
     "title": "本庄第一中学校測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "8月26日 09:30〜11:00",
+    "dates": [
+      {
+        "endDate": "2026-08-26",
+        "endTime": "11:00",
+        "startDate": "2026-08-26",
+        "startTime": "09:30"
+      }
+    ],
+    "endDate": "2026-08-26",
+    "endTime": "11:00",
+    "id": 156,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "星野真澄",
+    "notes": "",
+    "participants": "50",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-26",
+    "startTime": "09:30",
+    "title": "シルバー大学",
+    "usageType": "external"
   }
 ]
