@@ -131,44 +131,6 @@
   {
     "cardColor": "#ff69b4",
     "category": "other",
-    "categoryText": "測定",
-    "date": "4月29日 他1件",
-    "dates": [
-      {
-        "endDate": "2026-04-29",
-        "endTime": "18:00",
-        "startDate": "2026-04-29",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-05-23",
-        "endTime": "18:00",
-        "startDate": "2026-05-23",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-23",
-    "endTime": "18:00",
-    "id": 7,
-    "locations": [
-      "室内練習場",
-      "ベースボールエリア",
-      "アローズエリア",
-      "パワーエリア",
-      "パワーエリア"
-    ],
-    "manager": "大向",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-04-29",
-    "startTime": "09:00",
-    "title": "埼玉叡明高校硬式野球部様(仮予約)"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
     "categoryText": "大会",
     "date": "8月26日 他2件",
     "dates": [
@@ -564,34 +526,6 @@
     "startDate": "2026-05-01",
     "startTime": "10:00",
     "title": "打撃測定"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "5月25日 09:00〜12:00",
-    "dates": [
-      {
-        "endDate": "2026-05-25",
-        "endTime": "12:00",
-        "startDate": "2026-05-25",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-25",
-    "endTime": "12:00",
-    "id": 61,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大塚　克己",
-    "notes": "",
-    "participants": "10",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-25",
-    "startTime": "09:00",
-    "title": "エイジェック高等学院"
   },
   {
     "cardColor": "#ff0000",
@@ -1399,59 +1333,6 @@
     "title": "健康アカデミー"
   },
   {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "4月20日 他4件",
-    "dates": [
-      {
-        "endDate": "2026-04-20",
-        "endTime": "17:00",
-        "startDate": "2026-04-20",
-        "startTime": "16:00"
-      },
-      {
-        "endDate": "2026-04-27",
-        "endTime": "14:00",
-        "startDate": "2026-04-27",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-05-11",
-        "endTime": "14:00",
-        "startDate": "2026-05-11",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-05-18",
-        "endTime": "14:00",
-        "startDate": "2026-05-18",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-05-25",
-        "endTime": "14:00",
-        "startDate": "2026-05-25",
-        "startTime": "13:00"
-      }
-    ],
-    "endDate": "2026-05-25",
-    "endTime": "17:00",
-    "id": 91,
-    "locations": [
-      "パワーエリア",
-      "パワーエリア"
-    ],
-    "manager": "大塚",
-    "notes": "",
-    "participants": "6名",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-04-20",
-    "startTime": "16:00",
-    "title": "エイジェック高等学院生徒練習"
-  },
-  {
     "cardColor": "#ffff00",
     "category": "other",
     "categoryText": "社内イベント",
@@ -1544,41 +1425,6 @@
     "startDate": "2026-05-05",
     "startTime": "14:00",
     "title": "健康アカデミー"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "その他",
-    "date": "5月24日 09:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-05-24",
-        "endTime": "17:00",
-        "startDate": "2026-05-24",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-24",
-    "endTime": "17:00",
-    "id": 109,
-    "locations": [
-      "室内練習場",
-      "ベースボールエリア",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "投手測定エリア",
-      "パワーエリア",
-      "パワーエリア"
-    ],
-    "manager": "山村",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-24",
-    "startTime": "09:00",
-    "title": "AGK男子練習"
   },
   {
     "cardColor": "#ff0000",
@@ -3075,30 +2921,85 @@
   {
     "cardColor": "#ff69b4",
     "category": "other",
-    "categoryText": "イベント",
-    "date": "5月21日 12:00〜18:00",
+    "categoryText": "ドローン講習",
+    "date": "6月16日 他3件",
     "dates": [
       {
-        "endDate": "2026-05-21",
-        "endTime": "18:00",
-        "startDate": "2026-05-21",
-        "startTime": "12:00"
+        "endDate": "2026-06-16",
+        "endTime": "17:00",
+        "startDate": "2026-06-16",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-17",
+        "endTime": "17:00",
+        "startDate": "2026-06-17",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-18",
+        "endTime": "17:00",
+        "startDate": "2026-06-18",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-19",
+        "endTime": "17:00",
+        "startDate": "2026-06-19",
+        "startTime": "09:00"
       }
     ],
-    "endDate": "2026-05-21",
-    "endTime": "18:00",
+    "endDate": "2026-06-19",
+    "endTime": "17:00",
     "id": 157,
     "locations": [
-      "室内練習場"
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
     ],
-    "manager": "福田直樹",
+    "manager": "星野",
     "notes": "",
-    "participants": "7",
+    "participants": "10名",
     "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-21",
-    "startTime": "12:00",
-    "title": "東大測定（オイシックス）",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-16",
+    "startTime": "09:00",
+    "title": "ドローン講習",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "7月20日 08:30〜12:30",
+    "dates": [
+      {
+        "endDate": "2026-07-20",
+        "endTime": "12:30",
+        "startDate": "2026-07-20",
+        "startTime": "08:30"
+      }
+    ],
+    "endDate": "2026-07-20",
+    "endTime": "12:30",
+    "id": 158,
+    "locations": [
+      "室内練習場",
+      "アローズエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山口",
+    "notes": "",
+    "participants": "50名×2クラス",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-20",
+    "startTime": "08:30",
+    "title": "かけっこスピードアップ教室",
     "usageType": "external"
   }
 ]
