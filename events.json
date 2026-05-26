@@ -2922,8 +2922,14 @@
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "ドローン講習",
-    "date": "6月16日 他3件",
+    "date": "6月15日 他4件",
     "dates": [
+      {
+        "endDate": "2026-06-15",
+        "endTime": "17:00",
+        "startDate": "2026-06-15",
+        "startTime": "09:00"
+      },
       {
         "endDate": "2026-06-16",
         "endTime": "17:00",
@@ -2963,7 +2969,7 @@
     "participants": "10名",
     "snsAvailableFrom": "",
     "snsPR": "not-allowed",
-    "startDate": "2026-06-16",
+    "startDate": "2026-06-15",
     "startTime": "09:00",
     "title": "ドローン講習",
     "usageType": "external"
