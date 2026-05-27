@@ -73,64 +73,6 @@
   {
     "cardColor": "#ff69b4",
     "category": "other",
-    "categoryText": "アローズ",
-    "date": "4月21日 他5件",
-    "dates": [
-      {
-        "endDate": "2026-04-21",
-        "endTime": "11:00",
-        "startDate": "2026-04-21",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-04-28",
-        "endTime": "11:00",
-        "startDate": "2026-04-28",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-05",
-        "endTime": "11:00",
-        "startDate": "2026-05-05",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-12",
-        "endTime": "11:00",
-        "startDate": "2026-05-12",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-19",
-        "endTime": "11:00",
-        "startDate": "2026-05-19",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-26",
-        "endTime": "11:00",
-        "startDate": "2026-05-26",
-        "startTime": "10:00"
-      }
-    ],
-    "endDate": "2026-05-26",
-    "endTime": "11:00",
-    "id": 4,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "山﨑",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-04-21",
-    "startTime": "10:00",
-    "title": "しずわでら体育授業"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
     "categoryText": "大会",
     "date": "8月26日 他2件",
     "dates": [
@@ -526,34 +468,6 @@
     "startDate": "2026-05-01",
     "startTime": "10:00",
     "title": "打撃測定"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "5月26日 13:00〜16:00",
-    "dates": [
-      {
-        "endDate": "2026-05-26",
-        "endTime": "16:00",
-        "startDate": "2026-05-26",
-        "startTime": "13:00"
-      }
-    ],
-    "endDate": "2026-05-26",
-    "endTime": "16:00",
-    "id": 62,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大塚　克己",
-    "notes": "",
-    "participants": "10",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-26",
-    "startTime": "13:00",
-    "title": "エイジェック高等学院"
   },
   {
     "cardColor": "#ff0000",
@@ -3029,5 +2943,106 @@
     "startTime": "13:00",
     "title": "AGK高等学院練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ffff00",
+    "category": "health",
+    "categoryText": "健康アカデミー",
+    "date": "6月2日 他12件",
+    "dates": [
+      {
+        "endDate": "2026-06-02",
+        "endTime": "16:00",
+        "startDate": "2026-06-02",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-06-03",
+        "endTime": "16:00",
+        "startDate": "2026-06-03",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-06-05",
+        "endTime": "15:00",
+        "startDate": "2026-06-05",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-09",
+        "endTime": "16:00",
+        "startDate": "2026-06-09",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-06-10",
+        "endTime": "16:00",
+        "startDate": "2026-06-10",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-06-12",
+        "endTime": "15:00",
+        "startDate": "2026-06-12",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-16",
+        "endTime": "16:00",
+        "startDate": "2026-06-16",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-06-17",
+        "endTime": "16:00",
+        "startDate": "2026-06-17",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-06-19",
+        "endTime": "15:00",
+        "startDate": "2026-06-19",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-23",
+        "endTime": "16:00",
+        "startDate": "2026-06-23",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-06-24",
+        "endTime": "16:00",
+        "startDate": "2026-06-24",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-06-26",
+        "endTime": "15:00",
+        "startDate": "2026-06-26",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-30",
+        "endTime": "16:00",
+        "startDate": "2026-06-30",
+        "startTime": "14:00"
+      }
+    ],
+    "endDate": "2026-06-30",
+    "endTime": "16:00",
+    "id": 160,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "古谷",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-02",
+    "startTime": "14:00",
+    "title": "健康アカデミー",
+    "usageType": "external"
   }
 ]
