@@ -32,8 +32,14 @@ body {
     color: var(--text-primary);
     font-family: 'Inter', 'Noto Sans JP', sans-serif;
     min-height: 100vh;
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+/* スムーズスクロール（ナビからのジャンプ用） */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
 }
 
 /* ---- HEADER ---- */
@@ -78,6 +84,88 @@ body {
 }
 .site-link:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.25); }
 
+/* ---- SECTION NAV (ヘッダー追従のセクション移動タブ) ---- */
+.section-nav {
+    position: sticky;
+    top: 57px; /* ヘッダー直下。JSで実際の高さに補正 */
+    z-index: 90;
+    background: rgba(15, 23, 42, 0.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+}
+.section-nav-inner {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0.4rem 2rem;
+    display: flex;
+    gap: 0.35rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.section-nav-inner::-webkit-scrollbar { display: none; }
+
+.section-nav-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+.section-nav-item svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0.75;
+    flex-shrink: 0;
+    transition: opacity 0.18s;
+}
+.section-nav-item:hover {
+    background: rgba(59,130,246,0.08);
+    color: var(--text-primary);
+}
+.section-nav-item:hover svg { opacity: 1; }
+.section-nav-item.active {
+    background: rgba(59,130,246,0.15);
+    color: #93c5fd;
+    border-color: rgba(59,130,246,0.3);
+}
+.section-nav-item.active svg { opacity: 1; color: #60a5fa; }
+
+.section-nav-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 0.35rem;
+    border-radius: 999px;
+    background: #FEE2E2;
+    color: #DC2626;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+/* ジャンプ先がヘッダー+ナビに隠れないようオフセット */
+.dashboard-section,
+#events-main-section,
+#pending-reports-section,
+#confirmed-reports-section,
+#archived-section {
+    scroll-margin-top: 64px;
+}
+
+@media (max-width: 640px) {
+    .section-nav-inner { padding: 0.4rem 1rem; }
+    .section-nav-item span:not(.section-nav-count) { display: none; }
+    .section-nav-item { padding: 0.5rem 0.7rem; }
+}
+
 /* ---- CONTAINER ---- */
 .admin-container {
     max-width: 1050px;
@@ -115,7 +203,7 @@ body {
     margin-bottom: 1.25rem;
 }
 .settings-panel-header h3 {
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
 }
 
@@ -220,7 +308,7 @@ body {
 .form-group.full-width { grid-column: 1 / -1; }
 
 .form-group label {
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 500;
     color: var(--text-secondary);
 }
@@ -232,7 +320,7 @@ body {
 }
 
 .field-hint {
-    font-size: 0.74rem;
+    font-size: 0.78rem;
     color: #b4c0d3;
     margin-top: 0.1rem;
 }
@@ -358,13 +446,13 @@ body {
     gap: 0.75rem;
 }
 .events-section-header h3 {
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0.2rem;
 }
 
 .section-desc {
-    font-size: 0.8rem;
+    font-size: 0.83rem;
     color: var(--text-secondary);
 }
 
@@ -382,10 +470,10 @@ table { width: 100%; border-collapse: collapse; }
 
 th {
     text-align: left;
-    padding: 0.6rem 0.75rem;
+    padding: 0.7rem 0.85rem;
     border-bottom: 1px solid var(--border);
     color: var(--text-secondary);
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 500;
     white-space: nowrap;
 }
@@ -411,7 +499,7 @@ th.sortable:hover {
 }
 
 td {
-    padding: 0.7rem 0.75rem;
+    padding: 0.85rem 0.85rem;
     border-bottom: 1px solid rgba(255,255,255,0.04);
     vertical-align: middle;
 }

@@ -2519,4 +2519,70 @@ renderArchivedList();
 renderDashboard();
 applyAllCollapseStates();
 
+// ---- SECTION NAV (ヘッダー追従のセクション移動タブ) ----
+(function initSectionNav() {
+    const nav = document.getElementById('section-nav');
+    if (!nav) return;
+    const items = Array.from(nav.querySelectorAll('.section-nav-item'));
+    const header = document.querySelector('.admin-header');
+
+    // ジャンプ先オフセット（ヘッダー＋ナビの高さ）を動的に設定
+    function syncOffset() {
+        // ナビをヘッダー直下に固定（両方 sticky top:0 の重なりを防ぐ）
+        if (header) nav.style.top = header.offsetHeight + 'px';
+        const offset = (header ? header.offsetHeight : 0) + nav.offsetHeight + 12;
+        [
+            'dashboard-section', 'events-main-section', 'pending-reports-section',
+            'confirmed-reports-section', 'archived-section'
+        ].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.style.scrollMarginTop = offset + 'px';
+        });
+    }
+
+    // 非表示セクションに対応するタブは隠す＋未確認件数バッジ更新
+    function syncVisibility() {
+        items.forEach(item => {
+            const target = document.getElementById(item.dataset.target);
+            const visible = target && target.offsetParent !== null;
+            item.style.display = visible ? '' : 'none';
+        });
+        const pendingBadge = document.getElementById('pending-reports-badge');
+        const navCount = document.getElementById('section-nav-pending-count');
+        if (pendingBadge && navCount) {
+            const n = parseInt((pendingBadge.textContent || '').replace(/\D/g, ''), 10) || 0;
+            if (n > 0) { navCount.textContent = n; navCount.style.display = ''; }
+            else { navCount.style.display = 'none'; }
+        }
+    }
+
+    // スクロール位置に応じてアクティブなタブをハイライト
+    function syncActive() {
+        const line = (header ? header.offsetHeight : 0) + nav.offsetHeight + 24;
+        let current = null;
+        items.forEach(item => {
+            const target = document.getElementById(item.dataset.target);
+            if (!target || target.offsetParent === null) return;
+            if (target.getBoundingClientRect().top <= line) current = item;
+        });
+        items.forEach(i => i.classList.toggle('active', i === current));
+    }
+
+    let ticking = false;
+    function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => { syncActive(); ticking = false; });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => { syncOffset(); });
+    // 折りたたみ・データ更新で高さや表示が変わるため定期同期（軽量）
+    setInterval(() => { syncVisibility(); }, 1000);
+
+    syncOffset();
+    syncVisibility();
+    syncActive();
+})();
+
 
