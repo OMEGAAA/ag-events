@@ -13,6 +13,20 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ---- ACCESSIBILITY: キーボード操作時のフォーカスリング ---- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.checkbox-item:focus-within,
+.radio-item:focus-within,
+[onclick]:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
@@ -219,8 +233,7 @@ body {
 
 .field-hint {
     font-size: 0.74rem;
-    color: var(--text-secondary);
-    opacity: 0.65;
+    color: #b4c0d3;
     margin-top: 0.1rem;
 }
 
@@ -239,6 +252,13 @@ body {
 }
 .form-group input:focus,
 .form-group select:focus { outline: none; border-color: var(--accent-blue); }
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+    border-color: var(--accent-blue);
+}
 .form-group select option { background: #1e293b; }
 .form-group input[type="password"] { font-family: monospace; letter-spacing: 0.1em; }
 .form-group input[type="date"] { color-scheme: dark; }
@@ -1482,9 +1502,15 @@ tr:hover td { background: rgba(255,255,255,0.025); }
 .event-filter-icon {
     position: absolute;
     left: 0.65rem;
-    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
     opacity: 0.55;
     pointer-events: none;
+}
+.event-filter-icon svg {
+    width: 15px;
+    height: 15px;
+    color: var(--text-secondary);
 }
 
 .event-filter-search input {
