@@ -1143,6 +1143,17 @@ main {
     color: var(--accent-red);
     border-color: rgba(220, 38, 38, 0.3);
 }
+.detail-close:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+@media (max-width: 768px) {
+    .detail-close {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
 
 .detail-banner {
     height: 130px;
@@ -1987,6 +1998,30 @@ main {
     line-height: 1.4;
 }
 .lc-multi-time { font-size: 0.77rem; color: var(--text-secondary); font-weight: 400; margin-left: 0.3rem; }
+.lc-date-rest { display: flex; flex-direction: column; gap: 0.2rem; }
+.lc-date-rest[hidden] { display: none; }
+.lc-date-toggle {
+    margin-top: 0.3rem;
+    padding: 0.2rem 0.55rem;
+    font-family: inherit;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    background: rgba(2, 132, 199, 0.07);
+    border: 1px solid rgba(2, 132, 199, 0.2);
+    border-radius: 999px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.15s, border-color 0.15s;
+}
+.lc-date-toggle:hover {
+    background: rgba(2, 132, 199, 0.14);
+    border-color: rgba(2, 132, 199, 0.35);
+}
+.lc-date-toggle:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
 
 /* ---- MONTHLY CALENDAR VIEW ---- */
 .view-btn-cal {

@@ -195,6 +195,9 @@ function renderEvents() {
 
         const fmtD = (s) => { const d = new Date(s + 'T00:00:00'); return `${d.getMonth() + 1}月${d.getDate()}日`; };
         const eDates = getEventDates(e);
+        // 4回以上の複数日程は先頭2件＋トグルに畳み込み、カードの縦伸びと右の空白を抑える
+        const COLLAPSE_FROM = 4;
+        const VISIBLE_WHEN_COLLAPSED = 2;
         const dateHtml = eDates.length === 1
             ? (() => {
                 const d = eDates[0];
@@ -202,11 +205,22 @@ function renderEvents() {
                 const ts = d.startTime ? `${d.startTime}${d.endTime ? ' 〜 ' + d.endTime : ''}` : '';
                 return `<div class="lc-date">${escapeHtml(ds)}</div>${ts ? `<div class="lc-time">${escapeHtml(ts)}</div>` : ''}`;
             })()
-            : `<div class="lc-date-multi">${eDates.map(d => {
-                const ds = d.endDate && d.endDate !== d.startDate ? `${fmtD(d.startDate)}〜${fmtD(d.endDate)}` : fmtD(d.startDate);
-                const ts = d.startTime ? `<span class="lc-multi-time"> ${d.startTime}${d.endTime ? '〜' + d.endTime : ''}</span>` : '';
-                return `<div class="lc-multi-date">${escapeHtml(ds)}${ts}</div>`;
-            }).join('')}</div>`;
+            : (() => {
+                const items = eDates.map(d => {
+                    const ds = d.endDate && d.endDate !== d.startDate ? `${fmtD(d.startDate)}〜${fmtD(d.endDate)}` : fmtD(d.startDate);
+                    const ts = d.startTime ? `<span class="lc-multi-time"> ${d.startTime}${d.endTime ? '〜' + d.endTime : ''}</span>` : '';
+                    return `<div class="lc-multi-date">${escapeHtml(ds)}${ts}</div>`;
+                });
+                if (items.length < COLLAPSE_FROM) {
+                    return `<div class="lc-date-multi">${items.join('')}</div>`;
+                }
+                const hiddenCount = items.length - VISIBLE_WHEN_COLLAPSED;
+                return `<div class="lc-date-multi">`
+                    + items.slice(0, VISIBLE_WHEN_COLLAPSED).join('')
+                    + `<div class="lc-date-rest" hidden>${items.slice(VISIBLE_WHEN_COLLAPSED).join('')}</div>`
+                    + `<button type="button" class="lc-date-toggle" aria-expanded="false">＋ 他${hiddenCount}回を表示</button>`
+                    + `</div>`;
+            })();
 
         const card = document.createElement('div');
         card.className = `home-list-card ${escapeHtml(e.category)} fade-in`;
@@ -243,6 +257,20 @@ function renderEvents() {
             dateArea.addEventListener('click', ev => {
                 ev.stopPropagation();
                 openCalendarAtDate(e.startDate || getEventDates(e)[0].startDate);
+            });
+        }
+
+        // 複数日程トグル（カレンダー遷移・カード詳細を発火させない）
+        const dateToggle = card.querySelector('.lc-date-toggle');
+        if (dateToggle) {
+            const rest = card.querySelector('.lc-date-rest');
+            const hiddenCount = rest ? rest.querySelectorAll('.lc-multi-date').length : 0;
+            dateToggle.addEventListener('click', ev => {
+                ev.stopPropagation();
+                const expanded = dateToggle.getAttribute('aria-expanded') === 'true';
+                if (rest) rest.hidden = expanded;
+                dateToggle.setAttribute('aria-expanded', String(!expanded));
+                dateToggle.textContent = expanded ? `＋ 他${hiddenCount}回を表示` : '－ 折りたたむ';
             });
         }
 
@@ -316,15 +344,63 @@ function openDetail(id) {
         </div>
     `;
 
-    document.getElementById('detail-overlay').style.display = 'flex';
+    const overlay = document.getElementById('detail-overlay');
+    const modal = overlay.querySelector('.detail-modal');
+    modal.setAttribute('aria-label', `イベント詳細: ${e.title}`);
+    overlay.style.display = 'flex';
+
+    // モーダルを開いた瞬間のスクロール位置・フォーカスを整える
+    modal.scrollTop = 0;
+    detailLastFocused = document.activeElement;
+    const closeBtn = overlay.querySelector('.detail-close');
+    if (closeBtn) closeBtn.focus();
+}
+
+let detailLastFocused = null;
+
+function isDetailOpen() {
+    const overlay = document.getElementById('detail-overlay');
+    return overlay && overlay.style.display !== 'none';
 }
 
 function closeDetail() {
     document.getElementById('detail-overlay').style.display = 'none';
+    // 開く前にフォーカスしていた要素へ戻す
+    if (detailLastFocused && typeof detailLastFocused.focus === 'function') {
+        detailLastFocused.focus();
+    }
+    detailLastFocused = null;
 }
 
 document.getElementById('detail-overlay')?.addEventListener('click', e => {
     if (e.target === e.currentTarget) closeDetail();
+});
+
+// Escで閉じる ＋ Tabをモーダル内に閉じ込める（フォーカストラップ）
+document.addEventListener('keydown', e => {
+    if (!isDetailOpen()) return;
+    if (e.key === 'Escape') {
+        e.preventDefault();
+        closeDetail();
+        return;
+    }
+    if (e.key === 'Tab') {
+        const modal = document.querySelector('#detail-overlay .detail-modal');
+        if (!modal) return;
+        const focusables = modal.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    }
 });
 
 // ---- FULLCALENDAR ----

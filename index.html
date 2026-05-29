@@ -264,8 +264,8 @@
 
     <!-- ========== 詳細モーダル ========== -->
     <div id="detail-overlay" class="detail-overlay" style="display:none;">
-        <div class="detail-modal">
-            <button class="detail-close" onclick="closeDetail()">✕</button>
+        <div class="detail-modal" role="dialog" aria-modal="true" aria-label="イベント詳細">
+            <button class="detail-close" onclick="closeDetail()" aria-label="閉じる" title="閉じる">✕</button>
             <div id="detail-content"></div>
         </div>
     </div>
