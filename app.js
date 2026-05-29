@@ -444,6 +444,11 @@ function initCalendar() {
         eventClick: function(info) {
             openDetail(info.event.extendedProps.eventId);
         },
+        eventDidMount: function(info) {
+            // 月セルでラベルが切れても全文が読めるよう title 属性で補完
+            const timeText = info.timeText ? info.timeText + ' ' : '';
+            info.el.title = timeText + info.event.title;
+        },
         datesSet: function() {
             updateCalTitle();
         },

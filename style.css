@@ -462,6 +462,37 @@ main {
     padding: 0 2px;
 }
 
+/* 月ビューのイベント可読性（背景の色分けは変更なし、文字を読めるように） */
+#fullcalendar .fc-daygrid-event {
+    font-size: 0.79rem;
+    line-height: 1.28;
+    padding: 2px 4px !important;
+    min-height: 22px;
+    white-space: normal;
+}
+#fullcalendar .fc-daygrid-event .fc-event-time {
+    font-size: 0.72rem;
+    font-weight: 600;
+    opacity: 0.85;
+    margin-right: 3px;
+    flex-shrink: 0;
+}
+#fullcalendar .fc-daygrid-event .fc-event-title {
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.28;
+}
+/* 2行になったぶん、1日に見えるイベント数を確保 */
+#fullcalendar .fc-daygrid-day-frame {
+    min-height: 120px;
+}
+#fullcalendar .fc-daygrid-day-events {
+    max-height: 150px;
+}
+
 #fullcalendar .fc-timegrid-slot-label {
     font-size: 0.72rem;
     color: var(--text-muted);
