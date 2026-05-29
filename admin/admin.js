@@ -14,6 +14,7 @@ let editingId = null;
 let statusTimer = null;
 let isDirty = false;
 let pendingCount = 0;
+let pendingChanges = []; // 未反映の変更内容（ツールチップ表示用）
 
 // ---- SORT ----
 let eventSortKey = 'date';
@@ -692,7 +693,9 @@ async function pushToGitHub() {
 
 function markDirty(action) {
     isDirty = true;
-    pendingCount++;
+    const time = new Date().toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
+    pendingChanges.push({ text: action, time });
+    pendingCount = pendingChanges.length;
     updateDeployButton();
     showStatus(`${action}（まだ公開サイトには反映されていません）`, 'info');
 }
@@ -700,6 +703,7 @@ function markDirty(action) {
 function markClean() {
     isDirty = false;
     pendingCount = 0;
+    pendingChanges = [];
     updateDeployButton();
 }
 
@@ -709,9 +713,12 @@ function updateDeployButton() {
     if (isDirty && pendingCount > 0) {
         btn.textContent = `公開サイトに反映する（未反映: ${pendingCount}件）`;
         btn.classList.add('has-changes');
+        const list = pendingChanges.map(c => `・${c.time}  ${c.text}`).join('\n');
+        btn.title = `未反映の変更（${pendingCount}件）\n${list}\n\nクリックで公開サイトに反映します`;
     } else {
         btn.textContent = '公開サイトに反映する';
         btn.classList.remove('has-changes');
+        btn.removeAttribute('title');
     }
 }
 
