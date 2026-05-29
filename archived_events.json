@@ -1819,5 +1819,1987 @@
     "title": "白鷗大学硬式野球部　練習",
     "originalEventId": 116,
     "archivedAt": "2026-05-03T04:20:54.652Z"
+  },
+  {
+    "cardColor": "#ffff00",
+    "category": "health",
+    "categoryText": "健康アカデミー",
+    "date": "4月2日 他7件",
+    "dates": [
+      {
+        "endDate": "2026-04-02",
+        "endTime": "16:00",
+        "startDate": "2026-04-02",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-04-09",
+        "endTime": "16:00",
+        "startDate": "2026-04-09",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-04-23",
+        "endTime": "16:00",
+        "startDate": "2026-04-23",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-04-30",
+        "endTime": "16:00",
+        "startDate": "2026-04-30",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-05-07",
+        "endTime": "16:00",
+        "startDate": "2026-05-07",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-05-14",
+        "endTime": "16:00",
+        "startDate": "2026-05-14",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-05-21",
+        "endTime": "16:00",
+        "startDate": "2026-05-21",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-05-28",
+        "endTime": "16:00",
+        "startDate": "2026-05-28",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-05-28",
+    "endTime": "16:00",
+    "id": 59,
+    "locations": [
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-02",
+    "startTime": "13:00",
+    "title": "健康アカデミー（一旦5月まで）",
+    "usageType": "external",
+    "originalEventId": 161,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "5月27日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-05-27",
+        "endTime": "12:00",
+        "startDate": "2026-05-27",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-27",
+    "endTime": "12:00",
+    "id": 60,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-27",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 162,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "5月28日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-05-28",
+        "endTime": "12:00",
+        "startDate": "2026-05-28",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-28",
+    "endTime": "12:00",
+    "id": 61,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-28",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 163,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "外部",
+    "date": "4月9日 19:00〜21:00",
+    "dates": [
+      {
+        "endDate": "2026-04-09",
+        "endTime": "21:00",
+        "startDate": "2026-04-09",
+        "startTime": "19:00"
+      }
+    ],
+    "endDate": "2026-04-09",
+    "endTime": "21:00",
+    "id": 62,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-09",
+    "startTime": "19:00",
+    "title": "TSK様",
+    "usageType": "external",
+    "originalEventId": 164,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "4月11日 09:30〜16:30",
+    "dates": [
+      {
+        "endDate": "2026-04-11",
+        "endTime": "16:30",
+        "startDate": "2026-04-11",
+        "startTime": "09:30"
+      }
+    ],
+    "endDate": "2026-04-11",
+    "endTime": "16:30",
+    "id": 63,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-11",
+    "startTime": "09:30",
+    "title": "選抜クラスレッスン、GLレッスン",
+    "originalEventId": 165,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "測定会",
+    "date": "4月14日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-04-14",
+        "endTime": "17:30",
+        "startDate": "2026-04-14",
+        "startTime": "08:00"
+      },
+      {
+        "endDate": "2026-04-15",
+        "endTime": "17:30",
+        "startDate": "2026-04-15",
+        "startTime": "08:00"
+      }
+    ],
+    "endDate": "2026-04-15",
+    "endTime": "17:30",
+    "id": 64,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "アローズエリア",
+      "食堂",
+      "多目的室"
+    ],
+    "manager": "五十子　佐藤正",
+    "notes": "",
+    "participants": "200～250",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-14",
+    "startTime": "08:00",
+    "title": "BCL測定",
+    "usageType": "external",
+    "originalEventId": 166,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "パーソナルレッスン",
+    "date": "4月11日 16:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-11",
+        "endTime": "17:00",
+        "startDate": "2026-04-11",
+        "startTime": "16:00"
+      }
+    ],
+    "endDate": "2026-04-11",
+    "endTime": "17:00",
+    "id": 65,
+    "locations": [
+      "バッティングブースA"
+    ],
+    "manager": "川相",
+    "notes": "",
+    "participants": "1",
+    "snsAvailableFrom": "",
+    "snsPR": "allowed-face-ok",
+    "startDate": "2026-04-11",
+    "startTime": "16:00",
+    "title": "個人レッスン",
+    "usageType": "external",
+    "originalEventId": 167,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月18日 09:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-04-18",
+        "endTime": "18:00",
+        "startDate": "2026-04-18",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-18",
+    "endTime": "18:00",
+    "id": 66,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "アローズエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂",
+      "多目的室"
+    ],
+    "manager": "岡　美都希",
+    "notes": "",
+    "participants": "30名",
+    "snsAvailableFrom": "",
+    "snsPR": "allowed-face-ok",
+    "startDate": "2026-04-18",
+    "startTime": "09:00",
+    "title": "ユース測定会",
+    "usageType": "external",
+    "originalEventId": 168,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "4月7日 08:15〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-07",
+        "endTime": "12:00",
+        "startDate": "2026-04-07",
+        "startTime": "08:15"
+      }
+    ],
+    "endDate": "2026-04-07",
+    "endTime": "12:00",
+    "id": 67,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "大塚璃音",
+    "notes": "",
+    "participants": "18",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-07",
+    "startTime": "08:15",
+    "title": "BCL測定　TGB",
+    "usageType": "external",
+    "originalEventId": 169,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月8日 13:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-08",
+        "endTime": "17:00",
+        "startDate": "2026-04-08",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-08",
+    "endTime": "17:00",
+    "id": 68,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "10名",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-08",
+    "startTime": "13:00",
+    "title": "AGK男子練習",
+    "originalEventId": 170,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月9日 11:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-04-09",
+        "endTime": "18:00",
+        "startDate": "2026-04-09",
+        "startTime": "11:00"
+      }
+    ],
+    "endDate": "2026-04-09",
+    "endTime": "18:00",
+    "id": 69,
+    "locations": [
+      "アローズエリア"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "6",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-09",
+    "startTime": "11:00",
+    "title": "入校式",
+    "originalEventId": 171,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "パーソナルレッスン",
+    "date": "4月16日 16:30〜19:00",
+    "dates": [
+      {
+        "endDate": "2026-04-16",
+        "endTime": "19:00",
+        "startDate": "2026-04-16",
+        "startTime": "16:30"
+      }
+    ],
+    "endDate": "2026-04-16",
+    "endTime": "19:00",
+    "id": 70,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "野口裕斗",
+    "notes": "",
+    "participants": "1",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-16",
+    "startTime": "16:30",
+    "title": "パーソナルレッスン",
+    "usageType": "external",
+    "originalEventId": 172,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月10日 13:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-10",
+        "endTime": "17:00",
+        "startDate": "2026-04-10",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-10",
+    "endTime": "17:00",
+    "id": 71,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-10",
+    "startTime": "13:00",
+    "title": "AGK男子野球部練習",
+    "originalEventId": 173,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月13日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-13",
+        "endTime": "12:00",
+        "startDate": "2026-04-13",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-13",
+    "endTime": "12:00",
+    "id": 72,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-13",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 174,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月16日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-16",
+        "endTime": "12:00",
+        "startDate": "2026-04-16",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-16",
+    "endTime": "12:00",
+    "id": 73,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-16",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 175,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月22日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-22",
+        "endTime": "12:00",
+        "startDate": "2026-04-22",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-22",
+    "endTime": "12:00",
+    "id": 74,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-22",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 176,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月23日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-23",
+        "endTime": "12:00",
+        "startDate": "2026-04-23",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-23",
+    "endTime": "12:00",
+    "id": 75,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-23",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 177,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月24日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-24",
+        "endTime": "12:00",
+        "startDate": "2026-04-24",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-24",
+    "endTime": "12:00",
+    "id": 76,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-24",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 178,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月27日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-27",
+        "endTime": "12:00",
+        "startDate": "2026-04-27",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-27",
+    "endTime": "12:00",
+    "id": 77,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-27",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 179,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月28日 13:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-04-28",
+        "endTime": "16:00",
+        "startDate": "2026-04-28",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-28",
+    "endTime": "16:00",
+    "id": 78,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-28",
+    "startTime": "13:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 180,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月30日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-30",
+        "endTime": "12:00",
+        "startDate": "2026-04-30",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-30",
+    "endTime": "12:00",
+    "id": 79,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-30",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 181,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "5月1日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-05-01",
+        "endTime": "12:00",
+        "startDate": "2026-05-01",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-01",
+    "endTime": "12:00",
+    "id": 80,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-01",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 182,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月12日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-12",
+        "endTime": "17:00",
+        "startDate": "2026-04-12",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-12",
+    "endTime": "17:00",
+    "id": 81,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村 航大",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-12",
+    "startTime": "09:00",
+    "title": "エイジェック男子硬式野球部",
+    "originalEventId": 183,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月20日 13:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-04-20",
+        "endTime": "16:00",
+        "startDate": "2026-04-20",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-20",
+    "endTime": "16:00",
+    "id": 82,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-20",
+    "startTime": "13:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 184,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月16日 09:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-04-16",
+        "endTime": "13:00",
+        "startDate": "2026-04-16",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-16",
+    "endTime": "13:00",
+    "id": 83,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村 航大",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-16",
+    "startTime": "09:00",
+    "title": "エイジェック男子硬式野球部",
+    "originalEventId": 185,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月17日 13:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-04-17",
+        "endTime": "16:00",
+        "startDate": "2026-04-17",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-17",
+    "endTime": "16:00",
+    "id": 84,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村 航大",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-17",
+    "startTime": "13:00",
+    "title": "エイジェック男子硬式野球部",
+    "originalEventId": 186,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月19日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-04-19",
+        "endTime": "13:00",
+        "startDate": "2026-04-19",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-04-20",
+        "endTime": "13:00",
+        "startDate": "2026-04-20",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-20",
+    "endTime": "13:00",
+    "id": 85,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村 航大",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-19",
+    "startTime": "09:00",
+    "title": "エイジェック男子硬式野球部",
+    "originalEventId": 187,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月17日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-04-17",
+        "endTime": "12:00",
+        "startDate": "2026-04-17",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-17",
+    "endTime": "12:00",
+    "id": 86,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-17",
+    "startTime": "09:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 188,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月13日 13:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-04-13",
+        "endTime": "16:00",
+        "startDate": "2026-04-13",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-13",
+    "endTime": "16:00",
+    "id": 87,
+    "locations": [
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-13",
+    "startTime": "13:00",
+    "title": "エイジェック高等学院",
+    "originalEventId": 189,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "個人レッスン",
+    "date": "4月27日 17:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-04-27",
+        "endTime": "18:00",
+        "startDate": "2026-04-27",
+        "startTime": "17:00"
+      }
+    ],
+    "endDate": "2026-04-27",
+    "endTime": "18:00",
+    "id": 88,
+    "locations": [
+      "バッティングブースB"
+    ],
+    "manager": "曽川",
+    "notes": "",
+    "participants": "１",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-27",
+    "startTime": "17:00",
+    "title": "パーソナルアカデミー",
+    "usageType": "external",
+    "originalEventId": 190,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "4月15日 18:00〜20:00",
+    "dates": [
+      {
+        "endDate": "2026-04-15",
+        "endTime": "20:00",
+        "startDate": "2026-04-15",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-04-15",
+    "endTime": "20:00",
+    "id": 89,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "佐藤正紘",
+    "notes": "",
+    "participants": "3",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-15",
+    "startTime": "18:00",
+    "title": "TGB選手練習",
+    "originalEventId": 191,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "女子野球練習",
+    "date": "4月25日 09:00〜15:00",
+    "dates": [
+      {
+        "endDate": "2026-04-25",
+        "endTime": "15:00",
+        "startDate": "2026-04-25",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-25",
+    "endTime": "15:00",
+    "id": 90,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア"
+    ],
+    "manager": "辻野",
+    "notes": "",
+    "participants": "30",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-25",
+    "startTime": "09:00",
+    "title": "AGK女子野球部練習",
+    "originalEventId": 192,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ffff00",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "4月23日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-04-23",
+        "endTime": "12:00",
+        "startDate": "2026-04-23",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-04-30",
+        "endTime": "12:00",
+        "startDate": "2026-04-30",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-04-30",
+    "endTime": "12:00",
+    "id": 91,
+    "locations": [
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "15",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-23",
+    "startTime": "10:00",
+    "title": "健康フィットネス",
+    "usageType": "external",
+    "originalEventId": 193,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月17日 12:15〜14:15",
+    "dates": [
+      {
+        "endDate": "2026-04-17",
+        "endTime": "14:15",
+        "startDate": "2026-04-17",
+        "startTime": "12:15"
+      }
+    ],
+    "endDate": "2026-04-17",
+    "endTime": "14:15",
+    "id": 92,
+    "locations": [
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "大塚　克己",
+    "notes": "",
+    "participants": "10",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-17",
+    "startTime": "12:15",
+    "title": "エイジェック高等学院",
+    "originalEventId": 194,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "TGB練習",
+    "date": "4月22日 09:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-04-22",
+        "endTime": "13:00",
+        "startDate": "2026-04-22",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-22",
+    "endTime": "13:00",
+    "id": 93,
+    "locations": [
+      "打撃エリア"
+    ],
+    "manager": "神宮隆太",
+    "notes": "",
+    "participants": "定員なし",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-22",
+    "startTime": "09:00",
+    "title": "TGB練習",
+    "originalEventId": 195,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "エイジェック高等学院練習",
+    "date": "4月20日 12:00〜15:00",
+    "dates": [
+      {
+        "endDate": "2026-04-20",
+        "endTime": "15:00",
+        "startDate": "2026-04-20",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-04-20",
+    "endTime": "15:00",
+    "id": 94,
+    "locations": [
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-20",
+    "startTime": "12:00",
+    "title": "AGK高等学院練習",
+    "originalEventId": 196,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "4月23日 19:00〜21:00",
+    "dates": [
+      {
+        "endDate": "2026-04-23",
+        "endTime": "21:00",
+        "startDate": "2026-04-23",
+        "startTime": "19:00"
+      }
+    ],
+    "endDate": "2026-04-23",
+    "endTime": "21:00",
+    "id": 95,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "鶴田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-23",
+    "startTime": "19:00",
+    "title": "TSK練習",
+    "usageType": "external",
+    "originalEventId": 197,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月23日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-04-23",
+        "endTime": "17:00",
+        "startDate": "2026-04-23",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-04-24",
+        "endTime": "17:00",
+        "startDate": "2026-04-24",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-24",
+    "endTime": "17:00",
+    "id": 96,
+    "locations": [
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-23",
+    "startTime": "09:00",
+    "title": "男子野球部練習",
+    "originalEventId": 198,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月23日 12:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-23",
+        "endTime": "17:00",
+        "startDate": "2026-04-23",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-04-23",
+    "endTime": "17:00",
+    "id": 97,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-23",
+    "startTime": "12:00",
+    "title": "男子野球部練習",
+    "originalEventId": 199,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月24日 12:00〜15:00",
+    "dates": [
+      {
+        "endDate": "2026-04-24",
+        "endTime": "15:00",
+        "startDate": "2026-04-24",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-04-24",
+    "endTime": "15:00",
+    "id": 98,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-24",
+    "startTime": "12:00",
+    "title": "男子野球部練習",
+    "originalEventId": 200,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月24日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-24",
+        "endTime": "17:00",
+        "startDate": "2026-04-24",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-24",
+    "endTime": "17:00",
+    "id": 99,
+    "locations": [
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "20",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-24",
+    "startTime": "09:00",
+    "title": "男子野球部練習",
+    "originalEventId": 201,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "パーソナルレッスン",
+    "date": "4月22日 16:00〜16:45",
+    "dates": [
+      {
+        "endDate": "2026-04-22",
+        "endTime": "16:45",
+        "startDate": "2026-04-22",
+        "startTime": "16:00"
+      }
+    ],
+    "endDate": "2026-04-22",
+    "endTime": "16:45",
+    "id": 100,
+    "locations": [
+      "バッティングブースB"
+    ],
+    "manager": "曽川",
+    "notes": "",
+    "participants": "1",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-22",
+    "startTime": "16:00",
+    "title": "パーソナルレッスン（曽川）",
+    "usageType": "external",
+    "originalEventId": 202,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月22日 12:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-04-22",
+        "endTime": "13:00",
+        "startDate": "2026-04-22",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-04-22",
+    "endTime": "13:00",
+    "id": 101,
+    "locations": [
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "３",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-22",
+    "startTime": "12:00",
+    "title": "AGK高等学院練習",
+    "originalEventId": 203,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月22日 15:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-22",
+        "endTime": "17:00",
+        "startDate": "2026-04-22",
+        "startTime": "15:00"
+      }
+    ],
+    "endDate": "2026-04-22",
+    "endTime": "17:00",
+    "id": 102,
+    "locations": [
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-22",
+    "startTime": "15:00",
+    "title": "AGK高等学院練習",
+    "originalEventId": 204,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "4月30日 18:00〜20:00",
+    "dates": [
+      {
+        "endDate": "2026-04-30",
+        "endTime": "20:00",
+        "startDate": "2026-04-30",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-04-30",
+    "endTime": "20:00",
+    "id": 103,
+    "locations": [
+      "バッティングブースA"
+    ],
+    "manager": "曽川",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-30",
+    "startTime": "18:00",
+    "title": "個人レッスン(曽川)",
+    "usageType": "external",
+    "originalEventId": 205,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000e1",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "4月25日 15:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-25",
+        "endTime": "17:00",
+        "startDate": "2026-04-25",
+        "startTime": "15:00"
+      }
+    ],
+    "endDate": "2026-04-25",
+    "endTime": "17:00",
+    "id": 104,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-25",
+    "startTime": "15:00",
+    "title": "AGK男子野球部練習",
+    "originalEventId": 206,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月26日 13:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-26",
+        "endTime": "17:00",
+        "startDate": "2026-04-26",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-26",
+    "endTime": "17:00",
+    "id": 105,
+    "locations": [
+      "バッティングブースA",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-26",
+    "startTime": "13:00",
+    "title": "AGK男子野球部練習",
+    "originalEventId": 207,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "4月23日 12:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-04-23",
+        "endTime": "13:00",
+        "startDate": "2026-04-23",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-04-23",
+    "endTime": "13:00",
+    "id": 106,
+    "locations": [
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "6",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-23",
+    "startTime": "12:00",
+    "title": "AGK高等学院練習",
+    "originalEventId": 208,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月27日〜4月28日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-28",
+        "endTime": "17:00",
+        "startDate": "2026-04-27",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-28",
+    "endTime": "17:00",
+    "id": 107,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "定員なし",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-27",
+    "startTime": "09:00",
+    "title": "男子野球部",
+    "originalEventId": 209,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "4月27日 13:00〜15:00",
+    "dates": [
+      {
+        "endDate": "2026-04-27",
+        "endTime": "15:00",
+        "startDate": "2026-04-27",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-27",
+    "endTime": "15:00",
+    "id": 108,
+    "locations": [
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "佐藤",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-27",
+    "startTime": "13:00",
+    "title": "エイジェック高等学院　実技トレーニング",
+    "originalEventId": 210,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "5月1日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-05-01",
+        "endTime": "12:00",
+        "startDate": "2026-05-01",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-01",
+    "endTime": "12:00",
+    "id": 109,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "菅谷力也",
+    "notes": "",
+    "participants": "30",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-01",
+    "startTime": "09:00",
+    "title": "白鷗大学野球部（雨天時）",
+    "usageType": "external",
+    "originalEventId": 211,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "5月2日 10:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-05-02",
+        "endTime": "17:00",
+        "startDate": "2026-05-02",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-05-02",
+    "endTime": "17:00",
+    "id": 110,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "パワーエリア"
+    ],
+    "manager": "神宮隆太",
+    "notes": "",
+    "participants": "50",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-02",
+    "startTime": "10:00",
+    "title": "TGB練習",
+    "originalEventId": 212,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#e169b4",
+    "category": "other",
+    "categoryText": "TGB練習",
+    "date": "5月1日 12:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-05-01",
+        "endTime": "17:00",
+        "startDate": "2026-05-01",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-05-01",
+    "endTime": "17:00",
+    "id": 111,
+    "locations": [
+      "室内練習場",
+      "バッティングブースB"
+    ],
+    "manager": "神宮",
+    "notes": "",
+    "participants": "50名",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-01",
+    "startTime": "12:00",
+    "title": "TGB練習",
+    "originalEventId": 213,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "5月1日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-05-01",
+        "endTime": "12:00",
+        "startDate": "2026-05-01",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-01",
+    "endTime": "12:00",
+    "id": 112,
+    "locations": [
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "菅谷",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-01",
+    "startTime": "09:00",
+    "title": "白鷗大学硬式野球部　練習",
+    "usageType": "external",
+    "originalEventId": 214,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "4月7日 08:30〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-04-07",
+        "endTime": "13:00",
+        "startDate": "2026-04-07",
+        "startTime": "08:30"
+      }
+    ],
+    "endDate": "2026-04-07",
+    "endTime": "13:00",
+    "id": 113,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "町田",
+    "notes": "",
+    "participants": "25",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-07",
+    "startTime": "08:30",
+    "title": "ＴＧＢ練習",
+    "usageType": "internal",
+    "originalEventId": 215,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#db1fa9",
+    "category": "other",
+    "categoryText": "野球部練習",
+    "date": "4月7日 13:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-07",
+        "endTime": "17:00",
+        "startDate": "2026-04-07",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-04-07",
+    "endTime": "17:00",
+    "id": 114,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア"
+    ],
+    "manager": "辻野",
+    "notes": "",
+    "participants": "30名",
+    "snsAvailableFrom": "",
+    "snsPR": "allowed-face-ok",
+    "startDate": "2026-04-07",
+    "startTime": "13:00",
+    "title": "女子野球の練習",
+    "usageType": "internal",
+    "originalEventId": 216,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "4月2日 10:28〜11:28",
+    "dates": [
+      {
+        "endDate": "2026-04-02",
+        "endTime": "11:28",
+        "startDate": "2026-04-02",
+        "startTime": "10:28"
+      }
+    ],
+    "endDate": "2026-04-02",
+    "endTime": "11:28",
+    "id": 115,
+    "locations": [
+      "外部"
+    ],
+    "manager": "山﨑",
+    "notes": "",
+    "participants": "20",
+    "snsAvailableFrom": "2026-04-01",
+    "snsPR": "allowed",
+    "startDate": "2026-04-02",
+    "startTime": "10:28",
+    "title": "テスト",
+    "originalEventId": 217,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ed0202",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "4月2日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-04-02",
+        "endTime": "10:00",
+        "startDate": "2026-04-02",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-04-03",
+        "endTime": "17:00",
+        "startDate": "2026-04-03",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-04-03",
+    "endTime": "10:00",
+    "id": 116,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "神宮隆太",
+    "notes": "",
+    "participants": "３０名ほど",
+    "snsAvailableFrom": "2026-04-02",
+    "snsPR": "allowed-face-ok",
+    "startDate": "2026-04-02",
+    "startTime": "09:00",
+    "title": "TGB練習",
+    "usageType": "internal",
+    "originalEventId": 218,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "4月2日 11:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-02",
+        "endTime": "17:00",
+        "startDate": "2026-04-02",
+        "startTime": "11:00"
+      }
+    ],
+    "endDate": "2026-04-02",
+    "endTime": "17:00",
+    "id": 117,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア"
+    ],
+    "manager": "佐藤",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-04-02",
+    "startTime": "11:00",
+    "title": "栃木高校様測定",
+    "usageType": "external",
+    "originalEventId": 219,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "3月31日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-03-31",
+        "endTime": "17:00",
+        "startDate": "2026-03-31",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-03-31",
+    "endTime": "17:00",
+    "id": 118,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "スタジオ",
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-03-31",
+    "startTime": "09:00",
+    "title": "Ulunoa　base",
+    "usageType": "external",
+    "originalEventId": 220,
+    "archivedAt": "2026-05-29T05:42:15.858Z"
   }
 ]
