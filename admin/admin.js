@@ -830,13 +830,24 @@ function getDatesFromForm() {
         .filter(d => d.startDate);
 }
 
+// 時刻文字列を分に変換（空なら開始は0、終了は終日扱い）
+function parseTimeToMinutes(tStr, isEnd) {
+    if (!tStr) return isEnd ? 24 * 60 : 0;
+    const parts = tStr.split(':').map(Number);
+    return parts[0] * 60 + parts[1];
+}
+
+// 2つの日程範囲が日付・時間ともに重なるか
+function rangesOverlap(tR, eR) {
+    if (tR.startDate > eR.endDate || tR.endDate < eR.startDate) return false;
+    if (!tR.startTime || !eR.startTime) return true;
+    const tS = parseTimeToMinutes(tR.startTime, false), tE = parseTimeToMinutes(tR.endTime, true);
+    const eS = parseTimeToMinutes(eR.startTime, false), eE = parseTimeToMinutes(eR.endTime, true);
+    return !(tE <= eS || tS >= eE);
+}
+
 function checkOverlaps(targetEvent, allEvents) {
     const targetRanges = getEventDateRanges(targetEvent);
-    const parseTime = (tStr, isEnd) => {
-        if (!tStr) return isEnd ? 24 * 60 : 0;
-        const parts = tStr.split(':').map(Number);
-        return parts[0] * 60 + parts[1];
-    };
 
     return allEvents.filter(e => {
         if (e.id === targetEvent.id) return false;
@@ -847,29 +858,32 @@ function checkOverlaps(targetEvent, allEvents) {
         if (sharedLocs.length === 0) return false;
 
         const eRanges = getEventDateRanges(e);
-        return targetRanges.some(tR => eRanges.some(eR => {
-            if (tR.startDate > eR.endDate || tR.endDate < eR.startDate) return false;
-            if (!tR.startTime || !eR.startTime) return true;
-            const tS = parseTime(tR.startTime, false), tE = parseTime(tR.endTime, true);
-            const eS = parseTime(eR.startTime, false), eE = parseTime(eR.endTime, true);
-            return !(tE <= eS || tS >= eE);
-        }));
+        return targetRanges.some(tR => eRanges.some(eR => rangesOverlap(tR, eR)));
     });
 }
 
-// ブッキング警告のツールチップ用に、イベントの日程・時間を読みやすい文字列へ整形
-function formatOverlapDateTime(ev) {
-    const ranges = getEventDateRanges(ev).filter(r => r.startDate);
-    if (ranges.length === 0) return '日程未設定';
-    return ranges.map(r => {
-        const dateStr = r.endDate && r.endDate !== r.startDate
-            ? `${r.startDate}〜${r.endDate}`
-            : r.startDate;
-        const timeStr = r.startTime
-            ? ` ${r.startTime}${r.endTime ? '〜' + r.endTime : ''}`
-            : '';
-        return `${dateStr}${timeStr}`;
-    }).join(' / ');
+// 1つの日程範囲を読みやすい文字列へ整形
+function formatDateRange(r) {
+    const dateStr = r.endDate && r.endDate !== r.startDate
+        ? `${r.startDate}〜${r.endDate}`
+        : r.startDate;
+    const timeStr = r.startTime
+        ? ` ${r.startTime}${r.endTime ? '〜' + r.endTime : ''}`
+        : '';
+    return `${dateStr}${timeStr}`;
+}
+
+// ブッキング警告のツールチップ用に、targetEvent と実際に重なる日程だけを整形
+function formatOverlapDateTime(overlapEvent, targetEvent) {
+    const overlapRanges = getEventDateRanges(overlapEvent).filter(r => r.startDate);
+    if (overlapRanges.length === 0) return '日程未設定';
+
+    const targetRanges = targetEvent ? getEventDateRanges(targetEvent) : null;
+    const matched = targetRanges
+        ? overlapRanges.filter(eR => targetRanges.some(tR => rangesOverlap(tR, eR)))
+        : overlapRanges;
+
+    return (matched.length > 0 ? matched : overlapRanges).map(formatDateRange).join(' / ');
 }
 
 function sortEventList(key) {
@@ -1016,7 +1030,7 @@ function renderEventList() {
         // 重複チェック
         const overlaps = checkOverlaps(e, events);
         const overlapWarning = overlaps.length > 0
-            ? `<div class="overlap-badge" title="${escapeHtml('以下のイベントと重複しています:\n' + overlaps.map(o => `・${o.title}\n　${formatOverlapDateTime(o)}`).join('\n'))}">⚠️ ブッキング</div>`
+            ? `<div class="overlap-badge" title="${escapeHtml('以下のイベントと重複しています:\n' + overlaps.map(o => `・${o.title}\n　${formatOverlapDateTime(o, e)}`).join('\n'))}">⚠️ ブッキング</div>`
             : '';
 
         // 他の管理者が編集中か
