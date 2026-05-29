@@ -857,6 +857,21 @@ function checkOverlaps(targetEvent, allEvents) {
     });
 }
 
+// ブッキング警告のツールチップ用に、イベントの日程・時間を読みやすい文字列へ整形
+function formatOverlapDateTime(ev) {
+    const ranges = getEventDateRanges(ev).filter(r => r.startDate);
+    if (ranges.length === 0) return '日程未設定';
+    return ranges.map(r => {
+        const dateStr = r.endDate && r.endDate !== r.startDate
+            ? `${r.startDate}〜${r.endDate}`
+            : r.startDate;
+        const timeStr = r.startTime
+            ? ` ${r.startTime}${r.endTime ? '〜' + r.endTime : ''}`
+            : '';
+        return `${dateStr}${timeStr}`;
+    }).join(' / ');
+}
+
 function sortEventList(key) {
     if (eventSortKey === key) {
         eventSortDir = -eventSortDir;
@@ -1001,7 +1016,7 @@ function renderEventList() {
         // 重複チェック
         const overlaps = checkOverlaps(e, events);
         const overlapWarning = overlaps.length > 0
-            ? `<div class="overlap-badge" title="以下のイベントと重複しています:\n${overlaps.map(o => '- ' + escapeHtml(o.title)).join('\n')}">⚠️ ブッキング</div>`
+            ? `<div class="overlap-badge" title="${escapeHtml('以下のイベントと重複しています:\n' + overlaps.map(o => `・${o.title}\n　${formatOverlapDateTime(o)}`).join('\n'))}">⚠️ ブッキング</div>`
             : '';
 
         // 他の管理者が編集中か
