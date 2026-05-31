@@ -271,283 +271,6 @@
     "usageType": "external"
   },
   {
-    "cardColor": "#32cd32",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "5月1日 他17件",
-    "dates": [
-      {
-        "endDate": "2026-05-01",
-        "endTime": "19:00",
-        "startDate": "2026-05-01",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-07",
-        "endTime": "21:00",
-        "startDate": "2026-05-07",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-08",
-        "endTime": "19:00",
-        "startDate": "2026-05-08",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-11",
-        "endTime": "21:00",
-        "startDate": "2026-05-11",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-12",
-        "endTime": "21:00",
-        "startDate": "2026-05-12",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-13",
-        "endTime": "19:00",
-        "startDate": "2026-05-13",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-14",
-        "endTime": "21:00",
-        "startDate": "2026-05-14",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-15",
-        "endTime": "19:00",
-        "startDate": "2026-05-15",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-18",
-        "endTime": "21:00",
-        "startDate": "2026-05-18",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-19",
-        "endTime": "21:00",
-        "startDate": "2026-05-19",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-20",
-        "endTime": "19:00",
-        "startDate": "2026-05-20",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-21",
-        "endTime": "21:00",
-        "startDate": "2026-05-21",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-22",
-        "endTime": "19:00",
-        "startDate": "2026-05-22",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-25",
-        "endTime": "21:00",
-        "startDate": "2026-05-25",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-26",
-        "endTime": "21:00",
-        "startDate": "2026-05-26",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-27",
-        "endTime": "19:00",
-        "startDate": "2026-05-27",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-28",
-        "endTime": "21:00",
-        "startDate": "2026-05-28",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-29",
-        "endTime": "19:00",
-        "startDate": "2026-05-29",
-        "startTime": "10:00"
-      }
-    ],
-    "endDate": "2026-05-29",
-    "endTime": "19:00",
-    "id": 37,
-    "locations": [
-      "バッティングブースA",
-      "打撃エリア"
-    ],
-    "manager": "大塚璃音",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-01",
-    "startTime": "10:00",
-    "title": "打撃測定"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "5月29日 09:00〜12:00",
-    "dates": [
-      {
-        "endDate": "2026-05-29",
-        "endTime": "12:00",
-        "startDate": "2026-05-29",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-29",
-    "endTime": "12:00",
-    "id": 65,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大塚　克己",
-    "notes": "",
-    "participants": "10",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-29",
-    "startTime": "09:00",
-    "title": "エイジェック高等学院"
-  },
-  {
-    "cardColor": "#800080",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "5月1日 他15件",
-    "dates": [
-      {
-        "endDate": "2026-05-01",
-        "endTime": "18:00",
-        "startDate": "2026-05-01",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-06",
-        "endTime": "18:00",
-        "startDate": "2026-05-06",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-07",
-        "endTime": "18:00",
-        "startDate": "2026-05-07",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-08",
-        "endTime": "18:00",
-        "startDate": "2026-05-08",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-11",
-        "endTime": "18:00",
-        "startDate": "2026-05-11",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-12",
-        "endTime": "18:00",
-        "startDate": "2026-05-12",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-14",
-        "endTime": "18:00",
-        "startDate": "2026-05-14",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-15",
-        "endTime": "18:00",
-        "startDate": "2026-05-15",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-18",
-        "endTime": "18:00",
-        "startDate": "2026-05-18",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-19",
-        "endTime": "18:00",
-        "startDate": "2026-05-19",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-21",
-        "endTime": "18:00",
-        "startDate": "2026-05-21",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-22",
-        "endTime": "18:00",
-        "startDate": "2026-05-22",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-25",
-        "endTime": "18:00",
-        "startDate": "2026-05-25",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-26",
-        "endTime": "18:00",
-        "startDate": "2026-05-26",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-28",
-        "endTime": "18:00",
-        "startDate": "2026-05-28",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-05-29",
-        "endTime": "18:00",
-        "startDate": "2026-05-29",
-        "startTime": "10:00"
-      }
-    ],
-    "endDate": "2026-05-29",
-    "endTime": "18:00",
-    "id": 66,
-    "locations": [
-      "投手測定エリア"
-    ],
-    "manager": "林　明良",
-    "notes": "",
-    "participants": "1",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-05-01",
-    "startTime": "10:00",
-    "title": "投球測定"
-  },
-  {
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "社内イベント",
@@ -1126,101 +849,6 @@
     "title": "健康アカデミー"
   },
   {
-    "cardColor": "#ffff00",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "5月5日 他11件",
-    "dates": [
-      {
-        "endDate": "2026-05-05",
-        "endTime": "16:00",
-        "startDate": "2026-05-05",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-05-06",
-        "endTime": "16:00",
-        "startDate": "2026-05-06",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-05-08",
-        "endTime": "15:00",
-        "startDate": "2026-05-08",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-05-12",
-        "endTime": "16:00",
-        "startDate": "2026-05-12",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-05-13",
-        "endTime": "16:00",
-        "startDate": "2026-05-13",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-05-15",
-        "endTime": "15:00",
-        "startDate": "2026-05-15",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-05-19",
-        "endTime": "16:00",
-        "startDate": "2026-05-19",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-05-20",
-        "endTime": "16:00",
-        "startDate": "2026-05-20",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-05-22",
-        "endTime": "15:00",
-        "startDate": "2026-05-22",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-05-26",
-        "endTime": "16:00",
-        "startDate": "2026-05-26",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-05-27",
-        "endTime": "16:00",
-        "startDate": "2026-05-27",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-05-29",
-        "endTime": "15:00",
-        "startDate": "2026-05-29",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-29",
-    "endTime": "16:00",
-    "id": 104,
-    "locations": [
-      "スタジオ"
-    ],
-    "manager": "木下　瑞樹",
-    "notes": "",
-    "participants": "10",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-05",
-    "startTime": "14:00",
-    "title": "健康アカデミー",
-    "usageType": "external"
-  },
-  {
     "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "社内イベント",
@@ -1493,137 +1121,6 @@
     "startTime": "13:00",
     "title": "AGK高等学院練習",
     "usageType": "internal"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "5月1日 他17件",
-    "dates": [
-      {
-        "endDate": "2026-05-01",
-        "endTime": "16:00",
-        "startDate": "2026-05-01",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-07",
-        "endTime": "16:00",
-        "startDate": "2026-05-07",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-08",
-        "endTime": "16:00",
-        "startDate": "2026-05-08",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-11",
-        "endTime": "16:00",
-        "startDate": "2026-05-11",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-12",
-        "endTime": "18:00",
-        "startDate": "2026-05-12",
-        "startTime": "16:00"
-      },
-      {
-        "endDate": "2026-05-13",
-        "endTime": "16:00",
-        "startDate": "2026-05-13",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-14",
-        "endTime": "16:00",
-        "startDate": "2026-05-14",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-15",
-        "endTime": "16:00",
-        "startDate": "2026-05-15",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-18",
-        "endTime": "16:00",
-        "startDate": "2026-05-18",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-19",
-        "endTime": "18:00",
-        "startDate": "2026-05-19",
-        "startTime": "16:00"
-      },
-      {
-        "endDate": "2026-05-20",
-        "endTime": "16:00",
-        "startDate": "2026-05-20",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-21",
-        "endTime": "16:00",
-        "startDate": "2026-05-21",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-22",
-        "endTime": "16:00",
-        "startDate": "2026-05-22",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-25",
-        "endTime": "16:00",
-        "startDate": "2026-05-25",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-26",
-        "endTime": "18:00",
-        "startDate": "2026-05-26",
-        "startTime": "16:00"
-      },
-      {
-        "endDate": "2026-05-27",
-        "endTime": "16:00",
-        "startDate": "2026-05-27",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-28",
-        "endTime": "16:00",
-        "startDate": "2026-05-28",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2026-05-29",
-        "endTime": "16:00",
-        "startDate": "2026-05-29",
-        "startTime": "12:00"
-      }
-    ],
-    "endDate": "2026-05-29",
-    "endTime": "16:00",
-    "id": 113,
-    "locations": [
-      "パワーエリア",
-      "パワーエリア"
-    ],
-    "manager": "大塚",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-01",
-    "startTime": "12:00",
-    "title": "AGK高等学院練習"
   },
   {
     "cardColor": "#ff69b4",
@@ -2928,5 +2425,35 @@
     "startTime": "14:00",
     "title": "健康アカデミー",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "6月1日 19:00〜20:00",
+    "dates": [
+      {
+        "endDate": "2026-06-01",
+        "endTime": "20:00",
+        "startDate": "2026-06-01",
+        "startTime": "19:00"
+      }
+    ],
+    "endDate": "2026-06-01",
+    "endTime": "20:00",
+    "id": 161,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "木下瑞基",
+    "notes": "",
+    "participants": "定員なし",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-01",
+    "startTime": "19:00",
+    "title": "パーソナルレッスン",
+    "usageType": "internal"
   }
 ]
