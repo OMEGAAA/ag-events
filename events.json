@@ -2455,5 +2455,58 @@
     "startTime": "19:00",
     "title": "パーソナルレッスン",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "6月2日 他4件",
+    "dates": [
+      {
+        "endDate": "2026-06-02",
+        "endTime": "20:30",
+        "startDate": "2026-06-02",
+        "startTime": "19:30"
+      },
+      {
+        "endDate": "2026-06-09",
+        "endTime": "20:30",
+        "startDate": "2026-06-09",
+        "startTime": "19:30"
+      },
+      {
+        "endDate": "2026-06-16",
+        "endTime": "20:30",
+        "startDate": "2026-06-16",
+        "startTime": "19:30"
+      },
+      {
+        "endDate": "2026-06-23",
+        "endTime": "20:30",
+        "startDate": "2026-06-23",
+        "startTime": "19:30"
+      },
+      {
+        "endDate": "2026-06-30",
+        "endTime": "20:30",
+        "startDate": "2026-06-30",
+        "startTime": "19:30"
+      }
+    ],
+    "endDate": "2026-06-30",
+    "endTime": "20:30",
+    "id": 162,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "木下瑞基",
+    "notes": "",
+    "participants": "定員なし",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-02",
+    "startTime": "19:30",
+    "title": "パーソナルレッスン",
+    "usageType": "internal"
   }
 ]
