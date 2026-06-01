@@ -2407,5 +2407,34 @@
     "startTime": "19:30",
     "title": "パーソナルレッスン",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#32cd32",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "6月10日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-06-10",
+        "endTime": "12:00",
+        "startDate": "2026-06-10",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-10",
+    "endTime": "12:00",
+    "id": 163,
+    "locations": [
+      "打撃エリア"
+    ],
+    "manager": "関口雄大",
+    "notes": "",
+    "participants": "定員なし",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-10",
+    "startTime": "09:00",
+    "title": "モーションキャプチャー計測",
+    "usageType": "external"
   }
 ]
