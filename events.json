@@ -2412,17 +2412,17 @@
     "cardColor": "#32cd32",
     "category": "other",
     "categoryText": "社内イベント",
-    "date": "6月10日 09:00〜12:00",
+    "date": "6月10日 15:00〜18:00",
     "dates": [
       {
         "endDate": "2026-06-10",
-        "endTime": "12:00",
+        "endTime": "18:00",
         "startDate": "2026-06-10",
-        "startTime": "09:00"
+        "startTime": "15:00"
       }
     ],
     "endDate": "2026-06-10",
-    "endTime": "12:00",
+    "endTime": "18:00",
     "id": 163,
     "locations": [
       "打撃エリア"
@@ -2433,9 +2433,9 @@
     "snsAvailableFrom": "",
     "snsPR": "pending",
     "startDate": "2026-06-10",
-    "startTime": "09:00",
+    "startTime": "15:00",
     "title": "モーションキャプチャー計測",
-    "usageType": "external"
+    "usageType": "internal"
   },
   {
     "cardColor": "#4d0aeb",
