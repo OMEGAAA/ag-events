@@ -2329,36 +2329,6 @@
     "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "社内イベント",
-    "date": "6月1日 19:00〜20:00",
-    "dates": [
-      {
-        "endDate": "2026-06-01",
-        "endTime": "20:00",
-        "startDate": "2026-06-01",
-        "startTime": "19:00"
-      }
-    ],
-    "endDate": "2026-06-01",
-    "endTime": "20:00",
-    "id": 161,
-    "locations": [
-      "バッティングブースA",
-      "バッティングブースB"
-    ],
-    "manager": "木下瑞基",
-    "notes": "",
-    "participants": "定員なし",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-06-01",
-    "startTime": "19:00",
-    "title": "パーソナルレッスン",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#ff4500",
-    "category": "other",
-    "categoryText": "社内イベント",
     "date": "6月2日 他4件",
     "dates": [
       {
