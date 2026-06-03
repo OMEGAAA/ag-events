@@ -1955,38 +1955,6 @@
     "archivedAt": "2026-05-29T05:42:15.858Z"
   },
   {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "外部",
-    "date": "4月9日 19:00〜21:00",
-    "dates": [
-      {
-        "endDate": "2026-04-09",
-        "endTime": "21:00",
-        "startDate": "2026-04-09",
-        "startTime": "19:00"
-      }
-    ],
-    "endDate": "2026-04-09",
-    "endTime": "21:00",
-    "id": 62,
-    "locations": [
-      "室内練習場",
-      "ベースボールエリア"
-    ],
-    "manager": "",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-04-09",
-    "startTime": "19:00",
-    "title": "TSK様",
-    "usageType": "external",
-    "originalEventId": 164,
-    "archivedAt": "2026-05-29T05:42:15.858Z"
-  },
-  {
     "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "アカデミー",
@@ -2055,37 +2023,6 @@
     "title": "BCL測定",
     "usageType": "external",
     "originalEventId": 166,
-    "archivedAt": "2026-05-29T05:42:15.858Z"
-  },
-  {
-    "cardColor": "#ff4500",
-    "category": "other",
-    "categoryText": "パーソナルレッスン",
-    "date": "4月11日 16:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-04-11",
-        "endTime": "17:00",
-        "startDate": "2026-04-11",
-        "startTime": "16:00"
-      }
-    ],
-    "endDate": "2026-04-11",
-    "endTime": "17:00",
-    "id": 65,
-    "locations": [
-      "バッティングブースA"
-    ],
-    "manager": "川相",
-    "notes": "",
-    "participants": "1",
-    "snsAvailableFrom": "",
-    "snsPR": "allowed-face-ok",
-    "startDate": "2026-04-11",
-    "startTime": "16:00",
-    "title": "個人レッスン",
-    "usageType": "external",
-    "originalEventId": 167,
     "archivedAt": "2026-05-29T05:42:15.858Z"
   },
   {
@@ -3474,38 +3411,6 @@
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "イベント",
-    "date": "5月1日 09:00〜12:00",
-    "dates": [
-      {
-        "endDate": "2026-05-01",
-        "endTime": "12:00",
-        "startDate": "2026-05-01",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-01",
-    "endTime": "12:00",
-    "id": 109,
-    "locations": [
-      "バッティングブースA",
-      "バッティングブースB"
-    ],
-    "manager": "菅谷力也",
-    "notes": "",
-    "participants": "30",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-05-01",
-    "startTime": "09:00",
-    "title": "白鷗大学野球部（雨天時）",
-    "usageType": "external",
-    "originalEventId": 211,
-    "archivedAt": "2026-05-29T05:42:15.858Z"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "イベント",
     "date": "5月2日 10:00〜17:00",
     "dates": [
       {
@@ -3565,38 +3470,6 @@
     "startTime": "12:00",
     "title": "TGB練習",
     "originalEventId": 213,
-    "archivedAt": "2026-05-29T05:42:15.858Z"
-  },
-  {
-    "cardColor": "",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "5月1日 09:00〜12:00",
-    "dates": [
-      {
-        "endDate": "2026-05-01",
-        "endTime": "12:00",
-        "startDate": "2026-05-01",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-01",
-    "endTime": "12:00",
-    "id": 112,
-    "locations": [
-      "パワーエリア",
-      "パワーエリア"
-    ],
-    "manager": "菅谷",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-01",
-    "startTime": "09:00",
-    "title": "白鷗大学硬式野球部　練習",
-    "usageType": "external",
-    "originalEventId": 214,
     "archivedAt": "2026-05-29T05:42:15.858Z"
   },
   {
