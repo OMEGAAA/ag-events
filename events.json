@@ -2502,5 +2502,131 @@
     "startTime": "09:00",
     "title": "AGK男子練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "KBO合宿",
+    "date": "7月10日 他16件",
+    "dates": [
+      {
+        "endDate": "2026-07-10",
+        "endTime": "18:00",
+        "startDate": "2026-07-10",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-11",
+        "endTime": "18:00",
+        "startDate": "2026-07-11",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-12",
+        "endTime": "18:00",
+        "startDate": "2026-07-12",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-13",
+        "endTime": "18:00",
+        "startDate": "2026-07-13",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-14",
+        "endTime": "18:00",
+        "startDate": "2026-07-14",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-15",
+        "endTime": "18:00",
+        "startDate": "2026-07-15",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-16",
+        "endTime": "18:00",
+        "startDate": "2026-07-16",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-17",
+        "endTime": "18:00",
+        "startDate": "2026-07-17",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-18",
+        "endTime": "18:00",
+        "startDate": "2026-07-18",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-19",
+        "endTime": "18:00",
+        "startDate": "2026-07-19",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-20",
+        "endTime": "18:00",
+        "startDate": "2026-07-20",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-21",
+        "endTime": "18:00",
+        "startDate": "2026-07-21",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-22",
+        "endTime": "18:00",
+        "startDate": "2026-07-22",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-23",
+        "endTime": "18:00",
+        "startDate": "2026-07-23",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-24",
+        "endTime": "18:00",
+        "startDate": "2026-07-24",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-25",
+        "endTime": "18:00",
+        "startDate": "2026-07-25",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-26",
+        "endTime": "18:00",
+        "startDate": "2026-07-26",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-07-26",
+    "endTime": "18:00",
+    "id": 168,
+    "locations": [
+      "バッティングブースB",
+      "投手測定エリア"
+    ],
+    "manager": "関口",
+    "notes": "",
+    "participants": "2",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-10",
+    "startTime": "09:00",
+    "title": "KBO合宿",
+    "usageType": "external"
   }
 ]
