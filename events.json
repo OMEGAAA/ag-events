@@ -1705,40 +1705,6 @@
     "title": "打撃測定予約枠"
   },
   {
-    "cardColor": "#ff4500",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "6月6日 09:00〜19:00",
-    "dates": [
-      {
-        "endDate": "2026-06-06",
-        "endTime": "19:00",
-        "startDate": "2026-06-06",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-06-06",
-    "endTime": "19:00",
-    "id": 141,
-    "locations": [
-      "室内練習場",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "投手測定エリア",
-      "食堂",
-      "パワーエリア"
-    ],
-    "manager": "岡 美都希",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "allowed",
-    "startDate": "2026-06-06",
-    "startTime": "09:00",
-    "title": "ユース練習/説明会"
-  },
-  {
     "cardColor": "#0000ff",
     "category": "other",
     "categoryText": "AGK男子練習",
@@ -2437,6 +2403,104 @@
     "startDate": "2026-06-03",
     "startTime": "12:00",
     "title": "TGB練習",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "6月6日 09:00〜15:00",
+    "dates": [
+      {
+        "endDate": "2026-06-06",
+        "endTime": "15:00",
+        "startDate": "2026-06-06",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-06",
+    "endTime": "15:00",
+    "id": 165,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "パワーエリア"
+    ],
+    "manager": "辻野",
+    "notes": "",
+    "participants": "25",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-06",
+    "startTime": "09:00",
+    "title": "AGK女子野球部練習",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "12月20日 13:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-12-20",
+        "endTime": "18:00",
+        "startDate": "2026-12-20",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-12-20",
+    "endTime": "18:00",
+    "id": 166,
+    "locations": [
+      "食堂",
+      "多目的室"
+    ],
+    "manager": "岡",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-12-20",
+    "startTime": "13:00",
+    "title": "エイジェックユース卒団式",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "6月3日 09:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-06-03",
+        "endTime": "13:00",
+        "startDate": "2026-06-03",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-03",
+    "endTime": "13:00",
+    "id": 167,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-03",
+    "startTime": "09:00",
+    "title": "AGK男子練習",
     "usageType": "internal"
   }
 ]
