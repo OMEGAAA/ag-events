@@ -2628,5 +2628,177 @@
     "startTime": "09:00",
     "title": "KBO合宿",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "投手測定",
+    "date": "5月1日 他19件",
+    "dates": [
+      {
+        "endDate": "2026-05-01",
+        "endTime": "12:00",
+        "startDate": "2026-05-01",
+        "startTime": "11:00"
+      },
+      {
+        "endDate": "2026-05-06",
+        "endTime": "15:00",
+        "startDate": "2026-05-06",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-05-06",
+        "endTime": "19:00",
+        "startDate": "2026-05-06",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-05-08",
+        "endTime": "17:15",
+        "startDate": "2026-05-08",
+        "startTime": "16:15"
+      },
+      {
+        "endDate": "2026-05-11",
+        "endTime": "14:00",
+        "startDate": "2026-05-11",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-05-12",
+        "endTime": "19:00",
+        "startDate": "2026-05-12",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-05-13",
+        "endTime": "19:00",
+        "startDate": "2026-05-13",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-05-14",
+        "endTime": "10:00",
+        "startDate": "2026-05-14",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-05-15",
+        "endTime": "11:00",
+        "startDate": "2026-05-15",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-18",
+        "endTime": "11:00",
+        "startDate": "2026-05-18",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-19",
+        "endTime": "11:00",
+        "startDate": "2026-05-19",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-20",
+        "endTime": "11:00",
+        "startDate": "2026-05-20",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-22",
+        "endTime": "11:00",
+        "startDate": "2026-05-22",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-25",
+        "endTime": "15:00",
+        "startDate": "2026-05-25",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-05-25",
+        "endTime": "19:00",
+        "startDate": "2026-05-25",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-05-26",
+        "endTime": "19:00",
+        "startDate": "2026-05-26",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-05-28",
+        "endTime": "12:00",
+        "startDate": "2026-05-28",
+        "startTime": "11:00"
+      },
+      {
+        "endDate": "2026-05-28",
+        "endTime": "17:00",
+        "startDate": "2026-05-28",
+        "startTime": "16:00"
+      },
+      {
+        "endDate": "2026-05-29",
+        "endTime": "11:00",
+        "startDate": "2026-05-29",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-05-29",
+        "endTime": "15:30",
+        "startDate": "2026-05-29",
+        "startTime": "13:30"
+      }
+    ],
+    "endDate": "2026-05-29",
+    "endTime": "12:00",
+    "id": 169,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-01",
+    "startTime": "11:00",
+    "title": "投手測定・トレーニング",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#32cd32",
+    "category": "other",
+    "categoryText": "打撃測定",
+    "date": "5月21日 19:00〜20:00",
+    "dates": [
+      {
+        "endDate": "2026-05-21",
+        "endTime": "20:00",
+        "startDate": "2026-05-21",
+        "startTime": "19:00"
+      }
+    ],
+    "endDate": "2026-05-21",
+    "endTime": "20:00",
+    "id": 170,
+    "locations": [
+      "打撃エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-21",
+    "startTime": "19:00",
+    "title": "打撃測定",
+    "usageType": "external"
   }
 ]
