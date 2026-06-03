@@ -2628,5 +2628,35 @@
     "startTime": "09:00",
     "title": "KBO合宿",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "外部練習",
+    "date": "5月3日 09:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-05-03",
+        "endTime": "16:00",
+        "startDate": "2026-05-03",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-03",
+    "endTime": "16:00",
+    "id": 169,
+    "locations": [
+      "室内練習場",
+      "パワーエリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-03",
+    "startTime": "09:00",
+    "title": "新宿牛込ベースボールクラブ",
+    "usageType": "external"
   }
 ]
