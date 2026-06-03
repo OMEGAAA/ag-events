@@ -2800,5 +2800,221 @@
     "startTime": "19:00",
     "title": "打撃測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "外部",
+    "date": "4月9日 19:00〜21:00",
+    "dates": [
+      {
+        "endDate": "2026-04-09",
+        "endTime": "21:00",
+        "startDate": "2026-04-09",
+        "startTime": "19:00"
+      }
+    ],
+    "endDate": "2026-04-09",
+    "endTime": "21:00",
+    "id": 171,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-04-09",
+    "startTime": "19:00",
+    "title": "TSK様",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "パーソナルレッスン",
+    "date": "4月11日 16:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-04-11",
+        "endTime": "17:00",
+        "startDate": "2026-04-11",
+        "startTime": "16:00"
+      }
+    ],
+    "endDate": "2026-04-11",
+    "endTime": "17:00",
+    "id": 172,
+    "locations": [
+      "バッティングブースA"
+    ],
+    "manager": "川相",
+    "notes": "",
+    "participants": "1",
+    "snsAvailableFrom": "",
+    "snsPR": "allowed-face-ok",
+    "startDate": "2026-04-11",
+    "startTime": "16:00",
+    "title": "個人レッスン",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "5月1日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-05-01",
+        "endTime": "12:00",
+        "startDate": "2026-05-01",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-01",
+    "endTime": "12:00",
+    "id": 173,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "菅谷力也",
+    "notes": "",
+    "participants": "30",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-01",
+    "startTime": "09:00",
+    "title": "白鷗大学野球部（雨天時）",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "5月1日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-05-01",
+        "endTime": "12:00",
+        "startDate": "2026-05-01",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-05-01",
+    "endTime": "12:00",
+    "id": 174,
+    "locations": [
+      "パワーエリア",
+      "パワーエリア"
+    ],
+    "manager": "菅谷",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-05-01",
+    "startTime": "09:00",
+    "title": "白鷗大学硬式野球部　練習",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "5月1日 他11件",
+    "dates": [
+      {
+        "endDate": "2026-05-01",
+        "endTime": "21:00",
+        "startDate": "2026-05-01",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-05-06",
+        "endTime": "21:00",
+        "startDate": "2026-05-06",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-05-08",
+        "endTime": "21:00",
+        "startDate": "2026-05-08",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-05-12",
+        "endTime": "21:00",
+        "startDate": "2026-05-12",
+        "startTime": "16:30"
+      },
+      {
+        "endDate": "2026-05-13",
+        "endTime": "21:00",
+        "startDate": "2026-05-13",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-05-15",
+        "endTime": "21:00",
+        "startDate": "2026-05-15",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-05-19",
+        "endTime": "21:00",
+        "startDate": "2026-05-19",
+        "startTime": "16:30"
+      },
+      {
+        "endDate": "2026-05-20",
+        "endTime": "21:00",
+        "startDate": "2026-05-20",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-05-22",
+        "endTime": "21:00",
+        "startDate": "2026-05-22",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-05-26",
+        "endTime": "21:00",
+        "startDate": "2026-05-26",
+        "startTime": "16:30"
+      },
+      {
+        "endDate": "2026-05-27",
+        "endTime": "21:00",
+        "startDate": "2026-05-27",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-05-29",
+        "endTime": "21:00",
+        "startDate": "2026-05-29",
+        "startTime": "17:00"
+      }
+    ],
+    "endDate": "2026-05-29",
+    "endTime": "21:00",
+    "id": 175,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-05-01",
+    "startTime": "17:00",
+    "title": "アカデミー",
+    "usageType": "external"
   }
 ]
