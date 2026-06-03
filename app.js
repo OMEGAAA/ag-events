@@ -1,4 +1,5 @@
 let events = [];
+let archivedEvents = [];
 let reports = [];
 let fullCal = null;
 let locViewDate = new Date();
@@ -41,6 +42,44 @@ function getMatchingDateEntry(e, dayStr) {
         || getEventDates(e)[0];
 }
 
+function getEventCalendarKey(e) {
+    const datesKey = getEventDates(e)
+        .map(d => [d.startDate || '', d.endDate || '', d.startTime || '', d.endTime || ''].join('/'))
+        .join('|');
+    const locs = Array.isArray(e.locations) ? e.locations : (e.location ? [e.location] : []);
+    return [e.title || '', datesKey, locs.join('|')].join('::');
+}
+
+function getCalendarEvents() {
+    const seen = new Set();
+    return [
+        ...events.map(e => ({ ...e, __calendarSource: 'active' })),
+        ...archivedEvents.map(e => ({ ...e, __calendarSource: 'archived' }))
+    ].filter(e => {
+        const key = getEventCalendarKey(e);
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+    });
+}
+
+function getEventRef(e) {
+    return `${e.__calendarSource || 'active'}:${e.id}`;
+}
+
+function findEventByRef(ref) {
+    if (!ref) return null;
+    const [source, idText] = String(ref).split(':');
+    const id = Number(idText);
+    const list = source === 'archived' ? archivedEvents : events;
+    return list.find(ev => Number(ev.id) === id) || null;
+}
+
+function openDetailByRef(ref) {
+    const e = findEventByRef(ref);
+    if (e) openDetailEvent(e);
+}
+
 // ---- FETCH ----
 async function init() {
     try {
@@ -50,6 +89,14 @@ async function init() {
     } catch (e) {
         console.warn('events.json の読み込みに失敗しました:', e);
         events = [];
+    }
+    try {
+        const res = await fetch('./archived_events.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        archivedEvents = await res.json();
+    } catch (e) {
+        console.warn('archived_events.json の読み込みに失敗しました:', e);
+        archivedEvents = [];
     }
     try {
         const res = await fetch('./reports.json');
@@ -282,7 +329,10 @@ function renderEvents() {
 function openDetail(id) {
     const e = events.find(ev => ev.id === id);
     if (!e) return;
+    openDetailEvent(e);
+}
 
+function openDetailEvent(e) {
     const locHtml = Array.isArray(e.locations) && e.locations.length > 0
         ? e.locations.map(l => `<span class="detail-loc-tag">${escapeHtml(l)}</span>`).join('')
         : (e.location ? `<span class="detail-loc-tag">${escapeHtml(e.location)}</span>` : '');
@@ -406,7 +456,7 @@ document.addEventListener('keydown', e => {
 // ---- FULLCALENDAR ----
 function buildCalEvents() {
     const calEvents = [];
-    events.forEach(e => {
+    getCalendarEvents().forEach(e => {
         getEventDates(e).forEach((d, i) => {
             const hasTime = !!d.startTime;
             const start = d.startDate + (hasTime ? 'T' + d.startTime : '');
@@ -419,13 +469,13 @@ function buildCalEvents() {
                 end = endD.toISOString().slice(0, 10);
             }
             calEvents.push({
-                id: `${e.id}-${i}`,
+                id: `${getEventRef(e)}-${i}`,
                 title: e.title,
                 start,
                 end,
                 backgroundColor: e.cardColor || '#64748b',
                 borderColor: e.cardColor || '#64748b',
-                extendedProps: { eventId: e.id }
+                extendedProps: { eventRef: getEventRef(e) }
             });
         });
     });
@@ -442,7 +492,7 @@ function initCalendar() {
         headerToolbar: false, // カスタムツールバーで一元管理
         events: buildCalEvents(),
         eventClick: function(info) {
-            openDetail(info.event.extendedProps.eventId);
+            openDetailByRef(info.event.extendedProps.eventRef);
         },
         eventDidMount: function(info) {
             // 月セルでラベルが切れても全文が読めるよう title 属性で補完
@@ -577,7 +627,7 @@ function updateCalTitle() {
 // ---- 場所別ビュー共通 ----
 function getLocations() {
     const set = new Set(DEFAULT_LOCATIONS);
-    events.forEach(e => {
+    getCalendarEvents().forEach(e => {
         const locs = Array.isArray(e.locations) && e.locations.length > 0 ? e.locations : (e.location ? [e.location] : []);
         locs.forEach(l => set.add(l));
     });
@@ -635,7 +685,7 @@ function renderLocationWeek() {
         html += `<tr><td class="loc-td-area">${escapeHtml(loc)}</td>`;
         days.forEach(({ str }) => {
             const isToday = str === todayStr;
-            const dayEvents = events.filter(e =>
+            const dayEvents = getCalendarEvents().filter(e =>
                 eventHasLocation(e, loc) &&
                 getEventDates(e).some(d => d.startDate <= str && (d.endDate || d.startDate) >= str)
             );
@@ -644,7 +694,7 @@ function renderLocationWeek() {
                 const de = getMatchingDateEntry(e, str);
                 const timeStr = de.startTime ? `<span class="loc-chip-time">${de.startTime}</span>` : '';
                 const cvars = e.cardColor ? `style="--card-color:${escapeHtml(e.cardColor)}"` : '';
-                html += `<div class="loc-ev-chip ${escapeHtml(e.category)}" ${cvars} onclick="openDetail(${e.id})" title="${escapeHtml(e.title)}">${timeStr}<span class="loc-chip-title">${escapeHtml(e.title)}</span></div>`;
+                html += `<div class="loc-ev-chip ${escapeHtml(e.category)}" ${cvars} onclick="openDetailByRef('${escapeHtml(getEventRef(e))}')" title="${escapeHtml(e.title)}">${timeStr}<span class="loc-chip-title">${escapeHtml(e.title)}</span></div>`;
             });
             html += '</td>';
         });
@@ -670,14 +720,14 @@ function renderLocationDay() {
     document.getElementById('loc-day-label').textContent =
         `${locViewDate.getFullYear()}年${locViewDate.getMonth()+1}月${locViewDate.getDate()}日(${DAY_NAMES[locViewDate.getDay()]})`;
 
-    const dayEvs = events.filter(e => getEventDates(e).some(d => d.startDate <= dayStr && (d.endDate || d.startDate) >= dayStr));
+    const dayEvs = getCalendarEvents().filter(e => getEventDates(e).some(d => d.startDate <= dayStr && (d.endDate || d.startDate) >= dayStr));
     const timed = dayEvs.filter(e => getMatchingDateEntry(e, dayStr).startTime);
     const allDay = dayEvs.filter(e => !getMatchingDateEntry(e, dayStr).startTime);
 
     // All-day section
     if (allDay.length > 0) {
         alldayEvents.innerHTML = allDay.map(e =>
-            `<div class="day-allday-event ${escapeHtml(e.category)}" onclick="openDetail(${e.id})">${escapeHtml(e.title)}</div>`
+            `<div class="day-allday-event ${escapeHtml(e.category)}" onclick="openDetailByRef('${escapeHtml(getEventRef(e))}')">${escapeHtml(e.title)}</div>`
         ).join('');
         alldaySection.style.display = 'flex';
     } else {
@@ -719,7 +769,7 @@ function renderLocationDay() {
             const height = Math.max(28, (eh * 60 + em) - (sh * 60 + sm));
             if (top < 0 || top > totalPx) return;
             const cvars = e.cardColor ? `--card-color:${escapeHtml(e.cardColor)};` : '';
-            evHtml += `<div class="day-event-block ${escapeHtml(e.category)}" style="top:${top}px;height:${height}px;${cvars}" onclick="openDetail(${e.id})">
+            evHtml += `<div class="day-event-block ${escapeHtml(e.category)}" style="top:${top}px;height:${height}px;${cvars}" onclick="openDetailByRef('${escapeHtml(getEventRef(e))}')">
                 <div class="day-event-time">${escapeHtml(de.startTime)}${de.endTime ? '-'+escapeHtml(de.endTime) : ''}</div>
                 <div class="day-event-title">${escapeHtml(e.title)}</div>
             </div>`;
