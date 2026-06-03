@@ -2632,31 +2632,30 @@
   {
     "cardColor": "#ff69b4",
     "category": "other",
-    "categoryText": "外部練習",
-    "date": "5月3日 09:00〜16:00",
+    "categoryText": "練習",
+    "date": "7月19日 09:00〜12:00",
     "dates": [
       {
-        "endDate": "2026-05-03",
-        "endTime": "16:00",
-        "startDate": "2026-05-03",
+        "endDate": "2026-07-19",
+        "endTime": "12:00",
+        "startDate": "2026-07-19",
         "startTime": "09:00"
       }
     ],
-    "endDate": "2026-05-03",
-    "endTime": "16:00",
+    "endDate": "2026-07-19",
+    "endTime": "12:00",
     "id": 169,
     "locations": [
-      "室内練習場",
-      "パワーエリア"
+      "室内練習場"
     ],
-    "manager": "",
+    "manager": "曽川",
     "notes": "",
-    "participants": "",
+    "participants": "40人",
     "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-05-03",
+    "snsPR": "pending",
+    "startDate": "2026-07-19",
     "startTime": "09:00",
-    "title": "新宿牛込ベースボールクラブ",
+    "title": "ブラジル少年野球合宿",
     "usageType": "external"
   }
 ]
