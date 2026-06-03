@@ -1658,47 +1658,6 @@
     "archivedAt": "2026-05-29T05:42:15.858Z"
   },
   {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "測定会",
-    "date": "4月14日 他1件",
-    "dates": [
-      {
-        "endDate": "2026-04-14",
-        "endTime": "17:30",
-        "startDate": "2026-04-14",
-        "startTime": "08:00"
-      },
-      {
-        "endDate": "2026-04-15",
-        "endTime": "17:30",
-        "startDate": "2026-04-15",
-        "startTime": "08:00"
-      }
-    ],
-    "endDate": "2026-04-15",
-    "endTime": "17:30",
-    "id": 64,
-    "locations": [
-      "室内練習場",
-      "ベースボールエリア",
-      "アローズエリア",
-      "食堂",
-      "多目的室"
-    ],
-    "manager": "五十子　佐藤正",
-    "notes": "",
-    "participants": "200～250",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-04-14",
-    "startTime": "08:00",
-    "title": "BCL測定",
-    "usageType": "external",
-    "originalEventId": 166,
-    "archivedAt": "2026-05-29T05:42:15.858Z"
-  },
-  {
     "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "社内イベント",
@@ -3051,37 +3010,6 @@
     "archivedAt": "2026-05-29T05:42:15.858Z"
   },
   {
-    "cardColor": "#e169b4",
-    "category": "other",
-    "categoryText": "TGB練習",
-    "date": "5月1日 12:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-05-01",
-        "endTime": "17:00",
-        "startDate": "2026-05-01",
-        "startTime": "12:00"
-      }
-    ],
-    "endDate": "2026-05-01",
-    "endTime": "17:00",
-    "id": 111,
-    "locations": [
-      "室内練習場",
-      "バッティングブースB"
-    ],
-    "manager": "神宮",
-    "notes": "",
-    "participants": "50名",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-05-01",
-    "startTime": "12:00",
-    "title": "TGB練習",
-    "originalEventId": 213,
-    "archivedAt": "2026-05-29T05:42:15.858Z"
-  },
-  {
     "cardColor": "",
     "category": "other",
     "categoryText": "その他",
@@ -3175,46 +3103,6 @@
     "startTime": "10:28",
     "title": "テスト",
     "originalEventId": 217,
-    "archivedAt": "2026-05-29T05:42:15.858Z"
-  },
-  {
-    "cardColor": "#ed0202",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "4月2日 他1件",
-    "dates": [
-      {
-        "endDate": "2026-04-02",
-        "endTime": "10:00",
-        "startDate": "2026-04-02",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-04-03",
-        "endTime": "17:00",
-        "startDate": "2026-04-03",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-04-03",
-    "endTime": "10:00",
-    "id": 116,
-    "locations": [
-      "室内練習場",
-      "ベースボールエリア",
-      "パワーエリア",
-      "パワーエリア"
-    ],
-    "manager": "神宮隆太",
-    "notes": "",
-    "participants": "３０名ほど",
-    "snsAvailableFrom": "2026-04-02",
-    "snsPR": "allowed-face-ok",
-    "startDate": "2026-04-02",
-    "startTime": "09:00",
-    "title": "TGB練習",
-    "usageType": "internal",
-    "originalEventId": 218,
     "archivedAt": "2026-05-29T05:42:15.858Z"
   },
   {
