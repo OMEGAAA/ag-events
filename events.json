@@ -2591,5 +2591,45 @@
     "startTime": "09:00",
     "title": "ブラジル少年野球合宿",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "6月13日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-06-13",
+        "endTime": "17:00",
+        "startDate": "2026-06-13",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-27",
+        "endTime": "17:00",
+        "startDate": "2026-06-27",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-27",
+    "endTime": "17:00",
+    "id": 170,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "パワーエリア"
+    ],
+    "manager": "山村航大",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-13",
+    "startTime": "09:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
   }
 ]
