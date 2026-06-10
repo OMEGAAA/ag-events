@@ -15,6 +15,7 @@ let statusTimer = null;
 let isDirty = false;
 let pendingCount = 0;
 let pendingChanges = []; // 未反映の変更内容（ツールチップ表示用）
+let adminPreviewContext = { type: '', id: null, key: '' };
 
 // ---- SORT ----
 let eventSortKey = 'date';
@@ -219,6 +220,7 @@ function renderPendingReports() {
             <td style="font-size:0.82rem;">${escapeHtml(r.organizer || '—')}</td>
             <td>${escapeHtml(submitted)}</td>
             <td class="action-cell">
+                <button class="btn btn-secondary btn-sm" onclick="previewPendingReport('${escapeHtml(key)}')">プレビュー</button>
                 <button class="btn btn-primary btn-sm" onclick="viewPendingReport('${escapeHtml(key)}')">詳細</button>
                 <button class="btn btn-success btn-sm" onclick="confirmPendingReport('${escapeHtml(key)}')">確認</button>
             </td>
@@ -375,6 +377,7 @@ function renderConfirmedReports() {
             <td>${escapeHtml(r.confirmedBy || '—')}</td>
             <td>${escapeHtml(confirmed)}</td>
             <td class="action-cell">
+                <button class="btn btn-secondary btn-sm" onclick="previewConfirmedReport('${escapeHtml(key)}')">プレビュー</button>
                 <button class="btn btn-primary btn-sm" onclick="viewConfirmedReport('${escapeHtml(key)}')">詳細</button>
                 <button class="btn btn-secondary btn-sm" onclick="unconfirmReport('${escapeHtml(key)}')">未確認に戻す</button>
                 <button class="btn btn-delete btn-sm" onclick="deleteConfirmedReport('${escapeHtml(key)}')">削除</button>
@@ -739,6 +742,115 @@ function escapeHtml(str) {
         .replace(/"/g, '&quot;');
 }
 
+function previewRows(rows) {
+    return rows
+        .filter(([, value]) => value !== undefined && value !== null && String(value).trim() !== '')
+        .map(([label, value]) => `
+            <div class="preview-row">
+                <span>${escapeHtml(label)}</span>
+                <strong>${escapeHtml(value || '—')}</strong>
+            </div>`)
+        .join('');
+}
+
+function setAdminPreview(html) {
+    const panel = document.getElementById('admin-preview-panel');
+    const body = document.getElementById('admin-preview-content');
+    if (!body) return;
+    body.innerHTML = html;
+    if (panel) panel.classList.remove('is-collapsed');
+}
+
+function getEventPreviewDate(e) {
+    if (e.date) return e.date;
+    const ranges = getEventDateRanges(e);
+    const first = ranges[0] || {};
+    if (!first.startDate) return '—';
+    const time = first.startTime ? ` ${first.startTime}${first.endTime ? ` - ${first.endTime}` : ''}` : '';
+    return `${first.startDate}${first.endDate && first.endDate !== first.startDate ? ` - ${first.endDate}` : ''}${time}`;
+}
+
+function previewEvent(id, source = 'events') {
+    const list = source === 'archived' ? archivedEvents : events;
+    const e = list.find(item => Number(item.id) === Number(id));
+    if (!e) return;
+    adminPreviewContext = { type: source, id: Number(id), key: '' };
+    const locText = Array.isArray(e.locations) && e.locations.length > 0
+        ? e.locations.join('・')
+        : (e.location || '—');
+    const sns = SNS_LABEL[e.snsPR] || SNS_LABEL.pending;
+    const status = source === 'archived' ? 'アーカイブ' : (e.usageType === 'external' ? '外部利用' : e.usageType === 'internal' ? '内部利用' : 'イベント');
+    const actions = source === 'archived'
+        ? `<button class="btn btn-edit" onclick="restoreEvent(${Number(e.id)})">復元</button>
+           <button class="btn btn-delete" onclick="deleteArchivedEvent(${Number(e.id)})">削除</button>`
+        : `<button class="btn btn-primary" onclick="openEditModal(${Number(e.id)})">編集</button>
+           <button class="btn btn-secondary" onclick="archiveEvent(${Number(e.id)})">アーカイブ</button>`;
+
+    setAdminPreview(`
+        <span class="preview-status">${escapeHtml(status)}</span>
+        <h2>${escapeHtml(e.title || 'タイトル未設定')}</h2>
+        <div class="preview-meta">
+            ${previewRows([
+                ['開催日', getEventPreviewDate(e)],
+                ['施設', locText],
+                ['カテゴリ', e.categoryText || '—'],
+                ['担当者', e.manager || '—'],
+                ['参加人数', e.participants || '—'],
+                ['HP/SNS', sns.text || '—'],
+            ])}
+        </div>
+        ${e.notes ? `<div class="preview-section"><h3>備考</h3><p>${escapeHtml(e.notes)}</p></div>` : ''}
+        <div class="preview-actions">${actions}</div>
+    `);
+}
+
+function previewReportRecord(r, source, key = '') {
+    if (!r) return;
+    adminPreviewContext = { type: source, id: null, key };
+    const contents = Array.isArray(r.contents) ? r.contents : [];
+    const paragraphs = Array.isArray(r.paragraphs) ? r.paragraphs : [];
+    const photos = Array.isArray(r.photos) ? r.photos : [];
+    const summary = r.summary || paragraphs[0] || contents.join('、');
+    const status = source === 'confirmed-report' ? '確認済み' : source === 'published-report' ? '公開実績' : '承認待ち';
+    const actionHtml = source === 'pending-report'
+        ? `<button class="btn btn-success" onclick="confirmPendingReport('${escapeHtml(key)}')">承認する</button>
+           <button class="btn btn-secondary" onclick="viewPendingReport('${escapeHtml(key)}')">詳細</button>`
+        : source === 'confirmed-report'
+            ? `<button class="btn btn-secondary" onclick="viewConfirmedReport('${escapeHtml(key)}')">詳細</button>
+               <button class="btn btn-delete" onclick="deleteConfirmedReport('${escapeHtml(key)}')">削除</button>`
+            : `<button class="btn btn-secondary" onclick="viewReport(${Number(r.id)})">詳細</button>
+               <button class="btn btn-primary" onclick="openEditReportModal(${Number(r.id)})">編集</button>`;
+
+    setAdminPreview(`
+        <span class="preview-status">${escapeHtml(status)}</span>
+        <h2>${escapeHtml(r.eventTitle || '実施報告')}</h2>
+        <div class="preview-meta">
+            ${previewRows([
+                ['日程', r.eventDateText || r.eventDate || '—'],
+                ['報告者', r.reporter || r.manager || '—'],
+                ['主催', r.organizer || '—'],
+                ['カテゴリ', r.categoryText || '—'],
+                ['写真', photos.length ? `${photos.length}枚` : '—'],
+            ])}
+        </div>
+        ${summary ? `<div class="preview-section"><h3>概要</h3><p>${escapeHtml(summary)}</p></div>` : ''}
+        <div class="preview-actions">${actionHtml}</div>
+    `);
+}
+
+function previewPendingReport(key) {
+    previewReportRecord(pendingReports[key], 'pending-report', key);
+}
+
+function previewConfirmedReport(key) {
+    previewReportRecord(confirmedReports[key], 'confirmed-report', key);
+}
+
+function previewPublishedReport(id) {
+    const r = reports.find(rep => Number(rep.id) === Number(id));
+    previewReportRecord(r, 'published-report');
+}
+
 const SNS_LABEL = {
     'allowed':         { text: '掲載可（顔出しOK）', cls: 'sns-allowed' },
     'allowed-face-ok': { text: '掲載可（顔出しOK）', cls: 'sns-allowed' },
@@ -1070,6 +1182,7 @@ function renderEventList() {
             <td style="font-size:0.85rem; color:var(--text-secondary);">${escapeHtml(e.manager || '—')}</td>
             <td>
                 <div class="td-actions">
+                    <button class="btn btn-secondary btn-sm" onclick="previewEvent(${Number(e.id)})">プレビュー</button>
                     <button class="btn btn-edit" onclick="openEditModal(${Number(e.id)})">編集</button>
                     <button class="btn btn-archive" onclick="archiveEvent(${Number(e.id)})">アーカイブ</button>
                     <button class="btn btn-delete" onclick="deleteEvent(${Number(e.id)})">削除</button>
@@ -1077,6 +1190,10 @@ function renderEventList() {
             </td>
         </tr>`;
     }).join('');
+
+    if (!adminPreviewContext.type && sortedFiltered[0]) {
+        previewEvent(Number(sortedFiltered[0].id));
+    }
 
     // ダッシュボードも更新
     if (typeof renderDashboard === 'function') renderDashboard();
@@ -1422,6 +1539,7 @@ function renderReportList() {
                 <td style="font-size:0.85rem; color:var(--text-secondary);">${photoCount > 0 ? `📷 ${photoCount}枚` : '—'}</td>
                 <td>
                     <div class="td-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="previewPublishedReport(${Number(r.id)})">プレビュー</button>
                         <button class="btn btn-secondary btn-sm" onclick="viewReport(${Number(r.id)})">詳細</button>
                         <button class="btn btn-edit" onclick="openEditReportModal(${Number(r.id)})">編集</button>
                         <button class="btn btn-delete" onclick="deleteReport(${Number(r.id)})">削除</button>
@@ -1861,6 +1979,7 @@ function renderArchivedList() {
                 <td style="font-size:0.85rem; color:var(--text-secondary);">${escapeHtml(archivedDate)}</td>
                 <td>
                     <div class="td-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="previewEvent(${Number(e.id)}, 'archived')">プレビュー</button>
                         <button class="btn btn-edit" onclick="restoreEvent(${Number(e.id)})">復元</button>
                         <button class="btn btn-delete" onclick="deleteArchivedEvent(${Number(e.id)})">削除</button>
                     </div>
@@ -2518,6 +2637,10 @@ renderReportList();
 renderArchivedList();
 renderDashboard();
 applyAllCollapseStates();
+
+document.querySelector('.admin-preview-close')?.addEventListener('click', () => {
+    document.getElementById('admin-preview-panel')?.classList.toggle('is-collapsed');
+});
 
 // ---- SECTION NAV (ヘッダー追従のセクション移動タブ) ----
 (function initSectionNav() {

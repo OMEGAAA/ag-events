@@ -15,6 +15,7 @@
     <header class="admin-header">
         <div style="display:flex; align-items:center; gap:0.75rem;">
             <span class="admin-logo">AG.<span>Admin</span></span>
+            <span class="admin-title">イベント管理</span>
             <span class="admin-badge">管理者専用</span>
         </div>
         <div style="display:flex; align-items:center; gap:1rem;">
@@ -50,6 +51,18 @@
         </div>
     </nav>
 
+    <aside class="admin-preview-panel" id="admin-preview-panel" aria-label="プレビュー">
+        <div class="admin-preview-header">
+            <span>プレビュー</span>
+            <button type="button" class="admin-preview-close" aria-label="プレビューを閉じる" title="プレビューを閉じる">×</button>
+        </div>
+        <div id="admin-preview-content" class="admin-preview-content">
+            <span class="preview-status">未選択</span>
+            <h2>確認対象を選択</h2>
+            <p class="preview-muted">イベント一覧や実施報告の「プレビュー」を押すと、ここに要点が表示されます。</p>
+        </div>
+    </aside>
+
     <div class="admin-container">
 
         <!-- Status Bar -->
@@ -68,10 +81,10 @@
                     <h3>GitHub 接続設定</h3>
                     <span id="connection-badge"></span>
                 </div>
-                <span id="settings-toggle-icon">▲</span>
+                <span id="settings-toggle-icon">▼</span>
             </div>
 
-            <div id="settings-body">
+            <div id="settings-body" style="display:none;">
                 <p class="settings-desc">GitHubと連携することで、このページからイベントを編集し、公開サイトに反映できます。</p>
 
                 <!-- STEP 1 -->
