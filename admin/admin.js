@@ -1,4 +1,5 @@
 const STORAGE_KEY = 'ag_admin_config';
+const SIDEBAR_STORAGE_KEY = 'ag_admin_sidebar_collapsed';
 
 let config = {
     owner: '',
@@ -2641,6 +2642,30 @@ applyAllCollapseStates();
 document.querySelector('.admin-preview-close')?.addEventListener('click', () => {
     document.getElementById('admin-preview-panel')?.classList.toggle('is-collapsed');
 });
+
+function applySidebarState(collapsed) {
+    document.body.classList.toggle('admin-sidebar-collapsed', collapsed);
+    const btn = document.getElementById('admin-sidebar-toggle');
+    if (!btn) return;
+    const label = btn.querySelector('.sidebar-toggle-label');
+    btn.setAttribute('aria-expanded', String(!collapsed));
+    btn.setAttribute('aria-label', collapsed ? 'サイドバーを展開する' : 'サイドバーを折りたたむ');
+    btn.title = collapsed ? 'サイドバーを展開する' : 'サイドバーを折りたたむ';
+    if (label) label.textContent = collapsed ? '展開する' : '折りたたむ';
+}
+
+(function initSidebarToggle() {
+    const btn = document.getElementById('admin-sidebar-toggle');
+    if (!btn) return;
+    const saved = localStorage.getItem(SIDEBAR_STORAGE_KEY) === 'true';
+    applySidebarState(saved);
+    btn.addEventListener('click', () => {
+        const collapsed = !document.body.classList.contains('admin-sidebar-collapsed');
+        applySidebarState(collapsed);
+        localStorage.setItem(SIDEBAR_STORAGE_KEY, String(collapsed));
+        window.dispatchEvent(new Event('resize'));
+    });
+})();
 
 // ---- SECTION NAV (ヘッダー追従のセクション移動タブ) ----
 (function initSectionNav() {

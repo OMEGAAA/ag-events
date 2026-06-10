@@ -2765,3 +2765,126 @@ tr:hover td {
         border-bottom: 0;
     }
 }
+
+/* ---- Collapsible sidebar ---- */
+.sidebar-toggle {
+    width: 100%;
+    min-height: 38px;
+    margin: 0 0 0.65rem;
+    padding: 0.45rem 0.65rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.45rem;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.78);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.sidebar-toggle:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border-color: rgba(255,255,255,0.24);
+}
+
+.sidebar-toggle-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.1);
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: transform 0.2s;
+}
+
+.sidebar-toggle-label {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+body.admin-sidebar-collapsed .section-nav {
+    width: 72px;
+    padding-left: 0.55rem;
+    padding-right: 0.55rem;
+}
+
+body.admin-sidebar-collapsed .admin-container {
+    margin-left: 72px;
+}
+
+body.admin-sidebar-collapsed .sidebar-toggle {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+body.admin-sidebar-collapsed .sidebar-toggle-icon {
+    transform: rotate(180deg);
+}
+
+body.admin-sidebar-collapsed .sidebar-toggle-label,
+body.admin-sidebar-collapsed .section-nav-inner::after,
+body.admin-sidebar-collapsed .section-nav-item span:not(.section-nav-count) {
+    display: none;
+}
+
+body.admin-sidebar-collapsed .section-nav-item {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+
+body.admin-sidebar-collapsed .section-nav-item svg {
+    margin: 0;
+}
+
+body.admin-sidebar-collapsed .section-nav-count {
+    position: absolute;
+    right: 0.25rem;
+    top: 0.25rem;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 0.25rem;
+    font-size: 0.66rem;
+}
+
+@media (max-width: 1080px) and (min-width: 781px) {
+    body.admin-sidebar-collapsed .admin-preview-panel {
+        margin-left: 88px;
+    }
+}
+
+@media (max-width: 780px) {
+    .sidebar-toggle {
+        display: none;
+    }
+
+    body.admin-sidebar-collapsed .section-nav {
+        width: auto;
+        padding: 0.45rem 0.75rem;
+    }
+
+    body.admin-sidebar-collapsed .section-nav-item {
+        justify-content: flex-start;
+        padding: 0.65rem 0.72rem;
+    }
+
+    body.admin-sidebar-collapsed .section-nav-item span:not(.section-nav-count) {
+        display: inline;
+    }
+
+    body.admin-sidebar-collapsed .admin-container,
+    body.admin-sidebar-collapsed .admin-preview-panel {
+        margin-left: 0;
+    }
+}
