@@ -2955,5 +2955,34 @@
     "startTime": "10:00",
     "title": "アローズ第二回夏期講習",
     "usageType": "external"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "9月17日 15:29〜17:29",
+    "dates": [
+      {
+        "endDate": "2026-09-17",
+        "endTime": "17:29",
+        "startDate": "2026-09-17",
+        "startTime": "15:29"
+      }
+    ],
+    "endDate": "2026-09-17",
+    "endTime": "17:29",
+    "id": 177,
+    "locations": [
+      "食堂"
+    ],
+    "manager": "test",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-17",
+    "startTime": "15:29",
+    "title": "test",
+    "usageType": "internal"
   }
 ]
