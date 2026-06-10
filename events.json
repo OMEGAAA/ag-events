@@ -2908,5 +2908,52 @@
     "startTime": "10:00",
     "title": "競技特化イベント",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "8月4日 他3件",
+    "dates": [
+      {
+        "endDate": "2026-08-04",
+        "endTime": "16:00",
+        "startDate": "2026-08-04",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-08-06",
+        "endTime": "16:00",
+        "startDate": "2026-08-06",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-08-18",
+        "endTime": "16:00",
+        "startDate": "2026-08-18",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-08-25",
+        "endTime": "16:00",
+        "startDate": "2026-08-25",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-08-25",
+    "endTime": "16:00",
+    "id": 176,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大向 勇成",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-04",
+    "startTime": "10:00",
+    "title": "アローズ第二回夏期講習",
+    "usageType": "external"
   }
 ]
