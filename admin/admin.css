@@ -2920,3 +2920,23 @@ body.admin-sidebar-collapsed .section-nav-count {
         cursor: pointer;
     }
 }
+
+/* プレビューの複数日程リスト */
+.preview-dates {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.preview-dates li {
+    font-size: 0.83rem;
+    color: var(--text-primary);
+    padding: 0.32rem 0;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.preview-dates li:last-child {
+    border-bottom: 0;
+}

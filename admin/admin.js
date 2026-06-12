@@ -799,15 +799,6 @@ function setAdminPreview(html) {
     if (panel) panel.classList.remove('is-collapsed');
 }
 
-function getEventPreviewDate(e) {
-    if (e.date) return e.date;
-    const ranges = getEventDateRanges(e);
-    const first = ranges[0] || {};
-    if (!first.startDate) return '—';
-    const time = first.startTime ? ` ${first.startTime}${first.endTime ? ` - ${first.endTime}` : ''}` : '';
-    return `${first.startDate}${first.endDate && first.endDate !== first.startDate ? ` - ${first.endDate}` : ''}${time}`;
-}
-
 // 行のどこをクリックしてもプレビューを開く（ボタン等の操作要素は除外）
 function onEventRowClick(ev, id, source = 'events') {
     if (ev.target.closest('button, a, input, select')) return;
@@ -820,11 +811,33 @@ function onReportRowClick(ev, key, source) {
     else previewConfirmedReport(key);
 }
 
+// プレビュー用に日程1件を「6月2日(月) 09:00〜12:00」形式へ整形
+function formatPreviewDateRange(r) {
+    const fmtD = (s) => {
+        const d = new Date(s + 'T00:00:00');
+        if (Number.isNaN(d.getTime())) return s;
+        return `${d.getMonth() + 1}月${d.getDate()}日(${'日月火水木金土'[d.getDay()]})`;
+    };
+    const ds = r.endDate && r.endDate !== r.startDate ? `${fmtD(r.startDate)}〜${fmtD(r.endDate)}` : fmtD(r.startDate);
+    const ts = r.startTime ? ` ${r.startTime}${r.endTime ? '〜' + r.endTime : ''}` : '';
+    return ds + ts;
+}
+
 function previewEvent(id, source = 'events') {
     const list = source === 'archived' ? archivedEvents : events;
     const e = list.find(item => Number(item.id) === Number(id));
     if (!e) return;
     adminPreviewContext = { type: source, id: Number(id), key: '' };
+    const ranges = getEventDateRanges(e).filter(r => r.startDate);
+    const dateRowText = ranges.length === 0 ? '—'
+        : ranges.length === 1 ? formatPreviewDateRange(ranges[0])
+        : `全${ranges.length}回（下に一覧）`;
+    const datesListHtml = ranges.length > 1
+        ? `<div class="preview-section">
+            <h3>日程（全${ranges.length}回）</h3>
+            <ul class="preview-dates">${ranges.map(r => `<li>${escapeHtml(formatPreviewDateRange(r))}</li>`).join('')}</ul>
+           </div>`
+        : '';
     const locText = Array.isArray(e.locations) && e.locations.length > 0
         ? e.locations.join('・')
         : (e.location || '—');
@@ -841,7 +854,7 @@ function previewEvent(id, source = 'events') {
         <h2>${escapeHtml(e.title || 'タイトル未設定')}</h2>
         <div class="preview-meta">
             ${previewRows([
-                ['開催日', getEventPreviewDate(e)],
+                ['開催日', dateRowText],
                 ['施設', locText],
                 ['カテゴリ', e.categoryText || '—'],
                 ['担当者', e.manager || '—'],
@@ -849,6 +862,7 @@ function previewEvent(id, source = 'events') {
                 ['HP/SNS', sns.text || '—'],
             ])}
         </div>
+        ${datesListHtml}
         ${e.notes ? `<div class="preview-section"><h3>備考</h3><p>${escapeHtml(e.notes)}</p></div>` : ''}
         <div class="preview-actions">${actions}</div>
     `);
