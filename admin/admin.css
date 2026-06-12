@@ -2940,3 +2940,113 @@ body.admin-sidebar-collapsed .section-nav-count {
 .preview-dates li:last-child {
     border-bottom: 0;
 }
+
+/* ===== イベントモーダル: 日程入力補助（ミニカレンダー・一括入力） ===== */
+.date-helper {
+    display: flex;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.85rem;
+    padding: 0.85rem;
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.date-mini-cal {
+    width: 256px;
+    flex-shrink: 0;
+}
+
+.mini-cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+}
+
+.mini-cal-nav {
+    width: 26px;
+    height: 26px;
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.mini-cal-nav:hover {
+    background: rgba(59, 130, 246, 0.08);
+}
+
+.mini-cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+.mini-cal-dow {
+    text-align: center;
+    font-size: 0.68rem;
+    color: var(--text-secondary);
+    padding: 2px 0;
+}
+
+.mini-cal-dow.dow-sun { color: #ef4444; }
+.mini-cal-dow.dow-sat { color: #3b82f6; }
+
+.mini-cal-day {
+    aspect-ratio: 1;
+    border: 1px solid transparent;
+    background: transparent;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: 0;
+}
+
+.mini-cal-day:hover { background: rgba(59, 130, 246, 0.12); }
+.mini-cal-day.empty { cursor: default; }
+.mini-cal-day.empty:hover { background: transparent; }
+.mini-cal-day.today { border-color: #3b82f6; }
+.mini-cal-day.selected { background: #3b82f6; color: #fff; font-weight: 700; }
+.mini-cal-day.selected:hover { background: #2563eb; }
+
+.mini-cal-hint {
+    margin-top: 0.35rem;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.date-helper-side {
+    flex: 1;
+    min-width: 230px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.date-helper-label {
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 0.3rem;
+}
+
+.bulk-time-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.bulk-time-row input[type="time"] {
+    width: auto;
+}

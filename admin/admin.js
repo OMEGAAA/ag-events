@@ -985,9 +985,14 @@ function addDateRow(dateData = {}) {
 
 function removeDateRow(btn) {
     const list = document.getElementById('f-dates-list');
-    if (list.children.length <= 1) { alert('少なくとも1つの日程が必要です'); return; }
-    btn.closest('.date-row').remove();
+    if (list.children.length <= 1) {
+        // 最後の1行は行ごと消さず、入力内容だけ空にする
+        btn.closest('.date-row').querySelectorAll('input').forEach(inp => { inp.value = ''; });
+    } else {
+        btn.closest('.date-row').remove();
+    }
     updateDateRowLabels();
+    renderDateMiniCal();
 }
 
 function updateDateRowLabels() {
@@ -1011,6 +1016,193 @@ function getDatesFromForm() {
             endTime:   row.querySelector('.f-date-endtime').value.trim(),
         }))
         .filter(d => d.startDate);
+}
+
+// ---- 日程ミニカレンダー & 一括入力 ----
+
+let dateCalYear = new Date().getFullYear();
+let dateCalMonth = new Date().getMonth(); // 0-indexed
+
+function toLocalDateStr(d) {
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+// 現在の日程行がカバーしている日付の集合（カレンダーのハイライト用）
+function getSelectedDateSet() {
+    const set = new Set();
+    document.querySelectorAll('#f-dates-list .date-row').forEach(row => {
+        const s = row.querySelector('.f-date-start').value;
+        if (!s) return;
+        const e = row.querySelector('.f-date-end').value || s;
+        const d = new Date(s + 'T00:00:00');
+        const end = new Date(e + 'T00:00:00');
+        if (Number.isNaN(d.getTime()) || Number.isNaN(end.getTime())) return;
+        for (let i = 0; d <= end && i < 120; i++, d.setDate(d.getDate() + 1)) {
+            set.add(toLocalDateStr(d));
+        }
+    });
+    return set;
+}
+
+function dateCalPrev() { dateCalMonth--; if (dateCalMonth < 0) { dateCalMonth = 11; dateCalYear--; } renderDateMiniCal(); }
+function dateCalNext() { dateCalMonth++; if (dateCalMonth > 11) { dateCalMonth = 0; dateCalYear++; } renderDateMiniCal(); }
+
+function renderDateMiniCal() {
+    const cal = document.getElementById('f-mini-cal');
+    if (!cal) return;
+    const selected = getSelectedDateSet();
+    const todayStr = toLocalDateStr(new Date());
+    const lead = new Date(dateCalYear, dateCalMonth, 1).getDay(); // 日曜始まり
+    const daysInMonth = new Date(dateCalYear, dateCalMonth + 1, 0).getDate();
+
+    let html = `<div class="mini-cal-header">
+        <button type="button" class="mini-cal-nav" onclick="dateCalPrev()" aria-label="前の月">‹</button>
+        <span>${dateCalYear}年${dateCalMonth + 1}月</span>
+        <button type="button" class="mini-cal-nav" onclick="dateCalNext()" aria-label="次の月">›</button>
+    </div><div class="mini-cal-grid">`;
+    ['日', '月', '火', '水', '木', '金', '土'].forEach((w, i) => {
+        html += `<span class="mini-cal-dow${i === 0 ? ' dow-sun' : i === 6 ? ' dow-sat' : ''}">${w}</span>`;
+    });
+    for (let i = 0; i < lead; i++) html += '<span class="mini-cal-day empty"></span>';
+    for (let day = 1; day <= daysInMonth; day++) {
+        const ds = `${dateCalYear}-${String(dateCalMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const cls = ['mini-cal-day'];
+        if (selected.has(ds)) cls.push('selected');
+        if (ds === todayStr) cls.push('today');
+        html += `<button type="button" class="${cls.join(' ')}" onclick="toggleCalendarDate('${ds}')">${day}</button>`;
+    }
+    html += '</div><div class="mini-cal-hint">日付クリックで日程を追加・解除</div>';
+    cal.innerHTML = html;
+}
+
+// 空の日程行があればそこへ、なければ新しい行として日程を入れる（時刻欄の値を自動適用）
+function addDateEntry(startDate, endDate) {
+    const bulkS = document.getElementById('f-bulk-starttime')?.value || '';
+    const bulkE = document.getElementById('f-bulk-endtime')?.value || '';
+    const empty = Array.from(document.querySelectorAll('#f-dates-list .date-row'))
+        .find(row => !row.querySelector('.f-date-start').value);
+    if (empty) {
+        empty.querySelector('.f-date-start').value = startDate;
+        empty.querySelector('.f-date-end').value = endDate && endDate !== startDate ? endDate : '';
+        if (bulkS && !empty.querySelector('.f-date-starttime').value) empty.querySelector('.f-date-starttime').value = bulkS;
+        if (bulkE && !empty.querySelector('.f-date-endtime').value) empty.querySelector('.f-date-endtime').value = bulkE;
+    } else {
+        addDateRow({ startDate, endDate: endDate || startDate, startTime: bulkS, endTime: bulkE });
+    }
+}
+
+function toggleCalendarDate(ds) {
+    const rows = Array.from(document.querySelectorAll('#f-dates-list .date-row'));
+    // その日だけの単日行があれば解除
+    const singleRow = rows.find(row => {
+        const s = row.querySelector('.f-date-start').value;
+        const e = row.querySelector('.f-date-end').value || s;
+        return s === ds && e === ds;
+    });
+    if (singleRow) {
+        if (rows.length <= 1) {
+            singleRow.querySelectorAll('input').forEach(inp => { inp.value = ''; });
+        } else {
+            singleRow.remove();
+        }
+        updateDateRowLabels();
+        renderDateMiniCal();
+        return;
+    }
+    // 複数日範囲の行に含まれる日はカレンダーからは解除できない（行側で編集してもらう）
+    if (getSelectedDateSet().has(ds)) return;
+    addDateEntry(ds, ds);
+    updateDateRowLabels();
+    renderDateMiniCal();
+}
+
+// 「6/2」「2026-08-26」「6/9~11」等を YYYY-MM-DD へ（年省略時はカレンダー表示中の年）
+function parseFlexibleDate(str, baseDateStr) {
+    if (!str) return null;
+    let m = str.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})$/);
+    if (m) return validDateStr(+m[1], +m[2], +m[3]);
+    m = str.match(/^(\d{1,2})\/(\d{1,2})$/);
+    if (m) return validDateStr(dateCalYear, +m[1], +m[2]);
+    m = str.match(/^(\d{1,2})$/);
+    if (m && baseDateStr) {
+        const [y, mo] = baseDateStr.split('-').map(Number);
+        return validDateStr(y, mo, +m[1]);
+    }
+    return null;
+}
+
+function validDateStr(y, mo, d) {
+    const dt = new Date(y, mo - 1, d);
+    if (dt.getFullYear() !== y || dt.getMonth() !== mo - 1 || dt.getDate() !== d) return null;
+    return toLocalDateStr(dt);
+}
+
+function addDatesFromText() {
+    const input = document.getElementById('f-dates-text');
+    if (!input) return;
+    const raw = input.value.trim();
+    if (!raw) return;
+
+    // 全角数字・区切り文字を正規化（「8月26日」「６／２」等も受け付ける）
+    const normalized = raw
+        .replace(/[０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0))
+        .replace(/[／]/g, '/')
+        .replace(/(\d)月/g, '$1/')
+        .replace(/日/g, '')
+        .replace(/[〜~ー−]/g, '~');
+
+    const tokens = normalized.split(/[,、\s]+/).filter(Boolean);
+    const selected = getSelectedDateSet();
+    let added = 0;
+    const errors = [];
+
+    tokens.forEach(token => {
+        // ISO形式（2026-08-26）以外で使われた「-」は範囲区切りとして扱う（例: 6/2-6/4）
+        let t = token;
+        if (!/^\d{4}-\d{1,2}-\d{1,2}$/.test(t) && !t.includes('~') && t.includes('-')) {
+            t = t.replace(/-/g, '~');
+        }
+        const parts = t.split('~').filter(Boolean);
+        const start = parseFlexibleDate(parts[0]);
+        const end = parts.length > 1 ? parseFlexibleDate(parts[1], start) : start;
+        if (!start || !end || start > end) { errors.push(token); return; }
+        if (start === end && selected.has(start)) return; // 既にある単日はスキップ
+        addDateEntry(start, end);
+        selected.add(start);
+        added++;
+    });
+
+    updateDateRowLabels();
+    renderDateMiniCal();
+    input.value = errors.length > 0 ? errors.join(', ') : '';
+    if (errors.length > 0) {
+        alert(`解釈できなかった日付が残っています: ${errors.join('、')}\n「6/2」「6/9〜6/11」「2026-08-26」の形式で入力してください。`);
+    } else if (added > 0) {
+        input.focus();
+    }
+}
+
+function applyBulkTime() {
+    const s = document.getElementById('f-bulk-starttime')?.value || '';
+    const e = document.getElementById('f-bulk-endtime')?.value || '';
+    if (!s && !e) { alert('適用する時刻を入力してください'); return; }
+    document.querySelectorAll('#f-dates-list .date-row').forEach(row => {
+        if (s) row.querySelector('.f-date-starttime').value = s;
+        if (e) row.querySelector('.f-date-endtime').value = e;
+    });
+}
+
+// モーダルを開いたときに補助入力をリセットし、カレンダーを指定月に合わせる
+function resetDateHelpers(year, month) {
+    const dt = document.getElementById('f-dates-text');
+    if (dt) dt.value = '';
+    ['f-bulk-starttime', 'f-bulk-endtime'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+    });
+    dateCalYear = year;
+    dateCalMonth = month;
+    renderDateMiniCal();
 }
 
 // 時刻文字列を分に変換（空なら開始は0、終了は終日扱い）
@@ -1278,6 +1470,8 @@ function openAddModal() {
     editingId = null;
     document.getElementById('modal-title').textContent = 'イベントを追加';
     clearForm();
+    const now = new Date();
+    resetDateHelpers(now.getFullYear(), now.getMonth());
     document.getElementById('modal-overlay').style.display = 'flex';
 }
 
@@ -1294,6 +1488,12 @@ function openEditModal(id) {
     const datesList = document.getElementById('f-dates-list');
     datesList.innerHTML = '';
     getEventDateRanges(event).forEach(d => addDateRow(d));
+
+    // ミニカレンダーを最初の日程の月に合わせる
+    const firstStart = getEventDateRanges(event)[0]?.startDate;
+    const firstDate = firstStart ? new Date(firstStart + 'T00:00:00') : new Date();
+    const calBase = Number.isNaN(firstDate.getTime()) ? new Date() : firstDate;
+    resetDateHelpers(calBase.getFullYear(), calBase.getMonth());
     document.getElementById('f-card-color').value     = event.cardColor || '#000000';
     document.getElementById('f-participants').value   = event.participants || '';
     document.getElementById('f-manager').value        = event.manager || '';
@@ -2719,6 +2919,9 @@ document.querySelector('.admin-preview-header')?.addEventListener('click', (e) =
     const panel = document.getElementById('admin-preview-panel');
     if (panel?.classList.contains('is-collapsed')) panel.classList.remove('is-collapsed');
 });
+
+// 日程行を直接編集したらミニカレンダーのハイライトを追従させる
+document.getElementById('f-dates-list')?.addEventListener('change', () => renderDateMiniCal());
 
 function applySidebarState(collapsed) {
     document.body.classList.toggle('admin-sidebar-collapsed', collapsed);

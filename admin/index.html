@@ -510,6 +510,29 @@
                 <!-- 日程（複数可） -->
                 <div class="form-group full-width">
                     <label>日程 <span class="required">※必須</span></label>
+                    <div class="date-helper">
+                        <div class="date-mini-cal" id="f-mini-cal"></div>
+                        <div class="date-helper-side">
+                            <div class="date-helper-block">
+                                <label class="date-helper-label">テキストでまとめて追加</label>
+                                <div class="input-with-btn">
+                                    <input type="text" id="f-dates-text" placeholder="例: 6/2, 6/9〜6/11, 7/1"
+                                        onkeydown="if(event.key==='Enter'){event.preventDefault();addDatesFromText();}">
+                                    <button type="button" class="btn btn-secondary btn-sm" onclick="addDatesFromText()">追加</button>
+                                </div>
+                                <span class="field-hint">カンマ・スペース区切り。「〜」で連日（例: 6/9〜6/11）。年を省略するとカレンダー表示中の年になります</span>
+                            </div>
+                            <div class="date-helper-block">
+                                <label class="date-helper-label">時刻（新しく追加する日程に自動で入ります）</label>
+                                <div class="bulk-time-row">
+                                    <input type="time" id="f-bulk-starttime">
+                                    <span>〜</span>
+                                    <input type="time" id="f-bulk-endtime">
+                                    <button type="button" class="btn btn-secondary btn-sm" onclick="applyBulkTime()">全日程に適用</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div id="f-dates-list"></div>
                     <button type="button" class="btn btn-secondary add-date-btn" onclick="addDateRow()">＋ 日程を追加</button>
                 </div>
