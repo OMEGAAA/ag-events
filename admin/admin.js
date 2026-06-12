@@ -566,6 +566,22 @@ function getFriendlyError(status, message) {
 
 // ---- GITHUB API ----
 
+// キー順の違い（Firebase往復で変わる）を無視して比較するため、全キーをソートして文字列化
+function stableStringify(value) {
+    const keys = new Set();
+    JSON.stringify(value, (k, v) => { keys.add(k); return v; });
+    return JSON.stringify(value, [...keys].sort());
+}
+
+// 同じ場所が二重登録された既存データを正規化
+function normalizeEventLocations(list) {
+    if (!Array.isArray(list)) return [];
+    list.forEach(e => {
+        if (Array.isArray(e.locations)) e.locations = [...new Set(e.locations)];
+    });
+    return list;
+}
+
 function decodeBase64Utf8(base64) {
     const binary = atob(base64.replace(/\n/g, ''));
     const bytes = new Uint8Array(binary.length);
@@ -609,7 +625,28 @@ async function fetchFromGitHub() {
 
         const data = await res.json();
         currentSha = data.sha;
-        events = JSON.parse(decodeBase64Utf8(data.content));
+        const fetched = normalizeEventLocations(JSON.parse(decodeBase64Utf8(data.content)));
+
+        // 未反映の編集（Firebase共有データ or ローカル編集）が消える場合は上書き前に確認する
+        const hasUnsyncedSharedData = isFirebaseConnected && events.length > 0
+            && stableStringify(normalizeEventLocations(events.map(e => ({ ...e })))) !== stableStringify(fetched);
+        const hasLocalEdits = !isFirebaseConnected && isDirty;
+        if (hasUnsyncedSharedData || hasLocalEdits) {
+            const others = Object.keys(currentPresence).filter(uid => uid !== fbUserId).length;
+            const warn = `現在のデータ（${events.length}件）とGitHub上のデータ（${fetched.length}件）に差分があります。`
+                + (others > 0 ? `\n現在、他に ${others} 人の管理者がオンラインです。` : '')
+                + `\n\nGitHubの内容で上書きすると、まだ「公開サイトに反映する」を押していない追加・編集が消えます。`
+                + `\n\n上書きしてよろしいですか？`
+                + `\n（キャンセルすると現在のデータを保持します。その内容は「公開サイトに反映する」でGitHubに保存できます）`;
+            if (!confirm(warn)) {
+                updateConnectionBadge(true);
+                showStatus('現在のデータを保持しました。「公開サイトに反映する」を押すとGitHubに保存されます。', 'info');
+                await fetchReportsFromGitHub();
+                await fetchArchivedFromGitHub();
+                return;
+            }
+        }
+        events = fetched;
 
         markClean();
         updateConnectionBadge(true);
@@ -1307,6 +1344,14 @@ function toggleSnsDate() {
     document.getElementById('sns-date-row').style.display = isSnsAllowed(val) ? 'block' : 'none';
 }
 
+// 複数の管理者が同時に追加してもIDが衝突しないよう、タイムスタンプベースで採番する
+// （連番方式だと2人が同時に保存した際に同じIDになり、編集・削除が誤動作する）
+function generateEventId() {
+    let id = Date.now();
+    while (events.some(e => Number(e.id) === id)) id++;
+    return id;
+}
+
 function saveEvent() {
     const title = document.getElementById('f-title').value.trim();
     if (!title) { alert('タイトルを入力してください'); return; }
@@ -1335,13 +1380,13 @@ function saveEvent() {
 
     const categoryText = document.getElementById('f-category-input').value.trim() || 'その他';
     const category     = getCategoryClass(categoryText);
-    const locations    = Array.from(document.querySelectorAll('.location-checkbox:checked')).map(cb => {
+    const locations    = [...new Set(Array.from(document.querySelectorAll('.location-checkbox:checked')).map(cb => {
         if (cb.value === 'その他') {
             const text = document.getElementById('f-location-other-text').value.trim();
             return text || 'その他';
         }
         return cb.value;
-    });
+    }))];
     const participants = document.getElementById('f-participants').value.trim();
     const snsPR        = document.querySelector('input[name="f-sns"]:checked')?.value || 'not-allowed';
     const snsAvailableFrom = isSnsAllowed(snsPR) ? document.getElementById('f-sns-date').value.trim() : '';
@@ -1364,12 +1409,12 @@ function saveEvent() {
 
     if (editingId !== null) {
         const idx = events.findIndex(e => e.id === editingId);
-        if (idx !== -1) events[idx] = eventData;
+        // フォームにない既存フィールドを消さないようマージで更新
+        if (idx !== -1) events[idx] = { ...events[idx], ...eventData };
         closeModal();
         markDirty(`「${title}」を編集しました`);
     } else {
-        const maxId = events.length > 0 ? Math.max(...events.map(e => e.id)) : 0;
-        eventData.id = maxId + 1;
+        eventData.id = generateEventId();
         events.push(eventData);
         closeModal();
         markDirty(`「${title}」を追加しました`);
@@ -1927,8 +1972,7 @@ function restoreEvent(id) {
     const restored = { ...archived };
     delete restored.archivedAt;
     delete restored.originalEventId;
-    const maxId = events.length > 0 ? Math.max(...events.map(e => e.id)) : 0;
-    restored.id = maxId + 1;
+    restored.id = generateEventId();
     events.push(restored);
     markDirty(`「${archived.title}」をイベント一覧に復元しました`);
     if (isFirebaseConnected) { writeEventsToFirebase(); } else { renderEventList(); }

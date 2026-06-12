@@ -80,12 +80,21 @@ function openDetailByRef(ref) {
     if (e) openDetailEvent(e);
 }
 
+// 同じ場所が二重登録されたデータを表示用に正規化
+function normalizeEventLocations(list) {
+    if (!Array.isArray(list)) return [];
+    list.forEach(e => {
+        if (Array.isArray(e.locations)) e.locations = [...new Set(e.locations)];
+    });
+    return list;
+}
+
 // ---- FETCH ----
 async function init() {
     try {
         const res = await fetch('./events.json');
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        events = await res.json();
+        events = normalizeEventLocations(await res.json());
     } catch (e) {
         console.warn('events.json の読み込みに失敗しました:', e);
         events = [];
@@ -93,7 +102,7 @@ async function init() {
     try {
         const res = await fetch('./archived_events.json');
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        archivedEvents = await res.json();
+        archivedEvents = normalizeEventLocations(await res.json());
     } catch (e) {
         console.warn('archived_events.json の読み込みに失敗しました:', e);
         archivedEvents = [];
@@ -462,7 +471,8 @@ function buildCalEvents() {
             const start = d.startDate + (hasTime ? 'T' + d.startTime : '');
             let end;
             if (hasTime && d.endTime) {
-                end = d.startDate + 'T' + d.endTime;
+                // 複数日にまたがる時刻つきイベントは終了日まで表示する
+                end = (d.endDate && d.endDate !== d.startDate ? d.endDate : d.startDate) + 'T' + d.endTime;
             } else if (!hasTime && d.endDate && d.endDate !== d.startDate) {
                 const endD = new Date(d.endDate + 'T00:00:00');
                 endD.setDate(endD.getDate() + 1);
@@ -889,7 +899,7 @@ function toggleReportFirebaseSettings() {
 function renderReportEventSelect() {
     const select = document.getElementById('rf-event-select');
     if (!select) return;
-    const todayStr = new Date().toISOString().slice(0, 10);
+    const todayStr = toDateStr(new Date()); // ローカル日付（toISOStringはUTCのため日本時間の朝に1日ずれる）
     const pastEvents = events.filter(e => {
         const dates = getEventDates(e);
         return dates.some(d => (d.startDate || '') <= todayStr);
