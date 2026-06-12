@@ -2888,3 +2888,35 @@ body.admin-sidebar-collapsed .section-nav-count {
         margin-left: 0;
     }
 }
+
+
+/* ===== プレビューパネルの開閉改善 ===== */
+
+/* クリックでプレビューを開ける行 */
+.row-clickable {
+    cursor: pointer;
+}
+
+.row-clickable:hover td {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+@media (min-width: 1081px) {
+    .admin-container {
+        transition: margin-right 0.25s ease;
+    }
+
+    .admin-preview-panel {
+        transition: transform 0.25s ease;
+    }
+
+    /* プレビューを閉じたら中央コンテンツを広げる（つまみ46px分だけ残す） */
+    .admin-preview-panel.is-collapsed ~ .admin-container {
+        margin-right: 58px;
+    }
+
+    /* 閉じた状態のつまみはクリックで再展開できることを示す */
+    .admin-preview-panel.is-collapsed .admin-preview-header {
+        cursor: pointer;
+    }
+}

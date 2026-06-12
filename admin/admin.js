@@ -214,7 +214,7 @@ function renderPendingReports() {
     applyCollapseState('pending-reports');
     tbody.innerHTML = entries.map(([key, r]) => {
         const submitted = r.submittedAt ? new Date(r.submittedAt).toLocaleString('ja-JP') : '';
-        return `<tr>
+        return `<tr class="row-clickable" onclick="onReportRowClick(event, '${escapeHtml(key)}', 'pending')">
             <td>${escapeHtml(r.eventTitle || '')}</td>
             <td style="font-size:0.82rem;">${escapeHtml(r.eventDateText || r.eventDate || '')}</td>
             <td>${escapeHtml(r.reporter || '')}</td>
@@ -371,7 +371,7 @@ function renderConfirmedReports() {
 
     tbody.innerHTML = sorted.map(([key, r]) => {
         const confirmed = r.confirmedAt ? new Date(r.confirmedAt).toLocaleString('ja-JP') : '';
-        return `<tr>
+        return `<tr class="row-clickable" onclick="onReportRowClick(event, '${escapeHtml(key)}', 'confirmed')">
             <td>${escapeHtml(r.eventTitle || '')}</td>
             <td style="font-size:0.82rem;">${escapeHtml(r.eventDateText || r.eventDate || '')}</td>
             <td>${escapeHtml(r.reporter || '')}</td>
@@ -808,6 +808,18 @@ function getEventPreviewDate(e) {
     return `${first.startDate}${first.endDate && first.endDate !== first.startDate ? ` - ${first.endDate}` : ''}${time}`;
 }
 
+// 行のどこをクリックしてもプレビューを開く（ボタン等の操作要素は除外）
+function onEventRowClick(ev, id, source = 'events') {
+    if (ev.target.closest('button, a, input, select')) return;
+    previewEvent(id, source);
+}
+
+function onReportRowClick(ev, key, source) {
+    if (ev.target.closest('button, a, input, select')) return;
+    if (source === 'pending') previewPendingReport(key);
+    else previewConfirmedReport(key);
+}
+
 function previewEvent(id, source = 'events') {
     const list = source === 'archived' ? archivedEvents : events;
     const e = list.find(item => Number(item.id) === Number(id));
@@ -1205,7 +1217,7 @@ function renderEventList() {
                 : '';
 
         return `
-        <tr class="${overlaps.length > 0 ? 'row-overlap' : ''}">
+        <tr class="row-clickable ${overlaps.length > 0 ? 'row-overlap' : ''}" onclick="onEventRowClick(event, ${Number(e.id)})">
             <td>
                 <div class="event-title-cell">${escapeHtml(e.title)} ${overlapWarning} ${editingBadge}</div>
                 ${e.participants ? `<div class="event-sub-cell">👥 ${escapeHtml(e.participants)}</div>` : ''}
@@ -2015,7 +2027,7 @@ function renderArchivedList() {
                 : (e.location || '—');
             const archivedDate = e.archivedAt ? new Date(e.archivedAt).toLocaleDateString('ja-JP') : '—';
             return `
-            <tr>
+            <tr class="row-clickable" onclick="onEventRowClick(event, ${Number(e.id)}, 'archived')">
                 <td><div class="event-title-cell">${escapeHtml(e.title)}</div></td>
                 <td style="white-space:nowrap; font-size:0.85rem; color:var(--text-secondary);">${escapeHtml(e.date)}</td>
                 <td style="font-size:0.82rem;">${escapeHtml(locText)}</td>
@@ -2685,6 +2697,13 @@ applyAllCollapseStates();
 
 document.querySelector('.admin-preview-close')?.addEventListener('click', () => {
     document.getElementById('admin-preview-panel')?.classList.toggle('is-collapsed');
+});
+
+// 閉じた状態のパネル（つまみ部分）をクリックしたら再展開する
+document.querySelector('.admin-preview-header')?.addEventListener('click', (e) => {
+    if (e.target.closest('.admin-preview-close')) return;
+    const panel = document.getElementById('admin-preview-panel');
+    if (panel?.classList.contains('is-collapsed')) panel.classList.remove('is-collapsed');
 });
 
 function applySidebarState(collapsed) {
