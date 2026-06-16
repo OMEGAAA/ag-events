@@ -2989,5 +2989,38 @@
     "startTime": "",
     "title": "テスト",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "6月15日 12:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-06-15",
+        "endTime": "17:00",
+        "startDate": "2026-06-15",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-06-15",
+    "endTime": "17:00",
+    "id": 1781312572969,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村航大",
+    "notes": "",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-15",
+    "startTime": "12:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
   }
 ]
