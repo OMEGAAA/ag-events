@@ -1050,34 +1050,6 @@
     "usageType": "external"
   },
   {
-    "cardColor": "#800080",
-    "category": "other",
-    "categoryText": "測定",
-    "date": "6月14日 09:00〜16:00",
-    "dates": [
-      {
-        "endDate": "2026-06-14",
-        "endTime": "16:00",
-        "startDate": "2026-06-14",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-06-14",
-    "endTime": "16:00",
-    "id": 126,
-    "locations": [
-      "投手測定エリア"
-    ],
-    "manager": "関口雄大",
-    "notes": "",
-    "participants": "5",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-06-14",
-    "startTime": "09:00",
-    "title": "本庄第一中学校測定"
-  },
-  {
     "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "AGK高等学院練習",
@@ -1923,36 +1895,6 @@
     "startDate": "2026-07-09",
     "startTime": "08:00",
     "title": "AGK男子野球部練習"
-  },
-  {
-    "cardColor": "#32cd32",
-    "category": "other",
-    "categoryText": "イベント",
-    "date": "6月14日 09:00〜16:00",
-    "dates": [
-      {
-        "endDate": "2026-06-14",
-        "endTime": "16:00",
-        "startDate": "2026-06-14",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-06-14",
-    "endTime": "16:00",
-    "id": 155,
-    "locations": [
-      "バッティングブースA",
-      "打撃エリア"
-    ],
-    "manager": "福田直樹",
-    "notes": "男子野球部Aブース利用については話し合い済み",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-06-14",
-    "startTime": "09:00",
-    "title": "本庄第一中学校測定",
-    "usageType": "external"
   },
   {
     "cardColor": "#ff69b4",
@@ -2988,39 +2930,6 @@
     "startDate": "2026-07-09",
     "startTime": "",
     "title": "テスト",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "6月15日 12:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-06-15",
-        "endTime": "17:00",
-        "startDate": "2026-06-15",
-        "startTime": "12:00"
-      }
-    ],
-    "endDate": "2026-06-15",
-    "endTime": "17:00",
-    "id": 1781312572969,
-    "locations": [
-      "室内練習場",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "投手測定エリア"
-    ],
-    "manager": "山村航大",
-    "notes": "",
-    "participants": "40",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-06-15",
-    "startTime": "12:00",
-    "title": "AGK男子野球部練習",
     "usageType": "internal"
   }
 ]
