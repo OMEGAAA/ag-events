@@ -2931,5 +2931,47 @@
     "startTime": "",
     "title": "テスト",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "8月4日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-08-04",
+        "endTime": "16:00",
+        "startDate": "2026-08-04",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-08-06",
+        "endTime": "16:00",
+        "startDate": "2026-08-06",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-08-07",
+        "endTime": "16:00",
+        "startDate": "2026-08-07",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-08-07",
+    "endTime": "16:00",
+    "id": 1781653490101,
+    "locations": [
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "村中　洸仁",
+    "notes": "",
+    "participants": "30",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-04",
+    "startTime": "09:00",
+    "title": "川越東高校（仮）",
+    "usageType": "external"
   }
 ]
