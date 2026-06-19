@@ -2931,5 +2931,67 @@
     "startTime": "",
     "title": "テスト",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "6月19日 他5件",
+    "dates": [
+      {
+        "endDate": "2026-06-19",
+        "endTime": "17:00",
+        "startDate": "2026-06-19",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-22",
+        "endTime": "17:00",
+        "startDate": "2026-06-22",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-23",
+        "endTime": "17:00",
+        "startDate": "2026-06-23",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-25",
+        "endTime": "17:00",
+        "startDate": "2026-06-25",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-26",
+        "endTime": "17:00",
+        "startDate": "2026-06-26",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-29",
+        "endTime": "17:00",
+        "startDate": "2026-06-29",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-29",
+    "endTime": "17:00",
+    "id": 1781835601724,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村航大",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-19",
+    "startTime": "09:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
   }
 ]
