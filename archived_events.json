@@ -3171,5 +3171,194 @@
     "usageType": "external",
     "originalEventId": 220,
     "archivedAt": "2026-05-29T05:42:15.858Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "6月20日 09:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-06-20",
+        "endTime": "18:00",
+        "startDate": "2026-06-20",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-20",
+    "endTime": "18:00",
+    "id": 119,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "アローズエリア",
+      "スタジオ",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "200",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-20",
+    "startTime": "09:00",
+    "title": "メリーランド祭",
+    "usageType": "external",
+    "originalEventId": 76,
+    "archivedAt": "2026-06-22T06:39:07.000Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "AGK男子練習",
+    "date": "6月7日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-06-07",
+        "endTime": "17:00",
+        "startDate": "2026-06-07",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-14",
+        "endTime": "17:00",
+        "startDate": "2026-06-14",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-21",
+        "endTime": "17:00",
+        "startDate": "2026-06-21",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-21",
+    "endTime": "17:00",
+    "id": 120,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-07",
+    "startTime": "09:00",
+    "title": "AGK男子練習",
+    "originalEventId": 132,
+    "archivedAt": "2026-06-22T06:39:07.000Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "ドローン講習",
+    "date": "6月15日 他4件",
+    "dates": [
+      {
+        "endDate": "2026-06-15",
+        "endTime": "17:00",
+        "startDate": "2026-06-15",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-16",
+        "endTime": "17:00",
+        "startDate": "2026-06-16",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-17",
+        "endTime": "17:00",
+        "startDate": "2026-06-17",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-18",
+        "endTime": "17:00",
+        "startDate": "2026-06-18",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-19",
+        "endTime": "17:00",
+        "startDate": "2026-06-19",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-19",
+    "endTime": "17:00",
+    "id": 121,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "星野",
+    "notes": "",
+    "participants": "10名",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-15",
+    "startTime": "09:00",
+    "title": "ドローン講習",
+    "usageType": "external",
+    "originalEventId": 157,
+    "archivedAt": "2026-06-22T06:39:07.000Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "6月16日 他3件",
+    "dates": [
+      {
+        "endDate": "2026-06-16",
+        "endTime": "16:00",
+        "startDate": "2026-06-16",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-06-17",
+        "endTime": "12:00",
+        "startDate": "2026-06-17",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-18",
+        "endTime": "12:00",
+        "startDate": "2026-06-18",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-06-19",
+        "endTime": "12:00",
+        "startDate": "2026-06-19",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-19",
+    "endTime": "16:00",
+    "id": 122,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "5",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-16",
+    "startTime": "13:00",
+    "title": "AGK高等学院練習",
+    "usageType": "internal",
+    "originalEventId": 159,
+    "archivedAt": "2026-06-22T06:39:07.000Z"
   }
 ]
