@@ -3030,5 +3030,305 @@
     "startTime": "09:30",
     "title": "健康アカデミー",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "8月22日",
+    "dates": [
+      {
+        "endDate": "2026-08-22",
+        "endTime": "",
+        "startDate": "2026-08-22",
+        "startTime": ""
+      }
+    ],
+    "endDate": "2026-08-22",
+    "endTime": "",
+    "id": 1782256466581,
+    "locations": [
+      "食堂"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-22",
+    "startTime": "",
+    "title": "U-15説明会・見学会",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "9月12日 他40件",
+    "dates": [
+      {
+        "endDate": "2026-09-12",
+        "endTime": "12:00",
+        "startDate": "2026-09-12",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-13",
+        "endTime": "12:00",
+        "startDate": "2026-09-13",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-19",
+        "endTime": "12:00",
+        "startDate": "2026-09-19",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-20",
+        "endTime": "12:00",
+        "startDate": "2026-09-20",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-21",
+        "endTime": "12:00",
+        "startDate": "2026-09-21",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-26",
+        "endTime": "12:00",
+        "startDate": "2026-09-26",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-27",
+        "endTime": "12:00",
+        "startDate": "2026-09-27",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-03",
+        "endTime": "12:00",
+        "startDate": "2026-10-03",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-04",
+        "endTime": "12:00",
+        "startDate": "2026-10-04",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-10",
+        "endTime": "12:00",
+        "startDate": "2026-10-10",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-11",
+        "endTime": "12:00",
+        "startDate": "2026-10-11",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-17",
+        "endTime": "12:00",
+        "startDate": "2026-10-17",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-18",
+        "endTime": "12:00",
+        "startDate": "2026-10-18",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-24",
+        "endTime": "12:00",
+        "startDate": "2026-10-24",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-25",
+        "endTime": "12:00",
+        "startDate": "2026-10-25",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-14",
+        "endTime": "12:00",
+        "startDate": "2026-11-14",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-21",
+        "endTime": "12:00",
+        "startDate": "2026-11-21",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-22",
+        "endTime": "12:00",
+        "startDate": "2026-11-22",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-19",
+        "endTime": "12:00",
+        "startDate": "2026-12-19",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-20",
+        "endTime": "12:00",
+        "startDate": "2026-12-20",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-01-09",
+        "endTime": "12:00",
+        "startDate": "2027-01-09",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-01-10",
+        "endTime": "12:00",
+        "startDate": "2027-01-10",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-01-16",
+        "endTime": "12:00",
+        "startDate": "2027-01-16",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-01-17",
+        "endTime": "12:00",
+        "startDate": "2027-01-17",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-01-23",
+        "endTime": "12:00",
+        "startDate": "2027-01-23",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-01-24",
+        "endTime": "12:00",
+        "startDate": "2027-01-24",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-01-30",
+        "endTime": "12:00",
+        "startDate": "2027-01-30",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-01-31",
+        "endTime": "12:00",
+        "startDate": "2027-01-31",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-02-06",
+        "endTime": "12:00",
+        "startDate": "2027-02-06",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-02-07",
+        "endTime": "12:00",
+        "startDate": "2027-02-07",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-02-13",
+        "endTime": "12:00",
+        "startDate": "2027-02-13",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-02-14",
+        "endTime": "12:00",
+        "startDate": "2027-02-14",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-02-20",
+        "endTime": "12:00",
+        "startDate": "2027-02-20",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-02-21",
+        "endTime": "12:00",
+        "startDate": "2027-02-21",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-02-27",
+        "endTime": "12:00",
+        "startDate": "2027-02-27",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-02-28",
+        "endTime": "12:00",
+        "startDate": "2027-02-28",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-03-06",
+        "endTime": "12:00",
+        "startDate": "2027-03-06",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-03-07",
+        "endTime": "12:00",
+        "startDate": "2027-03-07",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-03-20",
+        "endTime": "12:00",
+        "startDate": "2027-03-20",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-03-21",
+        "endTime": "12:00",
+        "startDate": "2027-03-21",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2027-03-22",
+        "endTime": "12:00",
+        "startDate": "2027-03-22",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2027-03-22",
+    "endTime": "12:00",
+    "id": 1782256783466,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-12",
+    "startTime": "09:00",
+    "title": "U-15練習",
+    "usageType": "external"
   }
 ]
