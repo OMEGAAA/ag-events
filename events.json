@@ -3330,5 +3330,40 @@
     "startTime": "09:00",
     "title": "U-15練習",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "7月15日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-07-15",
+        "endTime": "20:30",
+        "startDate": "2026-07-15",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-07-17",
+        "endTime": "20:30",
+        "startDate": "2026-07-17",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-07-17",
+    "endTime": "20:30",
+    "id": 1782256980484,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-15",
+    "startTime": "18:00",
+    "title": "ZUMBA体験イベント",
+    "usageType": "external"
   }
 ]
