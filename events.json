@@ -2812,5 +2812,46 @@
     "startTime": "09:00",
     "title": "AGK男子野球部練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "6月25日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-06-25",
+        "endTime": "17:00",
+        "startDate": "2026-06-25",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-26",
+        "endTime": "17:00",
+        "startDate": "2026-06-26",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-06-29",
+        "endTime": "17:00",
+        "startDate": "2026-06-29",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-06-29",
+    "endTime": "17:00",
+    "id": 1782192173374,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "山村航大",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-25",
+    "startTime": "12:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
   }
 ]
