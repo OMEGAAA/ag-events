@@ -4061,5 +4061,221 @@
     "startTime": "18:00",
     "title": "打撃測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "6月29日 18:30〜19:30",
+    "dates": [
+      {
+        "endDate": "2026-06-29",
+        "endTime": "19:30",
+        "startDate": "2026-06-29",
+        "startTime": "18:30"
+      }
+    ],
+    "endDate": "2026-06-29",
+    "endTime": "19:30",
+    "id": 1782265297195,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-29",
+    "startTime": "18:30",
+    "title": "投球測定",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "6月2日 他26件",
+    "dates": [
+      {
+        "endDate": "2026-06-02",
+        "endTime": "21:00",
+        "startDate": "2026-06-02",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-06-03",
+        "endTime": "21:00",
+        "startDate": "2026-06-03",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-06-05",
+        "endTime": "21:00",
+        "startDate": "2026-06-05",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-06-09",
+        "endTime": "21:00",
+        "startDate": "2026-06-09",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-06-10",
+        "endTime": "21:00",
+        "startDate": "2026-06-10",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-06-12",
+        "endTime": "21:00",
+        "startDate": "2026-06-12",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-06-16",
+        "endTime": "21:00",
+        "startDate": "2026-06-16",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-06-17",
+        "endTime": "21:00",
+        "startDate": "2026-06-17",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-06-19",
+        "endTime": "21:00",
+        "startDate": "2026-06-19",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-06-23",
+        "endTime": "21:00",
+        "startDate": "2026-06-23",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-06-24",
+        "endTime": "21:00",
+        "startDate": "2026-06-24",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-06-26",
+        "endTime": "21:00",
+        "startDate": "2026-06-26",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-06-30",
+        "endTime": "21:00",
+        "startDate": "2026-06-30",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-01",
+        "endTime": "21:00",
+        "startDate": "2026-07-01",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-03",
+        "endTime": "21:00",
+        "startDate": "2026-07-03",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-07",
+        "endTime": "21:00",
+        "startDate": "2026-07-07",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-08",
+        "endTime": "21:00",
+        "startDate": "2026-07-08",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-10",
+        "endTime": "21:00",
+        "startDate": "2026-07-10",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-14",
+        "endTime": "21:00",
+        "startDate": "2026-07-14",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-15",
+        "endTime": "21:00",
+        "startDate": "2026-07-15",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-17",
+        "endTime": "21:00",
+        "startDate": "2026-07-17",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-21",
+        "endTime": "21:00",
+        "startDate": "2026-07-21",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-22",
+        "endTime": "21:00",
+        "startDate": "2026-07-22",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-24",
+        "endTime": "21:00",
+        "startDate": "2026-07-24",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-28",
+        "endTime": "21:00",
+        "startDate": "2026-07-28",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-29",
+        "endTime": "21:00",
+        "startDate": "2026-07-29",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-31",
+        "endTime": "21:00",
+        "startDate": "2026-07-31",
+        "startTime": "17:00"
+      }
+    ],
+    "endDate": "2026-07-31",
+    "endTime": "21:00",
+    "id": 1782265473638,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-06-02",
+    "startTime": "17:00",
+    "title": "野球アカデミー",
+    "usageType": "external"
   }
 ]
