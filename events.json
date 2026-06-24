@@ -3697,5 +3697,43 @@
     "startTime": "17:00",
     "title": "野球アカデミー",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "8月29日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-08-29",
+        "endTime": "13:00",
+        "startDate": "2026-08-29",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-08-30",
+        "endTime": "13:00",
+        "startDate": "2026-08-30",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-08-30",
+    "endTime": "13:00",
+    "id": 1782285472160,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "パワーエリア"
+    ],
+    "manager": "野寺",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-29",
+    "startTime": "09:00",
+    "title": "U-15",
+    "usageType": "external"
   }
 ]
