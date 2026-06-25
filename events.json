@@ -3764,5 +3764,34 @@
     "startTime": "12:00",
     "title": "ソフトバンク練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ffff00",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "8月1日 09:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-08-01",
+        "endTime": "13:00",
+        "startDate": "2026-08-01",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-08-01",
+    "endTime": "13:00",
+    "id": 1782369538641,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-01",
+    "startTime": "09:00",
+    "title": "健康アカデミー",
+    "usageType": "external"
   }
 ]
