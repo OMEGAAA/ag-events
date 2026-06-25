@@ -3735,5 +3735,34 @@
     "startTime": "09:00",
     "title": "U-15",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "6月28日 12:00〜15:30",
+    "dates": [
+      {
+        "endDate": "2026-06-28",
+        "endTime": "15:30",
+        "startDate": "2026-06-28",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-06-28",
+    "endTime": "15:30",
+    "id": 1782368170288,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "神宮隆太",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-28",
+    "startTime": "12:00",
+    "title": "ソフトバンク練習",
+    "usageType": "internal"
   }
 ]
