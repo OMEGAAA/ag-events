@@ -3553,5 +3553,220 @@
     "startTime": "09:00",
     "title": "健康アカデミー",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ffff00",
+    "category": "health",
+    "categoryText": "健康アカデミー",
+    "date": "8月9日 他31件",
+    "dates": [
+      {
+        "endDate": "2026-08-09",
+        "endTime": "17:00",
+        "startDate": "2026-08-09",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-08-16",
+        "endTime": "17:00",
+        "startDate": "2026-08-16",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-08-23",
+        "endTime": "17:00",
+        "startDate": "2026-08-23",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-08-30",
+        "endTime": "17:00",
+        "startDate": "2026-08-30",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-05",
+        "endTime": "17:00",
+        "startDate": "2026-09-05",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-06",
+        "endTime": "17:00",
+        "startDate": "2026-09-06",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-12",
+        "endTime": "17:00",
+        "startDate": "2026-09-12",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-13",
+        "endTime": "17:00",
+        "startDate": "2026-09-13",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-19",
+        "endTime": "17:00",
+        "startDate": "2026-09-19",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-20",
+        "endTime": "17:00",
+        "startDate": "2026-09-20",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-27",
+        "endTime": "17:00",
+        "startDate": "2026-09-27",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-04",
+        "endTime": "17:00",
+        "startDate": "2026-10-04",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-10",
+        "endTime": "17:00",
+        "startDate": "2026-10-10",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-11",
+        "endTime": "17:00",
+        "startDate": "2026-10-11",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-17",
+        "endTime": "17:00",
+        "startDate": "2026-10-17",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-18",
+        "endTime": "17:00",
+        "startDate": "2026-10-18",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-24",
+        "endTime": "17:00",
+        "startDate": "2026-10-24",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-25",
+        "endTime": "17:00",
+        "startDate": "2026-10-25",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-31",
+        "endTime": "17:00",
+        "startDate": "2026-10-31",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-08",
+        "endTime": "17:00",
+        "startDate": "2026-11-08",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-14",
+        "endTime": "17:00",
+        "startDate": "2026-11-14",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-15",
+        "endTime": "17:00",
+        "startDate": "2026-11-15",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-21",
+        "endTime": "17:00",
+        "startDate": "2026-11-21",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-22",
+        "endTime": "17:00",
+        "startDate": "2026-11-22",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-28",
+        "endTime": "17:00",
+        "startDate": "2026-11-28",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-29",
+        "endTime": "17:00",
+        "startDate": "2026-11-29",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-06",
+        "endTime": "17:00",
+        "startDate": "2026-12-06",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-13",
+        "endTime": "17:00",
+        "startDate": "2026-12-13",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-19",
+        "endTime": "17:00",
+        "startDate": "2026-12-19",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-20",
+        "endTime": "17:00",
+        "startDate": "2026-12-20",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-26",
+        "endTime": "17:00",
+        "startDate": "2026-12-26",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-27",
+        "endTime": "17:00",
+        "startDate": "2026-12-27",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-12-27",
+    "endTime": "17:00",
+    "id": 1782527899000,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-09",
+    "startTime": "09:00",
+    "title": "健康アカデミー",
+    "usageType": "external"
   }
 ]
