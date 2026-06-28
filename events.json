@@ -1301,53 +1301,6 @@
     "cardColor": "#32cd32",
     "category": "other",
     "categoryText": "打撃測定予約枠",
-    "date": "6月6日 他3件",
-    "dates": [
-      {
-        "endDate": "2026-06-06",
-        "endTime": "22:00",
-        "startDate": "2026-06-06",
-        "startTime": "18:00"
-      },
-      {
-        "endDate": "2026-06-13",
-        "endTime": "22:00",
-        "startDate": "2026-06-13",
-        "startTime": "18:00"
-      },
-      {
-        "endDate": "2026-06-20",
-        "endTime": "22:00",
-        "startDate": "2026-06-20",
-        "startTime": "18:00"
-      },
-      {
-        "endDate": "2026-06-27",
-        "endTime": "22:00",
-        "startDate": "2026-06-27",
-        "startTime": "18:00"
-      }
-    ],
-    "endDate": "2026-06-27",
-    "endTime": "22:00",
-    "id": 137,
-    "locations": [
-      "バッティングブースA",
-      "打撃エリア"
-    ],
-    "manager": "大塚璃音",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-06-06",
-    "startTime": "18:00",
-    "title": "打撃測定予約枠"
-  },
-  {
-    "cardColor": "#32cd32",
-    "category": "other",
-    "categoryText": "打撃測定予約枠",
     "date": "6月2日 他4件",
     "dates": [
       {
@@ -2102,46 +2055,6 @@
     "startTime": "09:00",
     "title": "ブラジル少年野球合宿",
     "usageType": "external"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "6月13日 他1件",
-    "dates": [
-      {
-        "endDate": "2026-06-13",
-        "endTime": "17:00",
-        "startDate": "2026-06-13",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-06-27",
-        "endTime": "17:00",
-        "startDate": "2026-06-27",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-06-27",
-    "endTime": "17:00",
-    "id": 170,
-    "locations": [
-      "室内練習場",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "投手測定エリア",
-      "パワーエリア"
-    ],
-    "manager": "山村航大",
-    "notes": "",
-    "participants": "40",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-06-13",
-    "startTime": "09:00",
-    "title": "AGK男子野球部練習",
-    "usageType": "internal"
   },
   {
     "cardColor": "#ff0000",
