@@ -3681,5 +3681,39 @@
     "startTime": "09:00",
     "title": "健康アカデミー",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "6月28日 09:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-06-28",
+        "endTime": "18:00",
+        "startDate": "2026-06-28",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-06-28",
+    "endTime": "18:00",
+    "id": 1782611626861,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "パワーエリア"
+    ],
+    "manager": "辻野",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-06-28",
+    "startTime": "09:00",
+    "title": "女子野球部練習",
+    "usageType": "internal"
   }
 ]
