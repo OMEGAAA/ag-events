@@ -3715,5 +3715,152 @@
     "startTime": "09:00",
     "title": "女子野球部練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ffff00",
+    "category": "health",
+    "categoryText": "健康アカデミー",
+    "date": "7月1日 他4件",
+    "dates": [
+      {
+        "endDate": "2026-07-01",
+        "endTime": "15:00",
+        "startDate": "2026-07-01",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-07-08",
+        "endTime": "15:00",
+        "startDate": "2026-07-08",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-07-15",
+        "endTime": "15:00",
+        "startDate": "2026-07-15",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-07-22",
+        "endTime": "15:00",
+        "startDate": "2026-07-22",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-07-29",
+        "endTime": "15:00",
+        "startDate": "2026-07-29",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-07-29",
+    "endTime": "15:00",
+    "id": 1782612265740,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-01",
+    "startTime": "13:00",
+    "title": "健康アカデミー",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#ffff00",
+    "category": "health",
+    "categoryText": "健康アカデミー",
+    "date": "7月3日 他4件",
+    "dates": [
+      {
+        "endDate": "2026-07-03",
+        "endTime": "15:00",
+        "startDate": "2026-07-03",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-10",
+        "endTime": "15:00",
+        "startDate": "2026-07-10",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-17",
+        "endTime": "15:00",
+        "startDate": "2026-07-17",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-24",
+        "endTime": "15:00",
+        "startDate": "2026-07-24",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-31",
+        "endTime": "15:00",
+        "startDate": "2026-07-31",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-07-31",
+    "endTime": "15:00",
+    "id": 1782612338437,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-03",
+    "startTime": "09:00",
+    "title": "健康アカデミー",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#ffff00",
+    "category": "health",
+    "categoryText": "健康アカデミー",
+    "date": "7月14日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-07-14",
+        "endTime": "16:00",
+        "startDate": "2026-07-14",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-07-21",
+        "endTime": "16:00",
+        "startDate": "2026-07-21",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-07-28",
+        "endTime": "16:00",
+        "startDate": "2026-07-28",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-07-28",
+    "endTime": "16:00",
+    "id": 1782612392787,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-14",
+    "startTime": "13:00",
+    "title": "健康アカデミー",
+    "usageType": "internal"
   }
 ]
