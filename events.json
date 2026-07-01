@@ -3087,5 +3087,34 @@
     "startTime": "13:00",
     "title": "健康アカデミー",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "8月7日 10:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-08-07",
+        "endTime": "16:00",
+        "startDate": "2026-08-07",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-08-07",
+    "endTime": "16:00",
+    "id": 1782871718749,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大向",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-07",
+    "startTime": "10:00",
+    "title": "アローズ夏期講習",
+    "usageType": "external"
   }
 ]
