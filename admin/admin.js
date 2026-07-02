@@ -2369,21 +2369,21 @@ function switchDashboardView(view) {
 
 
 function getHeatColor(rate) {
-    if (rate === 0) return 'rgba(255,255,255,0.02)';
-    if (rate <= 20) return 'rgba(59,130,246,0.15)'; // Blue
-    if (rate <= 40) return 'rgba(14,165,233,0.25)'; // Sky/Teal
-    if (rate <= 60) return 'rgba(234,179,8,0.25)';  // Yellow
-    if (rate <= 80) return 'rgba(249,115,22,0.3)';  // Orange
-    return 'rgba(239,68,68,0.4)';                   // Red
+    if (rate === 0) return '#ffffff';
+    if (rate <= 20) return '#eaf2ff'; // Blue
+    if (rate <= 40) return '#dff3fb'; // Sky
+    if (rate <= 60) return '#fff3c7'; // Yellow
+    if (rate <= 80) return '#ffe6d5'; // Orange
+    return '#fee2e2';                 // Red
 }
 
 function getHeatTextColor(rate) {
-    if (rate === 0) return 'rgba(255,255,255,0.2)';
-    if (rate <= 20) return '#93c5fd';
-    if (rate <= 40) return '#7dd3fc';
-    if (rate <= 60) return '#fde047';
-    if (rate <= 80) return '#fdba74';
-    return '#fca5a5';
+    if (rate === 0) return '#98a2b3';
+    if (rate <= 20) return '#1849a9';
+    if (rate <= 40) return '#075985';
+    if (rate <= 60) return '#854d0e';
+    if (rate <= 80) return '#9a3412';
+    return '#991b1b';
 }
 
 

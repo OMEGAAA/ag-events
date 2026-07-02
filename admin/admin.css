@@ -2638,6 +2638,26 @@ tr:hover td {
     color: var(--accent-blue);
 }
 
+.weekday-heat-value {
+    font-weight: 800;
+}
+
+.utilization-percent.rate-high {
+    color: #067647;
+}
+
+.utilization-percent.rate-medium {
+    color: #175cd3;
+}
+
+.utilization-percent.rate-low {
+    color: #b54708;
+}
+
+.utilization-percent.rate-zero {
+    color: #667085;
+}
+
 @media (max-width: 1220px) {
     .admin-preview-panel {
         width: 280px;
