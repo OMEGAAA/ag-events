@@ -3116,5 +3116,34 @@
     "startTime": "10:00",
     "title": "アローズ夏期講習",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "7月9日 18:30〜19:30",
+    "dates": [
+      {
+        "endDate": "2026-07-09",
+        "endTime": "19:30",
+        "startDate": "2026-07-09",
+        "startTime": "18:30"
+      }
+    ],
+    "endDate": "2026-07-09",
+    "endTime": "19:30",
+    "id": 1782954677413,
+    "locations": [
+      "バッティングブースA"
+    ],
+    "manager": "古谷",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-09",
+    "startTime": "18:30",
+    "title": "パーソナルレッスン",
+    "usageType": "internal"
   }
 ]
