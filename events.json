@@ -3175,5 +3175,34 @@
     "startTime": "09:00",
     "title": "箒根（ほうきね）学童練習",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "駐車場貸出",
+    "date": "9月4日 16:00〜20:30",
+    "dates": [
+      {
+        "endDate": "2026-09-04",
+        "endTime": "20:30",
+        "startDate": "2026-09-04",
+        "startTime": "16:00"
+      }
+    ],
+    "endDate": "2026-09-04",
+    "endTime": "20:30",
+    "id": 1783496049566,
+    "locations": [
+      "駐車場"
+    ],
+    "manager": "いらごさん",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-04",
+    "startTime": "16:00",
+    "title": "とちぎメディカルセンター駐車場使用",
+    "usageType": "external"
   }
 ]
