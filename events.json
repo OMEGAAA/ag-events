@@ -1166,66 +1166,6 @@
     "usageType": "external"
   },
   {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "7月9日 09:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-07-09",
-        "endTime": "17:00",
-        "startDate": "2026-07-09",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-07-09",
-    "endTime": "17:00",
-    "id": 153,
-    "locations": [
-      "室内練習場",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "投手測定エリア"
-    ],
-    "manager": "山村航大",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-07-09",
-    "startTime": "09:00",
-    "title": "AGK男子野球部練習"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "7月9日 08:00〜12:00",
-    "dates": [
-      {
-        "endDate": "2026-07-09",
-        "endTime": "12:00",
-        "startDate": "2026-07-09",
-        "startTime": "08:00"
-      }
-    ],
-    "endDate": "2026-07-09",
-    "endTime": "12:00",
-    "id": 154,
-    "locations": [
-      "パワーエリア"
-    ],
-    "manager": "山村航大",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-07-09",
-    "startTime": "08:00",
-    "title": "AGK男子野球部練習"
-  },
-  {
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "イベント",
@@ -1930,35 +1870,6 @@
     "startTime": "15:00",
     "title": "アローズ第二回夏期講習",
     "usageType": "external"
-  },
-  {
-    "cardColor": "",
-    "category": "other",
-    "categoryText": "その他",
-    "date": "7月9日",
-    "dates": [
-      {
-        "endDate": "2026-07-09",
-        "endTime": "",
-        "startDate": "2026-07-09",
-        "startTime": ""
-      }
-    ],
-    "endDate": "2026-07-09",
-    "endTime": "",
-    "id": 1781248237255,
-    "locations": [
-      "アローズエリア"
-    ],
-    "manager": "",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-07-09",
-    "startTime": "",
-    "title": "テスト",
-    "usageType": "internal"
   },
   {
     "cardColor": "#ffff00",
@@ -3116,35 +3027,6 @@
     "startTime": "10:00",
     "title": "アローズ夏期講習",
     "usageType": "external"
-  },
-  {
-    "cardColor": "#ff4500",
-    "category": "other",
-    "categoryText": "アカデミー",
-    "date": "7月9日 18:30〜19:30",
-    "dates": [
-      {
-        "endDate": "2026-07-09",
-        "endTime": "19:30",
-        "startDate": "2026-07-09",
-        "startTime": "18:30"
-      }
-    ],
-    "endDate": "2026-07-09",
-    "endTime": "19:30",
-    "id": 1782954677413,
-    "locations": [
-      "バッティングブースA"
-    ],
-    "manager": "古谷",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-07-09",
-    "startTime": "18:30",
-    "title": "パーソナルレッスン",
-    "usageType": "internal"
   },
   {
     "cardColor": "#ff69b4",
