@@ -3481,5 +3481,40 @@
     "startTime": "09:00",
     "title": "AGK高等学院練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "10月1日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-10-01",
+        "endTime": "14:00",
+        "startDate": "2026-10-01",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-10-08",
+        "endTime": "14:00",
+        "startDate": "2026-10-08",
+        "startTime": "08:00"
+      }
+    ],
+    "endDate": "2026-10-08",
+    "endTime": "14:00",
+    "id": 1783735764957,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大向",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-10-01",
+    "startTime": "10:00",
+    "title": "しずわでら幼稚園",
+    "usageType": "external"
   }
 ]
