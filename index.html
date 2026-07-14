@@ -38,6 +38,33 @@
                 </div>
             </section>
 
+            <!-- 検索・絞り込みバー -->
+            <section class="home-filters" aria-label="イベントの検索・絞り込み">
+                <div class="hf-search-wrap">
+                    <span class="hf-search-icon" aria-hidden="true">🔍</span>
+                    <input type="search" id="hf-search" class="hf-search"
+                        placeholder="イベント名・場所・取扱者で検索" aria-label="イベントを検索">
+                </div>
+                <div class="hf-row">
+                    <div class="hf-period" role="group" aria-label="期間で絞り込み">
+                        <button type="button" class="filter-btn active" data-period="all">すべて</button>
+                        <button type="button" class="filter-btn" data-period="week">今週</button>
+                        <button type="button" class="filter-btn" data-period="month">今月</button>
+                    </div>
+                    <select id="hf-category" class="hf-select" aria-label="種別で絞り込み">
+                        <option value="">種別: すべて</option>
+                    </select>
+                    <select id="hf-location" class="hf-select" aria-label="場所で絞り込み">
+                        <option value="">場所: すべて</option>
+                    </select>
+                    <select id="hf-manager" class="hf-select" aria-label="取扱者で絞り込み">
+                        <option value="">取扱: すべて</option>
+                    </select>
+                    <button type="button" id="hf-clear" class="hf-clear" style="display:none;">✕ 条件をクリア</button>
+                </div>
+                <div class="hf-count" id="hf-count" role="status" aria-live="polite"></div>
+            </section>
+
             <section class="event-list" id="event-grid">
                 <!-- Cards will be populated dynamically via JS -->
             </section>

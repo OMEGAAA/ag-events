@@ -1995,8 +1995,7 @@ body {
     overflow: visible;
 }
 
-.section-nav-inner::after {
-    content: "接続・同期設定";
+.section-nav-divider {
     display: block;
     margin: 1.25rem 0 0.45rem;
     padding: 1rem 0.6rem 0;
@@ -2852,7 +2851,7 @@ body.admin-sidebar-collapsed .sidebar-toggle-icon {
 }
 
 body.admin-sidebar-collapsed .sidebar-toggle-label,
-body.admin-sidebar-collapsed .section-nav-inner::after,
+body.admin-sidebar-collapsed .section-nav-divider,
 body.admin-sidebar-collapsed .section-nav-item span:not(.section-nav-count) {
     display: none;
 }
@@ -3069,4 +3068,59 @@ body.admin-sidebar-collapsed .section-nav-count {
 
 .bulk-time-row input[type="time"] {
     width: auto;
+}
+
+/* ---- 接続ステータスサマリー（ページ上部のコンパクト表示） ---- */
+.connection-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.65rem 1.1rem;
+    margin-bottom: 0.9rem;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+}
+
+.connection-summary-status {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.connection-summary-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.connection-summary-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.connection-summary-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.connection-summary-actions .btn svg {
+    vertical-align: -2px;
+    margin-right: 0.25rem;
+}
+
+/* ナビからのジャンプ時にヘッダーへ隠れないように */
+#settings-section {
+    scroll-margin-top: 64px;
+}
+
+@media (max-width: 640px) {
+    .connection-summary { padding: 0.6rem 0.9rem; }
+    .connection-summary-actions { width: 100%; justify-content: flex-end; }
 }

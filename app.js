@@ -115,6 +115,7 @@ async function init() {
         console.warn('reports.json の読み込みに失敗しました:', e);
         reports = [];
     }
+    populateHomeFilterOptions();
     renderEvents();
 }
 
@@ -226,18 +227,152 @@ function openReportDetail(id) {
 }
 
 // ---- HOME VIEW ----
+const homeFilters = { q: '', period: 'all', category: '', location: '', manager: '' };
+
+function toDateStr(d) {
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function getUpcomingEvents() {
+    const todayStr = toDateStr(today);
+    return [...events]
+        .filter(e => getEventDates(e).some(d => (d.endDate || d.startDate) >= todayStr))
+        .sort((a, b) => new Date(getEventDates(a)[0].startDate) - new Date(getEventDates(b)[0].startDate));
+}
+
+function getEventLocationList(e) {
+    return Array.isArray(e.locations) && e.locations.length > 0
+        ? e.locations
+        : (e.location ? [e.location] : []);
+}
+
+// 期間フィルタの日付範囲（週は日曜始まり）
+function getPeriodRange(period) {
+    if (period === 'week') {
+        const start = new Date(today);
+        start.setDate(today.getDate() - today.getDay());
+        const end = new Date(start);
+        end.setDate(start.getDate() + 6);
+        return [toDateStr(start), toDateStr(end)];
+    }
+    if (period === 'month') {
+        const start = new Date(today.getFullYear(), today.getMonth(), 1);
+        const end = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+        return [toDateStr(start), toDateStr(end)];
+    }
+    return null;
+}
+
+function matchesHomeFilters(e) {
+    if (homeFilters.category && (e.categoryText || '').trim() !== homeFilters.category) return false;
+    if (homeFilters.manager && (e.manager || '').trim() !== homeFilters.manager) return false;
+    if (homeFilters.location && !getEventLocationList(e).includes(homeFilters.location)) return false;
+
+    const range = getPeriodRange(homeFilters.period);
+    if (range) {
+        const [rangeStart, rangeEnd] = range;
+        const inRange = getEventDates(e).some(d =>
+            d.startDate <= rangeEnd && (d.endDate || d.startDate) >= rangeStart);
+        if (!inRange) return false;
+    }
+
+    const q = homeFilters.q.trim().toLowerCase();
+    if (q) {
+        const haystack = [e.title, e.categoryText, e.manager, ...getEventLocationList(e)]
+            .filter(Boolean).join(' ').toLowerCase();
+        if (!haystack.includes(q)) return false;
+    }
+    return true;
+}
+
+function hasActiveHomeFilters() {
+    return Boolean(homeFilters.q.trim() || homeFilters.category || homeFilters.location
+        || homeFilters.manager || homeFilters.period !== 'all');
+}
+
+// 絞り込みプルダウンの選択肢を今後のイベントから生成
+function populateHomeFilterOptions() {
+    const upcoming = getUpcomingEvents();
+    const fill = (selectId, values, allLabel) => {
+        const select = document.getElementById(selectId);
+        if (!select) return;
+        const current = select.value;
+        const sorted = [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ja'));
+        select.innerHTML = `<option value="">${escapeHtml(allLabel)}</option>`
+            + sorted.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join('');
+        if (sorted.includes(current)) select.value = current;
+    };
+    fill('hf-category', upcoming.map(e => (e.categoryText || '').trim()), '種別: すべて');
+    fill('hf-location', upcoming.flatMap(getEventLocationList), '場所: すべて');
+    fill('hf-manager', upcoming.map(e => (e.manager || '').trim()), '取扱: すべて');
+}
+
+function initHomeFilters() {
+    const search = document.getElementById('hf-search');
+    search?.addEventListener('input', () => {
+        homeFilters.q = search.value;
+        renderEvents();
+    });
+
+    [['hf-category', 'category'], ['hf-location', 'location'], ['hf-manager', 'manager']].forEach(([id, key]) => {
+        const select = document.getElementById(id);
+        select?.addEventListener('change', () => {
+            homeFilters[key] = select.value;
+            renderEvents();
+        });
+    });
+
+    document.querySelectorAll('.hf-period .filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            homeFilters.period = btn.dataset.period;
+            document.querySelectorAll('.hf-period .filter-btn')
+                .forEach(b => b.classList.toggle('active', b === btn));
+            renderEvents();
+        });
+    });
+
+    document.getElementById('hf-clear')?.addEventListener('click', clearHomeFilters);
+}
+
+function clearHomeFilters() {
+    homeFilters.q = '';
+    homeFilters.period = 'all';
+    homeFilters.category = '';
+    homeFilters.location = '';
+    homeFilters.manager = '';
+    const search = document.getElementById('hf-search');
+    if (search) search.value = '';
+    ['hf-category', 'hf-location', 'hf-manager'].forEach(id => {
+        const select = document.getElementById(id);
+        if (select) select.value = '';
+    });
+    document.querySelectorAll('.hf-period .filter-btn')
+        .forEach(b => b.classList.toggle('active', b.dataset.period === 'all'));
+    renderEvents();
+}
+
 function renderEvents() {
     const eventGrid = document.getElementById('event-grid');
     if (!eventGrid) return;
     eventGrid.innerHTML = '';
 
-    const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
-    const filtered = [...events]
-        .filter(e => getEventDates(e).some(d => (d.endDate || d.startDate) >= todayStr))
-        .sort((a, b) => new Date(getEventDates(a)[0].startDate) - new Date(getEventDates(b)[0].startDate));
+    const upcoming = getUpcomingEvents();
+    const filtered = upcoming.filter(matchesHomeFilters);
+    const filtersActive = hasActiveHomeFilters();
+
+    const countEl = document.getElementById('hf-count');
+    if (countEl) {
+        countEl.textContent = filtersActive
+            ? `${filtered.length}件 / 全${upcoming.length}件を表示中`
+            : `全${upcoming.length}件のイベント`;
+    }
+    const clearBtn = document.getElementById('hf-clear');
+    if (clearBtn) clearBtn.style.display = filtersActive ? '' : 'none';
 
     if (filtered.length === 0) {
-        eventGrid.innerHTML = '<p style="text-align:center;color:var(--text-secondary);padding:4rem 0;grid-column:1/-1;">イベントがありません</p>';
+        eventGrid.innerHTML = filtersActive
+            ? '<div class="hf-empty"><p>条件に一致するイベントがありません</p><button type="button" class="secondary-btn" onclick="clearHomeFilters()">条件をクリア</button></div>'
+            : '<p style="text-align:center;color:var(--text-secondary);padding:4rem 0;grid-column:1/-1;">イベントがありません</p>';
         return;
     }
 
@@ -1175,4 +1310,5 @@ navReportForm?.addEventListener('click', e => {
 });
 
 // ---- START ----
+initHomeFilters();
 init();

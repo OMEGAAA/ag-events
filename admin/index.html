@@ -52,6 +52,11 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"/></svg>
                 <span>アーカイブ</span>
             </a>
+            <span class="section-nav-divider" aria-hidden="true">接続・同期設定</span>
+            <a class="section-nav-item" data-target="settings-section" href="#settings-section">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>接続設定</span>
+            </a>
         </div>
     </nav>
 
@@ -72,107 +77,31 @@
         <!-- Status Bar -->
         <div id="status-bar" class="status-bar"></div>
 
+        <!-- 接続ステータスサマリー -->
+        <div class="connection-summary" id="connection-summary">
+            <div class="connection-summary-status">
+                <div class="connection-summary-item">
+                    <span class="connection-summary-label">GitHub</span>
+                    <span id="summary-github-badge" class="connection-badge disconnected">未接続</span>
+                </div>
+                <div class="connection-summary-item">
+                    <span class="connection-summary-label">リアルタイム同期</span>
+                    <span id="summary-firebase-badge" class="connection-badge disconnected">未接続</span>
+                </div>
+            </div>
+            <div class="connection-summary-actions">
+                <button class="btn btn-secondary btn-sm" onclick="openSettingsSection()">
+                    <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    接続設定
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="fetchFromGitHub()">データを読み込む</button>
+            </div>
+        </div>
+
         <!-- 一括折りたたみ -->
         <div class="section-bulk-toggle">
             <button type="button" class="btn-text" onclick="setAllSectionsCollapsed(true)">▼ すべて折りたたむ</button>
             <button type="button" class="btn-text" onclick="setAllSectionsCollapsed(false)">▲ すべて開く</button>
-        </div>
-
-        <!-- GitHub Settings Panel -->
-        <div class="settings-panel">
-            <div class="settings-panel-header" onclick="toggleSettings()">
-                <div style="display:flex; align-items:center; gap:0.75rem;">
-                    <h3>GitHub 接続設定</h3>
-                    <span id="connection-badge"></span>
-                </div>
-                <span id="settings-toggle-icon">▼</span>
-            </div>
-
-            <div id="settings-body" style="display:none;">
-                <p class="settings-desc">GitHubと連携することで、このページからイベントを編集し、公開サイトに反映できます。</p>
-
-                <!-- STEP 1 -->
-                <div class="setup-step">
-                    <div class="step-header">
-                        <span class="step-num">1</span>
-                        <span>GitHubリポジトリのURLを貼り付ける</span>
-                    </div>
-                    <div class="input-with-btn">
-                        <input type="text" id="input-repo-url" placeholder="https://github.com/ユーザー名/リポジトリ名">
-                        <button class="btn btn-secondary" onclick="parseRepoUrl()">自動設定</button>
-                    </div>
-                    <span class="field-hint">例: https://github.com/yamada-taro/antigravity-events</span>
-                </div>
-
-                <!-- STEP 2 -->
-                <div class="setup-step">
-                    <div class="step-header">
-                        <span class="step-num">2</span>
-                        <span>接続情報を確認する（自動入力済み）</span>
-                    </div>
-                    <div class="settings-grid">
-                        <div class="form-group">
-                            <label>オーナー（ユーザー名）</label>
-                            <input type="text" id="input-owner" placeholder="username">
-                        </div>
-                        <div class="form-group">
-                            <label>リポジトリ名</label>
-                            <input type="text" id="input-repo" placeholder="my-repo">
-                        </div>
-                        <div class="form-group">
-                            <label>ブランチ</label>
-                            <input type="text" id="input-branch" placeholder="main">
-                        </div>
-                        <div class="form-group">
-                            <label>ファイルパス</label>
-                            <input type="text" id="input-filepath" placeholder="event_portal/events.json">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- STEP 3 -->
-                <div class="setup-step">
-                    <div class="step-header">
-                        <span class="step-num">3</span>
-                        <span>アクセストークンを入力する</span>
-                        <button class="btn-text" onclick="openTokenGuide()">取得方法がわからない場合はこちら</button>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" id="input-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
-                    </div>
-                    <span class="field-hint">トークンはこのブラウザにのみ保存されます。他の人と共有しないでください。</span>
-                </div>
-
-                <div class="settings-actions">
-                    <button class="btn btn-secondary" onclick="saveConfig()">設定を保存</button>
-                    <button class="btn btn-primary" onclick="fetchFromGitHub()">接続してデータを読み込む</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Firebase Realtime Sync Panel -->
-        <div class="settings-panel">
-            <div class="settings-panel-header" onclick="toggleFirebaseSettings()">
-                <div style="display:flex; align-items:center; gap:0.75rem;">
-                    <h3><svg class="icon-inline icon-header" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> リアルタイム同期（Firebase）</h3>
-                    <span id="firebase-badge" class="connection-badge"></span>
-                </div>
-                <span id="firebase-toggle-icon">▼</span>
-            </div>
-            <div id="firebase-settings-body" style="display:none;">
-                <p class="settings-desc">設定すると複数の管理者がリアルタイムで共同編集できます。</p>
-                <div class="form-group full-width">
-                    <label>Firebase設定（firebaseConfig をそのまま貼り付け）</label>
-                    <textarea id="input-firebase-config" rows="9" style="font-family:monospace; font-size:0.82rem; resize:vertical;" placeholder="const firebaseConfig = {&#10;  apiKey: &quot;AIzaSy...&quot;,&#10;  databaseURL: &quot;https://...&quot;,&#10;  ...&#10;};"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>あなたの表示名（他の管理者に見えます）</label>
-                    <input type="text" id="input-admin-name" placeholder="例: 山田">
-                </div>
-                <div class="settings-actions">
-                    <button class="btn btn-primary" onclick="connectFirebase()">Firebaseに接続</button>
-                </div>
-            </div>
         </div>
 
         <!-- Presence bar -->
@@ -327,7 +256,7 @@
                         イベント一覧
                         <span class="section-count-badge" id="section-count-events"></span>
                     </h3>
-                    <p class="section-desc" id="section-desc">まず上の「接続してデータを読み込む」を押してください</p>
+                    <p class="section-desc" id="section-desc">まず上部の「データを読み込む」を押してください</p>
                 </div>
                 <div class="header-actions" onclick="event.stopPropagation()">
                     <button class="btn btn-secondary" onclick="openAddModal()">＋ イベントを追加</button>
@@ -374,7 +303,7 @@
                     <tbody id="events-tbody">
                         <tr>
                             <td colspan="7" class="empty-state">
-                                上の「接続してデータを読み込む」ボタンを押すとイベントが表示されます
+                                上部の「データを読み込む」ボタンを押すとイベントが表示されます
                             </td>
                         </tr>
                     </tbody>
@@ -491,6 +420,116 @@
                 </table>
             </div>
             </div><!-- /section-body-archived -->
+        </div>
+
+        <!-- ========== 接続設定（GitHub / Firebase） ========== -->
+        <div class="events-section settings-section" id="settings-section">
+            <div class="events-section-header">
+                <div>
+                    <h3>
+                        <svg class="icon-inline icon-header" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        接続設定
+                    </h3>
+                    <p class="section-desc">GitHub連携とリアルタイム同期の設定です。初回のみ設定が必要です。</p>
+                </div>
+            </div>
+
+            <!-- GitHub Settings Panel -->
+            <div class="settings-panel">
+                <div class="settings-panel-header" onclick="toggleSettings()">
+                    <div style="display:flex; align-items:center; gap:0.75rem;">
+                        <h3>GitHub 接続設定</h3>
+                        <span id="connection-badge"></span>
+                    </div>
+                    <span id="settings-toggle-icon">▼</span>
+                </div>
+
+                <div id="settings-body" style="display:none;">
+                    <p class="settings-desc">GitHubと連携することで、このページからイベントを編集し、公開サイトに反映できます。</p>
+
+                    <!-- STEP 1 -->
+                    <div class="setup-step">
+                        <div class="step-header">
+                            <span class="step-num">1</span>
+                            <span>GitHubリポジトリのURLを貼り付ける</span>
+                        </div>
+                        <div class="input-with-btn">
+                            <input type="text" id="input-repo-url" placeholder="https://github.com/ユーザー名/リポジトリ名">
+                            <button class="btn btn-secondary" onclick="parseRepoUrl()">自動設定</button>
+                        </div>
+                        <span class="field-hint">例: https://github.com/yamada-taro/antigravity-events</span>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="setup-step">
+                        <div class="step-header">
+                            <span class="step-num">2</span>
+                            <span>接続情報を確認する（自動入力済み）</span>
+                        </div>
+                        <div class="settings-grid">
+                            <div class="form-group">
+                                <label>オーナー（ユーザー名）</label>
+                                <input type="text" id="input-owner" placeholder="username">
+                            </div>
+                            <div class="form-group">
+                                <label>リポジトリ名</label>
+                                <input type="text" id="input-repo" placeholder="my-repo">
+                            </div>
+                            <div class="form-group">
+                                <label>ブランチ</label>
+                                <input type="text" id="input-branch" placeholder="main">
+                            </div>
+                            <div class="form-group">
+                                <label>ファイルパス</label>
+                                <input type="text" id="input-filepath" placeholder="event_portal/events.json">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="setup-step">
+                        <div class="step-header">
+                            <span class="step-num">3</span>
+                            <span>アクセストークンを入力する</span>
+                            <button class="btn-text" onclick="openTokenGuide()">取得方法がわからない場合はこちら</button>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="input-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+                        </div>
+                        <span class="field-hint">トークンはこのブラウザにのみ保存されます。他の人と共有しないでください。</span>
+                    </div>
+
+                    <div class="settings-actions">
+                        <button class="btn btn-secondary" onclick="saveConfig()">設定を保存</button>
+                        <button class="btn btn-primary" onclick="fetchFromGitHub()">接続してデータを読み込む</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Firebase Realtime Sync Panel -->
+            <div class="settings-panel">
+                <div class="settings-panel-header" onclick="toggleFirebaseSettings()">
+                    <div style="display:flex; align-items:center; gap:0.75rem;">
+                        <h3><svg class="icon-inline icon-header" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> リアルタイム同期（Firebase）</h3>
+                        <span id="firebase-badge" class="connection-badge"></span>
+                    </div>
+                    <span id="firebase-toggle-icon">▼</span>
+                </div>
+                <div id="firebase-settings-body" style="display:none;">
+                    <p class="settings-desc">設定すると複数の管理者がリアルタイムで共同編集できます。</p>
+                    <div class="form-group full-width">
+                        <label>Firebase設定（firebaseConfig をそのまま貼り付け）</label>
+                        <textarea id="input-firebase-config" rows="9" style="font-family:monospace; font-size:0.82rem; resize:vertical;" placeholder="const firebaseConfig = {&#10;  apiKey: &quot;AIzaSy...&quot;,&#10;  databaseURL: &quot;https://...&quot;,&#10;  ...&#10;};"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>あなたの表示名（他の管理者に見えます）</label>
+                        <input type="text" id="input-admin-name" placeholder="例: 山田">
+                    </div>
+                    <div class="settings-actions">
+                        <button class="btn btn-primary" onclick="connectFirebase()">Firebaseに接続</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>

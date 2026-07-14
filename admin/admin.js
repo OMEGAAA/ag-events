@@ -459,10 +459,11 @@ function renderPresence() {
 }
 
 function updateFirebaseBadge(connected) {
-    const badge = document.getElementById('firebase-badge');
-    if (!badge) return;
-    badge.textContent = connected ? '接続済み' : '未接続';
-    badge.className   = `connection-badge ${connected ? 'connected' : 'disconnected'}`;
+    const text = connected ? '接続済み' : '未接続';
+    const cls  = `connection-badge ${connected ? 'connected' : 'disconnected'}`;
+    [document.getElementById('firebase-badge'), document.getElementById('summary-firebase-badge')]
+        .filter(Boolean)
+        .forEach(badge => { badge.textContent = text; badge.className = cls; });
 }
 
 function toggleFirebaseSettings() {
@@ -533,14 +534,22 @@ function toggleSettings() {
 }
 
 function updateConnectionBadge(connected) {
-    const badge = document.getElementById('connection-badge');
-    if (connected) {
-        badge.textContent = '接続済み';
-        badge.className = 'connection-badge connected';
-    } else {
-        badge.textContent = '未接続';
-        badge.className = 'connection-badge disconnected';
+    const text = connected ? '接続済み' : '未接続';
+    const cls  = `connection-badge ${connected ? 'connected' : 'disconnected'}`;
+    [document.getElementById('connection-badge'), document.getElementById('summary-github-badge')]
+        .filter(Boolean)
+        .forEach(badge => { badge.textContent = text; badge.className = cls; });
+}
+
+// 上部サマリーバーの「接続設定」→ 下部の設定セクションへ移動して展開
+function openSettingsSection() {
+    const body = document.getElementById('settings-body');
+    const icon = document.getElementById('settings-toggle-icon');
+    if (body && body.style.display === 'none') {
+        body.style.display = 'block';
+        if (icon) icon.textContent = '▲';
     }
+    document.getElementById('settings-section')?.scrollIntoView({ behavior: 'smooth' });
 }
 
 // ---- STATUS ----
@@ -600,7 +609,8 @@ async function fetchFromGitHub() {
     saveConfig();
 
     if (!config.owner || !config.repo || !config.token) {
-        showStatus('オーナー・リポジトリ名・アクセストークンをすべて入力してください。', 'error');
+        showStatus('オーナー・リポジトリ名・アクセストークンをすべて入力してください。下の「接続設定」から設定できます。', 'error');
+        openSettingsSection();
         return;
     }
 
@@ -650,7 +660,9 @@ async function fetchFromGitHub() {
 
         markClean();
         updateConnectionBadge(true);
-        toggleSettings();
+        // 設定パネルが開いていれば閉じる（上部サマリーからの読み込み時は何もしない）
+        const settingsBody = document.getElementById('settings-body');
+        if (settingsBody && settingsBody.style.display !== 'none') toggleSettings();
 
         if (isFirebaseConnected) {
             writeEventsToFirebase(); // onValue が renderEventList() を呼ぶ
@@ -677,7 +689,7 @@ async function fetchFromGitHub() {
 
 async function pushToGitHub() {
     if (!config.owner || !config.repo || !config.token) {
-        showStatus('GitHubの設定を確認してください。まず「接続してデータを読み込む」を実行してください。', 'error');
+        showStatus('GitHubの設定を確認してください。まず上部の「データを読み込む」を実行してください。', 'error');
         return;
     }
 
@@ -1709,7 +1721,7 @@ async function fetchReportsFromGitHub() {
 
 async function pushReportsToGitHub() {
     if (!config.owner || !config.repo || !config.token) {
-        showStatus('GitHubの設定を確認してください。まず「接続してデータを読み込む」を実行してください。', 'error');
+        showStatus('GitHubの設定を確認してください。まず上部の「データを読み込む」を実行してください。', 'error');
         return;
     }
     const btn = document.getElementById('btn-reports-deploy');
@@ -2956,12 +2968,14 @@ function applySidebarState(collapsed) {
 
     // ジャンプ先オフセット（ヘッダー＋ナビの高さ）を動的に設定
     function syncOffset() {
-        // ナビをヘッダー直下に固定（両方 sticky top:0 の重なりを防ぐ）
-        if (header) nav.style.top = header.offsetHeight + 'px';
-        const offset = (header ? header.offsetHeight : 0) + nav.offsetHeight + 12;
+        // 左サイドバー表示（position:fixed）のときはナビの高さを加算しない
+        const isSidebar = getComputedStyle(nav).position === 'fixed';
+        // 横タブバー表示のときのみヘッダー直下に固定（両方 sticky top:0 の重なりを防ぐ）
+        if (!isSidebar && header) nav.style.top = header.offsetHeight + 'px';
+        const offset = (header ? header.offsetHeight : 0) + (isSidebar ? 0 : nav.offsetHeight) + 12;
         [
             'dashboard-section', 'events-main-section', 'pending-reports-section',
-            'confirmed-reports-section', 'archived-section'
+            'confirmed-reports-section', 'archived-section', 'settings-section'
         ].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.style.scrollMarginTop = offset + 'px';
