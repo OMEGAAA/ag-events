@@ -3564,5 +3564,38 @@
     "startTime": "16:30",
     "title": "個人レッスン",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "8月1日 09:00〜11:30",
+    "dates": [
+      {
+        "endDate": "2026-08-01",
+        "endTime": "11:30",
+        "startDate": "2026-08-01",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-08-01",
+    "endTime": "11:30",
+    "id": 1784020379549,
+    "locations": [
+      "アローズエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山口",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-01",
+    "startTime": "09:00",
+    "title": "とちぎスマイルコミュニティ 測定＋トレーニング イベント",
+    "usageType": "external"
   }
 ]
