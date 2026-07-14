@@ -3414,39 +3414,5 @@
     "startTime": "10:00",
     "title": "しずわでら幼稚園",
     "usageType": "external"
-  },
-  {
-    "cardColor": "",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "7月13日 09:00〜18:00",
-    "dates": [
-      {
-        "endDate": "2026-07-13",
-        "endTime": "18:00",
-        "startDate": "2026-07-13",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-07-13",
-    "endTime": "18:00",
-    "id": 1784003224742,
-    "locations": [
-      "室内練習場",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "投手測定エリア",
-      "パワーエリア"
-    ],
-    "manager": "神宮隆太",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-07-13",
-    "startTime": "09:00",
-    "title": "TGB練習",
-    "usageType": "internal"
   }
 ]
