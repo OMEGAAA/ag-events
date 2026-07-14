@@ -3414,5 +3414,126 @@
     "startTime": "10:00",
     "title": "しずわでら幼稚園",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ffff00",
+    "category": "health",
+    "categoryText": "健康アカデミー",
+    "date": "8月1日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-08-01",
+        "endTime": "12:00",
+        "startDate": "2026-08-01",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-08-01",
+    "endTime": "12:00",
+    "id": 1784004461574,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-01",
+    "startTime": "09:00",
+    "title": "健康アカデミーZUMBAイベント第二弾",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "7月19日 13:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-07-19",
+        "endTime": "18:00",
+        "startDate": "2026-07-19",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-07-19",
+    "endTime": "18:00",
+    "id": 1784004637285,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-19",
+    "startTime": "13:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "7月19日 09:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-07-19",
+        "endTime": "18:00",
+        "startDate": "2026-07-19",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-07-19",
+    "endTime": "18:00",
+    "id": 1784004716482,
+    "locations": [
+      "バッティングブースA",
+      "打撃エリア",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-19",
+    "startTime": "09:00",
+    "title": "AGK男子野球部",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "7月20日 13:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-07-20",
+        "endTime": "18:00",
+        "startDate": "2026-07-20",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-07-20",
+    "endTime": "18:00",
+    "id": 1784004778919,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "打撃エリア",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-20",
+    "startTime": "13:00",
+    "title": "AGK男子野球部",
+    "usageType": "internal"
   }
 ]
