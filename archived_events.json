@@ -3980,5 +3980,74 @@
     "usageType": "external",
     "originalEventId": 1782264825814,
     "archivedAt": "2026-06-24T04:08:47.698Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "AGK男子練習",
+    "date": "7月1日 他6件",
+    "dates": [
+      {
+        "endDate": "2026-07-01",
+        "endTime": "17:00",
+        "startDate": "2026-07-01",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-03",
+        "endTime": "17:00",
+        "startDate": "2026-07-03",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-04",
+        "endTime": "17:00",
+        "startDate": "2026-07-04",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-05",
+        "endTime": "17:00",
+        "startDate": "2026-07-05",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-10",
+        "endTime": "17:00",
+        "startDate": "2026-07-10",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-11",
+        "endTime": "17:00",
+        "startDate": "2026-07-11",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-07-12",
+        "endTime": "17:00",
+        "startDate": "2026-07-12",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-07-12",
+    "endTime": "17:00",
+    "id": 143,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "40名",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-01",
+    "startTime": "09:00",
+    "title": "AGK男子練習",
+    "originalEventId": 145,
+    "archivedAt": "2026-07-14T00:42:21.568Z"
   }
 ]
