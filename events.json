@@ -3535,5 +3535,34 @@
     "startTime": "13:00",
     "title": "AGK男子野球部",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "7月21日 16:30〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-07-21",
+        "endTime": "18:00",
+        "startDate": "2026-07-21",
+        "startTime": "16:30"
+      }
+    ],
+    "endDate": "2026-07-21",
+    "endTime": "18:00",
+    "id": 1784006493087,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-21",
+    "startTime": "16:30",
+    "title": "個人レッスン",
+    "usageType": "internal"
   }
 ]
