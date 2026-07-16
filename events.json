@@ -1980,7 +1980,7 @@
     "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "アカデミー",
-    "date": "9月12日 他40件",
+    "date": "9月12日 他39件",
     "dates": [
       {
         "endDate": "2026-09-12",
@@ -2076,12 +2076,6 @@
         "endDate": "2026-11-14",
         "endTime": "12:00",
         "startDate": "2026-11-14",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-11-21",
-        "endTime": "12:00",
-        "startDate": "2026-11-21",
         "startTime": "09:00"
       },
       {
@@ -3697,6 +3691,37 @@
     "startDate": "2026-08-22",
     "startTime": "09:00",
     "title": "BCLジュニア選抜セレクション",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#e169b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "11月21日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-11-21",
+        "endTime": "17:00",
+        "startDate": "2026-11-21",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-11-21",
+    "endTime": "17:00",
+    "id": 1784244284369,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "野澤奈南",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-11-21",
+    "startTime": "09:00",
+    "title": "GL運動会",
     "usageType": "external"
   }
 ]
