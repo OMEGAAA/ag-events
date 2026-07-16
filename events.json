@@ -3597,5 +3597,34 @@
     "startTime": "09:00",
     "title": "とちぎスマイルコミュニティ 測定＋トレーニング イベント",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "コンテスト",
+    "date": "8月2日 13:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-08-02",
+        "endTime": "16:00",
+        "startDate": "2026-08-02",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-08-02",
+    "endTime": "16:00",
+    "id": 1784162326504,
+    "locations": [
+      "食堂"
+    ],
+    "manager": "楢原",
+    "notes": "",
+    "participants": "30名",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-02",
+    "startTime": "13:00",
+    "title": "学生ビジネスコンテスト",
+    "usageType": "external"
   }
 ]
