@@ -692,7 +692,8 @@
       "バッティングブースA",
       "バッティングブースB",
       "打撃エリア",
-      "投手測定エリア"
+      "投手測定エリア",
+      "食堂"
     ],
     "manager": "高野圭祐",
     "notes": "",
@@ -3660,6 +3661,42 @@
     "startDate": "2026-08-04",
     "startTime": "08:30",
     "title": "HONDAヴェルダ",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "BCLジュニア選抜セレクション",
+    "date": "8月22日 09:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-08-22",
+        "endTime": "18:00",
+        "startDate": "2026-08-22",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-08-22",
+    "endTime": "18:00",
+    "id": 1784170539068,
+    "locations": [
+      "室内練習場",
+      "アローズエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂",
+      "パワーエリア"
+    ],
+    "manager": "星野",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-22",
+    "startTime": "09:00",
+    "title": "BCLジュニア選抜セレクション",
     "usageType": "external"
   }
 ]
