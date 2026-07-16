@@ -1950,17 +1950,17 @@
     "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "アカデミー",
-    "date": "8月22日",
+    "date": "8月22日 18:00〜20:30",
     "dates": [
       {
         "endDate": "2026-08-22",
-        "endTime": "",
+        "endTime": "20:30",
         "startDate": "2026-08-22",
-        "startTime": ""
+        "startTime": "18:00"
       }
     ],
     "endDate": "2026-08-22",
-    "endTime": "",
+    "endTime": "20:30",
     "id": 1782256466581,
     "locations": [
       "食堂"
@@ -1971,7 +1971,7 @@
     "snsAvailableFrom": "",
     "snsPR": "not-allowed",
     "startDate": "2026-08-22",
-    "startTime": "",
+    "startTime": "18:00",
     "title": "U-15説明会・見学会",
     "usageType": "external"
   },
