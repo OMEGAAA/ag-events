@@ -3626,5 +3626,40 @@
     "startTime": "13:00",
     "title": "学生ビジネスコンテスト",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "社外イベント",
+    "date": "8月4日 08:30〜12:30",
+    "dates": [
+      {
+        "endDate": "2026-08-04",
+        "endTime": "12:30",
+        "startDate": "2026-08-04",
+        "startTime": "08:30"
+      }
+    ],
+    "endDate": "2026-08-04",
+    "endTime": "12:30",
+    "id": 1784164517106,
+    "locations": [
+      "室内練習場",
+      "アローズエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂"
+    ],
+    "manager": "松橋",
+    "notes": "",
+    "participants": "30名",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-04",
+    "startTime": "08:30",
+    "title": "HONDA料金ヴェルダ",
+    "usageType": "external"
   }
 ]
