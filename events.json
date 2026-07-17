@@ -938,65 +938,6 @@
     "title": "AGK高等学院練習"
   },
   {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "AGK男子練習",
-    "date": "7月6日 他5件",
-    "dates": [
-      {
-        "endDate": "2026-07-06",
-        "endTime": "17:00",
-        "startDate": "2026-07-06",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-07",
-        "endTime": "17:00",
-        "startDate": "2026-07-07",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-08",
-        "endTime": "17:00",
-        "startDate": "2026-07-08",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-13",
-        "endTime": "17:00",
-        "startDate": "2026-07-13",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-14",
-        "endTime": "17:00",
-        "startDate": "2026-07-14",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-05-15",
-        "endTime": "17:00",
-        "startDate": "2026-07-15",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-05-15",
-    "endTime": "17:00",
-    "id": 146,
-    "locations": [
-      "バッティングブースA",
-      "バッティングブースB"
-    ],
-    "manager": "山村",
-    "notes": "",
-    "participants": "30名",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-07-06",
-    "startTime": "09:00",
-    "title": "AGK男子練習"
-  },
-  {
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "野球教室",
@@ -3723,5 +3664,37 @@
     "startTime": "09:00",
     "title": "GL運動会",
     "usageType": "external"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "7月18日 12:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-07-18",
+        "endTime": "17:00",
+        "startDate": "2026-07-18",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-07-18",
+    "endTime": "17:00",
+    "id": 1784257362007,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "打撃エリア",
+      "パワーエリア"
+    ],
+    "manager": "神宮隆太",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-18",
+    "startTime": "12:00",
+    "title": "TGB練習",
+    "usageType": "internal"
   }
 ]
