@@ -3696,5 +3696,41 @@
     "startTime": "12:00",
     "title": "TGB練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "7月17日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-07-17",
+        "endTime": "17:00",
+        "startDate": "2026-07-17",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-07-18",
+        "endTime": "12:00",
+        "startDate": "2026-07-18",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-07-18",
+    "endTime": "17:00",
+    "id": 1784266565973,
+    "locations": [
+      "室内練習場",
+      "パワーエリア"
+    ],
+    "manager": "辻野",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-17",
+    "startTime": "13:00",
+    "title": "女子野球部練習",
+    "usageType": "internal"
   }
 ]
