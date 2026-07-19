@@ -3735,5 +3735,34 @@
     "startTime": "18:00",
     "title": "パフォーマンス測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "レッスン",
+    "date": "8月19日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-08-19",
+        "endTime": "17:00",
+        "startDate": "2026-08-19",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-08-19",
+    "endTime": "17:00",
+    "id": 1784423457918,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-19",
+    "startTime": "09:00",
+    "title": "GOLD LUSHレッスン",
+    "usageType": "internal"
   }
 ]
