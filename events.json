@@ -3574,5 +3574,37 @@
     "startTime": "09:00",
     "title": "GOLD LUSHレッスン",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "7月25日",
+    "dates": [
+      {
+        "endDate": "2026-07-25",
+        "endTime": "",
+        "startDate": "2026-07-25",
+        "startTime": ""
+      }
+    ],
+    "endDate": "2026-07-25",
+    "endTime": "",
+    "id": 1784618458741,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "打撃エリア",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "定員なし",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-25",
+    "startTime": "",
+    "title": "男子野球部",
+    "usageType": "internal"
   }
 ]
