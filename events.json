@@ -3638,5 +3638,40 @@
     "startTime": "09:00",
     "title": "AGK男子練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "7月24日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-07-24",
+        "endTime": "12:00",
+        "startDate": "2026-07-24",
+        "startTime": "11:00"
+      },
+      {
+        "endDate": "2026-07-31",
+        "endTime": "12:00",
+        "startDate": "2026-07-31",
+        "startTime": "11:00"
+      }
+    ],
+    "endDate": "2026-07-31",
+    "endTime": "12:00",
+    "id": 1784683042975,
+    "locations": [
+      "バッティングブースA"
+    ],
+    "manager": "川相",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-24",
+    "startTime": "11:00",
+    "title": "個人レッスン",
+    "usageType": "external"
   }
 ]
