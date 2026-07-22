@@ -3673,5 +3673,92 @@
     "startTime": "11:00",
     "title": "個人レッスン",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "7月1日 10:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-07-01",
+        "endTime": "12:00",
+        "startDate": "2026-07-01",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-07-01",
+    "endTime": "12:00",
+    "id": 1784688076303,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-01",
+    "startTime": "10:00",
+    "title": "投球測定",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "7月1日 13:30〜14:00",
+    "dates": [
+      {
+        "endDate": "2026-07-01",
+        "endTime": "14:00",
+        "startDate": "2026-07-01",
+        "startTime": "13:30"
+      }
+    ],
+    "endDate": "2026-07-01",
+    "endTime": "14:00",
+    "id": 1784688130090,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-01",
+    "startTime": "13:30",
+    "title": "投球座学",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "7月2日 18:15〜20:15",
+    "dates": [
+      {
+        "endDate": "2026-07-02",
+        "endTime": "20:15",
+        "startDate": "2026-07-02",
+        "startTime": "18:15"
+      }
+    ],
+    "endDate": "2026-07-02",
+    "endTime": "20:15",
+    "id": 1784688266668,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-02",
+    "startTime": "18:15",
+    "title": "投球測定",
+    "usageType": "external"
   }
 ]
