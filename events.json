@@ -3760,5 +3760,37 @@
     "startTime": "10:00",
     "title": "しずわでら幼稚園",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "7月24日 12:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-07-24",
+        "endTime": "17:00",
+        "startDate": "2026-07-24",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-07-24",
+    "endTime": "17:00",
+    "id": 1784853638067,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア"
+    ],
+    "manager": "山村航大",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-24",
+    "startTime": "12:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
   }
 ]
