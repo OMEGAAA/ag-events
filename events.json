@@ -2732,36 +2732,6 @@
   {
     "cardColor": "#ff69b4",
     "category": "other",
-    "categoryText": "練習",
-    "date": "8月1日 09:00〜13:00",
-    "dates": [
-      {
-        "endDate": "2026-08-01",
-        "endTime": "13:00",
-        "startDate": "2026-08-01",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-08-01",
-    "endTime": "13:00",
-    "id": 1783479743407,
-    "locations": [
-      "室内練習場",
-      "食堂"
-    ],
-    "manager": "大塚克己",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-08-01",
-    "startTime": "09:00",
-    "title": "箒根（ほうきね）学童練習",
-    "usageType": "external"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
     "categoryText": "駐車場貸出",
     "date": "9月4日 16:00〜20:30",
     "dates": [
