@@ -3516,5 +3516,34 @@
     "startTime": "16:30",
     "title": "パフォーマンス測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "7月29日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-07-29",
+        "endTime": "12:00",
+        "startDate": "2026-07-29",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-07-29",
+    "endTime": "12:00",
+    "id": 1785213486857,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "崔有羅",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-29",
+    "startTime": "09:00",
+    "title": "AGK高等学院測定",
+    "usageType": "internal"
   }
 ]
