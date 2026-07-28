@@ -3475,5 +3475,46 @@
     "startTime": "10:00",
     "title": "しずわでら幼稚園",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "8月3日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-08-03",
+        "endTime": "18:30",
+        "startDate": "2026-08-03",
+        "startTime": "16:30"
+      },
+      {
+        "endDate": "2026-08-04",
+        "endTime": "19:00",
+        "startDate": "2026-08-04",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-08-13",
+        "endTime": "15:30",
+        "startDate": "2026-08-13",
+        "startTime": "11:00"
+      }
+    ],
+    "endDate": "2026-08-13",
+    "endTime": "18:30",
+    "id": 1785213250162,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田 直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-03",
+    "startTime": "16:30",
+    "title": "パフォーマンス測定",
+    "usageType": "external"
   }
 ]
