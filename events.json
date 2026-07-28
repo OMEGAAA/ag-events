@@ -3676,5 +3676,295 @@
     "startTime": "12:00",
     "title": "AGK男子野球部",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "7月1日 10:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-07-01",
+        "endTime": "12:00",
+        "startDate": "2026-07-01",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-07-01",
+    "endTime": "12:00",
+    "id": 1785280512232,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-01",
+    "startTime": "10:00",
+    "title": "投球測定",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "7月1日 13:30〜14:00",
+    "dates": [
+      {
+        "endDate": "2026-07-01",
+        "endTime": "14:00",
+        "startDate": "2026-07-01",
+        "startTime": "13:30"
+      }
+    ],
+    "endDate": "2026-07-01",
+    "endTime": "14:00",
+    "id": 1785280556372,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-01",
+    "startTime": "13:30",
+    "title": "投球座学",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "7月2日 18:15〜20:15",
+    "dates": [
+      {
+        "endDate": "2026-07-02",
+        "endTime": "20:15",
+        "startDate": "2026-07-02",
+        "startTime": "18:15"
+      }
+    ],
+    "endDate": "2026-07-02",
+    "endTime": "20:15",
+    "id": 1785280706826,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-02",
+    "startTime": "18:15",
+    "title": "投球測定",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "7月6日 12:00〜14:00",
+    "dates": [
+      {
+        "endDate": "2026-07-06",
+        "endTime": "14:00",
+        "startDate": "2026-07-06",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-07-06",
+    "endTime": "14:00",
+    "id": 1785280873805,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-06",
+    "startTime": "12:00",
+    "title": "投球測定",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "7月6日 15:30〜17:30",
+    "dates": [
+      {
+        "endDate": "2026-07-06",
+        "endTime": "17:30",
+        "startDate": "2026-07-06",
+        "startTime": "15:30"
+      }
+    ],
+    "endDate": "2026-07-06",
+    "endTime": "17:30",
+    "id": 1785280953112,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-06",
+    "startTime": "15:30",
+    "title": "投球測定",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "7月6日 19:00〜20:00",
+    "dates": [
+      {
+        "endDate": "2026-07-06",
+        "endTime": "20:00",
+        "startDate": "2026-07-06",
+        "startTime": "19:00"
+      }
+    ],
+    "endDate": "2026-07-06",
+    "endTime": "20:00",
+    "id": 1785281023481,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-06",
+    "startTime": "19:00",
+    "title": "投球測定",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "7月7日 17:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-07-07",
+        "endTime": "18:00",
+        "startDate": "2026-07-07",
+        "startTime": "17:00"
+      }
+    ],
+    "endDate": "2026-07-07",
+    "endTime": "18:00",
+    "id": 1785281108238,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-07",
+    "startTime": "17:00",
+    "title": "投球測定",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "7月8日 10:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-07-08",
+        "endTime": "12:00",
+        "startDate": "2026-07-08",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-07-08",
+    "endTime": "12:00",
+    "id": 1785281175719,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-08",
+    "startTime": "10:00",
+    "title": "投球測定",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "7月8日 18:00〜19:00",
+    "dates": [
+      {
+        "endDate": "2026-07-08",
+        "endTime": "19:00",
+        "startDate": "2026-07-08",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-07-08",
+    "endTime": "19:00",
+    "id": 1785281227126,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-08",
+    "startTime": "18:00",
+    "title": "投球測定",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "7月13日 16:30〜17:30",
+    "dates": [
+      {
+        "endDate": "2026-07-13",
+        "endTime": "17:30",
+        "startDate": "2026-07-13",
+        "startTime": "16:30"
+      }
+    ],
+    "endDate": "2026-07-13",
+    "endTime": "17:30",
+    "id": 1785281339778,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-07-13",
+    "startTime": "16:30",
+    "title": "打撃測定",
+    "usageType": "external"
   }
 ]
