@@ -940,74 +940,6 @@
   {
     "cardColor": "#ff69b4",
     "category": "other",
-    "categoryText": "野球教室",
-    "date": "7月25日 13:00〜18:00",
-    "dates": [
-      {
-        "endDate": "2026-07-25",
-        "endTime": "18:00",
-        "startDate": "2026-07-25",
-        "startTime": "13:00"
-      }
-    ],
-    "endDate": "2026-07-25",
-    "endTime": "18:00",
-    "id": 149,
-    "locations": [
-      "室内練習場",
-      "ベースボールエリア",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "投手測定エリア"
-    ],
-    "manager": "高野圭祐",
-    "notes": "",
-    "participants": "20",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-07-25",
-    "startTime": "13:00",
-    "title": "台湾少年野球サマーキャンプ【仮】",
-    "usageType": "external"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "野球教室",
-    "date": "7月26日 13:00〜18:00",
-    "dates": [
-      {
-        "endDate": "2026-07-26",
-        "endTime": "18:00",
-        "startDate": "2026-07-26",
-        "startTime": "13:00"
-      }
-    ],
-    "endDate": "2026-07-26",
-    "endTime": "18:00",
-    "id": 150,
-    "locations": [
-      "室内練習場",
-      "ベースボールエリア",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "投手測定エリア"
-    ],
-    "manager": "高野圭祐",
-    "notes": "",
-    "participants": "20",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-07-26",
-    "startTime": "13:00",
-    "title": "台湾少年野球サマーキャンプ【仮】",
-    "usageType": "external"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
     "categoryText": "イベント",
     "date": "8月26日 09:30〜11:00",
     "dates": [
@@ -1066,132 +998,6 @@
     "startTime": "13:00",
     "title": "エイジェックユース卒団式",
     "usageType": "internal"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "KBO合宿",
-    "date": "7月10日 他16件",
-    "dates": [
-      {
-        "endDate": "2026-07-10",
-        "endTime": "18:00",
-        "startDate": "2026-07-10",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-11",
-        "endTime": "18:00",
-        "startDate": "2026-07-11",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-12",
-        "endTime": "18:00",
-        "startDate": "2026-07-12",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-13",
-        "endTime": "18:00",
-        "startDate": "2026-07-13",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-14",
-        "endTime": "18:00",
-        "startDate": "2026-07-14",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-15",
-        "endTime": "18:00",
-        "startDate": "2026-07-15",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-16",
-        "endTime": "18:00",
-        "startDate": "2026-07-16",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-17",
-        "endTime": "18:00",
-        "startDate": "2026-07-17",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-18",
-        "endTime": "18:00",
-        "startDate": "2026-07-18",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-19",
-        "endTime": "18:00",
-        "startDate": "2026-07-19",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-20",
-        "endTime": "18:00",
-        "startDate": "2026-07-20",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-21",
-        "endTime": "18:00",
-        "startDate": "2026-07-21",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-22",
-        "endTime": "18:00",
-        "startDate": "2026-07-22",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-23",
-        "endTime": "18:00",
-        "startDate": "2026-07-23",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-24",
-        "endTime": "18:00",
-        "startDate": "2026-07-24",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-25",
-        "endTime": "18:00",
-        "startDate": "2026-07-25",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-07-26",
-        "endTime": "18:00",
-        "startDate": "2026-07-26",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-07-26",
-    "endTime": "18:00",
-    "id": 168,
-    "locations": [
-      "バッティングブースB",
-      "投手測定エリア"
-    ],
-    "manager": "関口",
-    "notes": "",
-    "participants": "2",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-07-10",
-    "startTime": "09:00",
-    "title": "KBO合宿",
-    "usageType": "external"
   },
   {
     "cardColor": "#ff0000",
@@ -1536,35 +1342,6 @@
     "startTime": "09:00",
     "title": "AGK高等学院練習",
     "usageType": "internal"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "イベント",
-    "date": "7月26日 10:00〜16:30",
-    "dates": [
-      {
-        "endDate": "2026-07-26",
-        "endTime": "16:30",
-        "startDate": "2026-07-26",
-        "startTime": "10:00"
-      }
-    ],
-    "endDate": "2026-07-26",
-    "endTime": "16:30",
-    "id": 175,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "山﨑 元気",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-07-26",
-    "startTime": "10:00",
-    "title": "競技特化イベント",
-    "usageType": "external"
   },
   {
     "cardColor": "#ff69b4",
@@ -3519,38 +3296,6 @@
   {
     "cardColor": "#0000ff",
     "category": "other",
-    "categoryText": "社内イベント",
-    "date": "7月25日",
-    "dates": [
-      {
-        "endDate": "2026-07-25",
-        "endTime": "",
-        "startDate": "2026-07-25",
-        "startTime": ""
-      }
-    ],
-    "endDate": "2026-07-25",
-    "endTime": "",
-    "id": 1784618458741,
-    "locations": [
-      "室内練習場",
-      "バッティングブースA",
-      "打撃エリア",
-      "パワーエリア"
-    ],
-    "manager": "山村",
-    "notes": "",
-    "participants": "定員なし",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-07-25",
-    "startTime": "",
-    "title": "男子野球部",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
     "categoryText": "練習",
     "date": "8月17日 09:00〜17:00",
     "dates": [
@@ -3730,37 +3475,5 @@
     "startTime": "10:00",
     "title": "しずわでら幼稚園",
     "usageType": "external"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "7月24日 12:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-07-24",
-        "endTime": "17:00",
-        "startDate": "2026-07-24",
-        "startTime": "12:00"
-      }
-    ],
-    "endDate": "2026-07-24",
-    "endTime": "17:00",
-    "id": 1784853638067,
-    "locations": [
-      "室内練習場",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア"
-    ],
-    "manager": "山村航大",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-07-24",
-    "startTime": "12:00",
-    "title": "AGK男子野球部練習",
-    "usageType": "internal"
   }
 ]
