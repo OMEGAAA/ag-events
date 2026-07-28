@@ -3644,5 +3644,37 @@
     "startTime": "09:00",
     "title": "AGK男子野球部ミーティング",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "7月28日 12:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-07-28",
+        "endTime": "17:00",
+        "startDate": "2026-07-28",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-07-28",
+    "endTime": "17:00",
+    "id": 1785215357137,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-28",
+    "startTime": "12:00",
+    "title": "AGK男子野球部",
+    "usageType": "internal"
   }
 ]
