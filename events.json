@@ -597,12 +597,18 @@
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "野球教室イベント",
-    "date": "8月19日〜8月20日 09:00〜17:00",
+    "date": "8月19日 他1件",
     "dates": [
+      {
+        "endDate": "2026-08-19",
+        "endTime": "17:00",
+        "startDate": "2026-08-19",
+        "startTime": "09:00"
+      },
       {
         "endDate": "2026-08-20",
         "endTime": "17:00",
-        "startDate": "2026-08-19",
+        "startDate": "2026-08-20",
         "startTime": "09:00"
       }
     ],
