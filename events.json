@@ -3438,5 +3438,40 @@
     "startTime": "14:00",
     "title": "女子野球部練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "8月6日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-08-06",
+        "endTime": "14:30",
+        "startDate": "2026-08-06",
+        "startTime": "13:30"
+      },
+      {
+        "endDate": "2026-08-08",
+        "endTime": "12:00",
+        "startDate": "2026-08-08",
+        "startTime": "11:00"
+      }
+    ],
+    "endDate": "2026-08-08",
+    "endTime": "14:30",
+    "id": 1785297736715,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-06",
+    "startTime": "13:30",
+    "title": "パフォーマンス測定",
+    "usageType": "external"
   }
 ]
