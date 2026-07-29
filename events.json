@@ -3405,5 +3405,38 @@
     "startTime": "14:00",
     "title": "パフォーマンス測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "7月29日 14:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-07-29",
+        "endTime": "17:00",
+        "startDate": "2026-07-29",
+        "startTime": "14:00"
+      }
+    ],
+    "endDate": "2026-07-29",
+    "endTime": "17:00",
+    "id": 1785296428335,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "辻野",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-29",
+    "startTime": "14:00",
+    "title": "女子野球部練習",
+    "usageType": "internal"
   }
 ]
