@@ -2953,5 +2953,200 @@
     "startTime": "14:00",
     "title": "牛込BCトレーニング",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "8月26日 他27件",
+    "dates": [
+      {
+        "endDate": "2026-08-26",
+        "endTime": "21:00",
+        "startDate": "2026-08-26",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-09-02",
+        "endTime": "21:00",
+        "startDate": "2026-09-02",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-09-09",
+        "endTime": "21:00",
+        "startDate": "2026-09-09",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-09-16",
+        "endTime": "21:00",
+        "startDate": "2026-09-16",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-09-23",
+        "endTime": "21:00",
+        "startDate": "2026-09-23",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-09-30",
+        "endTime": "21:00",
+        "startDate": "2026-09-30",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-10-07",
+        "endTime": "21:00",
+        "startDate": "2026-10-07",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-10-14",
+        "endTime": "21:00",
+        "startDate": "2026-10-14",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-10-21",
+        "endTime": "21:00",
+        "startDate": "2026-10-21",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-10-28",
+        "endTime": "21:00",
+        "startDate": "2026-10-28",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-11-04",
+        "endTime": "21:00",
+        "startDate": "2026-11-04",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-11-11",
+        "endTime": "21:00",
+        "startDate": "2026-11-11",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-11-18",
+        "endTime": "21:00",
+        "startDate": "2026-11-18",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-11-25",
+        "endTime": "21:00",
+        "startDate": "2026-11-25",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-12-02",
+        "endTime": "21:00",
+        "startDate": "2026-12-02",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-12-09",
+        "endTime": "21:00",
+        "startDate": "2026-12-09",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-12-16",
+        "endTime": "21:00",
+        "startDate": "2026-12-16",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-12-23",
+        "endTime": "21:00",
+        "startDate": "2026-12-23",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2027-01-13",
+        "endTime": "21:00",
+        "startDate": "2027-01-13",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2027-01-20",
+        "endTime": "21:00",
+        "startDate": "2027-01-20",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2027-01-27",
+        "endTime": "21:00",
+        "startDate": "2027-01-27",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2027-02-03",
+        "endTime": "21:00",
+        "startDate": "2027-02-03",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2027-02-10",
+        "endTime": "21:00",
+        "startDate": "2027-02-10",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2027-02-17",
+        "endTime": "21:00",
+        "startDate": "2027-02-17",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2027-02-24",
+        "endTime": "21:00",
+        "startDate": "2027-02-24",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2027-03-03",
+        "endTime": "21:00",
+        "startDate": "2027-03-03",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2027-03-10",
+        "endTime": "21:00",
+        "startDate": "2027-03-10",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2027-03-17",
+        "endTime": "21:00",
+        "startDate": "2027-03-17",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2027-03-17",
+    "endTime": "21:00",
+    "id": 1785548798557,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "パワーエリア"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-26",
+    "startTime": "18:00",
+    "title": "U-15平日練習",
+    "usageType": "internal"
   }
 ]
