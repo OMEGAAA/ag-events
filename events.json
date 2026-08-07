@@ -3175,5 +3175,38 @@
     "startTime": "10:00",
     "title": "パフォーマンス測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "9月22日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-09-22",
+        "endTime": "17:00",
+        "startDate": "2026-09-22",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-09-22",
+    "endTime": "17:00",
+    "id": 1786085219845,
+    "locations": [
+      "アローズエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "澤村 菜々",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-09-22",
+    "startTime": "09:00",
+    "title": "走りタイプイベント",
+    "usageType": "internal"
   }
 ]
