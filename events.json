@@ -3146,5 +3146,34 @@
     "startTime": "11:30",
     "title": "パフォーマンス測定",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "8月14日 10:00〜11:00",
+    "dates": [
+      {
+        "endDate": "2026-08-14",
+        "endTime": "11:00",
+        "startDate": "2026-08-14",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-08-14",
+    "endTime": "11:00",
+    "id": 1786084332161,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-14",
+    "startTime": "10:00",
+    "title": "パフォーマンス測定",
+    "usageType": "external"
   }
 ]
