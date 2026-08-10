@@ -1814,35 +1814,6 @@
   {
     "cardColor": "#ff69b4",
     "category": "other",
-    "categoryText": "イベント",
-    "date": "8月7日 10:00〜16:00",
-    "dates": [
-      {
-        "endDate": "2026-08-07",
-        "endTime": "16:00",
-        "startDate": "2026-08-07",
-        "startTime": "10:00"
-      }
-    ],
-    "endDate": "2026-08-07",
-    "endTime": "16:00",
-    "id": 1782871718749,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大向",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-08-07",
-    "startTime": "10:00",
-    "title": "アローズ夏期講習",
-    "usageType": "external"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
     "categoryText": "駐車場貸出",
     "date": "9月4日 16:00〜20:30",
     "dates": [
@@ -2687,41 +2658,6 @@
     "snsPR": "pending",
     "startDate": "2026-08-04",
     "startTime": "14:00",
-    "title": "パフォーマンス測定",
-    "usageType": "external"
-  },
-  {
-    "cardColor": "#800080",
-    "category": "other",
-    "categoryText": "測定",
-    "date": "8月6日 他1件",
-    "dates": [
-      {
-        "endDate": "2026-08-06",
-        "endTime": "14:30",
-        "startDate": "2026-08-06",
-        "startTime": "13:30"
-      },
-      {
-        "endDate": "2026-08-08",
-        "endTime": "12:00",
-        "startDate": "2026-08-08",
-        "startTime": "11:00"
-      }
-    ],
-    "endDate": "2026-08-08",
-    "endTime": "14:30",
-    "id": 1785297736715,
-    "locations": [
-      "投手測定エリア"
-    ],
-    "manager": "福田直樹",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-08-06",
-    "startTime": "13:30",
     "title": "パフォーマンス測定",
     "usageType": "external"
   },
