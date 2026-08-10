@@ -4049,5 +4049,73 @@
     "title": "AGK男子練習",
     "originalEventId": 145,
     "archivedAt": "2026-07-14T00:42:21.568Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "8月7日 10:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-08-07",
+        "endTime": "16:00",
+        "startDate": "2026-08-07",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-08-07",
+    "endTime": "16:00",
+    "id": 144,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大向",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-07",
+    "startTime": "10:00",
+    "title": "アローズ夏期講習",
+    "usageType": "external",
+    "originalEventId": 1782871718749,
+    "archivedAt": "2026-08-10T01:50:03.275Z"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "8月6日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-08-06",
+        "endTime": "14:30",
+        "startDate": "2026-08-06",
+        "startTime": "13:30"
+      },
+      {
+        "endDate": "2026-08-08",
+        "endTime": "12:00",
+        "startDate": "2026-08-08",
+        "startTime": "11:00"
+      }
+    ],
+    "endDate": "2026-08-08",
+    "endTime": "14:30",
+    "id": 145,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-06",
+    "startTime": "13:30",
+    "title": "パフォーマンス測定",
+    "usageType": "external",
+    "originalEventId": 1785297736715,
+    "archivedAt": "2026-08-10T01:50:03.275Z"
   }
 ]
