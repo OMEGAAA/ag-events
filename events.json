@@ -3176,5 +3176,34 @@
     "startTime": "09:00",
     "title": "男子野球部",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "8月13日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-08-13",
+        "endTime": "12:00",
+        "startDate": "2026-08-13",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-08-13",
+    "endTime": "12:00",
+    "id": 1786419050685,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-13",
+    "startTime": "09:00",
+    "title": "男子野球部",
+    "usageType": "internal"
   }
 ]
