@@ -3144,5 +3144,37 @@
     "startTime": "09:00",
     "title": "男子野球部",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "8月13日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-08-13",
+        "endTime": "17:00",
+        "startDate": "2026-08-13",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-08-13",
+    "endTime": "17:00",
+    "id": 1786418773324,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-13",
+    "startTime": "09:00",
+    "title": "男子野球部",
+    "usageType": "internal"
   }
 ]
