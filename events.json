@@ -3561,5 +3561,52 @@
     "startTime": "09:00",
     "title": "AGK高等学院練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "8月12日 他3件",
+    "dates": [
+      {
+        "endDate": "2026-08-12",
+        "endTime": "19:00",
+        "startDate": "2026-08-12",
+        "startTime": "17:30"
+      },
+      {
+        "endDate": "2026-08-13",
+        "endTime": "19:00",
+        "startDate": "2026-08-13",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-08-24",
+        "endTime": "20:00",
+        "startDate": "2026-08-24",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-08-29",
+        "endTime": "11:30",
+        "startDate": "2026-08-29",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-08-29",
+    "endTime": "19:00",
+    "id": 1786510539938,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-12",
+    "startTime": "17:30",
+    "title": "投球測定",
+    "usageType": "external"
   }
 ]
