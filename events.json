@@ -3608,5 +3608,46 @@
     "startTime": "17:30",
     "title": "投球測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "8月17日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-08-17",
+        "endTime": "11:30",
+        "startDate": "2026-08-17",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-08-24",
+        "endTime": "11:30",
+        "startDate": "2026-08-24",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-08-24",
+        "endTime": "15:30",
+        "startDate": "2026-08-24",
+        "startTime": "14:00"
+      }
+    ],
+    "endDate": "2026-08-24",
+    "endTime": "11:30",
+    "id": 1786517665922,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-17",
+    "startTime": "10:00",
+    "title": "投球測定",
+    "usageType": "external"
   }
 ]
