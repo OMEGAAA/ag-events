@@ -601,6 +601,9 @@ document.addEventListener('keydown', e => {
 function buildCalEvents() {
     const calEvents = [];
     getCalendarEvents().forEach(e => {
+        const locationText = Array.isArray(e.locations) && e.locations.length > 0
+            ? e.locations.join(' / ')
+            : (e.location || '');
         getEventDates(e).forEach((d, i) => {
             const hasTime = !!d.startTime;
             const start = d.startDate + (hasTime ? 'T' + d.startTime : '');
@@ -620,7 +623,7 @@ function buildCalEvents() {
                 end,
                 backgroundColor: e.cardColor || '#64748b',
                 borderColor: e.cardColor || '#64748b',
-                extendedProps: { eventRef: getEventRef(e) }
+                extendedProps: { eventRef: getEventRef(e), location: locationText }
             });
         });
     });
@@ -638,6 +641,24 @@ function initCalendar() {
         events: buildCalEvents(),
         eventClick: function(info) {
             openDetailByRef(info.event.extendedProps.eventRef);
+        },
+        eventContent: function(arg) {
+            // 週/日ビューのみ、イベント名の下に開催場所を小さく表示する
+            const isTimeGrid = arg.view.type === 'timeGridWeek' || arg.view.type === 'timeGridDay';
+            const location = arg.event.extendedProps.location;
+            const frame = document.createElement('div');
+            frame.className = 'fc-event-main-frame';
+            let html = '';
+            if (arg.timeText) {
+                html += `<div class="fc-event-time">${escapeHtml(arg.timeText)}</div>`;
+            }
+            html += `<div class="fc-event-title-container"><div class="fc-event-title fc-sticky">${escapeHtml(arg.event.title)}</div>`;
+            if (isTimeGrid && location) {
+                html += `<div class="fc-event-location">${escapeHtml(location)}</div>`;
+            }
+            html += `</div>`;
+            frame.innerHTML = html;
+            return { domNodes: [frame] };
         },
         eventDidMount: function(info) {
             // 月セルでラベルが切れても全文が読めるよう title 属性で補完

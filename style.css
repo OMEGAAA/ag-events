@@ -498,6 +498,15 @@ main {
     color: var(--text-muted);
 }
 
+/* 週/日ビュー：イベント名の下に開催場所を小さく表示 */
+#fullcalendar .fc-timegrid-event .fc-event-location {
+    font-size: 0.68rem;
+    opacity: 0.85;
+    white-space: normal;
+    line-height: 1.2;
+    margin-top: 1px;
+}
+
 #fullcalendar .fc-scrollgrid {
     border-color: var(--glass-border) !important;
 }
@@ -2887,6 +2896,9 @@ main {
     #fullcalendar .fc-timegrid-event .fc-event-time {
         font-size: 0.7rem;
         margin-bottom: 1px;
+    }
+    #fullcalendar .fc-timegrid-event .fc-event-location {
+        font-size: 0.72rem !important;
     }
 
     /* ---- 場所/週ビュー：sticky 列を強調 & セル拡大 ---- */
