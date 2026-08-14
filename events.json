@@ -3649,5 +3649,34 @@
     "startTime": "10:00",
     "title": "投球測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "9月9日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-09-09",
+        "endTime": "17:00",
+        "startDate": "2026-09-09",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-09-09",
+    "endTime": "17:00",
+    "id": 1786670885759,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "野澤なな",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-09",
+    "startTime": "09:00",
+    "title": "GOLD LUSH練習",
+    "usageType": "internal"
   }
 ]
