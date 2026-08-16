@@ -2583,47 +2583,6 @@
     "cardColor": "#800080",
     "category": "other",
     "categoryText": "測定",
-    "date": "8月3日 他2件",
-    "dates": [
-      {
-        "endDate": "2026-08-03",
-        "endTime": "18:30",
-        "startDate": "2026-08-03",
-        "startTime": "16:30"
-      },
-      {
-        "endDate": "2026-08-04",
-        "endTime": "19:00",
-        "startDate": "2026-08-04",
-        "startTime": "18:00"
-      },
-      {
-        "endDate": "2026-08-13",
-        "endTime": "15:30",
-        "startDate": "2026-08-13",
-        "startTime": "11:00"
-      }
-    ],
-    "endDate": "2026-08-13",
-    "endTime": "18:30",
-    "id": 1785213250162,
-    "locations": [
-      "投手測定エリア"
-    ],
-    "manager": "福田 直樹",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-08-03",
-    "startTime": "16:30",
-    "title": "パフォーマンス測定",
-    "usageType": "external"
-  },
-  {
-    "cardColor": "#800080",
-    "category": "other",
-    "categoryText": "測定",
     "date": "8月4日 他2件",
     "dates": [
       {
@@ -3051,35 +3010,6 @@
     "usageType": "internal"
   },
   {
-    "cardColor": "#800080",
-    "category": "other",
-    "categoryText": "その他",
-    "date": "8月14日 10:00〜11:00",
-    "dates": [
-      {
-        "endDate": "2026-08-14",
-        "endTime": "11:00",
-        "startDate": "2026-08-14",
-        "startTime": "10:00"
-      }
-    ],
-    "endDate": "2026-08-14",
-    "endTime": "11:00",
-    "id": 1786084332161,
-    "locations": [
-      "投手測定エリア"
-    ],
-    "manager": "福田直樹",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-08-14",
-    "startTime": "10:00",
-    "title": "パフォーマンス測定",
-    "usageType": "external"
-  },
-  {
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "イベント",
@@ -3110,100 +3040,6 @@
     "startDate": "2026-09-22",
     "startTime": "09:00",
     "title": "走りタイプイベント",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "8月12日 09:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-08-12",
-        "endTime": "17:00",
-        "startDate": "2026-08-12",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-08-12",
-    "endTime": "17:00",
-    "id": 1786418302736,
-    "locations": [
-      "室内練習場",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "パワーエリア"
-    ],
-    "manager": "山村",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-08-12",
-    "startTime": "09:00",
-    "title": "男子野球部",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "社内イベント",
-    "date": "8月13日 09:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-08-13",
-        "endTime": "17:00",
-        "startDate": "2026-08-13",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-08-13",
-    "endTime": "17:00",
-    "id": 1786418773324,
-    "locations": [
-      "室内練習場",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア"
-    ],
-    "manager": "山村",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-08-13",
-    "startTime": "09:00",
-    "title": "男子野球部",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "その他",
-    "date": "8月13日 09:00〜12:00",
-    "dates": [
-      {
-        "endDate": "2026-08-13",
-        "endTime": "12:00",
-        "startDate": "2026-08-13",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-08-13",
-    "endTime": "12:00",
-    "id": 1786419050685,
-    "locations": [
-      "パワーエリア"
-    ],
-    "manager": "山村",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-08-13",
-    "startTime": "09:00",
-    "title": "男子野球部",
     "usageType": "internal"
   },
   {
