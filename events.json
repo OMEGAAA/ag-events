@@ -3478,5 +3478,40 @@
     "startTime": "13:00",
     "title": "個人レッスン（川相）",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "8月25日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-08-25",
+        "endTime": "18:30",
+        "startDate": "2026-08-25",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-09-01",
+        "endTime": "19:30",
+        "startDate": "2026-09-01",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-09-01",
+    "endTime": "18:30",
+    "id": 1786947015174,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-25",
+    "startTime": "17:00",
+    "title": "パフォーマンス測定",
+    "usageType": "external"
   }
 ]
