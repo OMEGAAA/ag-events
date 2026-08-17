@@ -4117,5 +4117,72 @@
     "usageType": "external",
     "originalEventId": 1785297736715,
     "archivedAt": "2026-08-10T01:50:03.275Z"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "7月19日 他6件",
+    "dates": [
+      {
+        "endDate": "2026-07-19",
+        "endTime": "19:00",
+        "startDate": "2026-07-19",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-07-28",
+        "endTime": "16:00",
+        "startDate": "2026-07-28",
+        "startTime": "15:00"
+      },
+      {
+        "endDate": "2026-07-29",
+        "endTime": "18:45",
+        "startDate": "2026-07-29",
+        "startTime": "16:45"
+      },
+      {
+        "endDate": "2026-07-30",
+        "endTime": "12:00",
+        "startDate": "2026-07-30",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-08-03",
+        "endTime": "11:00",
+        "startDate": "2026-08-03",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-08-03",
+        "endTime": "16:00",
+        "startDate": "2026-08-03",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-08-16",
+        "endTime": "14:00",
+        "startDate": "2026-08-16",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-08-16",
+    "endTime": "19:00",
+    "id": 146,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田 直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-07-19",
+    "startTime": "17:00",
+    "title": "パフォーマンス測定",
+    "usageType": "external",
+    "originalEventId": 1784422506211,
+    "archivedAt": "2026-08-17T02:25:24.968Z"
   }
 ]
