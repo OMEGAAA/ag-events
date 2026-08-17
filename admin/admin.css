@@ -1082,12 +1082,13 @@ tr:hover td { background: rgba(255,255,255,0.025); }
 /* KPIカードグリッド */
 .kpi-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.85rem;
     margin-bottom: 1.5rem;
 }
 
 .kpi-card {
+    min-width: 0;
     background: rgba(15, 23, 42, 0.6);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 12px;
@@ -1337,13 +1338,13 @@ tr:hover td { background: rgba(255,255,255,0.025); }
 /* ========== レスポンシブ（ダッシュボード） ========== */
 @media (max-width: 900px) {
     .kpi-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 640px) {
     .kpi-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.6rem;
     }
 
@@ -1482,6 +1483,23 @@ tr:hover td { background: rgba(255,255,255,0.025); }
     background: rgba(16,185,129,0.16);
     color: #6ee7b7;
     box-shadow: 0 0 0 1px rgba(16,185,129,0.35);
+}
+
+.usage-filter-btn.active[data-usage="unset"] {
+    background: rgba(245,158,11,0.16);
+    color: #fbbf24;
+    box-shadow: 0 0 0 1px rgba(245,158,11,0.35);
+}
+
+.dashboard-data-warning {
+    margin: 0.7rem 0 0;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid rgba(245,158,11,0.35);
+    border-radius: 8px;
+    background: rgba(245,158,11,0.1);
+    color: #fbbf24;
+    font-size: 0.82rem;
+    line-height: 1.55;
 }
 
 /* 折りたたみセクション共通 */
@@ -2408,6 +2426,7 @@ body {
 .usage-filter-btn.active[data-usage="all"],
 .usage-filter-btn.active[data-usage="external"],
 .usage-filter-btn.active[data-usage="internal"],
+.usage-filter-btn.active[data-usage="unset"],
 .dashboard-tab.active {
     background: #fff;
     color: var(--accent-blue) !important;
