@@ -3449,5 +3449,34 @@
     "startTime": "09:00",
     "title": "GOLD LUSH練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "8月25日 13:00〜14:00",
+    "dates": [
+      {
+        "endDate": "2026-08-25",
+        "endTime": "14:00",
+        "startDate": "2026-08-25",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-08-25",
+    "endTime": "14:00",
+    "id": 1786946650436,
+    "locations": [
+      "バッティングブースA"
+    ],
+    "manager": "川相",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-25",
+    "startTime": "13:00",
+    "title": "個人レッスン（川相）",
+    "usageType": "external"
   }
 ]
