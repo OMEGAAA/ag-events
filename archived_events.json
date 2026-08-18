@@ -4184,5 +4184,39 @@
     "usageType": "external",
     "originalEventId": 1784422506211,
     "archivedAt": "2026-08-17T02:25:24.968Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "8月17日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-08-17",
+        "endTime": "17:00",
+        "startDate": "2026-08-17",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-08-17",
+    "endTime": "17:00",
+    "id": 147,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-17",
+    "startTime": "09:00",
+    "title": "AGK男子練習",
+    "usageType": "internal",
+    "originalEventId": 1784682780925,
+    "archivedAt": "2026-08-18T01:02:26.710Z"
   }
 ]
