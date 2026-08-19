@@ -3440,5 +3440,38 @@
     "startTime": "15:30",
     "title": "ADSバンビ校振替レッスン",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "8月31日 08:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-08-31",
+        "endTime": "16:00",
+        "startDate": "2026-08-31",
+        "startTime": "08:00"
+      }
+    ],
+    "endDate": "2026-08-31",
+    "endTime": "16:00",
+    "id": 1787120987918,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-31",
+    "startTime": "08:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
   }
 ]
