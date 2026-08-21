@@ -506,135 +506,6 @@
     "usageType": "internal"
   },
   {
-    "cardColor": "#ffff00",
-    "category": "health",
-    "categoryText": "健康アカデミー",
-    "date": "6月4日 他10件",
-    "dates": [
-      {
-        "endDate": "2026-06-04",
-        "endTime": "16:00",
-        "startDate": "2026-06-04",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-06-11",
-        "endTime": "16:00",
-        "startDate": "2026-06-11",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-06-18",
-        "endTime": "16:00",
-        "startDate": "2026-06-18",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-06-25",
-        "endTime": "16:00",
-        "startDate": "2026-06-25",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-07-02",
-        "endTime": "16:00",
-        "startDate": "2026-07-02",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-07-09",
-        "endTime": "16:00",
-        "startDate": "2026-07-09",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-07-16",
-        "endTime": "16:00",
-        "startDate": "2026-07-16",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-07-23",
-        "endTime": "16:00",
-        "startDate": "2026-07-23",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-07-30",
-        "endTime": "16:00",
-        "startDate": "2026-07-30",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-08-06",
-        "endTime": "16:00",
-        "startDate": "2026-08-06",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-08-20",
-        "endTime": "16:00",
-        "startDate": "2026-08-20",
-        "startTime": "14:00"
-      }
-    ],
-    "endDate": "2026-08-20",
-    "endTime": "16:00",
-    "id": 84,
-    "locations": [
-      "パワーエリア"
-    ],
-    "manager": "木下",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-06-04",
-    "startTime": "14:00",
-    "title": "健康アカデミー"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "野球教室イベント",
-    "date": "8月19日 他1件",
-    "dates": [
-      {
-        "endDate": "2026-08-19",
-        "endTime": "17:00",
-        "startDate": "2026-08-19",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-08-20",
-        "endTime": "17:00",
-        "startDate": "2026-08-20",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-08-20",
-    "endTime": "17:00",
-    "id": 125,
-    "locations": [
-      "室内練習場",
-      "ベースボールエリア",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "投手測定エリア",
-      "食堂"
-    ],
-    "manager": "高野圭祐",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-08-19",
-    "startTime": "09:00",
-    "title": "ウルノアベース他3社コラボイベント(仮)",
-    "usageType": "external"
-  },
-  {
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "イベント",
@@ -1331,9 +1202,9 @@
       },
       {
         "endDate": "2026-09-26",
-        "endTime": "12:00",
+        "endTime": "16:00",
         "startDate": "2026-09-26",
-        "startTime": "09:00"
+        "startTime": "10:00"
       },
       {
         "endDate": "2026-09-27",
@@ -1343,7 +1214,7 @@
       },
       {
         "endDate": "2026-10-03",
-        "endTime": "12:00",
+        "endTime": "18:00",
         "startDate": "2026-10-03",
         "startTime": "09:00"
       },
@@ -2310,22 +2181,23 @@
     "cardColor": "#e169b4",
     "category": "other",
     "categoryText": "イベント",
-    "date": "11月21日 09:00〜17:00",
+    "date": "11月21日 09:00〜18:00",
     "dates": [
       {
         "endDate": "2026-11-21",
-        "endTime": "17:00",
+        "endTime": "18:00",
         "startDate": "2026-11-21",
         "startTime": "09:00"
       }
     ],
     "endDate": "2026-11-21",
-    "endTime": "17:00",
+    "endTime": "18:00",
     "id": 1784244284369,
     "locations": [
       "室内練習場",
       "バッティングブースA",
-      "バッティングブースB"
+      "バッティングブースB",
+      "食堂"
     ],
     "manager": "野澤奈南",
     "notes": "",
@@ -2336,35 +2208,6 @@
     "startTime": "09:00",
     "title": "GL運動会",
     "usageType": "external"
-  },
-  {
-    "cardColor": "",
-    "category": "other",
-    "categoryText": "レッスン",
-    "date": "8月19日 09:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-08-19",
-        "endTime": "17:00",
-        "startDate": "2026-08-19",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-08-19",
-    "endTime": "17:00",
-    "id": 1784423457918,
-    "locations": [
-      "スタジオ"
-    ],
-    "manager": "木村",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-08-19",
-    "startTime": "09:00",
-    "title": "GOLD LUSHレッスン",
-    "usageType": "internal"
   },
   {
     "cardColor": "#ff69b4",
@@ -3473,5 +3316,132 @@
     "startTime": "08:00",
     "title": "AGK男子野球部練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "9月15日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-09-15",
+        "endTime": "19:00",
+        "startDate": "2026-09-15",
+        "startTime": "16:30"
+      },
+      {
+        "endDate": "2026-09-29",
+        "endTime": "19:00",
+        "startDate": "2026-09-29",
+        "startTime": "16:30"
+      }
+    ],
+    "endDate": "2026-09-29",
+    "endTime": "19:00",
+    "id": 1787276875362,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-15",
+    "startTime": "16:30",
+    "title": "ADS　キッズクラス体験会",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "8月26日 18:00〜19:00",
+    "dates": [
+      {
+        "endDate": "2026-08-26",
+        "endTime": "19:00",
+        "startDate": "2026-08-26",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-08-26",
+    "endTime": "19:00",
+    "id": 1787276991506,
+    "locations": [
+      "バッティングブースA"
+    ],
+    "manager": "野口",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-26",
+    "startTime": "18:00",
+    "title": "個人レッスン",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "8月21日 19:00〜21:00",
+    "dates": [
+      {
+        "endDate": "2026-08-21",
+        "endTime": "21:00",
+        "startDate": "2026-08-21",
+        "startTime": "19:00"
+      }
+    ],
+    "endDate": "2026-08-21",
+    "endTime": "21:00",
+    "id": 1787277275851,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "五十子",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-21",
+    "startTime": "19:00",
+    "title": "栃木青年会議所",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "10月24日 08:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-10-24",
+        "endTime": "18:00",
+        "startDate": "2026-10-24",
+        "startTime": "08:00"
+      }
+    ],
+    "endDate": "2026-10-24",
+    "endTime": "18:00",
+    "id": 1787277427697,
+    "locations": [
+      "室内練習場",
+      "アローズエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "澤村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-10-24",
+    "startTime": "08:00",
+    "title": "下館一高測定",
+    "usageType": "external"
   }
 ]
