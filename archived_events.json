@@ -4218,5 +4218,348 @@
     "usageType": "internal",
     "originalEventId": 1784682780925,
     "archivedAt": "2026-08-18T01:02:26.710Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "8月26日 09:30〜11:00",
+    "dates": [
+      {
+        "endDate": "2026-08-26",
+        "endTime": "11:00",
+        "startDate": "2026-08-26",
+        "startTime": "09:30"
+      }
+    ],
+    "endDate": "2026-08-26",
+    "endTime": "11:00",
+    "id": 148,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "星野真澄",
+    "notes": "",
+    "participants": "50",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-26",
+    "startTime": "09:30",
+    "title": "シルバー大学",
+    "usageType": "external",
+    "originalEventId": 156,
+    "archivedAt": "2026-08-27T00:16:46.858Z"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "8月22日 18:00〜20:30",
+    "dates": [
+      {
+        "endDate": "2026-08-22",
+        "endTime": "20:30",
+        "startDate": "2026-08-22",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-08-22",
+    "endTime": "20:30",
+    "id": 149,
+    "locations": [
+      "食堂"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-22",
+    "startTime": "18:00",
+    "title": "U-15説明会・見学会",
+    "usageType": "external",
+    "originalEventId": 1782256466581,
+    "archivedAt": "2026-08-27T00:16:46.858Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "BCLジュニア選抜セレクション",
+    "date": "8月22日 09:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-08-22",
+        "endTime": "18:00",
+        "startDate": "2026-08-22",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-08-22",
+    "endTime": "18:00",
+    "id": 150,
+    "locations": [
+      "室内練習場",
+      "アローズエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂",
+      "パワーエリア"
+    ],
+    "manager": "星野",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-22",
+    "startTime": "09:00",
+    "title": "BCLジュニア選抜セレクション",
+    "usageType": "external",
+    "originalEventId": 1784170539068,
+    "archivedAt": "2026-08-27T00:16:46.858Z"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "8月10日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-08-10",
+        "endTime": "17:00",
+        "startDate": "2026-08-10",
+        "startTime": "15:30"
+      },
+      {
+        "endDate": "2026-08-12",
+        "endTime": "11:30",
+        "startDate": "2026-08-12",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-08-25",
+        "endTime": "12:00",
+        "startDate": "2026-08-25",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-08-25",
+    "endTime": "17:00",
+    "id": 151,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-10",
+    "startTime": "15:30",
+    "title": "パフォーマンス測定",
+    "usageType": "external",
+    "originalEventId": 1785561650747,
+    "archivedAt": "2026-08-27T00:16:46.858Z"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "パフォーマンス測定",
+    "date": "8月7日 他5件",
+    "dates": [
+      {
+        "endDate": "2026-08-07",
+        "endTime": "15:00",
+        "startDate": "2026-08-07",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-08-12",
+        "endTime": "16:00",
+        "startDate": "2026-08-12",
+        "startTime": "14:00"
+      },
+      {
+        "endDate": "2026-08-17",
+        "endTime": "18:00",
+        "startDate": "2026-08-17",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-08-18",
+        "endTime": "13:30",
+        "startDate": "2026-08-18",
+        "startTime": "11:30"
+      },
+      {
+        "endDate": "2026-08-18",
+        "endTime": "16:30",
+        "startDate": "2026-08-18",
+        "startTime": "15:30"
+      },
+      {
+        "endDate": "2026-08-25",
+        "endTime": "15:30",
+        "startDate": "2026-08-25",
+        "startTime": "13:30"
+      }
+    ],
+    "endDate": "2026-08-25",
+    "endTime": "15:00",
+    "id": 152,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-07",
+    "startTime": "14:00",
+    "title": "パフォーマンス測定",
+    "usageType": "internal",
+    "originalEventId": 1786071135216,
+    "archivedAt": "2026-08-27T00:16:46.858Z"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "8月17日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-08-17",
+        "endTime": "11:30",
+        "startDate": "2026-08-17",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-08-24",
+        "endTime": "11:30",
+        "startDate": "2026-08-24",
+        "startTime": "10:00"
+      },
+      {
+        "endDate": "2026-08-24",
+        "endTime": "15:30",
+        "startDate": "2026-08-24",
+        "startTime": "14:00"
+      }
+    ],
+    "endDate": "2026-08-24",
+    "endTime": "11:30",
+    "id": 153,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-17",
+    "startTime": "10:00",
+    "title": "投球測定",
+    "usageType": "external",
+    "originalEventId": 1786517665922,
+    "archivedAt": "2026-08-27T00:16:46.858Z"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "8月25日 13:00〜14:00",
+    "dates": [
+      {
+        "endDate": "2026-08-25",
+        "endTime": "14:00",
+        "startDate": "2026-08-25",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-08-25",
+    "endTime": "14:00",
+    "id": 154,
+    "locations": [
+      "バッティングブースA"
+    ],
+    "manager": "川相",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-25",
+    "startTime": "13:00",
+    "title": "個人レッスン（川相）",
+    "usageType": "external",
+    "originalEventId": 1786946650436,
+    "archivedAt": "2026-08-27T00:16:46.858Z"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "8月26日 18:00〜19:00",
+    "dates": [
+      {
+        "endDate": "2026-08-26",
+        "endTime": "19:00",
+        "startDate": "2026-08-26",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-08-26",
+    "endTime": "19:00",
+    "id": 155,
+    "locations": [
+      "バッティングブースA"
+    ],
+    "manager": "野口",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-26",
+    "startTime": "18:00",
+    "title": "個人レッスン",
+    "usageType": "external",
+    "originalEventId": 1787276991506,
+    "archivedAt": "2026-08-27T00:16:46.858Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "8月21日 19:00〜21:00",
+    "dates": [
+      {
+        "endDate": "2026-08-21",
+        "endTime": "21:00",
+        "startDate": "2026-08-21",
+        "startTime": "19:00"
+      }
+    ],
+    "endDate": "2026-08-21",
+    "endTime": "21:00",
+    "id": 156,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "五十子",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-21",
+    "startTime": "19:00",
+    "title": "栃木青年会議所",
+    "usageType": "external",
+    "originalEventId": 1787277275851,
+    "archivedAt": "2026-08-27T00:16:46.858Z"
   }
 ]
