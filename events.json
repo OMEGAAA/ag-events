@@ -2946,5 +2946,178 @@
     "startTime": "13:00",
     "title": "健康アカデミー",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ffff00",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "9月3日 他3件",
+    "dates": [
+      {
+        "endDate": "2026-09-03",
+        "endTime": "16:00",
+        "startDate": "2026-09-03",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-09-10",
+        "endTime": "16:00",
+        "startDate": "2026-09-10",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-09-17",
+        "endTime": "16:00",
+        "startDate": "2026-09-17",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-09-24",
+        "endTime": "16:00",
+        "startDate": "2026-09-24",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-09-24",
+    "endTime": "16:00",
+    "id": 1787970108214,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-03",
+    "startTime": "13:00",
+    "title": "健康アカデミー",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "9月3日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-09-03",
+        "endTime": "19:00",
+        "startDate": "2026-09-03",
+        "startTime": "17:30"
+      },
+      {
+        "endDate": "2026-09-21",
+        "endTime": "18:30",
+        "startDate": "2026-09-21",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-09-22",
+        "endTime": "19:00",
+        "startDate": "2026-09-22",
+        "startTime": "17:30"
+      }
+    ],
+    "endDate": "2026-09-22",
+    "endTime": "19:00",
+    "id": 1787970227461,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-03",
+    "startTime": "17:30",
+    "title": "投手測定",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "8月29日 他3件",
+    "dates": [
+      {
+        "endDate": "2026-08-29",
+        "endTime": "13:00",
+        "startDate": "2026-08-29",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-08-30",
+        "endTime": "18:00",
+        "startDate": "2026-08-30",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-09-13",
+        "endTime": "18:00",
+        "startDate": "2026-09-13",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-14",
+        "endTime": "18:00",
+        "startDate": "2026-09-14",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-09-14",
+    "endTime": "13:00",
+    "id": 1787970637109,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "パワーエリア"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-08-29",
+    "startTime": "09:00",
+    "title": "AGK男子野球練習",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "測定会",
+    "date": "9月23日 09:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-09-23",
+        "endTime": "18:00",
+        "startDate": "2026-09-23",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-09-23",
+    "endTime": "18:00",
+    "id": 1787971514575,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂",
+      "パワーエリア"
+    ],
+    "manager": "福田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-23",
+    "startTime": "09:00",
+    "title": "BCL測定会",
+    "usageType": "external"
   }
 ]
