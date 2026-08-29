@@ -2833,5 +2833,118 @@
     "startTime": "08:00",
     "title": "下館一高測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ffff00",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "9月1日 他14件",
+    "dates": [
+      {
+        "endDate": "2026-09-01",
+        "endTime": "16:00",
+        "startDate": "2026-09-01",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-09-02",
+        "endTime": "16:00",
+        "startDate": "2026-09-02",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-09-04",
+        "endTime": "20:00",
+        "startDate": "2026-09-04",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-05",
+        "endTime": "11:00",
+        "startDate": "2026-09-05",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-08",
+        "endTime": "16:00",
+        "startDate": "2026-09-08",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-09-09",
+        "endTime": "16:00",
+        "startDate": "2026-09-09",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-09-11",
+        "endTime": "20:00",
+        "startDate": "2026-09-11",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-15",
+        "endTime": "16:00",
+        "startDate": "2026-09-15",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-09-16",
+        "endTime": "16:00",
+        "startDate": "2026-09-16",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-09-18",
+        "endTime": "20:00",
+        "startDate": "2026-09-18",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-19",
+        "endTime": "11:00",
+        "startDate": "2026-09-19",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-25",
+        "endTime": "20:00",
+        "startDate": "2026-09-25",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-26",
+        "endTime": "11:00",
+        "startDate": "2026-09-26",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-29",
+        "endTime": "16:00",
+        "startDate": "2026-09-29",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-09-30",
+        "endTime": "16:00",
+        "startDate": "2026-09-30",
+        "startTime": "13:00"
+      }
+    ],
+    "endDate": "2026-09-30",
+    "endTime": "16:00",
+    "id": 1787970042674,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-01",
+    "startTime": "13:00",
+    "title": "健康アカデミー",
+    "usageType": "external"
   }
 ]
