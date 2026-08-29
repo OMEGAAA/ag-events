@@ -3,50 +3,6 @@
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "大会",
-    "date": "8月26日 他2件",
-    "dates": [
-      {
-        "endDate": "2026-08-26",
-        "endTime": "16:00",
-        "startDate": "2026-08-26",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-08-27",
-        "endTime": "16:00",
-        "startDate": "2026-08-27",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-08-28",
-        "endTime": "16:00",
-        "startDate": "2026-08-28",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-08-28",
-    "endTime": "16:00",
-    "id": 14,
-    "locations": [
-      "室内練習場",
-      "ベースボールエリア",
-      "アローズエリア",
-      "食堂",
-      "パワーエリア"
-    ],
-    "manager": "木下",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-08-26",
-    "startTime": "09:00",
-    "title": "エイジェックカップ"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "大会",
     "date": "9月4日 他2件",
     "dates": [
       {
@@ -2245,71 +2201,6 @@
     "startDate": "2026-08-26",
     "startTime": "18:00",
     "title": "U-15平日練習",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#ffff00",
-    "category": "health",
-    "categoryText": "健康アカデミー",
-    "date": "8月5日 他6件",
-    "dates": [
-      {
-        "endDate": "2026-08-05",
-        "endTime": "16:00",
-        "startDate": "2026-08-05",
-        "startTime": "14:00"
-      },
-      {
-        "endDate": "2026-08-07",
-        "endTime": "20:00",
-        "startDate": "2026-08-07",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-08-18",
-        "endTime": "16:00",
-        "startDate": "2026-08-18",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-08-21",
-        "endTime": "20:00",
-        "startDate": "2026-08-21",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-08-25",
-        "endTime": "16:00",
-        "startDate": "2026-08-25",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-08-26",
-        "endTime": "20:00",
-        "startDate": "2026-08-26",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-08-28",
-        "endTime": "20:00",
-        "startDate": "2026-08-28",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-08-28",
-    "endTime": "16:00",
-    "id": 1786069275447,
-    "locations": [
-      "スタジオ"
-    ],
-    "manager": "木下",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-08-05",
-    "startTime": "14:00",
-    "title": "健康アカデミー",
     "usageType": "internal"
   },
   {
