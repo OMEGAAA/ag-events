@@ -4561,5 +4561,119 @@
     "usageType": "external",
     "originalEventId": 1787277275851,
     "archivedAt": "2026-08-27T00:16:46.858Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "大会",
+    "date": "9月4日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-09-04",
+        "endTime": "17:00",
+        "startDate": "2026-09-04",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-05",
+        "endTime": "21:00",
+        "startDate": "2026-09-05",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-06",
+        "endTime": "21:00",
+        "startDate": "2026-09-06",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-09-06",
+    "endTime": "17:00",
+    "id": 157,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "アローズエリア",
+      "食堂",
+      "パワーエリア"
+    ],
+    "manager": "吉井",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-09-04",
+    "startTime": "09:00",
+    "title": "さくらカップ中学の部",
+    "originalEventId": 15,
+    "archivedAt": "2026-09-07T09:54:55.445Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "駐車場貸出",
+    "date": "9月4日 16:00〜20:30",
+    "dates": [
+      {
+        "endDate": "2026-09-04",
+        "endTime": "20:30",
+        "startDate": "2026-09-04",
+        "startTime": "16:00"
+      }
+    ],
+    "endDate": "2026-09-04",
+    "endTime": "20:30",
+    "id": 158,
+    "locations": [
+      "駐車場"
+    ],
+    "manager": "いらごさん",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-04",
+    "startTime": "16:00",
+    "title": "とちぎメディカルセンター駐車場使用",
+    "usageType": "external",
+    "originalEventId": 1783496049566,
+    "archivedAt": "2026-09-07T09:54:55.445Z"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "8月25日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-08-25",
+        "endTime": "18:30",
+        "startDate": "2026-08-25",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-09-01",
+        "endTime": "19:30",
+        "startDate": "2026-09-01",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-09-01",
+    "endTime": "18:30",
+    "id": 159,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-25",
+    "startTime": "17:00",
+    "title": "パフォーマンス測定",
+    "usageType": "external",
+    "originalEventId": 1786947015174,
+    "archivedAt": "2026-09-07T09:54:55.445Z"
   }
 ]
