@@ -3206,5 +3206,135 @@
     "startTime": "12:00",
     "title": "AGK男子野球部練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "体験会",
+    "date": "9月13日 10:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-09-13",
+        "endTime": "13:00",
+        "startDate": "2026-09-13",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-09-13",
+    "endTime": "13:00",
+    "id": 1788834096658,
+    "locations": [
+      "室内練習場",
+      "食堂"
+    ],
+    "manager": "佐藤",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-13",
+    "startTime": "10:00",
+    "title": "AGK高等学院　女子野球部体験会",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "9月7日 他6件",
+    "dates": [
+      {
+        "endDate": "2026-09-07",
+        "endTime": "14:30",
+        "startDate": "2026-09-07",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-07",
+        "endTime": "20:30",
+        "startDate": "2026-09-07",
+        "startTime": "19:00"
+      },
+      {
+        "endDate": "2026-09-08",
+        "endTime": "19:30",
+        "startDate": "2026-09-08",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-09-09",
+        "endTime": "12:15",
+        "startDate": "2026-09-09",
+        "startTime": "10:45"
+      },
+      {
+        "endDate": "2026-09-10",
+        "endTime": "19:30",
+        "startDate": "2026-09-10",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-09-14",
+        "endTime": "19:30",
+        "startDate": "2026-09-14",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-09-15",
+        "endTime": "19:30",
+        "startDate": "2026-09-15",
+        "startTime": "17:30"
+      }
+    ],
+    "endDate": "2026-09-15",
+    "endTime": "14:30",
+    "id": 1788834418604,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-07",
+    "startTime": "12:00",
+    "title": "投手測定",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#32cd32",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "9月7日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-09-07",
+        "endTime": "20:30",
+        "startDate": "2026-09-07",
+        "startTime": "19:00"
+      },
+      {
+        "endDate": "2026-09-08",
+        "endTime": "19:00",
+        "startDate": "2026-09-08",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-09-08",
+    "endTime": "20:30",
+    "id": 1788834541874,
+    "locations": [
+      "打撃エリア"
+    ],
+    "manager": "福田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-07",
+    "startTime": "19:00",
+    "title": "打撃測定",
+    "usageType": "external"
   }
 ]
