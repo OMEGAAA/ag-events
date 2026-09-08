@@ -3715,5 +3715,34 @@
     "startTime": "09:00",
     "title": "AGK男子野球部練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "イベント",
+    "date": "11月14日 12:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-11-14",
+        "endTime": "18:00",
+        "startDate": "2026-11-14",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-11-14",
+    "endTime": "18:00",
+    "id": 1788848873067,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "鶴田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-11-14",
+    "startTime": "12:00",
+    "title": "TGB野球教室",
+    "usageType": "external"
   }
 ]
