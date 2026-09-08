@@ -3425,5 +3425,295 @@
     "startTime": "08:00",
     "title": "下館一高測定",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "9月1日 他43件",
+    "dates": [
+      {
+        "endDate": "2026-09-01",
+        "endTime": "17:00",
+        "startDate": "2026-09-01",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-02",
+        "endTime": "17:00",
+        "startDate": "2026-09-02",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-03",
+        "endTime": "17:00",
+        "startDate": "2026-09-03",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-07",
+        "endTime": "17:00",
+        "startDate": "2026-09-07",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-08",
+        "endTime": "17:00",
+        "startDate": "2026-09-08",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-09",
+        "endTime": "17:00",
+        "startDate": "2026-09-09",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-10",
+        "endTime": "17:00",
+        "startDate": "2026-09-10",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-11",
+        "endTime": "17:00",
+        "startDate": "2026-09-11",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-12",
+        "endTime": "17:00",
+        "startDate": "2026-09-12",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-13",
+        "endTime": "17:00",
+        "startDate": "2026-09-13",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-14",
+        "endTime": "17:00",
+        "startDate": "2026-09-14",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-16",
+        "endTime": "17:00",
+        "startDate": "2026-09-16",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-17",
+        "endTime": "17:00",
+        "startDate": "2026-09-17",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-18",
+        "endTime": "17:00",
+        "startDate": "2026-09-18",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-19",
+        "endTime": "17:00",
+        "startDate": "2026-09-19",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-20",
+        "endTime": "17:00",
+        "startDate": "2026-09-20",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-21",
+        "endTime": "17:00",
+        "startDate": "2026-09-21",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-23",
+        "endTime": "17:00",
+        "startDate": "2026-09-23",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-24",
+        "endTime": "17:00",
+        "startDate": "2026-09-24",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-25",
+        "endTime": "17:00",
+        "startDate": "2026-09-25",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-27",
+        "endTime": "17:00",
+        "startDate": "2026-09-27",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-28",
+        "endTime": "17:00",
+        "startDate": "2026-09-28",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-09-30",
+        "endTime": "17:00",
+        "startDate": "2026-09-30",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-02",
+        "endTime": "17:00",
+        "startDate": "2026-10-02",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-04",
+        "endTime": "17:00",
+        "startDate": "2026-10-04",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-10-05",
+        "endTime": "17:00",
+        "startDate": "2026-10-05",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-06",
+        "endTime": "17:00",
+        "startDate": "2026-10-06",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-07",
+        "endTime": "17:00",
+        "startDate": "2026-10-07",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-09",
+        "endTime": "17:00",
+        "startDate": "2026-10-09",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-10",
+        "endTime": "17:00",
+        "startDate": "2026-10-10",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-10-11",
+        "endTime": "17:00",
+        "startDate": "2026-10-11",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-10-14",
+        "endTime": "17:00",
+        "startDate": "2026-10-14",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-15",
+        "endTime": "17:00",
+        "startDate": "2026-10-15",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-16",
+        "endTime": "17:00",
+        "startDate": "2026-10-16",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-17",
+        "endTime": "17:00",
+        "startDate": "2026-10-17",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-10-18",
+        "endTime": "17:00",
+        "startDate": "2026-10-18",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-10-19",
+        "endTime": "17:00",
+        "startDate": "2026-10-19",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-21",
+        "endTime": "17:00",
+        "startDate": "2026-10-21",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-22",
+        "endTime": "17:00",
+        "startDate": "2026-10-22",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-23",
+        "endTime": "17:00",
+        "startDate": "2026-10-23",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-25",
+        "endTime": "17:00",
+        "startDate": "2026-10-25",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-10-26",
+        "endTime": "17:00",
+        "startDate": "2026-10-26",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-28",
+        "endTime": "17:00",
+        "startDate": "2026-10-28",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-10-29",
+        "endTime": "17:00",
+        "startDate": "2026-10-29",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-10-29",
+    "endTime": "17:00",
+    "id": 1788842024049,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "パワーエリア"
+    ],
+    "manager": "山村航大",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-01",
+    "startTime": "09:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
   }
 ]
