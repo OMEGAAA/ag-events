@@ -3709,5 +3709,40 @@
     "startTime": "12:00",
     "title": "TGB野球教室",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "9月27日 09:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-09-27",
+        "endTime": "13:00",
+        "startDate": "2026-09-27",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-09-27",
+    "endTime": "13:00",
+    "id": 1788925241689,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "パワーエリア"
+    ],
+    "manager": "星野",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-27",
+    "startTime": "09:00",
+    "title": "BCLジュニア選抜",
+    "usageType": "external"
   }
 ]
