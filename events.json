@@ -3715,5 +3715,92 @@
     "startTime": "09:00",
     "title": "BCLジュニア選抜",
     "usageType": "external"
+  },
+  {
+    "id": 1789005470421,
+    "title": "GOLD LUSHオーディション",
+    "date": "12月19日 08:00〜15:00",
+    "dates": [
+      {
+        "startDate": "2026-12-19",
+        "endDate": "2026-12-19",
+        "startTime": "08:00",
+        "endTime": "15:00"
+      }
+    ],
+    "startDate": "2026-12-19",
+    "endDate": "2026-12-19",
+    "startTime": "08:00",
+    "endTime": "15:00",
+    "category": "other",
+    "categoryText": "イベント",
+    "cardColor": "",
+    "locations": [
+      "スタジオ"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "野澤なな",
+    "notes": ""
+  },
+  {
+    "id": 1789005546658,
+    "title": "GOLD LUSHレッスン",
+    "date": "1月9日 08:00〜16:00",
+    "dates": [
+      {
+        "startDate": "2027-01-09",
+        "endDate": "2027-01-09",
+        "startTime": "08:00",
+        "endTime": "16:00"
+      }
+    ],
+    "startDate": "2027-01-09",
+    "endDate": "2027-01-09",
+    "startTime": "08:00",
+    "endTime": "16:00",
+    "category": "other",
+    "categoryText": "練習",
+    "cardColor": "",
+    "locations": [
+      "スタジオ"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "野澤なな",
+    "notes": ""
+  },
+  {
+    "id": 1789005765214,
+    "title": "AGK男子練習",
+    "date": "10月1日 08:00〜10:00",
+    "dates": [
+      {
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-01",
+        "startTime": "08:00",
+        "endTime": "10:00"
+      }
+    ],
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-01",
+    "startTime": "08:00",
+    "endTime": "10:00",
+    "category": "other",
+    "categoryText": "練習",
+    "cardColor": "#0000ff",
+    "locations": [
+      "室内練習場"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "山村",
+    "notes": ""
   }
 ]
