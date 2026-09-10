@@ -3802,5 +3802,67 @@
     "usageType": "internal",
     "manager": "山村",
     "notes": ""
+  },
+  {
+    "id": 1789006496254,
+    "title": "AGK男子野球練習",
+    "date": "10月12日 09:00〜17:00",
+    "dates": [
+      {
+        "startDate": "2026-10-12",
+        "endDate": "2026-10-12",
+        "startTime": "09:00",
+        "endTime": "17:00"
+      }
+    ],
+    "startDate": "2026-10-12",
+    "endDate": "2026-10-12",
+    "startTime": "09:00",
+    "endTime": "17:00",
+    "category": "other",
+    "categoryText": "練習",
+    "cardColor": "#0000ff",
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "パワーエリア"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "山村",
+    "notes": ""
+  },
+  {
+    "id": 1789006659122,
+    "title": "野沢北高校・地球環境高校 測定＋指導",
+    "date": "12月20日 09:00〜17:00",
+    "dates": [
+      {
+        "startDate": "2026-12-20",
+        "endDate": "2026-12-20",
+        "startTime": "09:00",
+        "endTime": "17:00"
+      }
+    ],
+    "startDate": "2026-12-20",
+    "endDate": "2026-12-20",
+    "startTime": "09:00",
+    "endTime": "17:00",
+    "category": "other",
+    "categoryText": "測定",
+    "cardColor": "#ff69b4",
+    "locations": [
+      "打撃エリア",
+      "投手測定エリア",
+      "パワーエリア"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "external",
+    "manager": "福田",
+    "notes": ""
   }
 ]
