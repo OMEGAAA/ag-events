@@ -1529,43 +1529,31 @@
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "体育授業",
-    "date": "9月8日 他5件",
+    "date": "9月8日 他3件",
     "dates": [
       {
-        "endDate": "2026-09-08",
-        "endTime": "11:30",
         "startDate": "2026-09-08",
-        "startTime": "10:00"
+        "endDate": "2026-09-08",
+        "startTime": "10:00",
+        "endTime": "11:30"
       },
       {
-        "endDate": "2026-09-15",
-        "endTime": "11:30",
-        "startDate": "2026-09-15",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-09-29",
-        "endTime": "11:30",
-        "startDate": "2026-09-29",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-10-13",
-        "endTime": "11:30",
         "startDate": "2026-10-13",
-        "startTime": "10:00"
+        "endDate": "2026-10-13",
+        "startTime": "10:00",
+        "endTime": "11:30"
       },
       {
-        "endDate": "2026-10-20",
-        "endTime": "11:30",
         "startDate": "2026-10-20",
-        "startTime": "10:00"
+        "endDate": "2026-10-20",
+        "startTime": "10:00",
+        "endTime": "11:30"
       },
       {
-        "endDate": "2026-10-27",
-        "endTime": "11:30",
         "startDate": "2026-10-27",
-        "startTime": "10:00"
+        "endDate": "2026-10-27",
+        "startTime": "10:00",
+        "endTime": "11:30"
       }
     ],
     "endDate": "2026-10-27",
