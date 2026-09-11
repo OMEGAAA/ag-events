@@ -3852,34 +3852,5 @@
     "usageType": "external",
     "manager": "福田",
     "notes": ""
-  },
-  {
-    "id": 1789006788215,
-    "title": "栃木青年会議所使用",
-    "date": "9月10日 19:00〜21:00",
-    "dates": [
-      {
-        "startDate": "2026-09-10",
-        "endDate": "2026-09-10",
-        "startTime": "19:00",
-        "endTime": "21:00"
-      }
-    ],
-    "startDate": "2026-09-10",
-    "endDate": "2026-09-10",
-    "startTime": "19:00",
-    "endTime": "21:00",
-    "category": "other",
-    "categoryText": "社外利用",
-    "cardColor": "#ff69b4",
-    "locations": [
-      "室内練習場"
-    ],
-    "participants": "",
-    "snsPR": "not-allowed",
-    "snsAvailableFrom": "",
-    "usageType": "external",
-    "manager": "五十子",
-    "notes": ""
   }
 ]
