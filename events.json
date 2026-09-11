@@ -3852,5 +3852,63 @@
     "usageType": "external",
     "manager": "福田",
     "notes": ""
+  },
+  {
+    "id": 1789111018305,
+    "title": "栃木トヨタ野球教室",
+    "date": "12月12日 08:00〜13:00",
+    "dates": [
+      {
+        "startDate": "2026-12-12",
+        "endDate": "2026-12-12",
+        "startTime": "08:00",
+        "endTime": "13:00"
+      }
+    ],
+    "startDate": "2026-12-12",
+    "endDate": "2026-12-12",
+    "startTime": "08:00",
+    "endTime": "13:00",
+    "category": "other",
+    "categoryText": "イベント",
+    "cardColor": "#ff69b4",
+    "locations": [
+      "室内練習場"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "千島",
+    "notes": ""
+  },
+  {
+    "id": 1789111115221,
+    "title": "GOLD LUSHレッスン",
+    "date": "10月14日 09:30〜17:00",
+    "dates": [
+      {
+        "startDate": "2026-10-14",
+        "endDate": "2026-10-14",
+        "startTime": "09:30",
+        "endTime": "17:00"
+      }
+    ],
+    "startDate": "2026-10-14",
+    "endDate": "2026-10-14",
+    "startTime": "09:30",
+    "endTime": "17:00",
+    "category": "other",
+    "categoryText": "練習",
+    "cardColor": "",
+    "locations": [
+      "スタジオ"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "野澤",
+    "notes": ""
   }
 ]
