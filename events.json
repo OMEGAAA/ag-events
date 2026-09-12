@@ -3898,5 +3898,49 @@
     "usageType": "internal",
     "manager": "野澤",
     "notes": ""
+  },
+  {
+    "id": 1789173695563,
+    "title": "TGB野球教室（仮）",
+    "date": "3月20日 他2件",
+    "dates": [
+      {
+        "startDate": "2027-03-20",
+        "endDate": "2027-03-20",
+        "startTime": "12:00",
+        "endTime": "16:30"
+      },
+      {
+        "startDate": "2027-03-21",
+        "endDate": "2027-03-21",
+        "startTime": "12:00",
+        "endTime": "16:30"
+      },
+      {
+        "startDate": "2027-03-22",
+        "endDate": "2027-03-22",
+        "startTime": "12:00",
+        "endTime": "16:30"
+      }
+    ],
+    "startDate": "2027-03-20",
+    "endDate": "2027-03-22",
+    "startTime": "12:00",
+    "endTime": "16:30",
+    "category": "other",
+    "categoryText": "野球教室",
+    "cardColor": "#ff69b4",
+    "locations": [
+      "室内練習場",
+      "アローズエリア",
+      "スタジオ",
+      "食堂"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "本田",
+    "notes": ""
   }
 ]
