@@ -3787,5 +3787,66 @@
     "startTime": "18:00",
     "title": "打撃測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "9月29日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-09-29",
+        "endTime": "17:00",
+        "startDate": "2026-09-29",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-09-29",
+    "endTime": "17:00",
+    "id": 1789709925510,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "manager": "山村航大",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-29",
+    "startTime": "09:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "9月29日 09:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-09-29",
+        "endTime": "13:00",
+        "startDate": "2026-09-29",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-09-29",
+    "endTime": "13:00",
+    "id": 1789709969458,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "山村航大",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-29",
+    "startTime": "09:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
   }
 ]
