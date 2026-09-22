@@ -3034,35 +3034,6 @@
   {
     "cardColor": "#ff69b4",
     "category": "other",
-    "categoryText": "測定会",
-    "date": "9月18日 13:00〜16:00",
-    "dates": [
-      {
-        "endDate": "2026-09-18",
-        "endTime": "16:00",
-        "startDate": "2026-09-18",
-        "startTime": "13:00"
-      }
-    ],
-    "endDate": "2026-09-18",
-    "endTime": "16:00",
-    "id": 1788834848263,
-    "locations": [
-      "投手測定エリア"
-    ],
-    "manager": "福田",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-09-18",
-    "startTime": "13:00",
-    "title": "HONDA Revertaソフトボールデモ測定",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
     "categoryText": "その他",
     "date": "10月24日 08:00〜18:00",
     "dates": [
@@ -3847,6 +3818,35 @@
     "startDate": "2026-09-29",
     "startTime": "09:00",
     "title": "AGK男子野球部練習",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "9月25日 09:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-09-25",
+        "endTime": "13:00",
+        "startDate": "2026-09-25",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-09-25",
+    "endTime": "13:00",
+    "id": 1790052650817,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-25",
+    "startTime": "09:00",
+    "title": "高等学院測定会",
     "usageType": "internal"
   }
 ]
