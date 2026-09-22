@@ -3848,5 +3848,64 @@
     "startTime": "09:00",
     "title": "高等学院測定会",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "パーソナルレッスン",
+    "date": "9月24日 他5件",
+    "dates": [
+      {
+        "endDate": "2026-09-24",
+        "endTime": "20:00",
+        "startDate": "2026-09-24",
+        "startTime": "16:00"
+      },
+      {
+        "endDate": "2026-10-01",
+        "endTime": "19:00",
+        "startDate": "2026-10-01",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-10-08",
+        "endTime": "19:00",
+        "startDate": "2026-10-08",
+        "startTime": "16:00"
+      },
+      {
+        "endDate": "2026-10-15",
+        "endTime": "19:00",
+        "startDate": "2026-10-15",
+        "startTime": "16:00"
+      },
+      {
+        "endDate": "2026-10-22",
+        "endTime": "19:00",
+        "startDate": "2026-10-22",
+        "startTime": "16:00"
+      },
+      {
+        "endDate": "2026-10-29",
+        "endTime": "19:00",
+        "startDate": "2026-10-29",
+        "startTime": "16:00"
+      }
+    ],
+    "endDate": "2026-10-29",
+    "endTime": "20:00",
+    "id": 1790053757319,
+    "locations": [
+      "バッティングブースA"
+    ],
+    "manager": "川相",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-09-24",
+    "startTime": "16:00",
+    "title": "個人レッスン(川相)",
+    "usageType": "internal"
   }
 ]
