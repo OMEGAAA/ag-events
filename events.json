@@ -4001,5 +4001,343 @@
     "startTime": "13:00",
     "title": "AGK高等学院練習",
     "usageType": "internal"
+  },
+  {
+    "id": 1790216552780,
+    "title": "AGK高等学院練習",
+    "date": "12月2日 他17件",
+    "dates": [
+      {
+        "startDate": "2026-12-02",
+        "endDate": "2026-12-02",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-03",
+        "endDate": "2026-12-03",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-04",
+        "endDate": "2026-12-04",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-07",
+        "endDate": "2026-12-07",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-09",
+        "endDate": "2026-12-09",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-10",
+        "endDate": "2026-12-10",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-11",
+        "endDate": "2026-12-11",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-14",
+        "endDate": "2026-12-14",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-16",
+        "endDate": "2026-12-16",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-17",
+        "endDate": "2026-12-17",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-18",
+        "endDate": "2026-12-18",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-21",
+        "endDate": "2026-12-21",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-23",
+        "endDate": "2026-12-23",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-24",
+        "endDate": "2026-12-24",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-25",
+        "endDate": "2026-12-25",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-28",
+        "endDate": "2026-12-28",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-30",
+        "endDate": "2026-12-30",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-31",
+        "endDate": "2026-12-31",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      }
+    ],
+    "startDate": "2026-12-02",
+    "endDate": "2026-12-31",
+    "startTime": "09:00",
+    "endTime": "12:00",
+    "category": "other",
+    "categoryText": "練習",
+    "cardColor": "#ff0000",
+    "locations": [
+      "室内練習場"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "大塚",
+    "notes": ""
+  },
+  {
+    "id": 1790216638529,
+    "title": "AGK高等学院練習",
+    "date": "12月1日 他3件",
+    "dates": [
+      {
+        "startDate": "2026-12-01",
+        "endDate": "2026-12-01",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-08",
+        "endDate": "2026-12-08",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-15",
+        "endDate": "2026-12-15",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-22",
+        "endDate": "2026-12-22",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      }
+    ],
+    "startDate": "2026-12-01",
+    "endDate": "2026-12-22",
+    "startTime": "13:00",
+    "endTime": "16:00",
+    "category": "other",
+    "categoryText": "練習",
+    "cardColor": "#ff0000",
+    "locations": [
+      "室内練習場"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "大塚",
+    "notes": ""
+  },
+  {
+    "id": 1790216723526,
+    "title": "AGK高等学院練習",
+    "date": "12月2日 他14件",
+    "dates": [
+      {
+        "startDate": "2026-12-02",
+        "endDate": "2026-12-02",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-03",
+        "endDate": "2026-12-03",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-04",
+        "endDate": "2026-12-04",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-07",
+        "endDate": "2026-12-07",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-09",
+        "endDate": "2026-12-09",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-10",
+        "endDate": "2026-12-10",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-11",
+        "endDate": "2026-12-11",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-14",
+        "endDate": "2026-12-14",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-16",
+        "endDate": "2026-12-16",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-17",
+        "endDate": "2026-12-17",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-18",
+        "endDate": "2026-12-18",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-21",
+        "endDate": "2026-12-21",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-23",
+        "endDate": "2026-12-23",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-24",
+        "endDate": "2026-12-24",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      },
+      {
+        "startDate": "2026-12-25",
+        "endDate": "2026-12-25",
+        "startTime": "13:00",
+        "endTime": "16:00"
+      }
+    ],
+    "startDate": "2026-12-02",
+    "endDate": "2026-12-25",
+    "startTime": "13:00",
+    "endTime": "16:00",
+    "category": "other",
+    "categoryText": "練習",
+    "cardColor": "#ff0000",
+    "locations": [
+      "パワーエリア"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "大塚",
+    "notes": ""
+  },
+  {
+    "id": 1790216789700,
+    "title": "AGK高等学院練習",
+    "date": "12月1日 他3件",
+    "dates": [
+      {
+        "startDate": "2026-12-01",
+        "endDate": "2026-12-01",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-08",
+        "endDate": "2026-12-08",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-15",
+        "endDate": "2026-12-15",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      },
+      {
+        "startDate": "2026-12-22",
+        "endDate": "2026-12-22",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      }
+    ],
+    "startDate": "2026-12-01",
+    "endDate": "2026-12-22",
+    "startTime": "09:00",
+    "endTime": "12:00",
+    "category": "other",
+    "categoryText": "その他",
+    "cardColor": "#ff0000",
+    "locations": [
+      "パワーエリア"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "大塚",
+    "notes": ""
   }
 ]
