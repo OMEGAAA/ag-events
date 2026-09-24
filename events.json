@@ -3727,5 +3727,142 @@
     "startTime": "16:00",
     "title": "個人レッスン(川相)",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "11月4日 他18件",
+    "dates": [
+      {
+        "endDate": "2026-11-04",
+        "endTime": "12:00",
+        "startDate": "2026-11-04",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-05",
+        "endTime": "12:00",
+        "startDate": "2026-11-05",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-06",
+        "endTime": "12:00",
+        "startDate": "2026-11-06",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-09",
+        "endTime": "12:00",
+        "startDate": "2026-11-09",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-10",
+        "endTime": "16:00",
+        "startDate": "2026-11-10",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-11-11",
+        "endTime": "12:00",
+        "startDate": "2026-11-11",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-12",
+        "endTime": "12:00",
+        "startDate": "2026-11-12",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-13",
+        "endTime": "12:00",
+        "startDate": "2026-11-13",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-16",
+        "endTime": "12:00",
+        "startDate": "2026-11-16",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-17",
+        "endTime": "16:00",
+        "startDate": "2026-11-17",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-11-18",
+        "endTime": "12:00",
+        "startDate": "2026-11-18",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-19",
+        "endTime": "12:00",
+        "startDate": "2026-11-19",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-20",
+        "endTime": "12:00",
+        "startDate": "2026-11-20",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-23",
+        "endTime": "12:00",
+        "startDate": "2026-11-23",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-24",
+        "endTime": "16:00",
+        "startDate": "2026-11-24",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-11-25",
+        "endTime": "12:00",
+        "startDate": "2026-11-25",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-26",
+        "endTime": "12:00",
+        "startDate": "2026-11-26",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-27",
+        "endTime": "12:00",
+        "startDate": "2026-11-27",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-30",
+        "endTime": "12:00",
+        "startDate": "2026-11-30",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-11-30",
+    "endTime": "12:00",
+    "id": 1790215054648,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-11-04",
+    "startTime": "09:00",
+    "title": "AGK高等学院練習",
+    "usageType": "internal"
   }
 ]
