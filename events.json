@@ -450,77 +450,6 @@
   {
     "cardColor": "#ffff00",
     "category": "other",
-    "categoryText": "アカデミー",
-    "date": "8月7日 他7件",
-    "dates": [
-      {
-        "endDate": "2026-08-07",
-        "endTime": "21:00",
-        "startDate": "2026-08-07",
-        "startTime": "18:30"
-      },
-      {
-        "endDate": "2026-08-12",
-        "endTime": "21:00",
-        "startDate": "2026-08-12",
-        "startTime": "18:30"
-      },
-      {
-        "endDate": "2026-08-21",
-        "endTime": "21:00",
-        "startDate": "2026-08-21",
-        "startTime": "18:30"
-      },
-      {
-        "endDate": "2026-08-26",
-        "endTime": "21:00",
-        "startDate": "2026-08-26",
-        "startTime": "18:30"
-      },
-      {
-        "endDate": "2026-09-04",
-        "endTime": "21:00",
-        "startDate": "2026-09-04",
-        "startTime": "18:30"
-      },
-      {
-        "endDate": "2026-09-09",
-        "endTime": "21:00",
-        "startDate": "2026-09-09",
-        "startTime": "18:30"
-      },
-      {
-        "endDate": "2026-09-18",
-        "endTime": "21:00",
-        "startDate": "2026-09-18",
-        "startTime": "18:30"
-      },
-      {
-        "endDate": "2026-09-23",
-        "endTime": "21:00",
-        "startDate": "2026-09-23",
-        "startTime": "18:30"
-      }
-    ],
-    "endDate": "2026-09-23",
-    "endTime": "21:00",
-    "id": 1782195035291,
-    "locations": [
-      "スタジオ"
-    ],
-    "manager": "木下",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-08-07",
-    "startTime": "18:30",
-    "title": "健康アカデミー",
-    "usageType": "external"
-  },
-  {
-    "cardColor": "#ffff00",
-    "category": "other",
     "categoryText": "その他",
     "date": "8月8日 他7件",
     "dates": [
@@ -1715,39 +1644,6 @@
     "usageType": "internal"
   },
   {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "イベント",
-    "date": "9月22日 09:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-09-22",
-        "endTime": "17:00",
-        "startDate": "2026-09-22",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-09-22",
-    "endTime": "17:00",
-    "id": 1786085219845,
-    "locations": [
-      "アローズエリア",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "投手測定エリア"
-    ],
-    "manager": "澤村 菜々",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-09-22",
-    "startTime": "09:00",
-    "title": "走りタイプイベント",
-    "usageType": "internal"
-  },
-  {
     "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "練習",
@@ -2359,82 +2255,6 @@
     "startDate": "2026-09-03",
     "startTime": "13:00",
     "title": "健康アカデミー",
-    "usageType": "external"
-  },
-  {
-    "cardColor": "#800080",
-    "category": "other",
-    "categoryText": "測定",
-    "date": "9月3日 他2件",
-    "dates": [
-      {
-        "endDate": "2026-09-03",
-        "endTime": "19:00",
-        "startDate": "2026-09-03",
-        "startTime": "17:30"
-      },
-      {
-        "endDate": "2026-09-21",
-        "endTime": "18:30",
-        "startDate": "2026-09-21",
-        "startTime": "17:00"
-      },
-      {
-        "endDate": "2026-09-22",
-        "endTime": "19:00",
-        "startDate": "2026-09-22",
-        "startTime": "17:30"
-      }
-    ],
-    "endDate": "2026-09-22",
-    "endTime": "19:00",
-    "id": 1787970227461,
-    "locations": [
-      "投手測定エリア"
-    ],
-    "manager": "福田",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-09-03",
-    "startTime": "17:30",
-    "title": "投手測定",
-    "usageType": "external"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "測定会",
-    "date": "9月23日 09:00〜18:00",
-    "dates": [
-      {
-        "endDate": "2026-09-23",
-        "endTime": "18:00",
-        "startDate": "2026-09-23",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-09-23",
-    "endTime": "18:00",
-    "id": 1787971514575,
-    "locations": [
-      "室内練習場",
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "投手測定エリア",
-      "食堂",
-      "パワーエリア"
-    ],
-    "manager": "福田",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-09-23",
-    "startTime": "09:00",
-    "title": "BCL測定会",
     "usageType": "external"
   },
   {
