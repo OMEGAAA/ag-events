@@ -4292,5 +4292,46 @@
     "startTime": "09:00",
     "title": "AGK高等学院練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "10月1日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-10-01",
+        "endTime": "19:30",
+        "startDate": "2026-10-01",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-10-08",
+        "endTime": "19:30",
+        "startDate": "2026-10-08",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-10-19",
+        "endTime": "17:30",
+        "startDate": "2026-10-19",
+        "startTime": "16:00"
+      }
+    ],
+    "endDate": "2026-10-19",
+    "endTime": "19:30",
+    "id": 1790319244104,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-10-01",
+    "startTime": "18:00",
+    "title": "パフォーマンス測定",
+    "usageType": "external"
   }
 ]
