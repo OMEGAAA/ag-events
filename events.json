@@ -4173,5 +4173,34 @@
     "startTime": "18:00",
     "title": "エイジェックユース　体験会",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "10月23日 09:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-10-23",
+        "endTime": "13:00",
+        "startDate": "2026-10-23",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-10-23",
+    "endTime": "13:00",
+    "id": 1790665792281,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-10-23",
+    "startTime": "09:00",
+    "title": "地鎮祭",
+    "usageType": "internal"
   }
 ]
