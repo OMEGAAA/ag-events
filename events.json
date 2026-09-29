@@ -4138,5 +4138,40 @@
     "startTime": "18:00",
     "title": "パフォーマンス測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff4500",
+    "category": "other",
+    "categoryText": "体験会",
+    "date": "10月24日 18:00〜20:30",
+    "dates": [
+      {
+        "endDate": "2026-10-24",
+        "endTime": "20:30",
+        "startDate": "2026-10-24",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-10-24",
+    "endTime": "20:30",
+    "id": 1790664485878,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂",
+      "パワーエリア"
+    ],
+    "manager": "岡 美都希",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-10-24",
+    "startTime": "18:00",
+    "title": "エイジェックユース　体験会",
+    "usageType": "internal"
   }
 ]
