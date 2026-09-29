@@ -4675,5 +4675,276 @@
     "usageType": "external",
     "originalEventId": 1786947015174,
     "archivedAt": "2026-09-07T09:54:55.445Z"
+  },
+  {
+    "cardColor": "#ffff00",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "8月8日 他7件",
+    "dates": [
+      {
+        "endDate": "2026-08-08",
+        "endTime": "12:00",
+        "startDate": "2026-08-08",
+        "startTime": "09:30"
+      },
+      {
+        "endDate": "2026-08-15",
+        "endTime": "12:00",
+        "startDate": "2026-08-15",
+        "startTime": "09:30"
+      },
+      {
+        "endDate": "2026-08-22",
+        "endTime": "12:00",
+        "startDate": "2026-08-22",
+        "startTime": "09:30"
+      },
+      {
+        "endDate": "2026-08-29",
+        "endTime": "12:00",
+        "startDate": "2026-08-29",
+        "startTime": "09:30"
+      },
+      {
+        "endDate": "2026-09-05",
+        "endTime": "12:00",
+        "startDate": "2026-09-05",
+        "startTime": "09:30"
+      },
+      {
+        "endDate": "2026-09-12",
+        "endTime": "12:00",
+        "startDate": "2026-09-12",
+        "startTime": "09:30"
+      },
+      {
+        "endDate": "2026-09-19",
+        "endTime": "12:00",
+        "startDate": "2026-09-19",
+        "startTime": "09:30"
+      },
+      {
+        "endDate": "2026-09-26",
+        "endTime": "12:00",
+        "startDate": "2026-09-26",
+        "startTime": "09:30"
+      }
+    ],
+    "endDate": "2026-09-26",
+    "endTime": "12:00",
+    "id": 160,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木下",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-08-08",
+    "startTime": "09:30",
+    "title": "健康アカデミー",
+    "usageType": "external",
+    "originalEventId": 1782195178805,
+    "archivedAt": "2026-09-29T00:55:12.555Z"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "9月12日 他5件",
+    "dates": [
+      {
+        "endDate": "2026-09-12",
+        "endTime": "17:00",
+        "startDate": "2026-09-12",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-13",
+        "endTime": "17:00",
+        "startDate": "2026-09-13",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-19",
+        "endTime": "17:00",
+        "startDate": "2026-09-19",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-20",
+        "endTime": "17:00",
+        "startDate": "2026-09-20",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-21",
+        "endTime": "17:00",
+        "startDate": "2026-09-21",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-09-27",
+        "endTime": "17:00",
+        "startDate": "2026-09-27",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-09-27",
+    "endTime": "17:00",
+    "id": 161,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "山村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-12",
+    "startTime": "12:00",
+    "title": "AGK男子野球練習",
+    "usageType": "internal",
+    "originalEventId": 1788244079536,
+    "archivedAt": "2026-09-29T00:55:12.555Z"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "9月27日 09:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-09-27",
+        "endTime": "13:00",
+        "startDate": "2026-09-27",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-09-27",
+    "endTime": "13:00",
+    "id": 162,
+    "locations": [
+      "室内練習場",
+      "ベースボールエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "パワーエリア"
+    ],
+    "manager": "星野",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-27",
+    "startTime": "09:00",
+    "title": "BCLジュニア選抜",
+    "usageType": "external",
+    "originalEventId": 1788925241689,
+    "archivedAt": "2026-09-29T00:55:12.555Z"
+  },
+  {
+    "cardColor": "#32cd32",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "9月15日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-09-15",
+        "endTime": "20:00",
+        "startDate": "2026-09-15",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-09-28",
+        "endTime": "20:00",
+        "startDate": "2026-09-28",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-09-28",
+    "endTime": "20:00",
+    "id": 163,
+    "locations": [
+      "打撃エリア"
+    ],
+    "manager": "福田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-15",
+    "startTime": "18:00",
+    "title": "打撃測定",
+    "usageType": "external",
+    "originalEventId": 1789439792212,
+    "archivedAt": "2026-09-29T00:55:12.555Z"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "9月25日 09:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-09-25",
+        "endTime": "13:00",
+        "startDate": "2026-09-25",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-09-25",
+    "endTime": "13:00",
+    "id": 164,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-25",
+    "startTime": "09:00",
+    "title": "高等学院測定会",
+    "usageType": "internal",
+    "originalEventId": 1790052650817,
+    "archivedAt": "2026-09-29T00:55:12.555Z"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "9月26日 09:00〜17:00",
+    "dates": [
+      {
+        "endDate": "2026-09-26",
+        "endTime": "17:00",
+        "startDate": "2026-09-26",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-09-26",
+    "endTime": "17:00",
+    "id": 165,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木村",
+    "notes": "",
+    "participants": "10人",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-09-26",
+    "startTime": "09:00",
+    "title": "GLレッスン",
+    "usageType": "internal",
+    "originalEventId": 1790377826279,
+    "archivedAt": "2026-09-29T00:55:12.555Z"
   }
 ]
