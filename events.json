@@ -1958,41 +1958,6 @@
     "usageType": "internal"
   },
   {
-    "cardColor": "#ff4500",
-    "category": "other",
-    "categoryText": "その他",
-    "date": "9月15日 他1件",
-    "dates": [
-      {
-        "endDate": "2026-09-15",
-        "endTime": "19:00",
-        "startDate": "2026-09-15",
-        "startTime": "16:30"
-      },
-      {
-        "endDate": "2026-09-29",
-        "endTime": "19:00",
-        "startDate": "2026-09-29",
-        "startTime": "16:30"
-      }
-    ],
-    "endDate": "2026-09-29",
-    "endTime": "19:00",
-    "id": 1787276875362,
-    "locations": [
-      "スタジオ"
-    ],
-    "manager": "木村",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-09-15",
-    "startTime": "16:30",
-    "title": "ADS　キッズクラス体験会",
-    "usageType": "internal"
-  },
-  {
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "その他",
@@ -3332,67 +3297,6 @@
     "usageType": "external"
   },
   {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "9月29日 09:00〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-09-29",
-        "endTime": "17:00",
-        "startDate": "2026-09-29",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-09-29",
-    "endTime": "17:00",
-    "id": 1789709925510,
-    "locations": [
-      "バッティングブースA",
-      "バッティングブースB",
-      "打撃エリア",
-      "投手測定エリア"
-    ],
-    "manager": "山村航大",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-09-29",
-    "startTime": "09:00",
-    "title": "AGK男子野球部練習",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "その他",
-    "date": "9月29日 09:00〜13:00",
-    "dates": [
-      {
-        "endDate": "2026-09-29",
-        "endTime": "13:00",
-        "startDate": "2026-09-29",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-09-29",
-    "endTime": "13:00",
-    "id": 1789709969458,
-    "locations": [
-      "パワーエリア"
-    ],
-    "manager": "山村航大",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-09-29",
-    "startTime": "09:00",
-    "title": "AGK男子野球部練習",
-    "usageType": "internal"
-  },
-  {
     "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "パーソナルレッスン",
@@ -4201,6 +4105,43 @@
     "startDate": "2026-10-23",
     "startTime": "09:00",
     "title": "地鎮祭",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "10月22日 他1件",
+    "dates": [
+      {
+        "endDate": "2026-10-22",
+        "endTime": "21:00",
+        "startDate": "2026-10-22",
+        "startTime": "19:00"
+      },
+      {
+        "endDate": "2026-10-29",
+        "endTime": "21:00",
+        "startDate": "2026-10-29",
+        "startTime": "19:00"
+      }
+    ],
+    "endDate": "2026-10-29",
+    "endTime": "21:00",
+    "id": 1790747278944,
+    "locations": [
+      "室内練習場",
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "manager": "鶴田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-10-22",
+    "startTime": "19:00",
+    "title": "TSK硬式野球部",
     "usageType": "internal"
   }
 ]
