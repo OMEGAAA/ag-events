@@ -27,6 +27,7 @@ let archivedEvents = [];
 let archivedSha = '';
 let isArchivedDirty = false;
 let archivedPendingCount = 0;
+let archivedLoadError = '';
 
 // ---- COLLAPSIBLE SECTIONS ----
 const COLLAPSE_STORAGE_KEY = 'ag_admin_collapse_state';
@@ -672,8 +673,8 @@ async function fetchFromGitHub() {
             showStatus(`読み込み完了！ ${events.length}件のイベントが見つかりました。`, 'success');
         }
         await fetchReportsFromGitHub();
-        await fetchArchivedFromGitHub();
-        const archivedCount = autoArchiveExpiredEvents();
+        const archiveLoaded = await fetchArchivedFromGitHub();
+        const archivedCount = archiveLoaded ? autoArchiveExpiredEvents() : 0;
         if (archivedCount > 0) {
             if (isFirebaseConnected) { writeEventsToFirebase(); } else { renderEventList(); }
             showStatus(`${archivedCount}件の期限切れイベントを自動アーカイブしました。公開サイトへ反映してください。`, 'info');
@@ -685,6 +686,67 @@ async function fetchFromGitHub() {
         showStatus(msg, 'error');
         updateConnectionBadge(false);
     }
+}
+
+async function githubJsonRequest(url, options = {}) {
+    const res = await fetch(url, {
+        ...options,
+        headers: {
+            'Authorization': `Bearer ${config.token}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json',
+            ...(options.headers || {}),
+        },
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw { status: res.status, message: data.message || '' };
+    return data;
+}
+
+async function pushEventsAndArchiveAtomically() {
+    const apiRoot = `https://api.github.com/repos/${config.owner}/${config.repo}`;
+    const branchRef = config.branch.split('/').map(encodeURIComponent).join('/');
+    const ref = await githubJsonRequest(`${apiRoot}/git/ref/heads/${branchRef}`);
+    const commit = await githubJsonRequest(`${apiRoot}/git/commits/${ref.object.sha}`);
+
+    const [eventBlob, archiveBlob] = await Promise.all([
+        githubJsonRequest(`${apiRoot}/git/blobs`, {
+            method: 'POST',
+            body: JSON.stringify({ content: encodeUtf8Base64(JSON.stringify(events, null, 2)), encoding: 'base64' }),
+        }),
+        githubJsonRequest(`${apiRoot}/git/blobs`, {
+            method: 'POST',
+            body: JSON.stringify({ content: encodeUtf8Base64(JSON.stringify(archivedEvents, null, 2)), encoding: 'base64' }),
+        }),
+    ]);
+
+    const tree = await githubJsonRequest(`${apiRoot}/git/trees`, {
+        method: 'POST',
+        body: JSON.stringify({
+            base_tree: commit.tree.sha,
+            tree: [
+                { path: config.filePath, mode: '100644', type: 'blob', sha: eventBlob.sha },
+                { path: getArchivedPath(), mode: '100644', type: 'blob', sha: archiveBlob.sha },
+            ],
+        }),
+    });
+    const nextCommit = await githubJsonRequest(`${apiRoot}/git/commits`, {
+        method: 'POST',
+        body: JSON.stringify({
+            message: `イベント・アーカイブ一括更新 (${new Date().toLocaleString('ja-JP')})`,
+            tree: tree.sha,
+            parents: [ref.object.sha],
+        }),
+    });
+    await githubJsonRequest(`${apiRoot}/git/refs/heads/${branchRef}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ sha: nextCommit.sha, force: false }),
+    });
+
+    currentSha = eventBlob.sha;
+    archivedSha = archiveBlob.sha;
+    markClean();
+    markArchivedClean();
 }
 
 async function pushToGitHub() {
@@ -700,6 +762,12 @@ async function pushToGitHub() {
     showStatus('公開サイトに反映しています...', 'info');
 
     try {
+        if (isDirty && isArchivedDirty) {
+            btn.textContent = 'イベント・アーカイブを一括反映中...';
+            await pushEventsAndArchiveAtomically();
+            showStatus('イベントとアーカイブを1回の更新で反映しました！数分後にサイトに反映されます。', 'success');
+            return;
+        }
         const jsonContent = JSON.stringify(events, null, 2);
         const body = {
             message: `イベント更新 (${new Date().toLocaleString('ja-JP')})`,
@@ -2046,6 +2114,48 @@ function getEventLastDate(ev) {
         .pop() || '';
 }
 
+function getEventArchiveSignature(ev) {
+    const ranges = getEventDateRanges(ev).map(r => ({
+        startDate: r.startDate || '',
+        endDate: r.endDate || r.startDate || '',
+        startTime: r.startTime || '',
+        endTime: r.endTime || '',
+    }));
+    const locations = [...new Set(Array.isArray(ev.locations) ? ev.locations : (ev.location ? [ev.location] : []))].sort();
+    return JSON.stringify({
+        title: ev.title || '',
+        ranges,
+        locations,
+        usageType: ev.usageType || '',
+    });
+}
+
+function hashArchiveSignature(value) {
+    let hash = 2166136261;
+    for (let i = 0; i < value.length; i++) {
+        hash ^= value.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0).toString(36);
+}
+
+function getArchiveSourceKey(ev) {
+    const originalId = ev.originalEventId ?? ev.id ?? 'no-id';
+    return `${originalId}:${hashArchiveSignature(getEventArchiveSignature(ev))}`;
+}
+
+function isSameArchivedEvent(archived, event) {
+    const sourceKey = getArchiveSourceKey(event);
+    if (archived.archiveSourceKey && archived.archiveSourceKey === sourceKey) return true;
+    return Number(archived.originalEventId) === Number(event.id)
+        && getEventArchiveSignature(archived) === getEventArchiveSignature(event);
+}
+
+function getDashboardEventKey(ev) {
+    const sourceId = ev.originalEventId ?? ev.id ?? 'no-id';
+    return `${sourceId}:${hashArchiveSignature(getEventArchiveSignature(ev))}`;
+}
+
 function isEventExpired(ev, todayStr = getTodayDateString()) {
     const lastDate = getEventLastDate(ev);
     return !!lastDate && lastDate < todayStr;
@@ -2064,25 +2174,37 @@ function autoArchiveExpiredEvents() {
     let nextId = getNextArchivedId();
     const archivedAt = new Date().toISOString();
     let addedToArchive = 0;
+    const movedIds = new Set();
     expired.forEach(event => {
-        const alreadyArchived = archivedEvents.some(e => e.originalEventId === event.id);
-        if (alreadyArchived) return;
-        archivedEvents.push({ ...event, id: nextId++, originalEventId: event.id, archivedAt });
+        const alreadyArchived = archivedEvents.some(e => isSameArchivedEvent(e, event));
+        if (alreadyArchived) {
+            movedIds.add(event.id);
+            return;
+        }
+        archivedEvents.push({
+            ...event,
+            id: nextId++,
+            originalEventId: event.id,
+            archiveSourceKey: getArchiveSourceKey(event),
+            archivedAt,
+        });
+        movedIds.add(event.id);
         addedToArchive++;
     });
 
-    const expiredIds = new Set(expired.map(e => e.id));
-    events = events.filter(e => !expiredIds.has(e.id));
+    events = events.filter(e => !movedIds.has(e.id));
     if (addedToArchive > 0) {
         markArchivedDirty(`${addedToArchive}件の期限切れイベントを自動アーカイブしました`);
         renderArchivedList();
     }
-    markDirty(`${expired.length}件の期限切れイベントをイベント一覧から移動しました`);
-    return expired.length;
+    if (movedIds.size > 0) {
+        markDirty(`${movedIds.size}件の期限切れイベントをイベント一覧から移動しました`);
+    }
+    return movedIds.size;
 }
 
 async function fetchArchivedFromGitHub() {
-    if (!config.owner || !config.repo || !config.token) return;
+    if (!config.owner || !config.repo || !config.token) return false;
     const path = getArchivedPath();
     try {
         const res = await fetch(
@@ -2092,18 +2214,23 @@ async function fetchArchivedFromGitHub() {
         if (res.status === 404) {
             archivedEvents = [];
             archivedSha = '';
+            archivedLoadError = '';
             renderArchivedList();
-            return;
+            return true;
         }
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         archivedSha = data.sha;
-        archivedEvents = JSON.parse(decodeBase64Utf8(data.content));
+        archivedEvents = normalizeEventLocations(JSON.parse(decodeBase64Utf8(data.content)));
+        archivedLoadError = '';
         renderArchivedList();
+        return true;
     } catch (e) {
-        archivedEvents = [];
-        archivedSha = '';
+        archivedLoadError = `アーカイブの読み込みに失敗しました: ${e.message || e}`;
         renderArchivedList();
+        renderDashboard();
+        showStatus(`${archivedLoadError}。現在表示中のアーカイブデータを保持しています。`, 'error');
+        return false;
     }
 }
 
@@ -2188,7 +2315,12 @@ function archiveEvent(id) {
     if (!confirm(`「${event.title}」をアーカイブに移動しますか？\n\nイベント一覧から削除され、アーカイブ一覧に移動します。`)) return;
 
     // アーカイブに追加
-    const archivedData = { ...event, originalEventId: event.id, archivedAt: new Date().toISOString() };
+    const archivedData = {
+        ...event,
+        originalEventId: event.id,
+        archiveSourceKey: getArchiveSourceKey(event),
+        archivedAt: new Date().toISOString(),
+    };
     const maxId = archivedEvents.length > 0 ? Math.max(...archivedEvents.map(e => e.id)) : 0;
     archivedData.id = maxId + 1;
     archivedEvents.push(archivedData);
@@ -2210,6 +2342,7 @@ function restoreEvent(id) {
     const restored = { ...archived };
     delete restored.archivedAt;
     delete restored.originalEventId;
+    delete restored.archiveSourceKey;
     restored.id = generateEventId();
     events.push(restored);
     markDirty(`「${archived.title}」をイベント一覧に復元しました`);
@@ -2290,16 +2423,24 @@ const FACILITY_COLORS = [
 
 let dashboardYear = new Date().getFullYear();
 let dashboardMonth = new Date().getMonth(); // 0-indexed
-let dashboardUsageFilter = 'all'; // 'all' | 'external' | 'internal'
+let dashboardUsageFilter = 'all'; // 'all' | 'external' | 'internal' | 'unset'
 
 function getDashboardEvents() {
     const all = [...events, ...archivedEvents];
-    if (dashboardUsageFilter === 'all') return all;
-    return all.filter(e => (e.usageType || '') === dashboardUsageFilter);
+    const seen = new Set();
+    const unique = all.filter(e => {
+        const key = getDashboardEventKey(e);
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+    });
+    if (dashboardUsageFilter === 'all') return unique;
+    if (dashboardUsageFilter === 'unset') return unique.filter(e => !e.usageType);
+    return unique.filter(e => (e.usageType || '') === dashboardUsageFilter);
 }
 
 function setDashboardUsageFilter(filter) {
-    if (filter !== 'all' && filter !== 'external' && filter !== 'internal') return;
+    if (!['all', 'external', 'internal', 'unset'].includes(filter)) return;
     dashboardUsageFilter = filter;
     document.querySelectorAll('#usage-filter .usage-filter-btn').forEach(b => {
         b.classList.toggle('active', b.dataset.usage === filter);
@@ -2310,6 +2451,7 @@ function setDashboardUsageFilter(filter) {
 function usageFilterLabel(filter) {
     if (filter === 'external') return '外部利用';
     if (filter === 'internal') return '内部利用';
+    if (filter === 'unset') return '利用区分未設定';
     return '全て';
 }
 
@@ -2441,11 +2583,41 @@ function clampMinutes(value, min, max) {
 }
 
 function getRangeMinutesWithinBusinessHours(range) {
+    if (!range.startTime || !range.endTime) return 0;
     const startMinutes = parseDashboardTime(range.startTime, BUSINESS_START_MINUTES);
     const endMinutes = parseDashboardTime(range.endTime, BUSINESS_END_MINUTES);
     const start = clampMinutes(startMinutes, BUSINESS_START_MINUTES, BUSINESS_END_MINUTES);
     const end = clampMinutes(endMinutes, BUSINESS_START_MINUTES, BUSINESS_END_MINUTES);
     return Math.max(end - start, 0);
+}
+
+function addInterval(intervalMap, dayKey, startMinutes, endMinutes) {
+    if (!intervalMap.has(dayKey)) intervalMap.set(dayKey, []);
+    intervalMap.get(dayKey).push([startMinutes, endMinutes]);
+}
+
+function getMergedIntervalMinutes(intervals) {
+    if (!Array.isArray(intervals) || intervals.length === 0) return 0;
+    const sorted = intervals.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+    let total = 0;
+    let [currentStart, currentEnd] = sorted[0];
+    for (let i = 1; i < sorted.length; i++) {
+        const [start, end] = sorted[i];
+        if (start <= currentEnd) {
+            currentEnd = Math.max(currentEnd, end);
+        } else {
+            total += currentEnd - currentStart;
+            currentStart = start;
+            currentEnd = end;
+        }
+    }
+    return total + currentEnd - currentStart;
+}
+
+function getIntervalMapMinutes(intervalMap) {
+    let total = 0;
+    intervalMap.forEach(intervals => { total += getMergedIntervalMinutes(intervals); });
+    return total;
 }
 
 function setupDashboardLabels() {
@@ -2465,7 +2637,7 @@ function setupDashboardLabels() {
     if (monthButtons[1]) monthButtons[1].textContent = '次月 →';
 
     const labels = section.querySelectorAll('.kpi-label');
-    ['当月イベント数', '稼働施設数', '最も利用された施設', '平均稼働率'].forEach((text, i) => {
+    ['登録イベント / 実施日程', '稼働施設数', '最も利用された施設', '平均稼働率（暦日）'].forEach((text, i) => {
         if (labels[i]) labels[i].textContent = text;
     });
 
@@ -2520,10 +2692,12 @@ function calcUtilization(year, month) {
     const monthStr = `${year}-${String(month + 1).padStart(2, '0')}`;
     const availableMinutes = daysInMonth * BUSINESS_MINUTES_PER_DAY;
     const monthEvents = [];
+    let monthScheduleCount = 0;
+    let ignoredTimeScheduleCount = 0;
     const facilityData = {};
 
     FACILITY_LIST.forEach(f => {
-        facilityData[f] = { days: new Set(), eventIds: new Set(), totalMinutes: 0 };
+        facilityData[f] = { days: new Set(), eventIds: new Set(), dayIntervals: new Map() };
     });
 
     allEvents.forEach(ev => {
@@ -2536,17 +2710,28 @@ function calcUtilization(year, month) {
             const start = new Date(r.startDate + 'T00:00:00');
             const end = new Date((r.endDate || r.startDate) + 'T00:00:00');
             const durationMinutes = getRangeMinutesWithinBusinessHours(r);
-            if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || durationMinutes <= 0) return;
+            if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return;
+            const rangeStart = durationMinutes > 0
+                ? clampMinutes(parseDashboardTime(r.startTime, BUSINESS_START_MINUTES), BUSINESS_START_MINUTES, BUSINESS_END_MINUTES)
+                : 0;
+            const rangeEnd = durationMinutes > 0
+                ? clampMinutes(parseDashboardTime(r.endTime, BUSINESS_END_MINUTES), BUSINESS_START_MINUTES, BUSINESS_END_MINUTES)
+                : 0;
 
             for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
                 const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
                 if (dateStr !== monthStr) continue;
                 const dayNum = d.getDate();
                 touchesMonth = true;
+                monthScheduleCount++;
+                if (durationMinutes <= 0) {
+                    ignoredTimeScheduleCount++;
+                    continue;
+                }
                 locs.forEach(loc => {
                     facilityData[loc].days.add(dayNum);
-                    facilityData[loc].totalMinutes += durationMinutes;
-                    facilityData[loc].eventIds.add(ev.id || `${ev.title || ''}-${r.startDate}-${r.startTime || ''}`);
+                    addInterval(facilityData[loc].dayIntervals, dayNum, rangeStart, rangeEnd);
+                    facilityData[loc].eventIds.add(getDashboardEventKey(ev));
                 });
             }
         });
@@ -2556,7 +2741,8 @@ function calcUtilization(year, month) {
 
     const results = FACILITY_LIST.map((name, i) => {
         const data = facilityData[name];
-        const rate = availableMinutes > 0 ? Math.round((data.totalMinutes / availableMinutes) * 100) : 0;
+        const totalMinutes = getIntervalMapMinutes(data.dayIntervals);
+        const rate = availableMinutes > 0 ? Math.round((totalMinutes / availableMinutes) * 100) : 0;
         return {
             name,
             color: FACILITY_COLORS[i],
@@ -2566,8 +2752,8 @@ function calcUtilization(year, month) {
             availableHoursText: formatUtilizationHours(availableMinutes),
             rate: Math.min(rate, 100),
             rawRate: rate,
-            totalMinutes: data.totalMinutes,
-            totalHoursText: formatUtilizationHours(data.totalMinutes),
+            totalMinutes,
+            totalHoursText: formatUtilizationHours(totalMinutes),
             eventCount: data.eventIds.size
         };
     });
@@ -2578,7 +2764,21 @@ function calcUtilization(year, month) {
         ? Math.round(results.reduce((sum, r) => sum + r.rate, 0) / results.length)
         : 0;
 
-    return { monthEvents, results, activeFacilities, topFacility, avgRate, daysInMonth, availableMinutes };
+    return { monthEvents, monthScheduleCount, ignoredTimeScheduleCount, results, activeFacilities, topFacility, avgRate, daysInMonth, availableMinutes };
+}
+
+function renderDashboardWarnings(data) {
+    const warning = document.getElementById('dashboard-data-warning');
+    if (!warning) return;
+    const messages = [];
+    if (archivedLoadError) messages.push(archivedLoadError);
+    if (data) {
+        const unsetCount = data.monthEvents.filter(e => !e.usageType).length;
+        if (unsetCount > 0) messages.push(`利用区分未設定: ${unsetCount}件（内部・外部フィルターには含まれません）`);
+        if (data.ignoredTimeScheduleCount > 0) messages.push(`時刻未入力または不正: ${data.ignoredTimeScheduleCount}日程（稼働時間から除外）`);
+    }
+    warning.textContent = messages.join(' / ');
+    warning.style.display = messages.length > 0 ? 'block' : 'none';
 }
 
 function renderDashboard() {
@@ -2602,6 +2802,7 @@ function renderDashboard() {
             : 'イベントデータを読み込むと稼働率が表示されます';
         if (tbody) tbody.innerHTML = `<tr><td colspan="5" class="empty-state">${escapeHtml(msg)}</td></tr>`;
         if (badge) badge.style.display = hasAnyData ? 'inline-block' : 'none';
+        renderDashboardWarnings(null);
         renderWeekdayView();
         renderTimeView();
         return;
@@ -2609,11 +2810,16 @@ function renderDashboard() {
 
     if (badge) {
         badge.style.display = 'inline-block';
-        badge.textContent = 'データあり';
+        badge.classList.toggle('connected', !archivedLoadError);
+        badge.classList.toggle('disconnected', !!archivedLoadError);
+        badge.textContent = archivedLoadError ? 'アーカイブ読込エラー' : 'データあり';
+        badge.title = archivedLoadError || '';
     }
 
     const data = calcUtilization(dashboardYear, dashboardMonth);
-    document.getElementById('kpi-event-count').textContent = data.monthEvents.length;
+    renderDashboardWarnings(data);
+    document.getElementById('kpi-event-count').textContent = `${data.monthEvents.length}件 / ${data.monthScheduleCount}日程`;
+    document.getElementById('kpi-event-count').classList.add('kpi-small');
     document.getElementById('kpi-active-facilities').textContent = `${data.activeFacilities} / ${FACILITY_LIST.length}`;
 
     const topEl = document.getElementById('kpi-top-facility');
@@ -2677,7 +2883,7 @@ function calcWeekdayUtilization(year, month) {
     const facilityWeekday = {};
     FACILITY_LIST.forEach(f => {
         facilityWeekday[f] = {
-            minutes: new Array(7).fill(0),
+            intervals: Array.from({ length: 7 }, () => new Map()),
             days: [new Set(), new Set(), new Set(), new Set(), new Set(), new Set(), new Set()]
         };
     });
@@ -2690,6 +2896,8 @@ function calcWeekdayUtilization(year, month) {
             const end = new Date((r.endDate || r.startDate) + 'T00:00:00');
             const durationMinutes = getRangeMinutesWithinBusinessHours(r);
             if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || durationMinutes <= 0) return;
+            const rangeStart = clampMinutes(parseDashboardTime(r.startTime, BUSINESS_START_MINUTES), BUSINESS_START_MINUTES, BUSINESS_END_MINUTES);
+            const rangeEnd = clampMinutes(parseDashboardTime(r.endTime, BUSINESS_END_MINUTES), BUSINESS_START_MINUTES, BUSINESS_END_MINUTES);
 
             for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
                 const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
@@ -2697,7 +2905,7 @@ function calcWeekdayUtilization(year, month) {
                 const dow = d.getDay();
                 const dayNum = d.getDate();
                 locs.forEach(loc => {
-                    facilityWeekday[loc].minutes[dow] += durationMinutes;
+                    addInterval(facilityWeekday[loc].intervals[dow], dayNum, rangeStart, rangeEnd);
                     facilityWeekday[loc].days[dow].add(dayNum);
                 });
             }
@@ -2707,17 +2915,18 @@ function calcWeekdayUtilization(year, month) {
     const results = FACILITY_LIST.map((name, i) => {
         const data = facilityWeekday[name];
         const weekdayData = WEEKDAY_INDEX_ORDER.map(dow => {
+            const minutes = getIntervalMapMinutes(data.intervals[dow]);
             const available = weekdayCounts[dow] * BUSINESS_MINUTES_PER_DAY;
-            const rawRate = available > 0 ? Math.round((data.minutes[dow] / available) * 100) : 0;
+            const rawRate = available > 0 ? Math.round((minutes / available) * 100) : 0;
             return {
-                minutes: data.minutes[dow],
+                minutes,
                 days: data.days[dow].size,
                 availableMinutes: available,
                 rate: Math.min(rawRate, 100),
                 rawRate
             };
         });
-        const totalMinutes = data.minutes.reduce((sum, minutes) => sum + minutes, 0);
+        const totalMinutes = weekdayData.reduce((sum, weekday) => sum + weekday.minutes, 0);
         const availableMinutes = daysInMonth * BUSINESS_MINUTES_PER_DAY;
         const totalRate = availableMinutes > 0 ? Math.min(Math.round((totalMinutes / availableMinutes) * 100), 100) : 0;
         return { name, color: FACILITY_COLORS[i], weekdayData, totalMinutes, totalRate };
@@ -2833,7 +3042,7 @@ function calcTimeUtilization(year, month, targetFacility) {
         if (validLocs.length === 0) return;
 
         getEventDateRanges(ev).forEach(r => {
-            if (!r.startDate) return;
+            if (!r.startDate || !r.startTime || !r.endTime) return;
             const start = new Date(r.startDate + 'T00:00:00');
             const end = new Date((r.endDate || r.startDate) + 'T00:00:00');
             const startMinutes = clampMinutes(parseDashboardTime(r.startTime, BUSINESS_START_MINUTES), BUSINESS_START_MINUTES, BUSINESS_END_MINUTES);
