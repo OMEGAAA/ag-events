@@ -134,25 +134,19 @@
     "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "社内イベント",
-    "date": "12月6日 他2件",
+    "date": "12月12日 他1件",
     "dates": [
       {
-        "endDate": "2026-12-06",
-        "endTime": "19:00",
-        "startDate": "2026-12-06",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-12-12",
-        "endTime": "19:00",
         "startDate": "2026-12-12",
-        "startTime": "09:00"
+        "endDate": "2026-12-12",
+        "startTime": "09:00",
+        "endTime": "19:00"
       },
       {
-        "endDate": "2026-12-13",
-        "endTime": "19:00",
         "startDate": "2026-12-13",
-        "startTime": "09:00"
+        "endDate": "2026-12-13",
+        "startTime": "09:00",
+        "endTime": "19:00"
       }
     ],
     "endDate": "2026-12-13",
@@ -173,7 +167,7 @@
     "participants": "定員なし",
     "snsAvailableFrom": "2026-04-08",
     "snsPR": "allowed-face-ok",
-    "startDate": "2026-12-06",
+    "startDate": "2026-12-12",
     "startTime": "09:00",
     "title": "ユース測定",
     "usageType": "external"
@@ -961,256 +955,6 @@
     "usageType": "external"
   },
   {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "9月2日 他16件",
-    "dates": [
-      {
-        "endDate": "2026-09-02",
-        "endTime": "12:00",
-        "startDate": "2026-09-02",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-03",
-        "endTime": "12:00",
-        "startDate": "2026-09-03",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-04",
-        "endTime": "12:00",
-        "startDate": "2026-09-04",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-07",
-        "endTime": "12:00",
-        "startDate": "2026-09-07",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-09",
-        "endTime": "12:00",
-        "startDate": "2026-09-09",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-10",
-        "endTime": "12:00",
-        "startDate": "2026-09-10",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-11",
-        "endTime": "12:00",
-        "startDate": "2026-09-11",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-14",
-        "endTime": "12:00",
-        "startDate": "2026-09-14",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-16",
-        "endTime": "12:00",
-        "startDate": "2026-09-16",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-17",
-        "endTime": "12:00",
-        "startDate": "2026-09-17",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-18",
-        "endTime": "12:00",
-        "startDate": "2026-09-18",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-21",
-        "endTime": "12:00",
-        "startDate": "2026-09-21",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-22",
-        "endTime": "12:00",
-        "startDate": "2026-09-22",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-24",
-        "endTime": "12:00",
-        "startDate": "2026-09-24",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-25",
-        "endTime": "12:00",
-        "startDate": "2026-09-25",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-28",
-        "endTime": "12:00",
-        "startDate": "2026-09-28",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-30",
-        "endTime": "12:00",
-        "startDate": "2026-09-30",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-09-30",
-    "endTime": "12:00",
-    "id": 1783567164399,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大塚",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-09-02",
-    "startTime": "09:00",
-    "title": "AGK高等学院練習",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "その他",
-    "date": "9月2日 他16件",
-    "dates": [
-      {
-        "endDate": "2026-09-02",
-        "endTime": "16:00",
-        "startDate": "2026-09-02",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-03",
-        "endTime": "16:00",
-        "startDate": "2026-09-03",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-04",
-        "endTime": "16:00",
-        "startDate": "2026-09-04",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-07",
-        "endTime": "16:00",
-        "startDate": "2026-09-07",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-09",
-        "endTime": "16:00",
-        "startDate": "2026-09-09",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-10",
-        "endTime": "16:00",
-        "startDate": "2026-09-10",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-11",
-        "endTime": "16:00",
-        "startDate": "2026-09-11",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-14",
-        "endTime": "16:00",
-        "startDate": "2026-09-14",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-16",
-        "endTime": "16:00",
-        "startDate": "2026-09-16",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-17",
-        "endTime": "16:00",
-        "startDate": "2026-09-17",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-18",
-        "endTime": "16:00",
-        "startDate": "2026-09-18",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-21",
-        "endTime": "16:00",
-        "startDate": "2026-09-21",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-22",
-        "endTime": "16:00",
-        "startDate": "2026-09-22",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-24",
-        "endTime": "16:00",
-        "startDate": "2026-09-24",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-25",
-        "endTime": "16:00",
-        "startDate": "2026-09-25",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-28",
-        "endTime": "16:00",
-        "startDate": "2026-09-28",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-30",
-        "endTime": "16:00",
-        "startDate": "2026-09-30",
-        "startTime": "13:00"
-      }
-    ],
-    "endDate": "2026-09-30",
-    "endTime": "16:00",
-    "id": 1783567302109,
-    "locations": [
-      "パワーエリア"
-    ],
-    "manager": "大塚",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-09-02",
-    "startTime": "13:00",
-    "title": "AGK高等学院練習",
-    "usageType": "internal"
-  },
-  {
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "イベント",
@@ -1990,227 +1734,6 @@
     "startTime": "08:00",
     "title": "下館一高測定",
     "usageType": "external"
-  },
-  {
-    "cardColor": "#ffff00",
-    "category": "other",
-    "categoryText": "アカデミー",
-    "date": "9月1日 他14件",
-    "dates": [
-      {
-        "endDate": "2026-09-01",
-        "endTime": "16:00",
-        "startDate": "2026-09-01",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-02",
-        "endTime": "16:00",
-        "startDate": "2026-09-02",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-04",
-        "endTime": "20:00",
-        "startDate": "2026-09-04",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-05",
-        "endTime": "11:00",
-        "startDate": "2026-09-05",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-08",
-        "endTime": "16:00",
-        "startDate": "2026-09-08",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-09",
-        "endTime": "16:00",
-        "startDate": "2026-09-09",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-11",
-        "endTime": "20:00",
-        "startDate": "2026-09-11",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-15",
-        "endTime": "16:00",
-        "startDate": "2026-09-15",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-16",
-        "endTime": "16:00",
-        "startDate": "2026-09-16",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-18",
-        "endTime": "20:00",
-        "startDate": "2026-09-18",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-19",
-        "endTime": "11:00",
-        "startDate": "2026-09-19",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-25",
-        "endTime": "20:00",
-        "startDate": "2026-09-25",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-26",
-        "endTime": "11:00",
-        "startDate": "2026-09-26",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-29",
-        "endTime": "16:00",
-        "startDate": "2026-09-29",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-09-30",
-        "endTime": "16:00",
-        "startDate": "2026-09-30",
-        "startTime": "13:00"
-      }
-    ],
-    "endDate": "2026-09-30",
-    "endTime": "16:00",
-    "id": 1787970042674,
-    "locations": [
-      "スタジオ"
-    ],
-    "manager": "木下",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-09-01",
-    "startTime": "13:00",
-    "title": "健康アカデミー",
-    "usageType": "external"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "9月7日 他13件",
-    "dates": [
-      {
-        "endDate": "2026-09-07",
-        "endTime": "17:00",
-        "startDate": "2026-09-07",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-09",
-        "endTime": "17:00",
-        "startDate": "2026-09-09",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-10",
-        "endTime": "17:00",
-        "startDate": "2026-09-10",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-11",
-        "endTime": "17:00",
-        "startDate": "2026-09-11",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-14",
-        "endTime": "17:00",
-        "startDate": "2026-09-14",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-16",
-        "endTime": "17:00",
-        "startDate": "2026-09-16",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-17",
-        "endTime": "17:00",
-        "startDate": "2026-09-17",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-18",
-        "endTime": "17:00",
-        "startDate": "2026-09-18",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-21",
-        "endTime": "17:00",
-        "startDate": "2026-09-21",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-23",
-        "endTime": "17:00",
-        "startDate": "2026-09-23",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-24",
-        "endTime": "17:00",
-        "startDate": "2026-09-24",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-25",
-        "endTime": "17:00",
-        "startDate": "2026-09-25",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-28",
-        "endTime": "17:00",
-        "startDate": "2026-09-28",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-09-30",
-        "endTime": "17:00",
-        "startDate": "2026-09-30",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-09-30",
-    "endTime": "17:00",
-    "id": 1788243971821,
-    "locations": [
-      "バッティングブースA",
-      "バッティングブースB"
-    ],
-    "manager": "山村",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-09-07",
-    "startTime": "09:00",
-    "title": "AGK男子野球練習",
-    "usageType": "internal"
   },
   {
     "cardColor": "#0000ff",
@@ -3042,35 +2565,6 @@
     "startDate": "2027-01-09",
     "startTime": "08:00",
     "title": "GOLD LUSHレッスン",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#0000ff",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "10月1日 08:00〜10:00",
-    "dates": [
-      {
-        "endDate": "2026-10-01",
-        "endTime": "10:00",
-        "startDate": "2026-10-01",
-        "startTime": "08:00"
-      }
-    ],
-    "endDate": "2026-10-01",
-    "endTime": "10:00",
-    "id": 1789005765214,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "山村",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-10-01",
-    "startTime": "08:00",
-    "title": "AGK男子練習",
     "usageType": "internal"
   },
   {
@@ -4143,5 +3637,66 @@
     "startTime": "19:00",
     "title": "TSK硬式野球部",
     "usageType": "internal"
+  },
+  {
+    "id": 1790928419614,
+    "title": "ウルノアイベント",
+    "date": "12月6日 09:00〜15:00",
+    "dates": [
+      {
+        "startDate": "2026-12-06",
+        "endDate": "2026-12-06",
+        "startTime": "09:00",
+        "endTime": "15:00"
+      }
+    ],
+    "startDate": "2026-12-06",
+    "endDate": "2026-12-06",
+    "startTime": "09:00",
+    "endTime": "15:00",
+    "category": "other",
+    "categoryText": "その他",
+    "cardColor": "#ff69b4",
+    "locations": [
+      "室内練習場"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "external",
+    "manager": "高野",
+    "notes": ""
+  },
+  {
+    "id": 1790928470648,
+    "title": "栃木市主催野球教室",
+    "date": "12月6日 09:00〜12:00",
+    "dates": [
+      {
+        "startDate": "2026-12-06",
+        "endDate": "2026-12-06",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      }
+    ],
+    "startDate": "2026-12-06",
+    "endDate": "2026-12-06",
+    "startTime": "09:00",
+    "endTime": "12:00",
+    "category": "other",
+    "categoryText": "その他",
+    "cardColor": "#ff69b4",
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "關口",
+    "notes": ""
   }
 ]
