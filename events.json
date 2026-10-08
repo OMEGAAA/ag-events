@@ -3639,5 +3639,34 @@
     "startTime": "09:00",
     "title": "栃木市主催野球教室",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "10月10日 14:00〜16:00",
+    "dates": [
+      {
+        "endDate": "2026-10-10",
+        "endTime": "16:00",
+        "startDate": "2026-10-10",
+        "startTime": "14:00"
+      }
+    ],
+    "endDate": "2026-10-10",
+    "endTime": "16:00",
+    "id": 1791448808561,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "林",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-10-10",
+    "startTime": "14:00",
+    "title": "厚木ヤング",
+    "usageType": "external"
   }
 ]
