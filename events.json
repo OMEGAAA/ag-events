@@ -137,16 +137,16 @@
     "date": "12月12日 他1件",
     "dates": [
       {
-        "startDate": "2026-12-12",
         "endDate": "2026-12-12",
-        "startTime": "09:00",
-        "endTime": "19:00"
+        "endTime": "19:00",
+        "startDate": "2026-12-12",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2026-12-13",
         "endDate": "2026-12-13",
-        "startTime": "09:00",
-        "endTime": "19:00"
+        "endTime": "19:00",
+        "startDate": "2026-12-13",
+        "startTime": "09:00"
       }
     ],
     "endDate": "2026-12-13",
@@ -2732,65 +2732,6 @@
     "usageType": "internal"
   },
   {
-    "cardColor": "#800080",
-    "category": "other",
-    "categoryText": "測定",
-    "date": "9月18日 他5件",
-    "dates": [
-      {
-        "endDate": "2026-09-18",
-        "endTime": "19:30",
-        "startDate": "2026-09-18",
-        "startTime": "18:00"
-      },
-      {
-        "endDate": "2026-09-24",
-        "endTime": "19:30",
-        "startDate": "2026-09-24",
-        "startTime": "18:00"
-      },
-      {
-        "endDate": "2026-09-28",
-        "endTime": "19:30",
-        "startDate": "2026-09-28",
-        "startTime": "18:00"
-      },
-      {
-        "endDate": "2026-09-30",
-        "endTime": "20:00",
-        "startDate": "2026-09-30",
-        "startTime": "18:30"
-      },
-      {
-        "endDate": "2026-10-05",
-        "endTime": "19:30",
-        "startDate": "2026-10-05",
-        "startTime": "18:00"
-      },
-      {
-        "endDate": "2026-10-06",
-        "endTime": "19:30",
-        "startDate": "2026-10-06",
-        "startTime": "18:00"
-      }
-    ],
-    "endDate": "2026-10-06",
-    "endTime": "19:30",
-    "id": 1789439663665,
-    "locations": [
-      "投手測定エリア"
-    ],
-    "manager": "福田",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-09-18",
-    "startTime": "18:00",
-    "title": "投球測定",
-    "usageType": "external"
-  },
-  {
     "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "パーソナルレッスン",
@@ -3639,64 +3580,64 @@
     "usageType": "internal"
   },
   {
-    "id": 1790928419614,
-    "title": "ウルノアイベント",
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "その他",
     "date": "12月6日 09:00〜15:00",
     "dates": [
       {
-        "startDate": "2026-12-06",
         "endDate": "2026-12-06",
-        "startTime": "09:00",
-        "endTime": "15:00"
+        "endTime": "15:00",
+        "startDate": "2026-12-06",
+        "startTime": "09:00"
       }
     ],
-    "startDate": "2026-12-06",
     "endDate": "2026-12-06",
-    "startTime": "09:00",
     "endTime": "15:00",
-    "category": "other",
-    "categoryText": "その他",
-    "cardColor": "#ff69b4",
+    "id": 1790928419614,
     "locations": [
       "室内練習場"
     ],
-    "participants": "",
-    "snsPR": "not-allowed",
-    "snsAvailableFrom": "",
-    "usageType": "external",
     "manager": "高野",
-    "notes": ""
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-12-06",
+    "startTime": "09:00",
+    "title": "ウルノアイベント",
+    "usageType": "external"
   },
   {
-    "id": 1790928470648,
-    "title": "栃木市主催野球教室",
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "その他",
     "date": "12月6日 09:00〜12:00",
     "dates": [
       {
-        "startDate": "2026-12-06",
         "endDate": "2026-12-06",
-        "startTime": "09:00",
-        "endTime": "12:00"
+        "endTime": "12:00",
+        "startDate": "2026-12-06",
+        "startTime": "09:00"
       }
     ],
-    "startDate": "2026-12-06",
     "endDate": "2026-12-06",
-    "startTime": "09:00",
     "endTime": "12:00",
-    "category": "other",
-    "categoryText": "その他",
-    "cardColor": "#ff69b4",
+    "id": 1790928470648,
     "locations": [
       "バッティングブースA",
       "バッティングブースB",
       "打撃エリア",
       "投手測定エリア"
     ],
-    "participants": "",
-    "snsPR": "not-allowed",
-    "snsAvailableFrom": "",
-    "usageType": "internal",
     "manager": "關口",
-    "notes": ""
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-12-06",
+    "startTime": "09:00",
+    "title": "栃木市主催野球教室",
+    "usageType": "internal"
   }
 ]
