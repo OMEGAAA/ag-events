@@ -2656,25 +2656,13 @@
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "野球教室",
-    "date": "3月20日 他2件",
+    "date": "3月22日 12:00〜16:30",
     "dates": [
       {
-        "endDate": "2027-03-20",
-        "endTime": "16:30",
-        "startDate": "2027-03-20",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2027-03-21",
-        "endTime": "16:30",
-        "startDate": "2027-03-21",
-        "startTime": "12:00"
-      },
-      {
-        "endDate": "2027-03-22",
-        "endTime": "16:30",
         "startDate": "2027-03-22",
-        "startTime": "12:00"
+        "endDate": "2027-03-22",
+        "startTime": "12:00",
+        "endTime": "16:30"
       }
     ],
     "endDate": "2027-03-22",
@@ -2691,7 +2679,7 @@
     "participants": "",
     "snsAvailableFrom": "",
     "snsPR": "not-allowed",
-    "startDate": "2027-03-20",
+    "startDate": "2027-03-22",
     "startTime": "12:00",
     "title": "TGB野球教室（仮）",
     "usageType": "internal"
