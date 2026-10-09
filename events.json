@@ -3835,5 +3835,35 @@
     "usageType": "internal",
     "manager": "山本",
     "notes": ""
+  },
+  {
+    "id": 1791512483219,
+    "title": "AGK高等学院練習",
+    "date": "11月23日 09:00〜12:00",
+    "dates": [
+      {
+        "startDate": "2026-11-23",
+        "endDate": "2026-11-23",
+        "startTime": "09:00",
+        "endTime": "12:00"
+      }
+    ],
+    "startDate": "2026-11-23",
+    "endDate": "2026-11-23",
+    "startTime": "09:00",
+    "endTime": "12:00",
+    "category": "other",
+    "categoryText": "練習",
+    "cardColor": "#ff0000",
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "大塚",
+    "notes": ""
   }
 ]
