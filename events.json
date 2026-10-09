@@ -955,41 +955,6 @@
     "usageType": "external"
   },
   {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "イベント",
-    "date": "10月1日 他1件",
-    "dates": [
-      {
-        "endDate": "2026-10-01",
-        "endTime": "14:00",
-        "startDate": "2026-10-01",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-10-08",
-        "endTime": "13:00",
-        "startDate": "2026-10-08",
-        "startTime": "08:00"
-      }
-    ],
-    "endDate": "2026-10-08",
-    "endTime": "14:00",
-    "id": 1783735764957,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大向",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-10-01",
-    "startTime": "10:00",
-    "title": "しずわでら幼稚園",
-    "usageType": "external"
-  },
-  {
     "cardColor": "#e169b4",
     "category": "other",
     "categoryText": "イベント",
@@ -2794,121 +2759,115 @@
     "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "練習",
-    "date": "11月4日 他18件",
+    "date": "11月4日 他17件",
     "dates": [
       {
-        "endDate": "2026-11-04",
-        "endTime": "12:00",
         "startDate": "2026-11-04",
-        "startTime": "09:00"
+        "endDate": "2026-11-04",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-05",
-        "endTime": "12:00",
         "startDate": "2026-11-05",
-        "startTime": "09:00"
+        "endDate": "2026-11-05",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-06",
-        "endTime": "12:00",
         "startDate": "2026-11-06",
-        "startTime": "09:00"
+        "endDate": "2026-11-06",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-09",
-        "endTime": "12:00",
         "startDate": "2026-11-09",
-        "startTime": "09:00"
+        "endDate": "2026-11-09",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-10",
-        "endTime": "16:00",
         "startDate": "2026-11-10",
-        "startTime": "13:00"
+        "endDate": "2026-11-10",
+        "startTime": "13:00",
+        "endTime": "16:00"
       },
       {
-        "endDate": "2026-11-11",
-        "endTime": "12:00",
         "startDate": "2026-11-11",
-        "startTime": "09:00"
+        "endDate": "2026-11-11",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-12",
-        "endTime": "12:00",
         "startDate": "2026-11-12",
-        "startTime": "09:00"
+        "endDate": "2026-11-12",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-13",
-        "endTime": "12:00",
         "startDate": "2026-11-13",
-        "startTime": "09:00"
+        "endDate": "2026-11-13",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-16",
-        "endTime": "12:00",
         "startDate": "2026-11-16",
-        "startTime": "09:00"
+        "endDate": "2026-11-16",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-17",
-        "endTime": "16:00",
         "startDate": "2026-11-17",
-        "startTime": "13:00"
+        "endDate": "2026-11-17",
+        "startTime": "13:00",
+        "endTime": "16:00"
       },
       {
-        "endDate": "2026-11-18",
-        "endTime": "12:00",
         "startDate": "2026-11-18",
-        "startTime": "09:00"
+        "endDate": "2026-11-18",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-19",
-        "endTime": "12:00",
         "startDate": "2026-11-19",
-        "startTime": "09:00"
+        "endDate": "2026-11-19",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-20",
-        "endTime": "12:00",
         "startDate": "2026-11-20",
-        "startTime": "09:00"
+        "endDate": "2026-11-20",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-23",
-        "endTime": "12:00",
-        "startDate": "2026-11-23",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-11-24",
-        "endTime": "16:00",
         "startDate": "2026-11-24",
-        "startTime": "13:00"
+        "endDate": "2026-11-24",
+        "startTime": "13:00",
+        "endTime": "16:00"
       },
       {
-        "endDate": "2026-11-25",
-        "endTime": "12:00",
         "startDate": "2026-11-25",
-        "startTime": "09:00"
+        "endDate": "2026-11-25",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-26",
-        "endTime": "12:00",
         "startDate": "2026-11-26",
-        "startTime": "09:00"
+        "endDate": "2026-11-26",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-27",
-        "endTime": "12:00",
         "startDate": "2026-11-27",
-        "startTime": "09:00"
+        "endDate": "2026-11-27",
+        "startTime": "09:00",
+        "endTime": "12:00"
       },
       {
-        "endDate": "2026-11-30",
-        "endTime": "12:00",
         "startDate": "2026-11-30",
-        "startTime": "09:00"
+        "endDate": "2026-11-30",
+        "startTime": "09:00",
+        "endTime": "12:00"
       }
     ],
     "endDate": "2026-11-30",
@@ -3668,5 +3627,225 @@
     "startTime": "14:00",
     "title": "厚木ヤング",
     "usageType": "external"
+  },
+  {
+    "id": 1791508182281,
+    "title": "ドローン講習",
+    "date": "11月23日 他5件",
+    "dates": [
+      {
+        "startDate": "2026-11-23",
+        "endDate": "2026-11-23",
+        "startTime": "09:00",
+        "endTime": "18:00"
+      },
+      {
+        "startDate": "2026-12-26",
+        "endDate": "2026-12-26",
+        "startTime": "09:00",
+        "endTime": "18:00"
+      },
+      {
+        "startDate": "2026-12-27",
+        "endDate": "2026-12-27",
+        "startTime": "09:00",
+        "endTime": "18:00"
+      },
+      {
+        "startDate": "2027-01-11",
+        "endDate": "2027-01-11",
+        "startTime": "09:00",
+        "endTime": "18:00"
+      },
+      {
+        "startDate": "2027-02-11",
+        "endDate": "2027-02-11",
+        "startTime": "09:00",
+        "endTime": "18:00"
+      },
+      {
+        "startDate": "2027-02-23",
+        "endDate": "2027-02-23",
+        "startTime": "09:00",
+        "endTime": "18:00"
+      }
+    ],
+    "startDate": "2026-11-23",
+    "endDate": "2027-02-23",
+    "startTime": "09:00",
+    "endTime": "18:00",
+    "category": "other",
+    "categoryText": "講習",
+    "cardColor": "#ff69b4",
+    "locations": [
+      "室内練習場",
+      "食堂",
+      "駐車場"
+    ],
+    "participants": "定員２０名",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "大竹",
+    "notes": ""
+  },
+  {
+    "id": 1791508774305,
+    "title": "ユース体験会",
+    "date": "11月3日 18:00〜20:30",
+    "dates": [
+      {
+        "startDate": "2026-11-03",
+        "endDate": "2026-11-03",
+        "startTime": "18:00",
+        "endTime": "20:30"
+      }
+    ],
+    "startDate": "2026-11-03",
+    "endDate": "2026-11-03",
+    "startTime": "18:00",
+    "endTime": "20:30",
+    "category": "other",
+    "categoryText": "体験会",
+    "cardColor": "#ff4500",
+    "locations": [
+      "室内練習場",
+      "アローズエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂",
+      "パワーエリア"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "岡",
+    "notes": ""
+  },
+  {
+    "id": 1791509547576,
+    "title": "ドラフト会議",
+    "date": "10月22日 16:30〜23:00",
+    "dates": [
+      {
+        "startDate": "2026-10-22",
+        "endDate": "2026-10-22",
+        "startTime": "16:30",
+        "endTime": "23:00"
+      }
+    ],
+    "startDate": "2026-10-22",
+    "endDate": "2026-10-22",
+    "startTime": "16:30",
+    "endTime": "23:00",
+    "category": "other",
+    "categoryText": "その他",
+    "cardColor": "#ff69b4",
+    "locations": [
+      "食堂"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "福富・青木",
+    "notes": ""
+  },
+  {
+    "id": 1791509668389,
+    "title": "U15測定会",
+    "date": "2月14日 09:00〜13:00",
+    "dates": [
+      {
+        "startDate": "2027-02-14",
+        "endDate": "2027-02-14",
+        "startTime": "09:00",
+        "endTime": "13:00"
+      }
+    ],
+    "startDate": "2027-02-14",
+    "endDate": "2027-02-14",
+    "startTime": "09:00",
+    "endTime": "13:00",
+    "category": "other",
+    "categoryText": "その他",
+    "cardColor": "#ff4500",
+    "locations": [
+      "打撃エリア",
+      "投手測定エリア"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "木下",
+    "notes": ""
+  },
+  {
+    "id": 1791509748568,
+    "title": "男子野球部測定",
+    "date": "10月21日 他1件",
+    "dates": [
+      {
+        "startDate": "2026-10-21",
+        "endDate": "2026-10-21",
+        "startTime": "09:00",
+        "endTime": "13:00"
+      },
+      {
+        "startDate": "2026-10-23",
+        "endDate": "2026-10-23",
+        "startTime": "09:00",
+        "endTime": "13:00"
+      }
+    ],
+    "startDate": "2026-10-21",
+    "endDate": "2026-10-23",
+    "startTime": "09:00",
+    "endTime": "13:00",
+    "category": "other",
+    "categoryText": "その他",
+    "cardColor": "#800080",
+    "locations": [
+      "投手測定エリア"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "福田",
+    "notes": ""
+  },
+  {
+    "id": 1791509822082,
+    "title": "男子野球部MTG",
+    "date": "10月15日 15:00〜18:00",
+    "dates": [
+      {
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-15",
+        "startTime": "15:00",
+        "endTime": "18:00"
+      }
+    ],
+    "startDate": "2026-10-15",
+    "endDate": "2026-10-15",
+    "startTime": "15:00",
+    "endTime": "18:00",
+    "category": "other",
+    "categoryText": "その他",
+    "cardColor": "#0000ff",
+    "locations": [
+      "食堂"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "山本",
+    "notes": ""
   }
 ]
