@@ -3887,5 +3887,58 @@
     "startTime": "16:00",
     "title": "個人レッスン(川相)",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "10月21日 他4件",
+    "dates": [
+      {
+        "endDate": "2026-10-21",
+        "endTime": "19:00",
+        "startDate": "2026-10-21",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-10-22",
+        "endTime": "19:30",
+        "startDate": "2026-10-22",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-10-23",
+        "endTime": "16:30",
+        "startDate": "2026-10-23",
+        "startTime": "15:00"
+      },
+      {
+        "endDate": "2026-10-28",
+        "endTime": "18:30",
+        "startDate": "2026-10-28",
+        "startTime": "17:00"
+      },
+      {
+        "endDate": "2026-10-29",
+        "endTime": "19:30",
+        "startDate": "2026-10-29",
+        "startTime": "18:00"
+      }
+    ],
+    "endDate": "2026-10-29",
+    "endTime": "19:00",
+    "id": 1791952136099,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-10-21",
+    "startTime": "17:00",
+    "title": "パフォーマンス測定",
+    "usageType": "internal"
   }
 ]
