@@ -2564,35 +2564,6 @@
     "usageType": "internal"
   },
   {
-    "cardColor": "",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "10月14日 09:30〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-10-14",
-        "endTime": "17:00",
-        "startDate": "2026-10-14",
-        "startTime": "09:30"
-      }
-    ],
-    "endDate": "2026-10-14",
-    "endTime": "17:00",
-    "id": 1789111115221,
-    "locations": [
-      "スタジオ"
-    ],
-    "manager": "野澤",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-10-14",
-    "startTime": "09:30",
-    "title": "GOLD LUSHレッスン",
-    "usageType": "internal"
-  },
-  {
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "野球教室",
@@ -3781,16 +3752,16 @@
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "イベント",
-    "date": "11月28日 09:00〜19:00",
+    "date": "11月29日 15:00〜19:00",
     "dates": [
       {
-        "endDate": "2026-11-28",
-        "endTime": "19:00",
-        "startDate": "2026-11-28",
-        "startTime": "09:00"
+        "startDate": "2026-11-29",
+        "endDate": "2026-11-29",
+        "startTime": "15:00",
+        "endTime": "19:00"
       }
     ],
-    "endDate": "2026-11-28",
+    "endDate": "2026-11-29",
     "endTime": "19:00",
     "id": 1791766188355,
     "locations": [
@@ -3801,8 +3772,8 @@
     "participants": "",
     "snsAvailableFrom": "",
     "snsPR": "not-allowed",
-    "startDate": "2026-11-28",
-    "startTime": "09:00",
+    "startDate": "2026-11-29",
+    "startTime": "15:00",
     "title": "GOLD LUSH 見学会＆オーディションワークショップ",
     "usageType": "external"
   },
