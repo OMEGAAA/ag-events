@@ -3587,13 +3587,13 @@
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "その他",
-    "date": "10月22日 16:30〜23:00",
+    "date": "10月22日 15:00〜23:00",
     "dates": [
       {
-        "endDate": "2026-10-22",
-        "endTime": "23:00",
         "startDate": "2026-10-22",
-        "startTime": "16:30"
+        "endDate": "2026-10-22",
+        "startTime": "15:00",
+        "endTime": "23:00"
       }
     ],
     "endDate": "2026-10-22",
@@ -3608,7 +3608,7 @@
     "snsAvailableFrom": "",
     "snsPR": "not-allowed",
     "startDate": "2026-10-22",
-    "startTime": "16:30",
+    "startTime": "15:00",
     "title": "ドラフト会議",
     "usageType": "internal"
   },
