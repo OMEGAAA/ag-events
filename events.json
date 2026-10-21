@@ -3794,5 +3794,130 @@
     "startTime": "17:00",
     "title": "パフォーマンス測定",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "11月3日 他16件",
+    "dates": [
+      {
+        "endDate": "2026-11-03",
+        "endTime": "13:00",
+        "startDate": "2026-11-03",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-05",
+        "endTime": "17:00",
+        "startDate": "2026-11-05",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-11-06",
+        "endTime": "17:00",
+        "startDate": "2026-11-06",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-11-09",
+        "endTime": "17:00",
+        "startDate": "2026-11-09",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-11-10",
+        "endTime": "13:00",
+        "startDate": "2026-11-10",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-11",
+        "endTime": "17:00",
+        "startDate": "2026-11-11",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-11-12",
+        "endTime": "17:00",
+        "startDate": "2026-11-12",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-11-13",
+        "endTime": "17:00",
+        "startDate": "2026-11-13",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-11-16",
+        "endTime": "17:00",
+        "startDate": "2026-11-16",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-11-18",
+        "endTime": "17:00",
+        "startDate": "2026-11-18",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-11-19",
+        "endTime": "17:00",
+        "startDate": "2026-11-19",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-11-20",
+        "endTime": "17:00",
+        "startDate": "2026-11-20",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-11-25",
+        "endTime": "17:00",
+        "startDate": "2026-11-25",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-11-26",
+        "endTime": "17:00",
+        "startDate": "2026-11-26",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-11-27",
+        "endTime": "17:00",
+        "startDate": "2026-11-27",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-11-29",
+        "endTime": "12:00",
+        "startDate": "2026-11-29",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-30",
+        "endTime": "17:00",
+        "startDate": "2026-11-30",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-11-30",
+    "endTime": "13:00",
+    "id": 1792562689668,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "山本",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-11-03",
+    "startTime": "09:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
   }
 ]
