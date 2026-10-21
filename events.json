@@ -4044,6 +4044,10 @@
     "endDate": "2026-11-30",
     "endTime": "17:00",
     "id": 1792563323631,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB"
+    ],
     "manager": "山本",
     "notes": "",
     "participants": "",
