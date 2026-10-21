@@ -3261,82 +3261,6 @@
     "usageType": "internal"
   },
   {
-    "cardColor": "#800080",
-    "category": "other",
-    "categoryText": "測定",
-    "date": "10月1日 他2件",
-    "dates": [
-      {
-        "endDate": "2026-10-01",
-        "endTime": "19:30",
-        "startDate": "2026-10-01",
-        "startTime": "18:00"
-      },
-      {
-        "endDate": "2026-10-08",
-        "endTime": "19:30",
-        "startDate": "2026-10-08",
-        "startTime": "18:00"
-      },
-      {
-        "endDate": "2026-10-19",
-        "endTime": "17:30",
-        "startDate": "2026-10-19",
-        "startTime": "16:00"
-      }
-    ],
-    "endDate": "2026-10-19",
-    "endTime": "19:30",
-    "id": 1790319244104,
-    "locations": [
-      "投手測定エリア"
-    ],
-    "manager": "福田直樹",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-10-01",
-    "startTime": "18:00",
-    "title": "パフォーマンス測定",
-    "usageType": "external"
-  },
-  {
-    "cardColor": "#800080",
-    "category": "other",
-    "categoryText": "測定",
-    "date": "10月13日 他1件",
-    "dates": [
-      {
-        "endDate": "2026-10-13",
-        "endTime": "19:30",
-        "startDate": "2026-10-13",
-        "startTime": "18:00"
-      },
-      {
-        "endDate": "2026-10-19",
-        "endTime": "19:30",
-        "startDate": "2026-10-19",
-        "startTime": "18:30"
-      }
-    ],
-    "endDate": "2026-10-19",
-    "endTime": "19:30",
-    "id": 1790662174484,
-    "locations": [
-      "投手測定エリア"
-    ],
-    "manager": "福田直樹",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-10-13",
-    "startTime": "18:00",
-    "title": "パフォーマンス測定",
-    "usageType": "external"
-  },
-  {
     "cardColor": "#ff4500",
     "category": "other",
     "categoryText": "体験会",
@@ -3505,28 +3429,28 @@
     "date": "11月23日 他3件",
     "dates": [
       {
-        "startDate": "2026-11-23",
         "endDate": "2026-11-23",
-        "startTime": "09:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-11-23",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2026-12-26",
         "endDate": "2026-12-26",
-        "startTime": "09:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-12-26",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2026-12-27",
         "endDate": "2026-12-27",
-        "startTime": "09:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2026-12-27",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2027-02-11",
         "endDate": "2027-02-11",
-        "startTime": "09:00",
-        "endTime": "18:00"
+        "endTime": "18:00",
+        "startDate": "2027-02-11",
+        "startTime": "09:00"
       }
     ],
     "endDate": "2027-02-11",
@@ -3590,10 +3514,10 @@
     "date": "10月22日 15:00〜23:00",
     "dates": [
       {
-        "startDate": "2026-10-22",
         "endDate": "2026-10-22",
-        "startTime": "15:00",
-        "endTime": "23:00"
+        "endTime": "23:00",
+        "startDate": "2026-10-22",
+        "startTime": "15:00"
       }
     ],
     "endDate": "2026-10-22",
@@ -3714,10 +3638,10 @@
     "date": "11月29日 15:00〜19:00",
     "dates": [
       {
-        "startDate": "2026-11-29",
         "endDate": "2026-11-29",
-        "startTime": "15:00",
-        "endTime": "19:00"
+        "endTime": "19:00",
+        "startDate": "2026-11-29",
+        "startTime": "15:00"
       }
     ],
     "endDate": "2026-11-29",
