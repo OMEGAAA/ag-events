@@ -4223,5 +4223,63 @@
     "startTime": "10:00",
     "title": "しずわでら幼稚園体育授業",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "10月29日 10:00〜11:30",
+    "dates": [
+      {
+        "endDate": "2026-10-29",
+        "endTime": "11:30",
+        "startDate": "2026-10-29",
+        "startTime": "10:00"
+      }
+    ],
+    "endDate": "2026-10-29",
+    "endTime": "11:30",
+    "id": 1792636724893,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-10-29",
+    "startTime": "10:00",
+    "title": "パフォーマンス測定",
+    "usageType": "external"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "10月26日 17:00〜18:30",
+    "dates": [
+      {
+        "endDate": "2026-10-26",
+        "endTime": "18:30",
+        "startDate": "2026-10-26",
+        "startTime": "17:00"
+      }
+    ],
+    "endDate": "2026-10-26",
+    "endTime": "18:30",
+    "id": 1792636767329,
+    "locations": [
+      "打撃エリア"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-10-26",
+    "startTime": "17:00",
+    "title": "パフォーマンス測定",
+    "usageType": "external"
   }
 ]
