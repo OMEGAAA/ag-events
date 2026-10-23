@@ -3,17 +3,23 @@
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "大会",
-    "date": "10月31日 09:00〜21:00",
+    "date": "10月30日 他1件",
     "dates": [
       {
-        "startDate": "2026-10-31",
+        "endDate": "2026-10-30",
+        "endTime": "17:00",
+        "startDate": "2026-10-30",
+        "startTime": "09:00"
+      },
+      {
         "endDate": "2026-10-31",
-        "startTime": "09:00",
-        "endTime": "21:00"
+        "endTime": "21:00",
+        "startDate": "2026-10-31",
+        "startTime": "09:00"
       }
     ],
     "endDate": "2026-10-31",
-    "endTime": "21:00",
+    "endTime": "17:00",
     "id": 16,
     "locations": [
       "室内練習場",
@@ -27,25 +33,24 @@
     "participants": "",
     "snsAvailableFrom": "",
     "snsPR": "pending",
-    "startDate": "2026-10-31",
+    "startDate": "2026-10-30",
     "startTime": "09:00",
-    "title": "さくらカップ高校の部",
-    "usageType": "internal"
+    "title": "さくらカップ高校の部"
   },
   {
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "大会",
-    "date": "11月1日 09:00〜21:00",
+    "date": "11月1日〜11月3日 09:00〜21:00",
     "dates": [
       {
+        "endDate": "2026-11-03",
+        "endTime": "21:00",
         "startDate": "2026-11-01",
-        "endDate": "2026-11-01",
-        "startTime": "09:00",
-        "endTime": "21:00"
+        "startTime": "09:00"
       }
     ],
-    "endDate": "2026-11-01",
+    "endDate": "2026-11-03",
     "endTime": "21:00",
     "id": 17,
     "locations": [
@@ -62,8 +67,7 @@
     "snsPR": "pending",
     "startDate": "2026-11-01",
     "startTime": "09:00",
-    "title": "さくらカップ高校の部",
-    "usageType": "internal"
+    "title": "さくらカップ高校の部"
   },
   {
     "cardColor": "#ff69b4",
@@ -167,6 +171,40 @@
     "startTime": "09:00",
     "title": "ユース測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "社内イベント",
+    "date": "11月7日 07:00〜19:00",
+    "dates": [
+      {
+        "endDate": "2026-11-07",
+        "endTime": "19:00",
+        "startDate": "2026-11-07",
+        "startTime": "07:00"
+      }
+    ],
+    "endDate": "2026-11-07",
+    "endTime": "19:00",
+    "id": 67,
+    "locations": [
+      "室内練習場",
+      "アローズエリア",
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア",
+      "投手測定エリア",
+      "食堂"
+    ],
+    "manager": "中阪　麻優花",
+    "notes": "詳細が決まり次第共有させていただきます。",
+    "participants": "40",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-11-07",
+    "startTime": "07:00",
+    "title": "さくらカップ小学の部"
   },
   {
     "cardColor": "#ff4500",
