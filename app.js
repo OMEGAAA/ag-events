@@ -233,11 +233,18 @@ function toDateStr(d) {
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
-function getUpcomingEvents() {
+// 今日以降（開催中を含む）の日程だけを日付順で返す
+function getUpcomingDates(e) {
     const todayStr = toDateStr(today);
+    return getEventDates(e)
+        .filter(d => (d.endDate || d.startDate) >= todayStr)
+        .sort((a, b) => (a.startDate || '').localeCompare(b.startDate || ''));
+}
+
+function getUpcomingEvents() {
     return [...events]
-        .filter(e => getEventDates(e).some(d => (d.endDate || d.startDate) >= todayStr))
-        .sort((a, b) => new Date(getEventDates(a)[0].startDate) - new Date(getEventDates(b)[0].startDate));
+        .filter(e => getUpcomingDates(e).length > 0)
+        .sort((a, b) => getUpcomingDates(a)[0].startDate.localeCompare(getUpcomingDates(b)[0].startDate));
 }
 
 function getEventLocationList(e) {
@@ -385,7 +392,7 @@ function renderEvents() {
         const btnText = isFull ? 'キャンセル待ち' : '予約する';
 
         const fmtD = (s) => { const d = new Date(s + 'T00:00:00'); return `${d.getMonth() + 1}月${d.getDate()}日`; };
-        const eDates = getEventDates(e);
+        const eDates = getUpcomingDates(e);
         // 4回以上の複数日程は先頭2件＋トグルに畳み込み、カードの縦伸びと右の空白を抑える
         const COLLAPSE_FROM = 4;
         const VISIBLE_WHEN_COLLAPSED = 2;
