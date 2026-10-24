@@ -4188,5 +4188,34 @@
     "startTime": "17:00",
     "title": "パフォーマンス測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "アカデミー",
+    "date": "11月7日 09:00〜18:00",
+    "dates": [
+      {
+        "endDate": "2026-11-07",
+        "endTime": "18:00",
+        "startDate": "2026-11-07",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-11-07",
+    "endTime": "18:00",
+    "id": 1792803875633,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "星野",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-11-07",
+    "startTime": "09:00",
+    "title": "ADS選抜クラスレッスン",
+    "usageType": "internal"
   }
 ]
