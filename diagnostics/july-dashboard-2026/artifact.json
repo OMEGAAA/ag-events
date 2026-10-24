@@ -1,0 +1,503 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "7月ダッシュボード診断",
+    "description": "2026年7月のイベント件数と施設稼働率について、アーカイブ反映、集計単位、データ品質、将来の欠落リスクを確認した診断レポート。",
+    "generatedAt": "2026-08-17T11:46:46+09:00",
+    "cards": [],
+    "charts": [
+      {
+        "id": "monthly_records_vs_schedules",
+        "title": "登録レコード数と日程枠数（月別）",
+        "subtitle": "2026年3月〜8月。1つの登録に複数日程をまとめた場合、日程枠数の方が実施回数に近い",
+        "type": "bar",
+        "intent": "comparison",
+        "question": "7月のイベント数が少なく見えるのは、実施日程が少ないためか、集計単位のためか",
+        "rationale": "6か月の離散比較で、登録レコードと日程枠の差を同じ件数単位で示すため、集合棒グラフを使用。",
+        "dataset": "monthly_count_series",
+        "sourceId": "monthly_chart_sql",
+        "encodings": {
+          "x": {
+            "field": "month_label",
+            "type": "ordinal",
+            "label": "月"
+          },
+          "y": {
+            "field": "count",
+            "type": "quantitative",
+            "label": "件数",
+            "unit": "件"
+          },
+          "color": {
+            "field": "count_type",
+            "type": "nominal",
+            "label": "集計単位"
+          },
+          "tooltip": [
+            {
+              "field": "active_records",
+              "type": "quantitative",
+              "label": "通常イベント"
+            },
+            {
+              "field": "archived_records",
+              "type": "quantitative",
+              "label": "アーカイブ"
+            },
+            {
+              "field": "scheduled_facility_hours",
+              "type": "quantitative",
+              "label": "施設利用時間",
+              "unit": "時間"
+            }
+          ]
+        },
+        "valueFormat": "number",
+        "unit": "件",
+        "layout": "full",
+        "labels": {
+          "values": "auto"
+        },
+        "legend": {
+          "position": "bottom",
+          "sort": "spec"
+        },
+        "palette": {
+          "kind": "categorical",
+          "name": "blue-orange"
+        },
+        "settings": {
+          "orientation": "vertical",
+          "groupMode": "grouped",
+          "sort": "none"
+        },
+        "comparisonContext": {
+          "grain": "月",
+          "unit": "件",
+          "denominator": "登録レコード数は月に接触するイベントオブジェクト数、日程枠数は月内のdates要素数"
+        }
+      }
+    ],
+    "tables": [],
+    "sources": [
+      {
+        "id": "dashboard_reproduction",
+        "label": "管理画面集計ロジックとイベントデータの再集計",
+        "query": {
+          "engine": "javascript",
+          "language": "javascript",
+          "description": "admin/admin.jsの施設稼働率ロジックに合わせ、events.jsonとarchived_events.jsonを連結して月別件数・日程枠・施設時間を再計算。併せてID衝突、利用区分欠落、重複時間を検査。",
+          "executed_at": "2026-08-17T11:46:46+09:00",
+          "tables_used": [
+            "events.json",
+            "archived_events.json",
+            "admin/admin.js"
+          ],
+          "filters": [
+            "対象年は2026年",
+            "月別比較は2026年3月〜8月",
+            "7月詳細は2026-07-01〜2026-07-31",
+            "利用可能時間は各暦日8:00〜21:00",
+            "施設は管理画面のFACILITY_LIST 11施設"
+          ],
+          "metric_definitions": [
+            "登録レコード数: 月内の日程に1回以上接触するイベントオブジェクト数。複数日程を持つ1イベントも1件。",
+            "日程枠数: 月内に接触するdates要素数。複数日範囲は1枠として数える。",
+            "施設利用時間: 各日程の8:00〜21:00内の分数を対象施設ごとに加算。重複予約も加算。",
+            "平均稼働率: 各施設の利用分数 ÷（月の日数×13時間）を整数丸めし、11施設で平均して再度整数丸め。"
+          ]
+        }
+      },
+      {
+        "id": "dashboard_code_audit",
+        "label": "管理画面コード監査",
+        "path": "admin/admin.js",
+        "query": {
+          "engine": "source-code",
+          "language": "javascript",
+          "description": "アーカイブ取得、自動アーカイブ、施設稼働率、イベントID集計の実装を静的に確認。",
+          "executed_at": "2026-08-17T11:46:46+09:00",
+          "tables_used": [
+            "admin/admin.js"
+          ]
+        }
+      },
+      {
+        "id": "monthly_chart_sql",
+        "label": "月別登録レコード・日程枠の可視化SQL",
+        "path": "diagnostics/july-dashboard-2026/monthly_count_chart.sql"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# 7月ダッシュボード診断"
+      },
+      {
+        "id": "executive_summary",
+        "type": "markdown",
+        "sourceId": "dashboard_reproduction",
+        "body": "## Executive Summary\n\n- **アーカイブ済みイベントは施設稼働率に反映されます。** 管理画面は通常イベントとアーカイブを連結して集計しており、7月はアーカイブ1件を含む4件です。\n- **7月が少なく見える主因は集計単位です。** 画面の「当月イベント数」は登録レコード数を数えるため4件ですが、実際の日程枠は20件あります。\n- **アーカイブ1件の影響は大きいです。** 「AGK男子練習」1件だけで7日程・施設利用224時間を占め、7月の施設利用262時間の85.5%です。アーカイブが読み込めないと、件数は4件から3件、表示平均稼働率は6%から1%へ落ちます。\n- **最優先で直すべき別問題があります。** 現行イベント6件のIDが過去アーカイブのoriginalEventIdと衝突しており、期限到来時にアーカイブへ追加されないままイベント一覧から消える可能性があります。"
+      },
+      {
+        "id": "count_definition_finding",
+        "type": "markdown",
+        "sourceId": "dashboard_reproduction",
+        "body": "## 「4件」は実施回数ではなく登録単位です\n\n7月の登録は4レコードですが、各レコードに複数の日程がまとまっており、月内の日程枠は合計20件です。比較すると、6月は26レコード・41日程枠、8月は33レコード・111日程枠です。7月の登録データ自体は他月より少ない一方、画面上の4件だけでは活動量を表しきれていません。"
+      },
+      {
+        "id": "monthly_chart_block",
+        "type": "chart",
+        "chartId": "monthly_records_vs_schedules"
+      },
+      {
+        "id": "monthly_chart_interpretation",
+        "type": "markdown",
+        "sourceId": "dashboard_reproduction",
+        "body": "**判断への示唆:** KPI名を「登録イベント数」のまま使うなら、横に「実施日程20枠」を併記するのが安全です。施設の利用実態を示す主指標としては、登録レコード数より日程枠数または施設利用時間が適しています。"
+      },
+      {
+        "id": "archive_finding",
+        "type": "markdown",
+        "sourceId": "dashboard_reproduction",
+        "body": "## アーカイブは反映されますが、読み込み失敗に弱い構造です\n\n7月のアーカイブは「AGK男子練習」1件で、7日程・4施設・各8時間、合計224施設時間です。アーカイブを含む通常表示では平均稼働率6%ですが、アーカイブを除くと1%です。したがって、現在のコード設計では反映対象ですが、archived_events.jsonの取得に失敗した場合はエラーを表示せず空配列に置き換えるため、管理者が欠落に気づきにくい状態です。"
+      },
+      {
+        "id": "july_table_block",
+        "type": "markdown",
+        "sourceId": "dashboard_reproduction",
+        "body": "### 7月に集計される4イベント\n\n| 保存先 | イベント | 7月の日程枠 | 施設利用時間 | 利用区分 |\n|---|---|---:|---:|---|\n| アーカイブ | AGK男子練習 | 7 | 224時間 | 未設定 |\n| 通常イベント | エイジェックユース平日練習 | 4 | 21時間 | 内部利用 |\n| 通常イベント | 健康アカデミー | 5 | 10時間 | 未設定 |\n| 通常イベント | パフォーマンス測定 | 4 | 7時間 | 外部利用 |"
+      },
+      {
+        "id": "usage_type_finding",
+        "type": "markdown",
+        "sourceId": "dashboard_reproduction",
+        "body": "**利用区分フィルターにも注意が必要です。** 7月4件のうち2件は利用区分が未設定で、この2件が234施設時間、全体の89.3%を占めます。「内部利用」または「外部利用」に切り替えると未設定分がすべて消えるため、全体表示との差が極端になります。全データでも181件中95件が未設定です。"
+      },
+      {
+        "id": "id_collision_finding",
+        "type": "markdown",
+        "sourceId": "dashboard_reproduction",
+        "body": "## 先に直すべき問題は、6件のID衝突です\n\n自動アーカイブは、過去アーカイブに同じoriginalEventIdがあると「すでにアーカイブ済み」と判断します。しかし、その場合でも期限切れイベントを通常一覧から削除します。現行データではID 171、172、173、174、176、177が過去データと衝突しており、8月24日〜31日に期限を迎えると、別イベントなのに保存されないまま消える可能性があります。これは7月の表示問題より優先度が高いデータ消失リスクです。"
+      },
+      {
+        "id": "id_collision_table_block",
+        "type": "markdown",
+        "sourceId": "dashboard_reproduction",
+        "body": "### 衝突している現行イベント\n\n| ID | 現行イベント | 現行の最終日 | 同じoriginalEventIdの過去イベント |\n|---:|---|---|---|\n| 177 | アローズ第二回夏期講習 | 2026年8月24日 | エイジェック高等学院 |\n| 172 | AGK高等学院練習 | 2026年8月25日 | パーソナルレッスン |\n| 174 | AGK高等学院練習 | 2026年8月25日 | エイジェック高等学院 |\n| 176 | アローズ第二回夏期講習 | 2026年8月25日 | エイジェック高等学院 |\n| 171 | AGK高等学院練習 | 2026年8月31日 | 入校式 |\n| 173 | AGK高等学院練習 | 2026年8月31日 | AGK男子野球部練習 |"
+      },
+      {
+        "id": "other_findings",
+        "type": "markdown",
+        "sourceId": "dashboard_reproduction",
+        "body": "## 稼働率には、ほかにも過大・過小評価の要因があります\n\n- **重複予約は二重加算されます。** 7月は重複0時間ですが、4月は重複相当525.8時間、8月は51.5時間あり、実際に施設が使われた時間より稼働率が高くなる月があります。\n- **時刻未入力は終日利用として扱われます。** 6月2日の「投球座学」は時刻が空欄のため、8:00〜21:00の13時間として加算されます。\n- **分母は全暦日・毎日13時間です。** 休館日や営業時間短縮を考慮しないため、運用上の利用可能時間より分母が大きく、稼働率を低く見せる可能性があります。\n- **通常イベントとアーカイブは別々に公開します。** 片方だけ公開すると、一時的な欠落または重複が起き得ます。2ファイルの更新は一括・原子的に扱うのが安全です。"
+      },
+      {
+        "id": "recommendations",
+        "type": "markdown",
+        "body": "## 推奨する対応順\n\n1. **自動アーカイブのID衝突を修正する。** IDだけで既存判定せず、イベント固有キーまたは内容ハッシュを使い、アーカイブ追加に成功したイベントだけ通常一覧から削除します。\n2. **通常イベントとアーカイブを1回の公開操作で更新する。** 途中状態を作らず、失敗時は両方を元に戻せる設計にします。\n3. **7月KPIを「登録4件／日程20枠」に変更する。** 稼働の説明には施設利用262時間も併記します。\n4. **利用区分未設定を補完する。** 特に7月の「AGK男子練習」と「健康アカデミー」を内部・外部のどちらかに確定します。\n5. **稼働時間は重複区間を統合して計算する。** 同一施設・同一日時の重複予約を二重加算しないようにします。\n6. **アーカイブ取得失敗を画面に明示する。** 空データと通信失敗を区別し、最後に正常取得した件数と時刻を表示します。"
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## 確認したい運用上の判断\n\n- 「当月イベント数」は、企画・案件の登録数と、実施日程数のどちらを経営上の主指標にしますか。\n- 同じ施設で時間が重なった複数イベントは、稼働率では1回分に統合し、予約競合件数を別指標にしますか。\n- 休館日や実際の営業時間を分母へ反映するための営業カレンダーはありますか。"
+      },
+      {
+        "id": "caveats",
+        "type": "markdown",
+        "body": "## 前提と注意点\n\nこの診断は、作業フォルダー内のevents.json、archived_events.json、admin/admin.jsを2026年8月17日に確認したスナップショットです。Firebase上の未公開編集、管理画面を開いたままのローカル変更、GitHubへまだ反映されていない変更は含みません。施設利用時間は現在の管理画面と同じく、8:00〜21:00の範囲に切り詰めて計算しています。"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-17T11:46:46+09:00",
+    "status": "ready",
+    "datasets": {
+      "monthly_counts": [
+        {
+          "month_label": "3月",
+          "registered_records": 2,
+          "date_ranges": 2,
+          "active_records": 0,
+          "archived_records": 2,
+          "scheduled_facility_hours": 64,
+          "unique_occupied_facility_hours": 32,
+          "display_avg_rate_pct": 1
+        },
+        {
+          "month_label": "4月",
+          "registered_records": 97,
+          "date_ranges": 104,
+          "active_records": 0,
+          "archived_records": 97,
+          "scheduled_facility_hours": 1206.5,
+          "unique_occupied_facility_hours": 680.8,
+          "display_avg_rate_pct": 28
+        },
+        {
+          "month_label": "5月",
+          "registered_records": 1,
+          "date_ranges": 3,
+          "active_records": 1,
+          "archived_records": 0,
+          "scheduled_facility_hours": 15.8,
+          "unique_occupied_facility_hours": 15.8,
+          "display_avg_rate_pct": 0
+        },
+        {
+          "month_label": "6月",
+          "registered_records": 26,
+          "date_ranges": 41,
+          "active_records": 2,
+          "archived_records": 24,
+          "scheduled_facility_hours": 305.8,
+          "unique_occupied_facility_hours": 304.8,
+          "display_avg_rate_pct": 7
+        },
+        {
+          "month_label": "7月",
+          "registered_records": 4,
+          "date_ranges": 20,
+          "active_records": 3,
+          "archived_records": 1,
+          "scheduled_facility_hours": 262,
+          "unique_occupied_facility_hours": 262,
+          "display_avg_rate_pct": 6
+        },
+        {
+          "month_label": "8月",
+          "registered_records": 33,
+          "date_ranges": 111,
+          "active_records": 31,
+          "archived_records": 2,
+          "scheduled_facility_hours": 768.8,
+          "unique_occupied_facility_hours": 717.3,
+          "display_avg_rate_pct": 17
+        }
+      ],
+      "monthly_count_series": [
+        {
+          "month_label": "3月",
+          "count_type": "登録レコード",
+          "count": 2,
+          "active_records": 0,
+          "archived_records": 2,
+          "scheduled_facility_hours": 64
+        },
+        {
+          "month_label": "3月",
+          "count_type": "日程枠",
+          "count": 2,
+          "active_records": 0,
+          "archived_records": 2,
+          "scheduled_facility_hours": 64
+        },
+        {
+          "month_label": "4月",
+          "count_type": "登録レコード",
+          "count": 97,
+          "active_records": 0,
+          "archived_records": 97,
+          "scheduled_facility_hours": 1206.5
+        },
+        {
+          "month_label": "4月",
+          "count_type": "日程枠",
+          "count": 104,
+          "active_records": 0,
+          "archived_records": 97,
+          "scheduled_facility_hours": 1206.5
+        },
+        {
+          "month_label": "5月",
+          "count_type": "登録レコード",
+          "count": 1,
+          "active_records": 1,
+          "archived_records": 0,
+          "scheduled_facility_hours": 15.8
+        },
+        {
+          "month_label": "5月",
+          "count_type": "日程枠",
+          "count": 3,
+          "active_records": 1,
+          "archived_records": 0,
+          "scheduled_facility_hours": 15.8
+        },
+        {
+          "month_label": "6月",
+          "count_type": "登録レコード",
+          "count": 26,
+          "active_records": 2,
+          "archived_records": 24,
+          "scheduled_facility_hours": 305.8
+        },
+        {
+          "month_label": "6月",
+          "count_type": "日程枠",
+          "count": 41,
+          "active_records": 2,
+          "archived_records": 24,
+          "scheduled_facility_hours": 305.8
+        },
+        {
+          "month_label": "7月",
+          "count_type": "登録レコード",
+          "count": 4,
+          "active_records": 3,
+          "archived_records": 1,
+          "scheduled_facility_hours": 262
+        },
+        {
+          "month_label": "7月",
+          "count_type": "日程枠",
+          "count": 20,
+          "active_records": 3,
+          "archived_records": 1,
+          "scheduled_facility_hours": 262
+        },
+        {
+          "month_label": "8月",
+          "count_type": "登録レコード",
+          "count": 33,
+          "active_records": 31,
+          "archived_records": 2,
+          "scheduled_facility_hours": 768.8
+        },
+        {
+          "month_label": "8月",
+          "count_type": "日程枠",
+          "count": 111,
+          "active_records": 31,
+          "archived_records": 2,
+          "scheduled_facility_hours": 768.8
+        }
+      ],
+      "july_events": [
+        {
+          "source_label": "アーカイブ",
+          "id": 143,
+          "title": "AGK男子練習",
+          "july_dates": 7,
+          "facility_hours": 224,
+          "usage_label": "未設定"
+        },
+        {
+          "source_label": "通常イベント",
+          "id": 82,
+          "title": "エイジェックユース平日練習",
+          "july_dates": 4,
+          "facility_hours": 21,
+          "usage_label": "内部利用"
+        },
+        {
+          "source_label": "通常イベント",
+          "id": 84,
+          "title": "健康アカデミー",
+          "july_dates": 5,
+          "facility_hours": 10,
+          "usage_label": "未設定"
+        },
+        {
+          "source_label": "通常イベント",
+          "id": 1784422506211,
+          "title": "パフォーマンス測定",
+          "july_dates": 4,
+          "facility_hours": 7,
+          "usage_label": "外部利用"
+        }
+      ],
+      "id_collisions": [
+        {
+          "id": 177,
+          "current_title": "アローズ第二回夏期講習",
+          "current_last_date": "2026年8月24日",
+          "archived_title": "エイジェック高等学院"
+        },
+        {
+          "id": 172,
+          "current_title": "AGK高等学院練習",
+          "current_last_date": "2026年8月25日",
+          "archived_title": "パーソナルレッスン"
+        },
+        {
+          "id": 174,
+          "current_title": "AGK高等学院練習",
+          "current_last_date": "2026年8月25日",
+          "archived_title": "エイジェック高等学院"
+        },
+        {
+          "id": 176,
+          "current_title": "アローズ第二回夏期講習",
+          "current_last_date": "2026年8月25日",
+          "archived_title": "エイジェック高等学院"
+        },
+        {
+          "id": 171,
+          "current_title": "AGK高等学院練習",
+          "current_last_date": "2026年8月31日",
+          "archived_title": "入校式"
+        },
+        {
+          "id": 173,
+          "current_title": "AGK高等学院練習",
+          "current_last_date": "2026年8月31日",
+          "archived_title": "AGK男子野球部練習"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "dashboard_reproduction",
+      "label": "管理画面集計ロジックとイベントデータの再集計",
+      "query": {
+        "engine": "javascript",
+        "language": "javascript",
+        "description": "admin/admin.jsの施設稼働率ロジックに合わせ、events.jsonとarchived_events.jsonを連結して月別件数・日程枠・施設時間を再計算。併せてID衝突、利用区分欠落、重複時間を検査。",
+        "executed_at": "2026-08-17T11:46:46+09:00",
+        "tables_used": [
+          "events.json",
+          "archived_events.json",
+          "admin/admin.js"
+        ],
+        "filters": [
+          "対象年は2026年",
+          "月別比較は2026年3月〜8月",
+          "7月詳細は2026-07-01〜2026-07-31",
+          "利用可能時間は各暦日8:00〜21:00",
+          "施設は管理画面のFACILITY_LIST 11施設"
+        ],
+        "metric_definitions": [
+          "登録レコード数: 月内の日程に1回以上接触するイベントオブジェクト数。複数日程を持つ1イベントも1件。",
+          "日程枠数: 月内に接触するdates要素数。複数日範囲は1枠として数える。",
+          "施設利用時間: 各日程の8:00〜21:00内の分数を対象施設ごとに加算。重複予約も加算。",
+          "平均稼働率: 各施設の利用分数 ÷（月の日数×13時間）を整数丸めし、11施設で平均して再度整数丸め。"
+        ]
+      }
+    },
+    {
+      "id": "dashboard_code_audit",
+      "label": "管理画面コード監査",
+      "path": "admin/admin.js",
+      "query": {
+        "engine": "source-code",
+        "language": "javascript",
+        "description": "アーカイブ取得、自動アーカイブ、施設稼働率、イベントID集計の実装を静的に確認。",
+        "executed_at": "2026-08-17T11:46:46+09:00",
+        "tables_used": [
+          "admin/admin.js"
+        ]
+      }
+    },
+    {
+      "id": "monthly_chart_sql",
+      "label": "月別登録レコード・日程枠の可視化SQL",
+      "path": "diagnostics/july-dashboard-2026/monthly_count_chart.sql"
+    }
+  ]
+}
