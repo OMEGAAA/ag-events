@@ -4119,5 +4119,34 @@
     "startTime": "09:00",
     "title": "ADS選抜クラスレッスン",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "野球教室",
+    "date": "12月13日 08:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-12-13",
+        "endTime": "13:00",
+        "startDate": "2026-12-13",
+        "startTime": "08:00"
+      }
+    ],
+    "endDate": "2026-12-13",
+    "endTime": "13:00",
+    "id": 1792890914124,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "鶴田",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-12-13",
+    "startTime": "08:00",
+    "title": "成瀬選手野球教室",
+    "usageType": "internal"
   }
 ]
