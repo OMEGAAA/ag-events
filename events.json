@@ -4148,5 +4148,143 @@
     "startTime": "08:00",
     "title": "成瀬選手野球教室",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "キャンプ",
+    "date": "2月8日 他18件",
+    "dates": [
+      {
+        "endDate": "2027-02-08",
+        "endTime": "18:00",
+        "startDate": "2027-02-08",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-09",
+        "endTime": "18:00",
+        "startDate": "2027-02-09",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-10",
+        "endTime": "18:00",
+        "startDate": "2027-02-10",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-11",
+        "endTime": "18:00",
+        "startDate": "2027-02-11",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-12",
+        "endTime": "18:00",
+        "startDate": "2027-02-12",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-13",
+        "endTime": "18:00",
+        "startDate": "2027-02-13",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-14",
+        "endTime": "18:00",
+        "startDate": "2027-02-14",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-15",
+        "endTime": "18:00",
+        "startDate": "2027-02-15",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-16",
+        "endTime": "18:00",
+        "startDate": "2027-02-16",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-17",
+        "endTime": "18:00",
+        "startDate": "2027-02-17",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-18",
+        "endTime": "18:00",
+        "startDate": "2027-02-18",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-19",
+        "endTime": "18:00",
+        "startDate": "2027-02-19",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-20",
+        "endTime": "18:00",
+        "startDate": "2027-02-20",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-21",
+        "endTime": "18:00",
+        "startDate": "2027-02-21",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-22",
+        "endTime": "18:00",
+        "startDate": "2027-02-22",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-23",
+        "endTime": "18:00",
+        "startDate": "2027-02-23",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-24",
+        "endTime": "18:00",
+        "startDate": "2027-02-24",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-25",
+        "endTime": "18:00",
+        "startDate": "2027-02-25",
+        "startTime": "07:00"
+      },
+      {
+        "endDate": "2027-02-26",
+        "endTime": "18:00",
+        "startDate": "2027-02-26",
+        "startTime": "07:00"
+      }
+    ],
+    "endDate": "2027-02-26",
+    "endTime": "18:00",
+    "id": 1792891964664,
+    "locations": [
+      "室内練習場",
+      "パワーエリア"
+    ],
+    "manager": "松橋",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2027-02-08",
+    "startTime": "07:00",
+    "title": "HONDAリヴェルタ様春季キャンプ(仮)",
+    "usageType": "external"
   }
 ]
