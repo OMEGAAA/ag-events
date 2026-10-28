@@ -4238,5 +4238,52 @@
     "startTime": "19:00",
     "title": "個人レッスン（高木）",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#800080",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "11月2日 他3件",
+    "dates": [
+      {
+        "endDate": "2026-11-02",
+        "endTime": "20:00",
+        "startDate": "2026-11-02",
+        "startTime": "19:00"
+      },
+      {
+        "endDate": "2026-11-12",
+        "endTime": "19:30",
+        "startDate": "2026-11-12",
+        "startTime": "18:00"
+      },
+      {
+        "endDate": "2026-11-14",
+        "endTime": "19:30",
+        "startDate": "2026-11-14",
+        "startTime": "18:30"
+      },
+      {
+        "endDate": "2026-11-19",
+        "endTime": "12:00",
+        "startDate": "2026-11-19",
+        "startTime": "10:30"
+      }
+    ],
+    "endDate": "2026-11-19",
+    "endTime": "20:00",
+    "id": 1793161091788,
+    "locations": [
+      "投手測定エリア"
+    ],
+    "manager": "福田直樹",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-11-02",
+    "startTime": "19:00",
+    "title": "パフォーマンス測定",
+    "usageType": "internal"
   }
 ]
