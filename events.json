@@ -990,53 +990,6 @@
     "cardColor": "#ff69b4",
     "category": "other",
     "categoryText": "体育授業",
-    "date": "9月8日 他3件",
-    "dates": [
-      {
-        "endDate": "2026-09-08",
-        "endTime": "11:30",
-        "startDate": "2026-09-08",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-10-13",
-        "endTime": "11:30",
-        "startDate": "2026-10-13",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-10-20",
-        "endTime": "11:30",
-        "startDate": "2026-10-20",
-        "startTime": "10:00"
-      },
-      {
-        "endDate": "2026-10-27",
-        "endTime": "11:30",
-        "startDate": "2026-10-27",
-        "startTime": "10:00"
-      }
-    ],
-    "endDate": "2026-10-27",
-    "endTime": "11:30",
-    "id": 1784705405145,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "澤村 菜々",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-09-08",
-    "startTime": "10:00",
-    "title": "しずわでら幼稚園",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "体育授業",
     "date": "11月17日 他4件",
     "dates": [
       {
@@ -1416,53 +1369,6 @@
     "cardColor": "#ff0000",
     "category": "other",
     "categoryText": "練習",
-    "date": "10月6日 他3件",
-    "dates": [
-      {
-        "endDate": "2026-10-06",
-        "endTime": "16:00",
-        "startDate": "2026-10-06",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-10-13",
-        "endTime": "16:00",
-        "startDate": "2026-10-13",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-10-20",
-        "endTime": "16:00",
-        "startDate": "2026-10-20",
-        "startTime": "13:00"
-      },
-      {
-        "endDate": "2026-10-27",
-        "endTime": "16:00",
-        "startDate": "2026-10-27",
-        "startTime": "13:00"
-      }
-    ],
-    "endDate": "2026-10-27",
-    "endTime": "16:00",
-    "id": 1786501151423,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大塚",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-10-06",
-    "startTime": "13:00",
-    "title": "AGK高等学院練習",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "練習",
     "date": "10月1日 他17件",
     "dates": [
       {
@@ -1587,53 +1493,6 @@
     "snsPR": "not-allowed",
     "startDate": "2026-10-01",
     "startTime": "13:00",
-    "title": "AGK高等学院練習",
-    "usageType": "internal"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "10月6日 他3件",
-    "dates": [
-      {
-        "endDate": "2026-10-06",
-        "endTime": "12:00",
-        "startDate": "2026-10-06",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-10-13",
-        "endTime": "12:00",
-        "startDate": "2026-10-13",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-10-20",
-        "endTime": "12:00",
-        "startDate": "2026-10-20",
-        "startTime": "09:00"
-      },
-      {
-        "endDate": "2026-10-27",
-        "endTime": "12:00",
-        "startDate": "2026-10-27",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-10-27",
-    "endTime": "12:00",
-    "id": 1786501346916,
-    "locations": [
-      "パワーエリア"
-    ],
-    "manager": "大塚",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-10-06",
-    "startTime": "09:00",
     "title": "AGK高等学院練習",
     "usageType": "internal"
   },
@@ -4259,72 +4118,69 @@
     "usageType": "external"
   },
   {
-    "id": 1793085326007,
-    "title": "AGK男子野球練習",
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "その他",
     "date": "5月29日 他8件",
     "dates": [
       {
-        "startDate": "2027-05-29",
         "endDate": "2027-05-29",
-        "startTime": "09:00",
-        "endTime": "17:00"
+        "endTime": "17:00",
+        "startDate": "2027-05-29",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2027-05-30",
         "endDate": "2027-05-30",
-        "startTime": "09:00",
-        "endTime": "17:00"
+        "endTime": "17:00",
+        "startDate": "2027-05-30",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2027-05-31",
         "endDate": "2027-05-31",
-        "startTime": "09:00",
-        "endTime": "17:00"
+        "endTime": "17:00",
+        "startDate": "2027-05-31",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2027-06-01",
         "endDate": "2027-06-01",
-        "startTime": "09:00",
-        "endTime": "17:00"
+        "endTime": "17:00",
+        "startDate": "2027-06-01",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2027-06-02",
         "endDate": "2027-06-02",
-        "startTime": "09:00",
-        "endTime": "17:00"
+        "endTime": "17:00",
+        "startDate": "2027-06-02",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2027-06-03",
         "endDate": "2027-06-03",
-        "startTime": "09:00",
-        "endTime": "17:00"
+        "endTime": "17:00",
+        "startDate": "2027-06-03",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2027-06-04",
         "endDate": "2027-06-04",
-        "startTime": "09:00",
-        "endTime": "17:00"
+        "endTime": "17:00",
+        "startDate": "2027-06-04",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2027-06-05",
         "endDate": "2027-06-05",
-        "startTime": "09:00",
-        "endTime": "17:00"
+        "endTime": "17:00",
+        "startDate": "2027-06-05",
+        "startTime": "09:00"
       },
       {
-        "startDate": "2027-06-06",
         "endDate": "2027-06-06",
-        "startTime": "09:00",
-        "endTime": "17:00"
+        "endTime": "17:00",
+        "startDate": "2027-06-06",
+        "startTime": "09:00"
       }
     ],
-    "startDate": "2027-05-29",
     "endDate": "2027-06-06",
-    "startTime": "09:00",
     "endTime": "17:00",
-    "category": "other",
-    "categoryText": "その他",
-    "cardColor": "#0000ff",
+    "id": 1793085326007,
     "locations": [
       "室内練習場",
       "バッティングブースA",
@@ -4332,11 +4188,14 @@
       "打撃エリア",
       "パワーエリア"
     ],
-    "participants": "",
-    "snsPR": "not-allowed",
-    "snsAvailableFrom": "",
-    "usageType": "internal",
     "manager": "山本",
-    "notes": ""
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2027-05-29",
+    "startTime": "09:00",
+    "title": "AGK男子野球練習",
+    "usageType": "internal"
   }
 ]
