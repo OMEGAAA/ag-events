@@ -3151,5 +3151,89 @@
     "startTime": "09:00",
     "title": "GL練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "測定",
+    "date": "11月15日 他9件",
+    "dates": [
+      {
+        "endDate": "2026-11-15",
+        "endTime": "17:00",
+        "startDate": "2026-11-15",
+        "startTime": "13:00"
+      },
+      {
+        "endDate": "2026-11-16",
+        "endTime": "13:00",
+        "startDate": "2026-11-16",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-17",
+        "endTime": "13:00",
+        "startDate": "2026-11-17",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-20",
+        "endTime": "13:00",
+        "startDate": "2026-11-20",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-21",
+        "endTime": "13:00",
+        "startDate": "2026-11-21",
+        "startTime": "08:00"
+      },
+      {
+        "endDate": "2026-11-23",
+        "endTime": "13:00",
+        "startDate": "2026-11-23",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-24",
+        "endTime": "13:00",
+        "startDate": "2026-11-24",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-25",
+        "endTime": "13:00",
+        "startDate": "2026-11-25",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-27",
+        "endTime": "13:00",
+        "startDate": "2026-11-27",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-11-28",
+        "endTime": "13:00",
+        "startDate": "2026-11-28",
+        "startTime": "08:00"
+      }
+    ],
+    "endDate": "2026-11-28",
+    "endTime": "17:00",
+    "id": 1793691010431,
+    "locations": [
+      "投手測定エリア",
+      "パワーエリア"
+    ],
+    "manager": "ユラ",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-11-15",
+    "startTime": "13:00",
+    "title": "KBOロッテジャイアンツ",
+    "usageType": "external"
   }
 ]
