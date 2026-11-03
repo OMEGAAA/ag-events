@@ -3235,5 +3235,35 @@
     "startTime": "13:00",
     "title": "KBOロッテジャイアンツ",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff69b4",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "11月19日 09:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-11-19",
+        "endTime": "13:00",
+        "startDate": "2026-11-19",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-11-19",
+    "endTime": "13:00",
+    "id": 1793691080545,
+    "locations": [
+      "バッティングブースB",
+      "打撃エリア"
+    ],
+    "manager": "ユラ",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-11-19",
+    "startTime": "09:00",
+    "title": "KBOロッテジャイアンツ",
+    "usageType": "external"
   }
 ]
