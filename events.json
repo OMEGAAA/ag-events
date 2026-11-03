@@ -3122,5 +3122,34 @@
     "startTime": "19:00",
     "title": "パフォーマンス測定",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "11月4日 09:00〜13:00",
+    "dates": [
+      {
+        "endDate": "2026-11-04",
+        "endTime": "13:00",
+        "startDate": "2026-11-04",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-11-04",
+    "endTime": "13:00",
+    "id": 1793689364076,
+    "locations": [
+      "スタジオ"
+    ],
+    "manager": "木村",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-11-04",
+    "startTime": "09:00",
+    "title": "GL練習",
+    "usageType": "internal"
   }
 ]
