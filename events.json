@@ -3255,5 +3255,89 @@
     "startTime": "09:00",
     "title": "AGK高等学院練習",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "12月1日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-12-01",
+        "endTime": "17:00",
+        "startDate": "2026-12-01",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-08",
+        "endTime": "17:00",
+        "startDate": "2026-12-08",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-15",
+        "endTime": "17:00",
+        "startDate": "2026-12-15",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-12-15",
+    "endTime": "17:00",
+    "id": 1793767216687,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "山本",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-12-01",
+    "startTime": "12:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "12月1日 他2件",
+    "dates": [
+      {
+        "endDate": "2026-12-01",
+        "endTime": "17:00",
+        "startDate": "2026-12-01",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-08",
+        "endTime": "17:00",
+        "startDate": "2026-12-08",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-15",
+        "endTime": "17:00",
+        "startDate": "2026-12-15",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-12-15",
+    "endTime": "17:00",
+    "id": 1793767279666,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア"
+    ],
+    "manager": "山本",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-12-01",
+    "startTime": "09:00",
+    "title": "AGK男子野球部",
+    "usageType": "internal"
   }
 ]
