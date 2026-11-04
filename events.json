@@ -3226,5 +3226,34 @@
     "startTime": "12:30",
     "title": "パフォーマンス測定",
     "usageType": "external"
+  },
+  {
+    "cardColor": "#ff0000",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "11月8日 09:00〜12:00",
+    "dates": [
+      {
+        "endDate": "2026-11-08",
+        "endTime": "12:00",
+        "startDate": "2026-11-08",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-11-08",
+    "endTime": "12:00",
+    "id": 1793765749173,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "大塚",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-11-08",
+    "startTime": "09:00",
+    "title": "AGK高等学院練習",
+    "usageType": "internal"
   }
 ]
