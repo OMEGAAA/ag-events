@@ -3247,5 +3247,346 @@
     "startTime": "09:00",
     "title": "AGK男子野球部",
     "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "12月2日 他14件",
+    "dates": [
+      {
+        "endDate": "2026-12-02",
+        "endTime": "17:00",
+        "startDate": "2026-12-02",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-03",
+        "endTime": "17:00",
+        "startDate": "2026-12-03",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-04",
+        "endTime": "17:00",
+        "startDate": "2026-12-04",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-07",
+        "endTime": "17:00",
+        "startDate": "2026-12-07",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-09",
+        "endTime": "17:00",
+        "startDate": "2026-12-09",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-10",
+        "endTime": "17:00",
+        "startDate": "2026-12-10",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-11",
+        "endTime": "17:00",
+        "startDate": "2026-12-11",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-14",
+        "endTime": "17:00",
+        "startDate": "2026-12-14",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-16",
+        "endTime": "17:00",
+        "startDate": "2026-12-16",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-17",
+        "endTime": "17:00",
+        "startDate": "2026-12-17",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-18",
+        "endTime": "17:00",
+        "startDate": "2026-12-18",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-21",
+        "endTime": "17:00",
+        "startDate": "2026-12-21",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-23",
+        "endTime": "17:00",
+        "startDate": "2026-12-23",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-24",
+        "endTime": "17:00",
+        "startDate": "2026-12-24",
+        "startTime": "12:00"
+      },
+      {
+        "endDate": "2026-12-25",
+        "endTime": "17:00",
+        "startDate": "2026-12-25",
+        "startTime": "12:00"
+      }
+    ],
+    "endDate": "2026-12-25",
+    "endTime": "17:00",
+    "id": 1794107711505,
+    "locations": [
+      "室内練習場"
+    ],
+    "manager": "山本",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-12-02",
+    "startTime": "12:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "練習",
+    "date": "12月2日 他14件",
+    "dates": [
+      {
+        "endDate": "2026-12-02",
+        "endTime": "12:00",
+        "startDate": "2026-12-02",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-03",
+        "endTime": "12:00",
+        "startDate": "2026-12-03",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-04",
+        "endTime": "12:00",
+        "startDate": "2026-12-04",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-07",
+        "endTime": "12:00",
+        "startDate": "2026-12-07",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-09",
+        "endTime": "12:00",
+        "startDate": "2026-12-09",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-10",
+        "endTime": "12:00",
+        "startDate": "2026-12-10",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-11",
+        "endTime": "12:00",
+        "startDate": "2026-12-11",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-14",
+        "endTime": "12:00",
+        "startDate": "2026-12-14",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-16",
+        "endTime": "12:00",
+        "startDate": "2026-12-16",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-17",
+        "endTime": "12:00",
+        "startDate": "2026-12-17",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-18",
+        "endTime": "12:00",
+        "startDate": "2026-12-18",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-21",
+        "endTime": "12:00",
+        "startDate": "2026-12-21",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-23",
+        "endTime": "12:00",
+        "startDate": "2026-12-23",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-24",
+        "endTime": "12:00",
+        "startDate": "2026-12-24",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-25",
+        "endTime": "12:00",
+        "startDate": "2026-12-25",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-12-25",
+    "endTime": "12:00",
+    "id": 1794107795566,
+    "locations": [
+      "パワーエリア"
+    ],
+    "manager": "山本",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "not-allowed",
+    "startDate": "2026-12-02",
+    "startTime": "09:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
+  },
+  {
+    "cardColor": "#0000ff",
+    "category": "other",
+    "categoryText": "その他",
+    "date": "12月2日 他14件",
+    "dates": [
+      {
+        "endDate": "2026-12-02",
+        "endTime": "17:00",
+        "startDate": "2026-12-02",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-03",
+        "endTime": "17:00",
+        "startDate": "2026-12-03",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-04",
+        "endTime": "17:00",
+        "startDate": "2026-12-04",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-07",
+        "endTime": "17:00",
+        "startDate": "2026-12-07",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-09",
+        "endTime": "17:00",
+        "startDate": "2026-12-09",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-10",
+        "endTime": "17:00",
+        "startDate": "2026-12-10",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-11",
+        "endTime": "17:00",
+        "startDate": "2026-12-11",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-14",
+        "endTime": "17:00",
+        "startDate": "2026-12-14",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-16",
+        "endTime": "17:00",
+        "startDate": "2026-12-16",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-17",
+        "endTime": "17:00",
+        "startDate": "2026-12-17",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-18",
+        "endTime": "17:00",
+        "startDate": "2026-12-18",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-21",
+        "endTime": "17:00",
+        "startDate": "2026-12-21",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-23",
+        "endTime": "17:00",
+        "startDate": "2026-12-23",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-24",
+        "endTime": "17:00",
+        "startDate": "2026-12-24",
+        "startTime": "09:00"
+      },
+      {
+        "endDate": "2026-12-25",
+        "endTime": "17:00",
+        "startDate": "2026-12-25",
+        "startTime": "09:00"
+      }
+    ],
+    "endDate": "2026-12-25",
+    "endTime": "17:00",
+    "id": 1794107853428,
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア"
+    ],
+    "manager": "山本",
+    "notes": "",
+    "participants": "",
+    "snsAvailableFrom": "",
+    "snsPR": "pending",
+    "startDate": "2026-12-02",
+    "startTime": "09:00",
+    "title": "AGK男子野球部練習",
+    "usageType": "internal"
   }
 ]
