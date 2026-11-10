@@ -2905,47 +2905,6 @@
     "usageType": "internal"
   },
   {
-    "cardColor": "#ff4500",
-    "category": "other",
-    "categoryText": "その他",
-    "date": "10月26日 他2件",
-    "dates": [
-      {
-        "endDate": "2026-10-26",
-        "endTime": "20:00",
-        "startDate": "2026-10-26",
-        "startTime": "19:00"
-      },
-      {
-        "endDate": "2026-11-02",
-        "endTime": "20:00",
-        "startDate": "2026-11-02",
-        "startTime": "19:00"
-      },
-      {
-        "endDate": "2026-11-09",
-        "endTime": "20:00",
-        "startDate": "2026-11-09",
-        "startTime": "19:00"
-      }
-    ],
-    "endDate": "2026-11-09",
-    "endTime": "20:00",
-    "id": 1793156495080,
-    "locations": [
-      "バッティングブースA"
-    ],
-    "manager": "高木",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-10-26",
-    "startTime": "19:00",
-    "title": "個人レッスン（高木）",
-    "usageType": "internal"
-  },
-  {
     "cardColor": "#800080",
     "category": "other",
     "categoryText": "測定",
@@ -3105,64 +3064,6 @@
     "startTime": "09:00",
     "title": "KBOロッテジャイアンツ",
     "usageType": "external"
-  },
-  {
-    "cardColor": "#800080",
-    "category": "other",
-    "categoryText": "測定",
-    "date": "11月9日 12:30〜17:00",
-    "dates": [
-      {
-        "endDate": "2026-11-09",
-        "endTime": "17:00",
-        "startDate": "2026-11-09",
-        "startTime": "12:30"
-      }
-    ],
-    "endDate": "2026-11-09",
-    "endTime": "17:00",
-    "id": 1793764325992,
-    "locations": [
-      "投手測定エリア"
-    ],
-    "manager": "福田直樹",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-11-09",
-    "startTime": "12:30",
-    "title": "パフォーマンス測定",
-    "usageType": "external"
-  },
-  {
-    "cardColor": "#ff0000",
-    "category": "other",
-    "categoryText": "練習",
-    "date": "11月8日 09:00〜12:00",
-    "dates": [
-      {
-        "endDate": "2026-11-08",
-        "endTime": "12:00",
-        "startDate": "2026-11-08",
-        "startTime": "09:00"
-      }
-    ],
-    "endDate": "2026-11-08",
-    "endTime": "12:00",
-    "id": 1793765749173,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "大塚",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "pending",
-    "startDate": "2026-11-08",
-    "startTime": "09:00",
-    "title": "AGK高等学院練習",
-    "usageType": "internal"
   },
   {
     "cardColor": "#0000ff",
