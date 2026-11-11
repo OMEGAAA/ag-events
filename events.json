@@ -2622,35 +2622,6 @@
     "usageType": "internal"
   },
   {
-    "cardColor": "#ff69b4",
-    "category": "other",
-    "categoryText": "体育授業",
-    "date": "11月10日 10:00〜11:30",
-    "dates": [
-      {
-        "endDate": "2026-11-10",
-        "endTime": "11:30",
-        "startDate": "2026-11-10",
-        "startTime": "10:00"
-      }
-    ],
-    "endDate": "2026-11-10",
-    "endTime": "11:30",
-    "id": 1792635496874,
-    "locations": [
-      "室内練習場"
-    ],
-    "manager": "澤村",
-    "notes": "",
-    "participants": "",
-    "snsAvailableFrom": "",
-    "snsPR": "not-allowed",
-    "startDate": "2026-11-10",
-    "startTime": "10:00",
-    "title": "しずわでら幼稚園体育授業",
-    "usageType": "external"
-  },
-  {
     "cardColor": "",
     "category": "other",
     "categoryText": "野球教室",
@@ -3433,6 +3404,35 @@
     "snsPR": "not-allowed",
     "snsAvailableFrom": "",
     "usageType": "external",
+    "manager": "星野",
+    "notes": ""
+  },
+  {
+    "id": 1794361846843,
+    "title": "男子野球MTG",
+    "date": "11月20日 18:00〜20:00",
+    "dates": [
+      {
+        "startDate": "2026-11-20",
+        "endDate": "2026-11-20",
+        "startTime": "18:00",
+        "endTime": "20:00"
+      }
+    ],
+    "startDate": "2026-11-20",
+    "endDate": "2026-11-20",
+    "startTime": "18:00",
+    "endTime": "20:00",
+    "category": "other",
+    "categoryText": "その他",
+    "cardColor": "#0000ff",
+    "locations": [
+      "食堂"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
     "manager": "星野",
     "notes": ""
   }
