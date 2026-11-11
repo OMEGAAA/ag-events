@@ -3435,5 +3435,94 @@
     "usageType": "internal",
     "manager": "星野",
     "notes": ""
+  },
+  {
+    "id": 1794368277997,
+    "title": "AGK男子野球練習",
+    "date": "12月22日 09:00〜13:00",
+    "dates": [
+      {
+        "startDate": "2026-12-22",
+        "endDate": "2026-12-22",
+        "startTime": "09:00",
+        "endTime": "13:00"
+      }
+    ],
+    "startDate": "2026-12-22",
+    "endDate": "2026-12-22",
+    "startTime": "09:00",
+    "endTime": "13:00",
+    "category": "other",
+    "categoryText": "練習",
+    "cardColor": "#0000ff",
+    "locations": [
+      "室内練習場"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "山本",
+    "notes": ""
+  },
+  {
+    "id": 1794368324702,
+    "title": "AGK男子野球練習",
+    "date": "12月22日 12:00〜17:00",
+    "dates": [
+      {
+        "startDate": "2026-12-22",
+        "endDate": "2026-12-22",
+        "startTime": "12:00",
+        "endTime": "17:00"
+      }
+    ],
+    "startDate": "2026-12-22",
+    "endDate": "2026-12-22",
+    "startTime": "12:00",
+    "endTime": "17:00",
+    "category": "other",
+    "categoryText": "その他",
+    "cardColor": "#0000ff",
+    "locations": [
+      "パワーエリア"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "山本",
+    "notes": ""
+  },
+  {
+    "id": 1794368369689,
+    "title": "AGK男子野球練習",
+    "date": "12月22日 09:00〜17:00",
+    "dates": [
+      {
+        "startDate": "2026-12-22",
+        "endDate": "2026-12-22",
+        "startTime": "09:00",
+        "endTime": "17:00"
+      }
+    ],
+    "startDate": "2026-12-22",
+    "endDate": "2026-12-22",
+    "startTime": "09:00",
+    "endTime": "17:00",
+    "category": "other",
+    "categoryText": "その他",
+    "cardColor": "#0000ff",
+    "locations": [
+      "バッティングブースA",
+      "バッティングブースB",
+      "打撃エリア"
+    ],
+    "participants": "",
+    "snsPR": "not-allowed",
+    "snsAvailableFrom": "",
+    "usageType": "internal",
+    "manager": "山本",
+    "notes": ""
   }
 ]
