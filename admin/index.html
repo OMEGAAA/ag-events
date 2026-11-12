@@ -130,7 +130,7 @@
                     <div class="kpi-card">
                         <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></div>
                         <div class="kpi-value" id="kpi-event-count">—</div>
-                        <div class="kpi-label">当月イベント数</div>
+                        <div class="kpi-label">登録イベント / 実施日程</div>
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"/></svg></div>
@@ -154,7 +154,9 @@
                     <button type="button" class="usage-filter-btn active" data-usage="all" onclick="setDashboardUsageFilter('all')">全て</button>
                     <button type="button" class="usage-filter-btn" data-usage="external" onclick="setDashboardUsageFilter('external')">外部利用（料金発生）</button>
                     <button type="button" class="usage-filter-btn" data-usage="internal" onclick="setDashboardUsageFilter('internal')">内部利用（料金なし）</button>
+                    <button type="button" class="usage-filter-btn" data-usage="unset" onclick="setDashboardUsageFilter('unset')">利用区分未設定</button>
                 </div>
+                <div class="dashboard-data-warning" id="dashboard-data-warning" style="display:none;"></div>
 
                 <!-- ビュー切り替えタブ -->
                 <div class="dashboard-tabs">
