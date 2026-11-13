@@ -174,7 +174,8 @@ export async function onRequestPut(context) {
         : `${ctx.path} 更新`;
 
     const payload = {
-        message: `${baseMessage}（${ctx.user.email}）`,
+        // リポジトリが公開でもメールアドレス全体が出ないよう、@より前だけを記録する
+        message: `${baseMessage}（${ctx.user.email.split('@')[0]}）`,
         content: body.content,
         branch: ctx.branch,
     };
