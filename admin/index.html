@@ -445,63 +445,11 @@
                 </div>
 
                 <div id="settings-body" style="display:none;">
-                    <p class="settings-desc">GitHubと連携することで、このページからイベントを編集し、公開サイトに反映できます。</p>
-
-                    <!-- STEP 1 -->
-                    <div class="setup-step">
-                        <div class="step-header">
-                            <span class="step-num">1</span>
-                            <span>GitHubリポジトリのURLを貼り付ける</span>
-                        </div>
-                        <div class="input-with-btn">
-                            <input type="text" id="input-repo-url" placeholder="https://github.com/ユーザー名/リポジトリ名">
-                            <button class="btn btn-secondary" onclick="parseRepoUrl()">自動設定</button>
-                        </div>
-                        <span class="field-hint">例: https://github.com/yamada-taro/antigravity-events</span>
-                    </div>
-
-                    <!-- STEP 2 -->
-                    <div class="setup-step">
-                        <div class="step-header">
-                            <span class="step-num">2</span>
-                            <span>接続情報を確認する（自動入力済み）</span>
-                        </div>
-                        <div class="settings-grid">
-                            <div class="form-group">
-                                <label>オーナー（ユーザー名）</label>
-                                <input type="text" id="input-owner" placeholder="username">
-                            </div>
-                            <div class="form-group">
-                                <label>リポジトリ名</label>
-                                <input type="text" id="input-repo" placeholder="my-repo">
-                            </div>
-                            <div class="form-group">
-                                <label>ブランチ</label>
-                                <input type="text" id="input-branch" placeholder="main">
-                            </div>
-                            <div class="form-group">
-                                <label>ファイルパス</label>
-                                <input type="text" id="input-filepath" placeholder="event_portal/events.json">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- STEP 3 -->
-                    <div class="setup-step">
-                        <div class="step-header">
-                            <span class="step-num">3</span>
-                            <span>アクセストークンを入力する</span>
-                            <button class="btn-text" onclick="openTokenGuide()">取得方法がわからない場合はこちら</button>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" id="input-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
-                        </div>
-                        <span class="field-hint">トークンはこのブラウザにのみ保存されます。他の人と共有しないでください。</span>
-                    </div>
+                    <p class="settings-desc">GitHubへの保存は、このサイトのサーバーが代わりに行います。アクセストークンの入力は不要です。</p>
+                    <p class="settings-desc">ログイン中のメールアドレスが、保存した人として記録に残ります。</p>
 
                     <div class="settings-actions">
-                        <button class="btn btn-secondary" onclick="saveConfig()">設定を保存</button>
-                        <button class="btn btn-primary" onclick="fetchFromGitHub()">接続してデータを読み込む</button>
+                        <button class="btn btn-primary" onclick="fetchFromGitHub()">データを読み込む</button>
                     </div>
                 </div>
             </div>

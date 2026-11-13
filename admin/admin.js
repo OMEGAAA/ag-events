@@ -476,53 +476,39 @@ function toggleFirebaseSettings() {
 
 // ---- CONFIG ----
 
+// GitHub への読み書きはサイトのサーバー（/api/contents/）が代行する。
+// 以前このブラウザに保存した GitHub トークンなどの接続設定は不要になったため削除する。
 function loadConfig() {
-    try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (!saved) return;
-        config = { ...config, ...JSON.parse(saved) };
-        document.getElementById('input-owner').value = config.owner;
-        document.getElementById('input-repo').value = config.repo;
-        document.getElementById('input-branch').value = config.branch;
-        document.getElementById('input-token').value = config.token;
-        document.getElementById('input-filepath').value = config.filePath;
-
-        // Restore repo URL display
-        if (config.owner && config.repo) {
-            document.getElementById('input-repo-url').value =
-                `https://github.com/${config.owner}/${config.repo}`;
-            updateConnectionBadge(true);
-        }
-    } catch (e) {}
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
 }
 
-function saveConfig() {
-    config.owner    = document.getElementById('input-owner').value.trim();
-    config.repo     = document.getElementById('input-repo').value.trim();
-    config.branch   = document.getElementById('input-branch').value.trim() || 'main';
-    config.token    = document.getElementById('input-token').value.trim();
-    config.filePath = document.getElementById('input-filepath').value.trim() || 'events.json';
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
-    showStatus('設定を保存しました', 'success');
+// サーバー経由で GitHub のファイルを読み書きする。
+// ログインの有効期限切れでログイン画面へ転送された場合は 401 相当として扱う。
+const CONTENTS_API = '/api/contents/';
+
+async function apiFetchContents(path, options = {}) {
+    const res = await fetch(CONTENTS_API + path, {
+        ...options,
+        credentials: 'same-origin',
+        redirect: 'manual',
+        headers: { 'Accept': 'application/json', ...(options.headers || {}) },
+    });
+    if (res.type === 'opaqueredirect' || (res.status >= 300 && res.status < 400)) {
+        return { ok: false, status: 401, json: async () => ({ message: '' }) };
+    }
+    return res;
 }
 
-function parseRepoUrl() {
-    const url = document.getElementById('input-repo-url').value.trim();
-    // Match https://github.com/owner/repo or git@github.com:owner/repo
-    const match = url.match(/github\.com[:/]([^/]+)\/([^/\s.]+)/);
-    if (!match) {
-        showStatus('URLの形式が正しくありません。「https://github.com/ユーザー名/リポジトリ名」の形式で入力してください。', 'error');
-        return;
-    }
-    document.getElementById('input-owner').value = match[1];
-    document.getElementById('input-repo').value  = match[2].replace(/\.git$/, '');
-    if (!document.getElementById('input-branch').value) {
-        document.getElementById('input-branch').value = 'main';
-    }
-    if (!document.getElementById('input-filepath').value) {
-        document.getElementById('input-filepath').value = 'events.json';
-    }
-    showStatus('リポジトリ情報を自動設定しました。アクセストークンを入力して「接続してデータを読み込む」を押してください。', 'success');
+function apiGetFile(path) {
+    return apiFetchContents(path);
+}
+
+function apiPutFile(path, body) {
+    return apiFetchContents(path, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+    });
 }
 
 function toggleSettings() {
@@ -565,12 +551,10 @@ function showStatus(message, type = 'info') {
 }
 
 function getFriendlyError(status, message) {
-    if (status === 401) return 'アクセストークンが無効または期限切れです。「取得方法がわからない場合はこちら」から新しいトークンを取得してください。';
-    if (status === 403) return 'アクセスが拒否されました。トークンに「repo」スコープの権限があるか確認してください。';
-    if (status === 404) return 'ファイルまたはリポジトリが見つかりません。オーナー名・リポジトリ名・ファイルパスを確認してください。';
-    if (status === 409) return 'ファイルの競合が発生しました。「接続してデータを読み込む」を押して最新の状態を取得してから再試行してください。';
-    if (status === 422) return '設定に誤りがあります。ブランチ名やファイルパスを確認してください。';
-    return `エラーが発生しました: ${message}`;
+    if (status === 401) return 'ログインの有効期限が切れています。ページを再読み込みしてログインし直してください。';
+    if (status === 404) return 'ファイルが見つかりません。管理者に連絡してください。';
+    if (status === 409 || status === 422) return '他の人が先に保存したため、競合が発生しました。「データを読み込む」を押して最新の状態を取得してから再試行してください。';
+    return message ? `エラーが発生しました: ${message}` : `エラーが発生しました（${status}）`;
 }
 
 // ---- GITHUB API ----
@@ -606,27 +590,11 @@ function encodeUtf8Base64(str) {
 }
 
 async function fetchFromGitHub() {
-    saveConfig();
-
-    if (!config.owner || !config.repo || !config.token) {
-        showStatus('オーナー・リポジトリ名・アクセストークンをすべて入力してください。下の「接続設定」から設定できます。', 'error');
-        openSettingsSection();
-        return;
-    }
-
     showStatus('GitHubからデータを読み込んでいます...', 'info');
     updateConnectionBadge(false);
 
     try {
-        const res = await fetch(
-            `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${config.filePath}?ref=${config.branch}`,
-            {
-                headers: {
-                    'Authorization': `Bearer ${config.token}`,
-                    'Accept': 'application/vnd.github.v3+json'
-                }
-            }
-        );
+        const res = await apiGetFile(config.filePath);
 
         if (!res.ok) {
             const err = await res.json().catch(() => ({}));
@@ -688,11 +656,6 @@ async function fetchFromGitHub() {
 }
 
 async function pushToGitHub() {
-    if (!config.owner || !config.repo || !config.token) {
-        showStatus('GitHubの設定を確認してください。まず上部の「データを読み込む」を実行してください。', 'error');
-        return;
-    }
-
     const btn = document.getElementById('btn-deploy');
     const originalText = btn.textContent;
     btn.disabled = true;
@@ -703,23 +666,11 @@ async function pushToGitHub() {
         const jsonContent = JSON.stringify(events, null, 2);
         const body = {
             message: `イベント更新 (${new Date().toLocaleString('ja-JP')})`,
-            content: encodeUtf8Base64(jsonContent),
-            branch: config.branch
+            content: encodeUtf8Base64(jsonContent)
         };
         if (currentSha) body.sha = currentSha;
 
-        const res = await fetch(
-            `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${config.filePath}`,
-            {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `Bearer ${config.token}`,
-                    'Accept': 'application/vnd.github.v3+json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(body)
-            }
-        );
+        const res = await apiPutFile(config.filePath, body);
 
         if (!res.ok) {
             const err = await res.json().catch(() => ({}));
@@ -1694,13 +1645,9 @@ function getReportsPath() {
 }
 
 async function fetchReportsFromGitHub() {
-    if (!config.owner || !config.repo || !config.token) return;
     const reportsPath = getReportsPath();
     try {
-        const res = await fetch(
-            `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${reportsPath}?ref=${config.branch}`,
-            { headers: { 'Authorization': `Bearer ${config.token}`, 'Accept': 'application/vnd.github.v3+json' } }
-        );
+        const res = await apiGetFile(reportsPath);
         if (res.status === 404) {
             reports = [];
             reportsSha = '';
@@ -1720,10 +1667,6 @@ async function fetchReportsFromGitHub() {
 }
 
 async function pushReportsToGitHub() {
-    if (!config.owner || !config.repo || !config.token) {
-        showStatus('GitHubの設定を確認してください。まず上部の「データを読み込む」を実行してください。', 'error');
-        return;
-    }
     const btn = document.getElementById('btn-reports-deploy');
     const originalText = btn.textContent;
     btn.disabled = true;
@@ -1733,22 +1676,10 @@ async function pushReportsToGitHub() {
         const reportsPath = getReportsPath();
         const body = {
             message: `実績更新 (${new Date().toLocaleString('ja-JP')})`,
-            content: encodeUtf8Base64(JSON.stringify(reports, null, 2)),
-            branch: config.branch
+            content: encodeUtf8Base64(JSON.stringify(reports, null, 2))
         };
         if (reportsSha) body.sha = reportsSha;
-        const res = await fetch(
-            `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${reportsPath}`,
-            {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `Bearer ${config.token}`,
-                    'Accept': 'application/vnd.github.v3+json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(body)
-            }
-        );
+        const res = await apiPutFile(reportsPath, body);
         if (!res.ok) {
             const err = await res.json().catch(() => ({}));
             throw { status: res.status, message: err.message || '' };
@@ -2082,13 +2013,9 @@ function autoArchiveExpiredEvents() {
 }
 
 async function fetchArchivedFromGitHub() {
-    if (!config.owner || !config.repo || !config.token) return;
     const path = getArchivedPath();
     try {
-        const res = await fetch(
-            `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}?ref=${config.branch}`,
-            { headers: { 'Authorization': `Bearer ${config.token}`, 'Accept': 'application/vnd.github.v3+json' } }
-        );
+        const res = await apiGetFile(path);
         if (res.status === 404) {
             archivedEvents = [];
             archivedSha = '';
@@ -2108,10 +2035,6 @@ async function fetchArchivedFromGitHub() {
 }
 
 async function pushArchivedToGitHub() {
-    if (!config.owner || !config.repo || !config.token) {
-        showStatus('GitHubの設定を確認してください。', 'error');
-        return;
-    }
     const btn = document.getElementById('btn-archived-deploy');
     const originalText = btn.textContent;
     btn.disabled = true;
@@ -2121,22 +2044,10 @@ async function pushArchivedToGitHub() {
         const path = getArchivedPath();
         const body = {
             message: `アーカイブ更新 (${new Date().toLocaleString('ja-JP')})`,
-            content: encodeUtf8Base64(JSON.stringify(archivedEvents, null, 2)),
-            branch: config.branch
+            content: encodeUtf8Base64(JSON.stringify(archivedEvents, null, 2))
         };
         if (archivedSha) body.sha = archivedSha;
-        const res = await fetch(
-            `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}`,
-            {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `Bearer ${config.token}`,
-                    'Accept': 'application/vnd.github.v3+json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(body)
-            }
-        );
+        const res = await apiPutFile(path, body);
         if (!res.ok) {
             const err = await res.json().catch(() => ({}));
             throw { status: res.status, message: err.message || '' };
